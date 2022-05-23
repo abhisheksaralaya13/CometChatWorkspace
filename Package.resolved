@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CometChatPro",
+        "repositoryURL": "https://github.com/cometchat-pro/ios-chat-sdk.git",
+        "state": {
+          "branch": null,
+          "revision": "f6028a050e8cdff122afe56ce5dd3f9307411960",
+          "version": "3.0.900"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
