@@ -140,7 +140,7 @@ public class CometChatConversations: CometChatListBase {
             self.hide(startConversation: true)
             .set(startConversationIcon: startConversationIcon ?? UIImage())
             .set(startConversationIconTint: CometChatTheme.palatte?.primary ?? UIColor.clear)
-    
+        Bundle.module.loadNibNamed("CometChatConversations", owner: self, options: nil)
         conversationList.set(controller: self)
     }
     
