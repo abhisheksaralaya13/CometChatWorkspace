@@ -583,7 +583,7 @@ public enum  MessageType : String {
     
     private func commonInit() {
         
-        Bundle.main.loadNibNamed("CometChatMessageList", owner: self, options: nil)
+        Bundle.module.loadNibNamed("CometChatMessageList", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -630,7 +630,7 @@ public enum  MessageType : String {
     }
     
     private func registerCellWith(title: String){
-        let cell = UINib(nibName: title, bundle: Bundle.main)
+        let cell = UINib(nibName: title, bundle: Bundle.module)
         self.tableView.register(cell, forCellReuseIdentifier: title)
     }
     

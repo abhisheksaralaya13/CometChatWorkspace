@@ -135,7 +135,7 @@ import AVFAudio
     @objc func setAvatar(avatarUrl: String) -> CometChatAvatar {
         
         let url = URL(string: avatarUrl)
-        self.cf.setImage(with: url, placeholder: UIImage(named: "defaultAvatar.jpg", in: Bundle.main , compatibleWith: nil))
+        self.cf.setImage(with: url, placeholder: UIImage(named: "defaultAvatar.jpg", in: Bundle.module , compatibleWith: nil))
         self.set(outerView: setOuterView)
         return self
     }

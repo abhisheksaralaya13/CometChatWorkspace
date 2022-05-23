@@ -326,7 +326,7 @@ import CometChatPro
     
     private func commonInit() {
         print(" CometChatUserList configurations: \(configurations)")
-        Bundle.main.loadNibNamed("CometChatUserList", owner: self, options: nil)
+        Bundle.module.loadNibNamed("CometChatUserList", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -385,7 +385,7 @@ import CometChatPro
     }
     
     private func registerCellWith(title: String){
-        let cell = UINib(nibName: title, bundle: Bundle.main)
+        let cell = UINib(nibName: title, bundle: Bundle.module)
         self.tableView.register(cell, forCellReuseIdentifier: title)
     }
     

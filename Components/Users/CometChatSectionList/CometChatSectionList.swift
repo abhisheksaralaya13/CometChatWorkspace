@@ -194,7 +194,7 @@ public protocol CometChatSectionListDelegate  {
     
     private func commonInit() {
         print(" CometChatSectionList configurations: \(configurations)")
-        Bundle.main.loadNibNamed("CometChatSectionList", owner: self, options: nil)
+        Bundle.module.loadNibNamed("CometChatSectionList", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -238,7 +238,7 @@ public protocol CometChatSectionListDelegate  {
     }
     
     private func registerCellWith(title: String){
-        let cell = UINib(nibName: title, bundle: Bundle.main)
+        let cell = UINib(nibName: title, bundle: Bundle.module)
         self.tableView.register(cell, forCellReuseIdentifier: title)
     }
     
