@@ -128,9 +128,9 @@ public class CometChatConversations: CometChatListBase {
         if #available(iOS 13.0, *) {
             self.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
             self.set(searchBackground: CometChatTheme.palatte?.accent100 ?? UIColor.systemFill)
-                .set(searchPlaceholder: "SEARCH".localize())
+                .set(searchPlaceholder: "SEARCH")
                 .set(searchTextColor: .label)
-                .set(title: "CHATS".localize(), mode: .automatic)
+                .set(title: "CHATS", mode: .automatic)
                 .set(titleColor: CometChatTheme.palatte?.accent ?? UIColor.clear)
                 .hide(search: false)
         } else {
