@@ -840,7 +840,7 @@ extension CometChatSnackBoard {
         if let bundle = bundle {
             resolvedBundle = bundle
         } else {
-            if Bundle.main.path(forResource: name, ofType: "nib") != nil {
+            if Bundle.module.path(forResource: name, ofType: "nib") != nil {
                 resolvedBundle = Bundle.main
             } else {
                 resolvedBundle = Bundle.sm_frameworkBundle()
