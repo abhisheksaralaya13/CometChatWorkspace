@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewControllerrr.swift
 //  
 //
 //  Created by Admin on 28/05/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewControllerrr: UIViewController {
 
     @IBOutlet var button: UIButton!
     
