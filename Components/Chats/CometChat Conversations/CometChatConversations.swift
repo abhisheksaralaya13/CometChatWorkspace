@@ -53,21 +53,11 @@ public class CometChatConversations: CometChatListBase {
 
     // MARK: - Declaration of Outlets
     @IBOutlet weak var conversationList: CometChatConversationList!
-    var viewController: CometChatConversations?
     
     // MARK: - Declaration of Variables
     var startConversationIcon = UIImage(named: "chats-create.png", in: CometChatUIKit.bundle, compatibleWith: nil)
     var startConversationButton: UIBarButtonItem?
     var configurations: [CometChatConfiguration]?
-    
-    public init(_ viewControlle: CometChatConversations){
-        super.init(coder: NSCoder())!
-        viewController = viewControlle
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +74,7 @@ public class CometChatConversations: CometChatListBase {
     
     @discardableResult
     public func set(configurations: [CometChatConfiguration]) ->  CometChatConversations {
-        viewController?.configurations = configurations
+        self.configurations = configurations
         return self
     }
     
@@ -99,8 +89,8 @@ public class CometChatConversations: CometChatListBase {
     @discardableResult
     public func hide(startConversation: Bool) ->  CometChatConversations {
         if !startConversation {
-            startConversationButton = UIBarButtonItem(image: startConversationIcon, style: .plain, target: self, action: #selector(viewController?.didStartConversationPressed))
-            viewController?.navigationItem.rightBarButtonItem = startConversationButton
+            startConversationButton = UIBarButtonItem(image: startConversationIcon, style: .plain, target: self, action: #selector(self.didStartConversationPressed))
+            self.navigationItem.rightBarButtonItem = startConversationButton
         }
         return self
     }
@@ -115,7 +105,7 @@ public class CometChatConversations: CometChatListBase {
      */
     @discardableResult
     public func set(startConversationIcon: UIImage) ->  CometChatConversations {
-        viewController?.startConversationIcon = startConversationIcon.withRenderingMode(.alwaysTemplate)
+        self.startConversationIcon = startConversationIcon.withRenderingMode(.alwaysTemplate)
         return self
     }
     
@@ -136,8 +126,8 @@ public class CometChatConversations: CometChatListBase {
     
     private func setupAppearance() {
         if #available(iOS 13.0, *) {
-            viewController?.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
-            viewController?.set(searchBackground: CometChatTheme.palatte?.accent100 ?? UIColor.systemFill)
+            self.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
+            self.set(searchBackground: CometChatTheme.palatte?.accent100 ?? UIColor.systemFill)
                 .set(searchPlaceholder: "SEARCH")
                 .set(searchTextColor: .label)
                 .set(title: "CHATS", mode: .automatic)
@@ -147,7 +137,7 @@ public class CometChatConversations: CometChatListBase {
             // Fallback on earlier versions
         }
         
-            viewController?.hide(startConversation: true)
+            self.hide(startConversation: true)
             .set(startConversationIcon: startConversationIcon ?? UIImage())
             .set(startConversationIconTint: CometChatTheme.palatte?.primary ?? UIColor.clear)
         Bundle.module.loadNibNamed("CometChatConversations", owner: self, options: nil)
@@ -155,7 +145,7 @@ public class CometChatConversations: CometChatListBase {
     }
     
     private func addObervers() {
-        viewController?.cometChatListBaseDelegate = self
+        self.cometChatListBaseDelegate = self
     }
     
     private func removeObervers() {
@@ -190,17 +180,13 @@ extension CometChatConversations: CometChatListBaseDelegate {
     }
     
     public func onBack() {
-        switch viewController?.isModal() {
+        switch self.isModal() {
         case true:
-            viewController?.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
             removeObervers()
         case false:
-            viewController?.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
             removeObervers()
-        case .none:
-            break
-        case .some(_):
-            break
         }
     }
 }
