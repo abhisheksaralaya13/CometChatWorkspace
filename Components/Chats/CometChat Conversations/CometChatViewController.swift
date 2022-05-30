@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CometChatViewController: UIViewController {
+public class CometChatViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     
