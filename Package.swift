@@ -20,7 +20,9 @@ let package = Package(
         .target(
             name: "CometChatUIKit",
             dependencies: ["CometChatPro"],
-            path: "./Components"
+            resources: [
+                .process("Resources")
+            ]
             )
         
     ]
