@@ -11,7 +11,7 @@ public class CometChatViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         button.titleLabel?.text = "Button"
