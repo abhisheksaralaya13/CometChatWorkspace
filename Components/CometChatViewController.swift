@@ -1,13 +1,13 @@
 //
-//  ViewControllerrr.swift
+//  CometChatViewController.swift
 //  
 //
-//  Created by Admin on 28/05/22.
+//  Created by Admin on 30/05/22.
 //
 
 import UIKit
 
-class ViewControllerrr: UIViewController {
+class CometChatViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     
