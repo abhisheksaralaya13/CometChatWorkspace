@@ -7,11 +7,11 @@
 
 import UIKit
 
-public class CometChatViewController: UIViewController {
+open class CometChatViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         button.titleLabel?.text = "Button"
