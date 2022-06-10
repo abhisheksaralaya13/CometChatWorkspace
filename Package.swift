@@ -7,8 +7,7 @@ let package = Package(
     name: "CometChatUIKit",
     defaultLocalization: "en",
     platforms: [
-        // Only add support for iOS 11 and up.
-        .iOS(.v14)
+        .iOS(.v13)
     ],
     products: [
         .library(name: "CometChatUIKit", targets: ["CometChatUIKit"])
@@ -21,8 +20,6 @@ let package = Package(
         .target(
             name: "CometChatUIKit",
             dependencies: ["CometChatPro"],
-            resources: [.process("CometChatViewController.storyboard"), .process("CometChatViewController.swift")]
-            )
-        
+            path:  "./Sources/CometChatWorkspace")
     ]
 )
