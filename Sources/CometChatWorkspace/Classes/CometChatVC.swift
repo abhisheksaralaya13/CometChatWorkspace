@@ -7,9 +7,8 @@
 
 import UIKit
 
-class AViewController: UIViewController {
+class CometChatVC: UIViewController {
 
-    
     
     open override func loadView() {
         let bundle = Bundle(for: type(of: self))
