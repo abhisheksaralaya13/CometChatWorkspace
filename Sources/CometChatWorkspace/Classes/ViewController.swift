@@ -1,16 +1,15 @@
 //
-//  CometChatViewController.swift
+//  ViewController.swift
 //  
 //
-//  Created by Admin on 30/05/22.
+//  Created by Pushpsen Airekar on 10/06/22.
 //
 
 import UIKit
-import CometChatPro
 
-open class CometChatViewController: UIViewController {
+class ViewController: UIViewController {
 
-    @IBOutlet var button: UIButton!
+    
     
     open override func loadView() {
         let bundle = Bundle(for: type(of: self))
@@ -22,17 +21,13 @@ open class CometChatViewController: UIViewController {
         }
         print("bundle: \(bundle)")
     }
-  
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-        button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        button.titleLabel?.text = "Button"
-        button.tintColor = .blue
-        self.view.addSubview(button)
-        // Do any additional setup after loading the view.
-    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    
+    }
+
 
     /*
     // MARK: - Navigation
