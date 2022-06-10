@@ -9,6 +9,7 @@ import UIKit
 
 public class CometChatVC: UIViewController {
 
+    @IBOutlet weak var image: UIImageView!
     
     public override func loadView() {
         let bundle = Bundle(for: type(of: self))
@@ -23,8 +24,11 @@ public class CometChatVC: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
     
+        if let path = Bundle.module.path(forResource: "aaa", ofType: "JPG"),
+                      let currentImage = UIImage(contentsOfFile: path) {
+            image.image = currentImage
+        }
     }
 
 

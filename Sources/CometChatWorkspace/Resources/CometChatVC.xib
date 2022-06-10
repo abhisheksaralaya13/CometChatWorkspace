@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatVC" customModule="CometChatUIKit">
             <connections>
+                <outlet property="image" destination="KtK-75-qq8" id="50E-t7-Nya"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,21 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KtK-75-qq8">
+                    <rect key="frame" x="87" y="328" width="240" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="K16-Tp-MuA"/>
+                        <constraint firstAttribute="height" constant="240" id="oQv-lm-wXv"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemPinkColor"/>
+            <constraints>
+                <constraint firstItem="KtK-75-qq8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HjP-BA-J2W"/>
+                <constraint firstItem="KtK-75-qq8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="mnn-j3-ldQ"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="116"/>
         </view>
     </objects>
