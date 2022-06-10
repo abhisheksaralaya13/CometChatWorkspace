@@ -12,6 +12,14 @@ open class CometChatViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     
+    open override func loadView() {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "CometChatViewController", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view  = view
+        print("bundle: \(bundle)")
+    }
   
     open override func viewDidLoad() {
         super.viewDidLoad()
