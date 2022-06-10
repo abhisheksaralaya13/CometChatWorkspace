@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CometChatVC: UIViewController {
+public class CometChatVC: UIViewController {
 
     
-    open override func loadView() {
+    public override func loadView() {
         let bundle = Bundle(for: type(of: self))
         
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
@@ -21,7 +21,7 @@ class CometChatVC: UIViewController {
         print("bundle: \(bundle)")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
     
