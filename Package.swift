@@ -13,6 +13,7 @@ let package = Package(
     products: [
         .library(name: "CometChatUIKit", targets: ["CometChatUIKit"])
     ],
+    
     dependencies: [
         .package(name:"CometChatPro", url: "https://github.com/cometchat-pro/ios-chat-sdk.git", from: "3.0.900")
     ],
