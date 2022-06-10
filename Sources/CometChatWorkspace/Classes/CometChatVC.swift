@@ -25,10 +25,9 @@ public class CometChatVC: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
     
-        if let path = Bundle.module.path(forResource: "aaa", ofType: "JPG"),
-                      let currentImage = UIImage(contentsOfFile: path) {
-            image.image = currentImage
-        }
+     
+            image.image = UIImage(named: "messages-composer-send", in: Bundle.module, compatibleWith: nil)
+
     }
 
 
