@@ -17,7 +17,8 @@ let package = Package(
         .package(name:"CometChatPro", url: "https://github.com/cometchat-pro/ios-chat-sdk.git", from: "3.0.900")
     ],
     targets: [
-        .target(name: "CometChatUIKit", dependencies: ["CometChatPro"], path:  "./Sources/CometChatWorkspace" , resources: [.process("Resources")])
+        .target(name: "CometChatUIKit", dependencies: ["CometChatPro"], path:  "./Sources/CometChatWorkspace" ,
+      resources: [.process("Chats/Resources"), .process("Groups/Resources"), .process("Messages/Resources"), .process("Shared/Resources"), .process("Users/Resources") ])
        ,
     ]
 )
