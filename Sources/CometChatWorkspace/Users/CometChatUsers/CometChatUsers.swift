@@ -39,7 +39,7 @@ open class CometChatUsers: CometChatListBase {
     
     @discardableResult
     public func set(configurations: [CometChatConfiguration]) ->  CometChatUsers {
-        self.configurations = configurations
+      //  self.configurations = configurations
         return self
     }
 
