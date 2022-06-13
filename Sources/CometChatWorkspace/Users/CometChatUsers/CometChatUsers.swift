@@ -55,8 +55,8 @@ open class CometChatUsers: CometChatListBase {
     
    
     private func configureUserList() {
-        userList.set(controller: self)
-            .set(configurations: configurations)
+      //  userList.set(controller: self)
+        userList.set(configurations: configurations)
             .set(background: [ UIColor.systemBackground.cgColor])
             .set(sectionHeaderBackground: CometChatTheme.palatte?.secondary ?? UIColor.systemFill)
             .set(sectionHeaderTextColor:  CometChatTheme.palatte?.accent500 ?? UIColor.black)
