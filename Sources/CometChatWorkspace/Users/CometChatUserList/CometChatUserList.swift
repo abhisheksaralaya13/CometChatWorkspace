@@ -60,10 +60,14 @@ import CometChatPro
     
     @discardableResult
     @objc public func set(configurations: [CometChatConfiguration]?) -> CometChatUserList {
-        self.configurations = configurations
-        configureUserList()
+        if let configurations = configurations {
+            self.configurations = configurations
+            configureUserList()
+        }
         return self
     }
+    
+
 
     
     /**
@@ -334,7 +338,7 @@ import CometChatPro
     
     private func commonInit() {
         print(" CometChatUserList configurations: \(configurations)")
-        Bundle.main.loadNibNamed("CometChatUserList", owner: self, options: nil)
+        Bundle.module.loadNibNamed("CometChatUserList", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
