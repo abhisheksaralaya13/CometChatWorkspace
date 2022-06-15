@@ -337,17 +337,21 @@ import CometChatPro
     }
     
     private func commonInit() {
-        print(" CometChatUserList configurations: \(configurations)")
-        Bundle.module.loadNibNamed("CometChatUserList", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        setuptTableView()
-        registerCells()
-        setupDelegates()
-        configureUserList()
-        if users.isEmpty {
-            refreshUsers()
+        
+        let bundle = Bundle(for: type(of: self))
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            addSubview(contentView)
+            contentView.frame = bounds
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            setuptTableView()
+            registerCells()
+            setupDelegates()
+            configureUserList()
+            if users.isEmpty {
+                refreshUsers()
+            }
         }
     }
     
