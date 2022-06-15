@@ -28,8 +28,8 @@ open class CometChatUsers: CometChatListBase {
     override open func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
-        addObervers()
-        configureUserList()
+      //  addObervers()
+      //  configureUserList()
     }
     
     deinit {

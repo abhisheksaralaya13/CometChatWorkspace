@@ -916,7 +916,6 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
     }
     
     public  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return chatMessages[safe: section]?.count ?? 0
     }
     
@@ -930,6 +929,7 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         guard let section = indexPath.section as? Int else { return UITableViewCell() }
         
         if let message = chatMessages[safe: section]?[safe: indexPath.row] {
