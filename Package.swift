@@ -23,7 +23,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "CometChatUIKit", dependencies: ["CometChatPro"], path:  "./Sources/Components" ,
-      resources: [.process("Chats/Resources"), .process("Groups/Resources"), .process("Messages/Resources"), .process("Shared/Resources"), .process("Users/Resources") ])
+                resources: [.process("Chats/Resources"), .process("Groups/Resources"), .process("Messages/Resources"), .process("Shared/Resources"), .process("Users/Resources") ])
        ,
     ]
 )

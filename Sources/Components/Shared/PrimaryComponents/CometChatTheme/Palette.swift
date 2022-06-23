@@ -10,11 +10,10 @@ import UIKit
 
 
 
-struct Palette {
+public struct Palette {
     
  //   static var mode: UIUserInterfaceStyle = .light
-    
-    
+
     var background: UIColor? = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)
     
     var primary: UIColor? =  UIColor(named: "primary", in: Bundle.module, compatibleWith: nil)
