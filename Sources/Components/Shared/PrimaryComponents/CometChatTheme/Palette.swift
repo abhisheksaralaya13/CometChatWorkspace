@@ -14,17 +14,18 @@ struct Palette {
     
  //   static var mode: UIUserInterfaceStyle = .light
     
-    var background: UIColor? = UIColor(named: "background")
     
-    var primary: UIColor? =  UIColor(named: "primary")
+    var background: UIColor? = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)
     
-    var secondary: UIColor? =  UIColor(named: "secondary")
+    var primary: UIColor? =  UIColor(named: "primary", in: Bundle.module, compatibleWith: nil)
     
-    var error: UIColor? =  UIColor(named: "error")
+    var secondary: UIColor? =  UIColor(named: "secondary", in: Bundle.module, compatibleWith: nil)
     
-    var success: UIColor? =  UIColor(named: "success")
+    var error: UIColor? =  UIColor(named: "error", in: Bundle.module, compatibleWith: nil)
     
-    var accent: UIColor? =  UIColor(named: "accent")
+    var success: UIColor? =  UIColor(named: "success", in: Bundle.module, compatibleWith: nil)
+    
+    var accent: UIColor? =  UIColor(named: "accent", in: Bundle.module, compatibleWith: nil)
     
     var accent50: UIColor? {
         return accent?.withAlphaComponent(0.04)
