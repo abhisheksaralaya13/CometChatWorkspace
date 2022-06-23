@@ -9,18 +9,26 @@ import UIKit
 import CometChatPro
 
 
-class CometChatViewMembers: CometChatListBase {
+open class CometChatViewMembers: CometChatListBase {
 
     @IBOutlet weak var memberList: CometChatMemberList!
+    
     var configurations: [CometChatConfiguration]?
     var group: Group?
     
-    override func viewDidLoad() {
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
+    }
+    
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
         addObervers()
         configureViewMembers()
-        
     }
     
     deinit {
@@ -94,8 +102,4 @@ extension CometChatViewMembers: CometChatListBaseDelegate {
             removeObervers()
         }
     }
-}
-
-extension CometChatViewMembers {
-    //static var comethatMemberDelegate: ComethatMemberDelegate?
 }

@@ -132,6 +132,10 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
             self.set(caption: "ENTER_PASSWORD_TO_ACCESS".localize() + name + "GROUP_WITH_DOT".localize())
                 .set(captionFont: CometChatTheme.typography?.Subtitle2 ?? UIFont.systemFont(ofSize: 13))
                 .set(captionColor: CometChatTheme.palatte?.accent600 ?? UIColor.lightGray)
+        }else{
+            self.set(caption: "ENTER_PASSWORD_TO_ACCESS".localize() + "GROUP_WITH_DOT".localize())
+                .set(captionFont: CometChatTheme.typography?.Subtitle2 ?? UIFont.systemFont(ofSize: 13))
+                .set(captionColor: CometChatTheme.palatte?.accent600 ?? UIColor.lightGray)
         }
     }
     
