@@ -20,6 +20,16 @@ open class CometChatCreateGroup: CometChatListBase {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var seperator: UIView!
     
+    
+    open override func loadView() {
+        let bundle = Bundle(for: type(of: self))
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         addObervers()
