@@ -56,6 +56,7 @@ import CometChatPro
     var emptyStateTextColor: UIColor = UIColor.gray
     var errorStateTextFont: UIFont?
     var errorStateTextColor: UIColor?
+    var backgroundColors: [CGColor]?
     var configurations: [CometChatConfiguration]?
     
     @discardableResult
@@ -80,13 +81,7 @@ import CometChatPro
      */
     @discardableResult
     public func set(background: [Any]?) ->  CometChatUserList {
-        if let backgroundColors = background as? [CGColor] {
-            if backgroundColors.count == 1 {
-                self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
-            }else{
-                self.background.set(backgroundColorWithGradient: background)
-            }
-        }
+            self.backgroundColors = background as? [CGColor]
         return self
     }
     
@@ -373,6 +368,14 @@ import CometChatPro
                set(tags: configuration.tags)
                set(roles: configuration.roles)
                set(uids: configuration.uids)
+           }
+       }
+       
+       if let backgroundColors = backgroundColors as? [CGColor] {
+           if backgroundColors.count == 1 {
+               self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
+           }else{
+               self.background.set(backgroundColorWithGradient: backgroundColors)
            }
        }
     }
@@ -809,5 +812,3 @@ extension CometChatUserList : CometChatUserDelegate {
         }
     }
 }
-
-/*  ----------------------------------------------------------------------------------------- */
