@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="572" height="988"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC3-Sz-Eao" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC3-Sz-Eao" customClass="CometChatGradientView" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="0.0" width="572" height="988"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kAs-PR-aIa">
