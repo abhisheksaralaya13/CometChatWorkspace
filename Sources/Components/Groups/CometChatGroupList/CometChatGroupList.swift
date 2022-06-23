@@ -579,7 +579,7 @@ extension CometChatGroupList: UITableViewDelegate, UITableViewDataSource {
                 self.joinGroup(withGuid: selectedGroup.guid, name: selectedGroup.name ?? "", groupType: selectedGroup.groupType, password: "", indexPath: indexPath)
                 
             }else{
-                let cometChatJoinGroup = CometChatJoinGroup()
+                let cometChatJoinGroup = CometChatJoinProtectedGroup()
                 cometChatJoinGroup.set(group: selectedGroup)
                 controller?.navigationController?.pushViewController(cometChatJoinGroup, animated: true)
             }
