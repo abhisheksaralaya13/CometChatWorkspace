@@ -30,7 +30,6 @@ open class CometChatCreateGroup: CometChatListBase {
         }
         addObervers()
         setupAppearance()
-        self.view.backgroundColor = .red
     }
     
     deinit {
@@ -185,6 +184,8 @@ open class CometChatCreateGroup: CometChatListBase {
     
     
     private func setupAppearance() {
+        
+        print("CometChatTheme.palatte?.secondary: \(CometChatTheme.palatte?.secondary)")
         
         self.set(title: "NEW_GROUP".localize(), mode: .never)
             .hide(search: true)
