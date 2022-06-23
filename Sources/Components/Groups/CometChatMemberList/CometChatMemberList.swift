@@ -404,6 +404,7 @@ import CometChatPro
      [CometChatMemberList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-group-list)
      */
     private func refreshGroupMembers(){
+        print(#function)
         groupMembers.removeAll()
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
@@ -413,6 +414,9 @@ import CometChatPro
         groupMemberRequest = GroupMembersRequest.GroupMembersRequestBuilder(guid: group?.guid ?? "").set(limit: limit).set(scopes: scopes).build()
         groupMemberRequest?.fetchNext(onSuccess: { [weak self] (fetchedGroupMembers) in
             self?.set(configurations: self?.configurations)
+            
+            print(#function, fetchedGroupMembers)
+            
             guard let this = self else {
                 return
             }
@@ -434,6 +438,9 @@ import CometChatPro
                 this.activityIndicator?.stopAnimating()
                 this.tableView.tableFooterView?.isHidden = true}
         }) { (error) in
+            
+            print(#function, error)
+            
             if let error = error, !self.hideError!, self.errorText.isEmpty {
                 let confirmDialog = CometChatDialog()
                 confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
