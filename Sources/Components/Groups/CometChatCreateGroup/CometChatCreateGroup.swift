@@ -28,12 +28,13 @@ open class CometChatCreateGroup: CometChatListBase {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view  = contentView
         }
+        addObervers()
+        setupAppearance()
     }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        addObervers()
-        setupAppearance()
+       
         
     }
     
