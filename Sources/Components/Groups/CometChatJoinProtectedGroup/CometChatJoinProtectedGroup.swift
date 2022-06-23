@@ -127,7 +127,7 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
         hide(continueButton: false)
         
         self.view.backgroundColor = CometChatTheme.palatte?.secondary
-        
+        password.placeholder = "PASSWORD".localize()
         if let group = group, let name = group.name {
             self.set(caption: "ENTER_PASSWORD_TO_ACCESS".localize() + name + "GROUP_WITH_DOT".localize())
                 .set(captionFont: CometChatTheme.typography?.Subtitle2 ?? UIFont.systemFont(ofSize: 13))
@@ -143,7 +143,7 @@ extension CometChatJoinProtectedGroup: UITextFieldDelegate {
      This method will call everytime when user enter text or delete the text from the UITextFiled,
      and this method has string parameter that gives the latest input that you have entered or deleted.
      */
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+   public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         /// If either password or groupname text exceeds over 100, disable the button, otherwise enable.
         let count = string.isEmpty ? textField.text!.count - 1 : textField.text!.count + string.count
         continueButton?.isEnabled = count > groupNameAndPasswordLimit ? false : true
@@ -154,11 +154,11 @@ extension CometChatJoinProtectedGroup: UITextFieldDelegate {
 
 extension CometChatJoinProtectedGroup: CometChatListBaseDelegate{
     
-    func onSearch(state: SearchState, text: String) {
+    public func onSearch(state: SearchState, text: String) {
         
     }
     
-    func onBack() {
+    public func onBack() {
         switch self.isModal() {
         case true:
             self.dismiss(animated: true, completion: nil)
