@@ -21,17 +21,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1B-XE-vHF" customClass="CometChatMemberList" customModule="CometChatUIKit">
-                    <rect key="frame" x="50" y="94" width="314" height="718"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBlueColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="X1B-XE-vHF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="RkQ-2s-9Md"/>
-                <constraint firstItem="X1B-XE-vHF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="pf2-dy-EHW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X1B-XE-vHF" secondAttribute="bottom" constant="50" id="tVc-GX-eUl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X1B-XE-vHF" secondAttribute="trailing" constant="50" id="xoT-Q8-e1i"/>
+                <constraint firstItem="X1B-XE-vHF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RkQ-2s-9Md"/>
+                <constraint firstItem="X1B-XE-vHF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pf2-dy-EHW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X1B-XE-vHF" secondAttribute="bottom" id="tVc-GX-eUl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X1B-XE-vHF" secondAttribute="trailing" id="xoT-Q8-e1i"/>
             </constraints>
             <point key="canvasLocation" x="139" y="80"/>
         </view>
@@ -39,9 +39,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
