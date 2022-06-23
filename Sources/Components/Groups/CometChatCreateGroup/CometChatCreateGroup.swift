@@ -30,12 +30,7 @@ open class CometChatCreateGroup: CometChatListBase {
         }
         addObervers()
         setupAppearance()
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        
+        self.view.backgroundColor = .red
     }
     
     deinit {
