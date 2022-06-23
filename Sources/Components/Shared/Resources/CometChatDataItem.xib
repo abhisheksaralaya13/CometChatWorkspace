@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-AB-kI8" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="561" height="67"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="o9u-NU-hrK" customClass="CometChatAvatar" customModule="CometChatUIKit" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="o9u-NU-hrK" customClass="CometChatAvatar" customModule="CometChatUIKit">
                                 <rect key="frame" x="15" y="13.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.62740999460000002" green="0.76244419809999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -44,7 +44,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="setOuterView" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-8I-e5b" customClass="CometChatStatusIndicator" customModule="CometChatUIKit" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-8I-e5b" customClass="CometChatStatusIndicator" customModule="CometChatUIKit">
                                 <rect key="frame" x="43" y="39.5" width="14" height="14"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
