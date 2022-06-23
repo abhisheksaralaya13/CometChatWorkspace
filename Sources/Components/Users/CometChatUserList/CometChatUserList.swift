@@ -56,7 +56,6 @@ import CometChatPro
     var emptyStateTextColor: UIColor = UIColor.gray
     var errorStateTextFont: UIFont?
     var errorStateTextColor: UIColor?
-    var backgroundColors: [CGColor]?
     var configurations: [CometChatConfiguration]?
     
     @discardableResult
@@ -81,7 +80,13 @@ import CometChatPro
      */
     @discardableResult
     public func set(background: [Any]?) ->  CometChatUserList {
-            self.backgroundColors = background as? [CGColor]
+        if let backgroundColors = background as? [CGColor] {
+            if backgroundColors.count == 1 {
+                self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
+            }else{
+                self.background.set(backgroundColorWithGradient: background)
+            }
+        }
         return self
     }
     
@@ -332,8 +337,6 @@ import CometChatPro
     }
     
     private func commonInit() {
-        
-        let bundle = Bundle(for: type(of: self))
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -368,14 +371,6 @@ import CometChatPro
                set(tags: configuration.tags)
                set(roles: configuration.roles)
                set(uids: configuration.uids)
-           }
-       }
-       
-       if let backgroundColors = backgroundColors as? [CGColor] {
-           if backgroundColors.count == 1 {
-               self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
-           }else{
-               self.background.set(backgroundColorWithGradient: backgroundColors)
            }
        }
     }
@@ -812,3 +807,5 @@ extension CometChatUserList : CometChatUserDelegate {
         }
     }
 }
+
+/*  ----------------------------------------------------------------------------------------- */

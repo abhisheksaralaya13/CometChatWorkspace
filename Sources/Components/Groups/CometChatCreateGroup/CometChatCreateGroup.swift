@@ -8,7 +8,7 @@
 import UIKit
 import CometChatPro
 
-class CometChatCreateGroup: CometChatListBase {
+open class CometChatCreateGroup: CometChatListBase {
     
     private var createButton: UIBarButtonItem?
     private var selectedGroupType: CometChat.groupType = .public
@@ -20,7 +20,7 @@ class CometChatCreateGroup: CometChatListBase {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var seperator: UIView!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         addObervers()
         setupAppearance()
@@ -201,7 +201,7 @@ extension CometChatCreateGroup: UITextFieldDelegate {
      This method will call everytime when user enter text or delete the text from the UITextFiled,
      and this method has string parameter that gives the latest input that you have entered or deleted.
      */
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         /// If either password or groupname text exceeds over 100, disable the button, otherwise enable.
         
         let count = string.isEmpty ? textField.text!.count - 1 : textField.text!.count + string.count
@@ -223,11 +223,11 @@ extension CometChatCreateGroup: UITextFieldDelegate {
 
 extension CometChatCreateGroup: CometChatListBaseDelegate {
     
-    func onSearch(state: SearchState, text: String) {
+    public func onSearch(state: SearchState, text: String) {
         
     }
     
-    func onBack() {
+    public func onBack() {
         switch self.isModal() {
         case true:
             self.dismiss(animated: true, completion: nil)

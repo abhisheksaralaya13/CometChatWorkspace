@@ -15,7 +15,6 @@ open class CometChatUsers: CometChatListBase {
     
     var configurations: [CometChatConfiguration]?
     
-    
     open override func loadView() {
         let bundle = Bundle(for: type(of: self))
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
@@ -39,7 +38,7 @@ open class CometChatUsers: CometChatListBase {
     
     @discardableResult
     public func set(configurations: [CometChatConfiguration]) ->  CometChatUsers {
-      //  self.configurations = configurations
+        self.configurations = configurations
         return self
     }
 
@@ -55,7 +54,7 @@ open class CometChatUsers: CometChatListBase {
     
    
     private func configureUserList() {
-      //  userList.set(controller: self)
+        userList.set(controller: self)
         userList.set(configurations: configurations)
             .set(background: [ UIColor.systemBackground.cgColor])
             .set(sectionHeaderBackground: CometChatTheme.palatte?.secondary ?? UIColor.systemFill)
