@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatCreateGroup" customModule="CometChatUIKit" customModuleProvider="target">
             <connections>
                 <outlet property="groupType" destination="BHs-S0-0R4" id="yka-8J-p3H"/>
+                <outlet property="ii" destination="n1E-4f-V0G" id="hMQ-JX-g0U"/>
                 <outlet property="name" destination="bVh-27-WyB" id="Hl3-Ri-eAx"/>
                 <outlet property="password" destination="96i-Lr-XE1" id="Pt5-et-RNT"/>
                 <outlet property="seperator" destination="ggn-6b-tHv" id="5ja-3R-gKT"/>

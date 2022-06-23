@@ -182,10 +182,13 @@ open class CometChatCreateGroup: CometChatListBase {
       
     }
     
+    @IBOutlet weak var ii: UIImageView!
     
     private func setupAppearance() {
         
         print("CometChatTheme.palatte?.secondary: \(CometChatTheme.palatte?.secondary)")
+        
+        ii.image = UIImage(named: "groups-create", in: .module, compatibleWith: nil)
         
         self.set(title: "NEW_GROUP".localize(), mode: .never)
             .hide(search: true)
