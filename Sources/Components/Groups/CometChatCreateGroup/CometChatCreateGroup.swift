@@ -182,12 +182,8 @@ open class CometChatCreateGroup: CometChatListBase {
       
     }
     
-    @IBOutlet weak var ii: UIImageView!
     
     private func setupAppearance() {
-        
-        print("CometChatTheme.palatte?.secondary: \(String(describing: UIColor(named: "background", in: Bundle.module, compatibleWith: nil)))")
-        
         
         self.set(title: "NEW_GROUP".localize(), mode: .never)
             .hide(search: true)
