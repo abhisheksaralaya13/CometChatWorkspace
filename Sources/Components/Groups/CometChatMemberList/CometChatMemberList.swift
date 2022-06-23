@@ -330,7 +330,7 @@ import CometChatPro
         }
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = .clear
+        self.tableView.backgroundColor = .red
         self.tableView.allowsSelection = true
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.registerCells()
