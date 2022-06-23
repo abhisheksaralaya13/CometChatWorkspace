@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-
-final public class CometChatTheme {
+ public class CometChatTheme {
     
     static var typography: Typography?
     static var palatte: Palette?
@@ -24,7 +23,7 @@ final public class CometChatTheme {
         CometChatTheme.palatte = palatte
     }
 
-    static func defaultAppearance() {
+    public static func defaultAppearance() {
         CometChatTheme.init(typography: Typography(), palatte: Palette())
     }
     
