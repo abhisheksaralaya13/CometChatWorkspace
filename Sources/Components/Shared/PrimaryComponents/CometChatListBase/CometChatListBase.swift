@@ -70,6 +70,16 @@ open class CometChatListBase: UIViewController {
     private var backButtonFont: UIFont = CometChatTheme.typography?.Title2 ?? UIFont.systemFont(ofSize: 17, weight: .semibold)
    // static private var observer = [String: CometChatListBaseEvents]()
     weak var cometChatListBaseDelegate: CometChatListBaseDelegate?
+    
+    
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
+    }
+    
     /**
      The` background` is a `UIView` which is present in the backdrop for `CometChatListBase`.
      - Parameters:
