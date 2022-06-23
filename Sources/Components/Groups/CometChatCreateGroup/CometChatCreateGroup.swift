@@ -197,7 +197,7 @@ open class CometChatCreateGroup: CometChatListBase {
         
         self.view.backgroundColor = CometChatTheme.palatte?.secondary
 
-        self.view.backgroundColor = UIColor(named: "background", in: Bundle.module, compatibleWith: nil))
+        self.view.backgroundColor = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)
         
         self.groupType.setTitle("PUBLIC".localize(), forSegmentAt: 0)
         self.groupType.setTitle("PRIVATE".localize(), forSegmentAt: 1)
