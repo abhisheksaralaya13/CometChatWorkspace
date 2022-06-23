@@ -304,16 +304,15 @@ import CometChatPro
     }
     
     public func loadFromNib() {
-        
-    }
-    
-    private func commonInit() {
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             contentView.frame = bounds
             addSubview(contentView)
         }
+    }
+    
+    private func commonInit() {
         setuptTableView()
         registerCells()
         setupDelegates()
