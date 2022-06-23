@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1B-XE-vHF" customClass="CometChatMemberList" customModule="CometChatUIKit" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1B-XE-vHF" customClass="CometChatMemberList" customModule="CometChatUIKit">
                     <rect key="frame" x="50" y="94" width="314" height="718"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
