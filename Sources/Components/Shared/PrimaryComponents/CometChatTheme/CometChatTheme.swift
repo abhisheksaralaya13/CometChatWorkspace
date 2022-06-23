@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-final class CometChatTheme {
+final public class CometChatTheme {
     
     static var typography: Typography?
     static var palatte: Palette?

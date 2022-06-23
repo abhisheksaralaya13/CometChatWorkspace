@@ -186,7 +186,7 @@ open class CometChatCreateGroup: CometChatListBase {
     
     private func setupAppearance() {
         
-        print("CometChatTheme.palatte?.secondary: \(String(describing: UIColor(named: "background", in: Bundle.module, compatibleWith: nil)))")
+        print("CometChatTheme.palatte?.secondary: \(String(describing: UIColor(named: "background", in: Bundle.module, compatibleWith: nil))")
         
         
         self.set(title: "NEW_GROUP".localize(), mode: .never)
@@ -197,7 +197,7 @@ open class CometChatCreateGroup: CometChatListBase {
         
         self.view.backgroundColor = CometChatTheme.palatte?.secondary
 
-        self.view.backgroundColor = UIColor(named: "background", in: Bundle.module, compatibleWith: nil)
+        self.view.backgroundColor = CometChatTheme.palatte?.secondary
         
         self.groupType.setTitle("PUBLIC".localize(), forSegmentAt: 0)
         self.groupType.setTitle("PRIVATE".localize(), forSegmentAt: 1)
