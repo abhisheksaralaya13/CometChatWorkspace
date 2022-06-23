@@ -192,7 +192,8 @@ open class CometChatCreateGroup: CometChatListBase {
         hide(create: false)
         
         self.view.backgroundColor = CometChatTheme.palatte?.secondary
-        
+        self.name.placeholder = "NAME".localize()
+        self.password.placeholder = "PASSWORD".localize()
         self.groupType.setTitle("PUBLIC".localize(), forSegmentAt: 0)
         self.groupType.setTitle("PRIVATE".localize(), forSegmentAt: 1)
         self.groupType.setTitle("PROTECTED".localize(), forSegmentAt: 2)
