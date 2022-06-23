@@ -314,6 +314,7 @@ import CometChatPro
         registerCells()
         setupDelegates()
         configureGroupMemberList()
+        self.backgroundColor = .red
     }
     
     private  func setupDelegates(){
