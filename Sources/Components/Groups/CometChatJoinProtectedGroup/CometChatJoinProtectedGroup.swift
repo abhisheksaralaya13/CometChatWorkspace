@@ -8,7 +8,7 @@
 import UIKit
 import CometChatPro
 
-class CometChatJoinGroup: CometChatListBase {
+open class CometChatJoinProtectedGroup: CometChatListBase {
     
     private var continueButton: UIBarButtonItem?
     private var selectedGroupType: CometChat.groupType = .public
@@ -18,11 +18,15 @@ class CometChatJoinGroup: CometChatListBase {
     @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var password: UITextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
         addObervers()
         setupAppearance()
-        
     }
     
     deinit {
@@ -30,14 +34,14 @@ class CometChatJoinGroup: CometChatListBase {
     }
     
     @discardableResult
-    public func set(group: Group) ->  CometChatJoinGroup {
+    public func set(group: Group) ->  Self {
         self.group = group
         return self
     }
     
     
     @discardableResult
-    public func hide(continueButton: Bool) ->  CometChatJoinGroup {
+    public func hide(continueButton: Bool) ->  Self {
         if !continueButton {
             self.continueButton = UIBarButtonItem(title: "CONTINUE".localize(), style: .done, target: self, action: #selector(self.didContinueButtonPressed))
             self.navigationItem.rightBarButtonItem = self.continueButton
@@ -46,25 +50,25 @@ class CometChatJoinGroup: CometChatListBase {
     }
     
     @discardableResult
-    public func set(continueButtonTint: UIColor) ->  CometChatJoinGroup {
+    public func set(continueButtonTint: UIColor) ->  Self {
         continueButton?.tintColor = continueButtonTint
         return self
     }
     
     @discardableResult
-    public func set(caption: String) ->  CometChatJoinGroup {
+    public func set(caption: String) ->  Self {
         self.caption.text = caption
         return self
     }
     
     @discardableResult
-    public func set(captionFont: UIFont) ->  CometChatJoinGroup {
+    public func set(captionFont: UIFont) ->  Self {
         self.caption.font = captionFont
         return self
     }
     
     @discardableResult
-    public func set(captionColor: UIColor) ->  CometChatJoinGroup {
+    public func set(captionColor: UIColor) ->  Self {
         self.caption.textColor = captionColor
         return self
     }
@@ -133,7 +137,7 @@ class CometChatJoinGroup: CometChatListBase {
     
 }
 
-extension CometChatJoinGroup: UITextFieldDelegate {
+extension CometChatJoinProtectedGroup: UITextFieldDelegate {
     
     /**
      This method will call everytime when user enter text or delete the text from the UITextFiled,
@@ -148,7 +152,7 @@ extension CometChatJoinGroup: UITextFieldDelegate {
 }
 
 
-extension CometChatJoinGroup: CometChatListBaseDelegate{
+extension CometChatJoinProtectedGroup: CometChatListBaseDelegate{
     
     func onSearch(state: SearchState, text: String) {
         
