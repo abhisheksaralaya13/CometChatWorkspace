@@ -14,7 +14,7 @@ import CometChatPro
  - Author: CometChat Team
  - Copyright:  ©  2022 CometChat Inc.
  */
-@IBDesignable public final class CometChatMemberList: UIView , NibLoadable {
+@IBDesignable public final class CometChatMemberList: UIView {
    
     
     
