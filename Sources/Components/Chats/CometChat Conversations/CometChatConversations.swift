@@ -14,7 +14,7 @@ import CometChatPro
  - Author: CometChat Team
  - Copyright:  ©  2022 CometChat Inc.
  */
-public class CometChatConversations: CometChatListBase {
+open class CometChatConversations: CometChatListBase {
 
     // MARK: - Declaration of Outlets
     @IBOutlet weak var conversationList: CometChatConversationList!
@@ -23,6 +23,16 @@ public class CometChatConversations: CometChatListBase {
     var startConversationIcon = UIImage(named: "chats-create.png", in: CometChatUIKit.bundle, compatibleWith: nil)
     var startConversationButton: UIBarButtonItem?
     var configurations: [CometChatConfiguration]?
+    
+    
+    public override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view = contentView
+        }
+    }
+    
     
     public override func viewDidLoad() {
         super.viewDidLoad()
