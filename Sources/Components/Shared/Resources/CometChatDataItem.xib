@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-AB-kI8" customClass="CometChatGradientView" customModule="CometChatUIKit">
                         <rect key="frame" x="0.0" y="0.0" width="561" height="67"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9u-NU-hrK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9u-NU-hrK" customClass="CometChatAvatar" customModule="CometChatUIKit">
                                 <rect key="frame" x="15" y="13.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.62740999460000002" green="0.76244419809999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -149,6 +149,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatar" destination="o9u-NU-hrK" id="Qyu-Do-MCg"/>
+                <outlet property="avatarWidthconstant" destination="8z5-45-wxG" id="uqR-9c-b5D"/>
                 <outlet property="background" destination="vGx-AB-kI8" id="tyo-oT-EfY"/>
                 <outlet property="check" destination="QdY-nr-vcz" id="Y7L-Kh-gZN"/>
                 <outlet property="scopeChangeButton" destination="zKB-lW-YA6" id="1aw-Uw-6Lb"/>
@@ -162,7 +164,7 @@
     </objects>
     <designables>
         <designable name="o9u-NU-hrK">
-            <size key="intrinsicContentSize" width="240" height="240"/>
+            <size key="intrinsicContentSize" width="24" height="24"/>
         </designable>
     </designables>
     <resources>

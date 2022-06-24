@@ -20,11 +20,11 @@ protocol  CometChatDataItemDelegate {
 class CometChatDataItem: UITableViewCell {
 
     @IBOutlet weak var background: CometChatGradientView!
-   // @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var avatar: CometChatAvatar!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var statusIndicator: CometChatStatusIndicator!
- //   @IBOutlet weak var avatarWidthconstant: NSLayoutConstraint!
+    @IBOutlet weak var avatarWidthconstant: NSLayoutConstraint!
     @IBOutlet weak var tailView: UIView!
     @IBOutlet weak var scopeChangeButton: UIButton!
     @IBOutlet weak var check: UIImageView!
@@ -253,8 +253,8 @@ class CometChatDataItem: UITableViewCell {
     @discardableResult
     @objc public func hide(avatar: Bool) -> CometChatDataItem {
         if avatar == true {
-       //     self.avatar.isHidden = true
-         //   self.avatarWidthconstant.constant = 0
+            self.avatar.isHidden = true
+            self.avatarWidthconstant.constant = 0
             self.statusIndicator.isHidden = true
             self.preservesSuperviewLayoutMargins = false
             self.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 15)
@@ -308,7 +308,7 @@ class CometChatDataItem: UITableViewCell {
         self.set(titleFont: style.titleFont ?? UIFont.systemFont(ofSize: 20, weight: .regular))
         self.set(subTitleColor: style.subTitleColor ?? UIColor.gray)
         self.set(subTitleFont:  style.subTitleFont ?? UIFont.systemFont(ofSize: 20, weight: .regular))
-       // self.avatar.set(cornerRadius: style.cornerRadius ?? 0.0).set(borderWidth: style.border ?? 0.0).set(backgroundColor: style.subTitleColor ?? .gray)
+       self.avatar.set(cornerRadius: style.cornerRadius ?? 0.0).set(borderWidth: style.border ?? 0.0).set(backgroundColor: style.subTitleColor ?? .gray)
         return self
     }
 
@@ -357,7 +357,7 @@ class CometChatDataItem: UITableViewCell {
                 }
              
                 self.set(statusIndicator: user.status)
-       //         self.set(avatar: avatar.setAvatar(avatarUrl: user.avatar ?? "", with: user.name ?? ""))
+               self.set(avatar: avatar.setAvatar(avatarUrl: user.avatar ?? "", with: user.name ?? ""))
                 
                 inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
                 
@@ -418,7 +418,7 @@ class CometChatDataItem: UITableViewCell {
                     self.set(subTitle: "\(group.membersCount) " + "MEMBERS".localize())
                 }
                
-        //        self.set(avatar: avatar.setAvatar(avatarUrl: group.icon ?? "", with: group.name ?? ""))
+                self.set(avatar: avatar.setAvatar(avatarUrl: group.icon ?? "", with: group.name ?? ""))
               
                 switch group.groupType {
                 case .public:
@@ -486,7 +486,7 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 self.set(statusIndicator: groupMember.status)
-        //        self.set(avatar: avatar.setAvatar(avatarUrl: groupMember.avatar ?? "", with: groupMember.name ?? ""))
+                self.set(avatar: avatar.setAvatar(avatarUrl: groupMember.avatar ?? "", with: groupMember.name ?? ""))
             
                 inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
                 
@@ -530,7 +530,7 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 self.set(statusIndicator: bannedGroupMember.status)
-           //     self.set(avatar: avatar.setAvatar(avatarUrl: bannedGroupMember.avatar ?? "", with: bannedGroupMember.name ?? ""))
+                self.set(avatar: avatar.setAvatar(avatarUrl: bannedGroupMember.avatar ?? "", with: bannedGroupMember.name ?? ""))
             
                 inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
                 
@@ -577,16 +577,16 @@ class CometChatDataItem: UITableViewCell {
             }
             
             let avatarConfiguration = configurations.filter{ $0 is AvatarConfiguration }
-//            if let configuration = avatarConfiguration.last as? AvatarConfiguration {
-//
-//                avatar.set(cornerRadius: configuration.cornerRadius)
-//                avatar.set(borderWidth: configuration.borderWidth)
-//                if configuration.outerViewWidth != 0 {
-//                    avatar.set(outerView: true)
-//                    avatar.set(borderWidth: configuration.outerViewWidth)
-//                }
-//                self.set(avatar: avatar)
-//            }
+            if let configuration = avatarConfiguration.last as? AvatarConfiguration {
+
+                avatar.set(cornerRadius: configuration.cornerRadius)
+                avatar.set(borderWidth: configuration.borderWidth)
+                if configuration.outerViewWidth != 0 {
+                    avatar.set(outerView: true)
+                    avatar.set(borderWidth: configuration.outerViewWidth)
+                }
+                self.set(avatar: avatar)
+            }
             
             let statusIndicatorConfiguration = configurations.filter{ $0 is StatusIndicatorConfiguration }
             if let configuration = statusIndicatorConfiguration.last as? StatusIndicatorConfiguration {
