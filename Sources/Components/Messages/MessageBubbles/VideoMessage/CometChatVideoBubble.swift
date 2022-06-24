@@ -48,7 +48,7 @@ class CometChatVideoBubble: UIView {
         set(style: videoBubbleStyle)
     }
     private func customInit() {
-        Bundle.main.loadNibNamed("CometChatVideoBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatVideoBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

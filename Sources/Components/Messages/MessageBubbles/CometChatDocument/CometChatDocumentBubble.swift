@@ -81,7 +81,7 @@ class CometChatDocumentBubble: UIView {
     }
     
     private func customInit() {
-        Bundle.main.loadNibNamed("CometChatDocumentBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatDocumentBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

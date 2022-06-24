@@ -59,7 +59,7 @@ class CometChatWhiteboardBubble: UIView {
     }
     
     private func customInit() {
-        Bundle.main.loadNibNamed("CometChatWhiteboardBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatWhiteboardBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

@@ -79,7 +79,7 @@ class CometChatImageBubble: UIView {
     // MARK: - Helper Methods
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("CometChatImageBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatImageBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

@@ -364,10 +364,10 @@ public enum  MessageType : String {
         switch type {
         case .user:
             guard let user = conversationWith as? User else{ return }
-         //   self.refreshMessageList(forID: user.uid ?? "" , type: .user)
+            self.refreshMessageList(forID: user.uid ?? "" , type: .user)
         case .group:
             guard let group = conversationWith as? Group else{ return }
-         //   self.refreshMessageList(forID: group.guid , type: .group)
+            self.refreshMessageList(forID: group.guid , type: .group)
         @unknown default:
             break
         }

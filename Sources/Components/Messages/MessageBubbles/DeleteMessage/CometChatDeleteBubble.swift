@@ -40,7 +40,7 @@ class CometChatDeleteBubble: UIView {
     self.layer.addSublayer(shapeLayer)
   }
   private func customInit() {
-    Bundle.main.loadNibNamed("CometChatDeleteBubble", owner: self, options: nil)
+      CometChatUIKit.bundle.loadNibNamed("CometChatDeleteBubble", owner: self, options: nil)
     addSubview(containerView)
     containerView.frame = bounds
     containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

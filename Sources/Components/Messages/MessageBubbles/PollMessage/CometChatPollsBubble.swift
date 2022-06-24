@@ -71,7 +71,7 @@ class CometChatPollsBubble: UIView {
     private func setupList(message: CustomMessage) {
         answerList.delegate = self
         answerList.dataSource = self
-        let nib = UINib(nibName: "CometChatPollBubbleCell", bundle: nil)
+        let nib = UINib(nibName: "CometChatPollBubbleCell", bundle: CometChatUIKit.bundle)
         answerList.register(nib, forCellReuseIdentifier: cellIdentifier)
         answerList.separatorStyle = .none
         answerList.isScrollEnabled = false
@@ -79,7 +79,7 @@ class CometChatPollsBubble: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("CometChatPollsBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatPollsBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

@@ -118,7 +118,7 @@ class CometChatFileBubble: UIView {
     }
     
     private func customInit() {
-        Bundle.main.loadNibNamed("CometChatFileBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatFileBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

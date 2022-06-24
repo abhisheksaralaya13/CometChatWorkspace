@@ -36,7 +36,7 @@ class CometChatAudioBubble: UIView {
     // MARK: - Helper Methods
     
     private func customInit() {
-        Bundle.main.loadNibNamed("CometChatAudioBubble", owner: self, options: nil)
+        CometChatUIKit.bundle.loadNibNamed("CometChatAudioBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
