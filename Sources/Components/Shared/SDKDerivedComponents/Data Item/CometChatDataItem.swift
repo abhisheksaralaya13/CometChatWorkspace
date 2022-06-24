@@ -20,7 +20,7 @@ protocol  CometChatDataItemDelegate {
 class CometChatDataItem: UITableViewCell {
 
     @IBOutlet weak var background: CometChatGradientView!
-    @IBOutlet weak var avatar: UIImageView!
+   // @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var statusIndicator: CometChatStatusIndicator!
@@ -229,7 +229,7 @@ class CometChatDataItem: UITableViewCell {
      */
     @discardableResult
     @objc public func set(avatar: CometChatAvatar) -> CometChatDataItem {
-        self.avatar = avatar
+       // self.avatar = avatar
         return self
     }
 
@@ -253,7 +253,7 @@ class CometChatDataItem: UITableViewCell {
     @discardableResult
     @objc public func hide(avatar: Bool) -> CometChatDataItem {
         if avatar == true {
-            self.avatar.isHidden = true
+       //     self.avatar.isHidden = true
             self.avatarWidthconstant.constant = 0
             self.statusIndicator.isHidden = true
             self.preservesSuperviewLayoutMargins = false
@@ -578,7 +578,7 @@ class CometChatDataItem: UITableViewCell {
             
             let avatarConfiguration = configurations.filter{ $0 is AvatarConfiguration }
 //            if let configuration = avatarConfiguration.last as? AvatarConfiguration {
-//                
+//
 //                avatar.set(cornerRadius: configuration.cornerRadius)
 //                avatar.set(borderWidth: configuration.borderWidth)
 //                if configuration.outerViewWidth != 0 {
