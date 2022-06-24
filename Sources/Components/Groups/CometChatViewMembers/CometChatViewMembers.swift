@@ -66,7 +66,7 @@ open class CometChatViewMembers: CometChatListBase {
         memberList.set(controller: self)
             .set(group: group)
             .set(configurations: configurations)
-           // .set(background: [CometChatTheme.palatte?.secondary?.cgColor ?? UIColor.systemBackground.cgColor])
+            .set(background: [CometChatTheme.palatte?.secondary?.cgColor ?? UIColor.systemBackground.cgColor])
         memberList.allow(promoteDemoteMembers: true)
     }
     

@@ -330,7 +330,7 @@ import CometChatPro
         }
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = .red
+        self.tableView.backgroundColor = .clear
         self.tableView.allowsSelection = true
         self.tableView.tableFooterView = UIView(frame: .zero)
         self.registerCells()
@@ -534,7 +534,7 @@ extension CometChatMemberList: UITableViewDelegate, UITableViewDataSource {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 80
     }
     
     /// This method specifies the view for group  in CometChatMemberList
