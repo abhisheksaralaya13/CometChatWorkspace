@@ -19,7 +19,7 @@ class CometChatCreatePollAddNewOption: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        addButton.setImage(UIImage(named: "message-composer-plus")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        addButton.setImage(UIImage(named: "message-composer-plus", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate), for: .normal)
         addButton.tintColor = CometChatTheme.palatte?.primary
         
         addButtonText.text = "ADD_ANOTHER_ANSWER".localize()

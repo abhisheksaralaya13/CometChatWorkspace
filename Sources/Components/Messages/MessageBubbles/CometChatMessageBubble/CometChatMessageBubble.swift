@@ -467,7 +467,7 @@ class CometChatMessageBubble: UITableViewCell {
             if let controller = controller {
                 imageBubble.set(controller: controller)
             }
-            imageBubble.imageThumbnail.image = UIImage(named: "default-image")
+            imageBubble.imageThumbnail.image = UIImage(named: "default-image", in: CometChatUIKit.bundle, compatibleWith: nil)
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .delete),

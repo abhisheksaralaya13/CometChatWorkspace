@@ -614,9 +614,9 @@ class CometChatDataItem: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected{
-            check.image = UIImage(named:"groups-check-active")
+            check.image = UIImage(named:"groups-check-active", in: CometChatUIKit.bundle, compatibleWith: nil)
         }else{
-            check.image = UIImage(named:"groups-check-normal")
+            check.image = UIImage(named:"groups-check-normal", in: CometChatUIKit.bundle, compatibleWith: nil)
             
         }
     }

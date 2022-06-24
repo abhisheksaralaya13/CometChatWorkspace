@@ -51,7 +51,7 @@ class CometChatStickerBubble: UIView {
             if let image = image {
                 strongSelf.imageThumbnail.image = image
             }else{
-                strongSelf.imageThumbnail.image = UIImage(named: "default-image.png")
+                strongSelf.imageThumbnail.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
             }
         }
         return self

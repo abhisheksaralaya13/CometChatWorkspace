@@ -30,7 +30,7 @@ class CometChatStickerKeyboardItem: UICollectionViewCell {
                     if let image = image {
                         strongSelf.stickerIcon.image = image
                     }else{
-                        strongSelf.stickerIcon.image = UIImage(named: "default-image.png")
+                        strongSelf.stickerIcon.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
                     }
                 }
             }
@@ -46,7 +46,7 @@ class CometChatStickerKeyboardItem: UICollectionViewCell {
                     if let image = image {
                         strongSelf.stickerIcon.image = image
                     }else{
-                        strongSelf.stickerIcon.image = UIImage(named: "default-image.png")
+                        strongSelf.stickerIcon.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
                     }
                 }
             }
