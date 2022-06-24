@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageHeader" customModule="CometChatUIKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageHeader" customModule="CometChatUIKit">
             <connections>
                 <outlet property="audioCall" destination="SDo-Qg-HaE" id="7h1-8D-DqJ"/>
                 <outlet property="avatar" destination="mTb-Nt-auW" id="xB9-Td-5Op"/>
@@ -45,7 +46,7 @@
                                         <action selector="didBackButtonPressed:" destination="-1" eventType="touchUpInside" id="b3l-4w-dTF"/>
                                     </connections>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTb-Nt-auW" customClass="CometChatAvatar" customModule="CometChatUIKit" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTb-Nt-auW" customClass="CometChatAvatar" customModule="CometChatUIKit">
                                     <rect key="frame" x="45" y="17.5" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="j8D-VP-7Bc"/>
@@ -126,7 +127,7 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CometChatUserListItem" translatesAutoresizingMaskIntoConstraints="NO" id="fBh-od-ugc" customClass="CometChatStatusIndicator" customModule="CometChatUIKit" customModuleProvider="target">
+                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CometChatUserListItem" translatesAutoresizingMaskIntoConstraints="NO" id="fBh-od-ugc" customClass="CometChatStatusIndicator" customModule="CometChatUIKit">
                             <rect key="frame" x="80" y="49.5" width="14" height="14"/>
                             <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                             <constraints>

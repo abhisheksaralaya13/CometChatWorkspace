@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageComposer" customModule="CometChatUIKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageComposer">
             <connections>
                 <outlet property="attachment" destination="wys-dO-xKt" id="NMr-KO-YPg"/>
                 <outlet property="background" destination="0zE-kA-sqy" id="JSZ-3c-ziT"/>
@@ -96,7 +97,7 @@
                         <constraint firstItem="fuh-qf-b4c" firstAttribute="centerY" secondItem="hTB-02-HvD" secondAttribute="centerY" id="y2t-UB-joA"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zE-kA-sqy" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zE-kA-sqy" customClass="CometChatGradientView" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="115" width="572" height="92"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6a-N7-Dvn">

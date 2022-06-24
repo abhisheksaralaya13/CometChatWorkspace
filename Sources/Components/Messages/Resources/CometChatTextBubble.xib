@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatTextBubble" customModule="CometChatUIKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatTextBubble" customModule="CometChatUIKit">
             <connections>
                 <outlet property="containerView" destination="iN0-l3-epB" id="Heo-Nn-2BX"/>
                 <outlet property="message" destination="DTh-Px-vzg" id="RVX-Tx-EB7"/>
@@ -39,9 +39,4 @@
             <point key="canvasLocation" x="176.08695652173915" y="-135.26785714285714"/>
         </view>
     </objects>
-    <designables>
-        <designable name="DTh-Px-vzg">
-            <size key="intrinsicContentSize" width="26.5" height="12"/>
-        </designable>
-    </designables>
 </document>
