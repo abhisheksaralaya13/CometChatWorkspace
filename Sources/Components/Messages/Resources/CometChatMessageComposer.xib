@@ -177,7 +177,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-JJ-yHn">
                             <rect key="frame" x="20" y="8" width="532" height="28"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8h-8y-bPT" customClass="GrowingTextView" customModule="CometChatUIKit" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8h-8y-bPT" customClass="GrowingTextView" customModule="CometChatUIKit">
                                     <rect key="frame" x="5" y="0.0" width="522" height="28"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
