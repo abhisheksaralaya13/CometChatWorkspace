@@ -16,7 +16,6 @@ open class CometChatUsers: CometChatListBase {
     var configurations: [CometChatConfiguration]?
     
     open override func loadView() {
-        let bundle = Bundle(for: type(of: self))
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
