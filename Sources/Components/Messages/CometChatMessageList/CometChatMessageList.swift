@@ -32,7 +32,7 @@ public enum  MessageType : String {
     
 }
 
-@objc @IBDesignable class CometChatMessageList: UIView , NibLoadable {
+@objc @IBDesignable class CometChatMessageList: UIView  {
     
     // MARK: - Declaration of IBInspectable
     @IBOutlet var contentView: UIView!

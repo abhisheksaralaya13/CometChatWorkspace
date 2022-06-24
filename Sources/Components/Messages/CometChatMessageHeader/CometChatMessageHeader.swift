@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CometChatPro
 
-@objc @IBDesignable class CometChatMessageHeader: UIView , NibLoadable {
+@objc @IBDesignable class CometChatMessageHeader: UIView  {
     
     // MARK: - Declaration of IBInspectable
     @IBOutlet var contentView: UIView!

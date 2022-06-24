@@ -21,7 +21,7 @@ enum MessageComposerMode {
     case reply
 }
 
-@objc @IBDesignable class CometChatMessageComposer: UIView , NibLoadable {
+@objc @IBDesignable class CometChatMessageComposer: UIView  {
     
     // MARK: - Declaration of IBInspectable
     @IBOutlet weak var messagePreview: UIView!
