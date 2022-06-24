@@ -534,7 +534,7 @@ extension CometChatMemberList: UITableViewDelegate, UITableViewDataSource {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 67
     }
     
     /// This method specifies the view for group  in CometChatMemberList
