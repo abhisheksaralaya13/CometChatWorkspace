@@ -108,17 +108,18 @@ protocol CometChatSmartRepliesDelegate: class {
      // MARK: - Initialization of required Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+      //  commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+       // commonInit()
 
     }
     
     override func draw(_ rect: CGRect) {
-
+        collectionView.showsHorizontalScrollIndicator = false
+        setupCollectionView()
     }
     
     private func commonInit() {
@@ -128,8 +129,7 @@ protocol CometChatSmartRepliesDelegate: class {
             contentView.frame = bounds
             addSubview(contentView)
         }
-        collectionView.showsHorizontalScrollIndicator = false
-        setupCollectionView()
+       
     }
     
    // MARK: - Private instance Methods
