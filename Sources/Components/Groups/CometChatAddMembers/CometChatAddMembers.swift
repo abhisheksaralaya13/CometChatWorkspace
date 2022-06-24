@@ -47,7 +47,7 @@ open class CometChatAddMembers: CometChatListBase {
         }
     }
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
         addObervers()
