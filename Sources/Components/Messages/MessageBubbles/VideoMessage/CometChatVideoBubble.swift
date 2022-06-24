@@ -120,7 +120,7 @@ class CometChatVideoBubble: UIView {
     
     @discardableResult
     @objc public func set(playColor: UIColor) -> Self {
-        self.playButton.image = UIImage(named: "messages-media-play.png")
+        self.playButton.image = UIImage(named: "messages-media-play.png", in: CometChatUIKit.bundle, compatibleWith: nil)
         self.playButton.tintColor = playColor
         return self
     }
