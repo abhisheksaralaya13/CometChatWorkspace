@@ -108,14 +108,26 @@ protocol CometChatSmartRepliesDelegate: class {
      // MARK: - Initialization of required Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
 
     }
     
     override func draw(_ rect: CGRect) {
+        commonInit()
+    }
+    
+    private func commonInit() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.frame = bounds
+            addSubview(contentView)
+        }
         collectionView.showsHorizontalScrollIndicator = false
         setupCollectionView()
     }
