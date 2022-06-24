@@ -35,13 +35,13 @@
                             <rect key="frame" x="6" y="4" width="560" height="75"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuG-Rx-lav">
-                                    <rect key="frame" x="0.0" y="19.5" width="35" height="36"/>
+                                    <rect key="frame" x="0.0" y="26.5" width="35" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="35" id="A9P-De-4LQ"/>
                                     </constraints>
                                     <color key="tintColor" systemColor="tintColor"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="messages-back.png"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="messages-back.png"/>
                                     <connections>
                                         <action selector="didBackButtonPressed:" destination="-1" eventType="touchUpInside" id="b3l-4w-dTF"/>
                                     </connections>
@@ -91,8 +91,8 @@
                                                 <constraint firstAttribute="width" constant="40" id="ycG-bv-niT"/>
                                             </constraints>
                                             <color key="tintColor" systemColor="tintColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="messages-audio-call.png"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="messages-audio-call.png"/>
                                             <connections>
                                                 <action selector="didAudioCallButtonPressed:" destination="-1" eventType="touchUpInside" id="lJX-du-mgA"/>
                                             </connections>
@@ -104,8 +104,8 @@
                                                 <constraint firstAttribute="height" constant="40" id="aRG-MN-LP5"/>
                                             </constraints>
                                             <color key="tintColor" systemColor="tintColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="messages-video-call.png"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="messages-video-call.png"/>
                                             <connections>
                                                 <action selector="didVideoCallButtonPressed:" destination="-1" eventType="touchUpInside" id="err-zp-oNt"/>
                                             </connections>
@@ -117,8 +117,8 @@
                                                 <constraint firstAttribute="height" constant="40" id="a47-ie-tz6"/>
                                             </constraints>
                                             <color key="tintColor" systemColor="tintColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="messages-info.png"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="messages-info.png"/>
                                             <connections>
                                                 <action selector="didInfoButtonPressed:" destination="-1" eventType="touchUpInside" id="Dlb-zh-eW2"/>
                                             </connections>
