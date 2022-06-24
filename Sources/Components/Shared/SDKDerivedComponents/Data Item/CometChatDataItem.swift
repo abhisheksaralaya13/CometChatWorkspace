@@ -24,7 +24,7 @@ class CometChatDataItem: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var statusIndicator: CometChatStatusIndicator!
-    @IBOutlet weak var avatarWidthconstant: NSLayoutConstraint!
+ //   @IBOutlet weak var avatarWidthconstant: NSLayoutConstraint!
     @IBOutlet weak var tailView: UIView!
     @IBOutlet weak var scopeChangeButton: UIButton!
     @IBOutlet weak var check: UIImageView!
@@ -254,7 +254,7 @@ class CometChatDataItem: UITableViewCell {
     @objc public func hide(avatar: Bool) -> CometChatDataItem {
         if avatar == true {
        //     self.avatar.isHidden = true
-            self.avatarWidthconstant.constant = 0
+         //   self.avatarWidthconstant.constant = 0
             self.statusIndicator.isHidden = true
             self.preservesSuperviewLayoutMargins = false
             self.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 15)
