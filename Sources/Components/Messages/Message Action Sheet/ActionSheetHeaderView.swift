@@ -59,7 +59,7 @@ protocol ActionSheetHeaderViewDelegate: NSObject {
             addSubview(contentView)
         }
         background.backgroundColor = CometChatActionSheet.backgroundColor
-        let image = UIImage(named: "actionsheet-list.png")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: "actionsheet-list.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         layoutMode.setImage(image, for: .normal)
         layoutMode.tintColor = CometChatTheme.palatte?.primary
         

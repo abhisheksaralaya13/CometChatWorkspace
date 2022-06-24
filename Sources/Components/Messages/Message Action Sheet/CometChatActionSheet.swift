@@ -152,12 +152,12 @@ enum LayoutMode {
         let actionSheetHeaderView = ActionSheetHeaderView()
         switch layoutMode {
         case .listMode:
-            let image = UIImage(named: "actionsheet-list.png")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage(named: "actionsheet-list.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
             actionSheetHeaderView.layoutMode.setImage(image, for: .normal)
             actionSheetHeaderView.layoutMode.tintColor = CometChatTheme.palatte?.primary
         case .gridMode:
             
-            let image = UIImage(named: "actionsheet-grid.png")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage(named: "actionsheet-grid.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
             actionSheetHeaderView.layoutMode.setImage(image, for: .normal)
             actionSheetHeaderView.layoutMode.tintColor = CometChatTheme.palatte?.primary
         }
