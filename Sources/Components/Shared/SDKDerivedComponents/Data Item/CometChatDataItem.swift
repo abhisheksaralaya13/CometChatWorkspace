@@ -351,7 +351,6 @@ class CometChatDataItem: UITableViewCell {
         didSet {
             if let user = user {
                 
-                print("loaded with user: \(user)")
                 if let name = user.name?.capitalized {
                     self.set(title: name)
                 }
@@ -395,7 +394,6 @@ class CometChatDataItem: UITableViewCell {
                     self.check.isHidden = false
                 }
             }
-            self.background.backgroundColor = .red
         }
     }
     
