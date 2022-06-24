@@ -501,7 +501,7 @@ extension CometChatBannedMemberList: UITableViewDelegate, UITableViewDataSource 
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 67
     }
     
     /// This method specifies the view for group  in CometChatBannedMemberList
