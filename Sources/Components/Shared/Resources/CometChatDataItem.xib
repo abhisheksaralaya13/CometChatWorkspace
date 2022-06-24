@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="561" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-AB-kI8" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-AB-kI8" customClass="CometChatGradientView" customModule="CometChatUIKit">
                         <rect key="frame" x="0.0" y="0.0" width="561" height="67"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9u-NU-hrK">
