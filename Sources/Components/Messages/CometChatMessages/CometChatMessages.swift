@@ -8,7 +8,7 @@
 import UIKit
 import CometChatPro
 
-class CometChatMessages: UIViewController {
+open class CometChatMessages: UIViewController {
     
     
     // MARK ->  Message Header Declarations
@@ -31,7 +31,15 @@ class CometChatMessages: UIViewController {
     var configurations: [CometChatConfiguration]?
     var liveReactionImage: UIImage = UIImage(named: "message-composer-heart.png") ?? UIImage()
     
-    override func viewDidLoad() {
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
+    }
+    
+    open override func viewDidLoad() {
         setupKeyboard()
         addObservers()
     }
@@ -56,7 +64,7 @@ class CometChatMessages: UIViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         setupMessageHeader()
         setupMessageList()
         setupMessageComposer()
@@ -245,29 +253,29 @@ extension CometChatMessages: CometChatMessageOptionDelegate {
 
 extension CometChatMessages: CometChatGroupEventListner {
     
-    func onGroupMemberAdd(group: Group, members: [GroupMember]) {
+    public func onGroupMemberAdd(group: Group, members: [GroupMember]) {
         messageHeader.set(group: group)
         messageHeader.reloadInputViews()
     }
     
     
-    func onItemClick(group: Group, index: IndexPath?) {
+    public func onItemClick(group: Group, index: IndexPath?) {
         
     }
     
-    func onItemLongClick(group: Group, index: IndexPath?) {
+    public func onItemLongClick(group: Group, index: IndexPath?) {
         
     }
     
-    func onCreateGroupClick() {
+    public func onCreateGroupClick() {
         
     }
     
-    func onGroupCreate(group: Group) {
+    public func onGroupCreate(group: Group) {
         
     }
     
-    func onGroupDelete(group: Group) {
+    public func onGroupDelete(group: Group) {
         switch self.isModal() {
         case true:
             self.navigationController?.navigationBar.isHidden = false
@@ -281,7 +289,7 @@ extension CometChatMessages: CometChatGroupEventListner {
         }
     }
     
-    func onGroupMemberLeave(leftUser: User, leftGroup: Group) {
+    public func onGroupMemberLeave(leftUser: User, leftGroup: Group) {
         switch self.isModal() {
         case true:
             self.navigationController?.navigationBar.isHidden = false
@@ -295,27 +303,27 @@ extension CometChatMessages: CometChatGroupEventListner {
         }
     }
     
-    func onGroupMemberJoin(joinedUser: User, joinedGroup: Group) {
+    public func onGroupMemberJoin(joinedUser: User, joinedGroup: Group) {
         
     }
     
-    func onGroupMemberBan(bannedUser: User, bannedGroup: Group) {
+    public func onGroupMemberBan(bannedUser: User, bannedGroup: Group) {
         
     }
     
-    func onGroupMemberUnban(unbannedUserUser: User, unbannedUserGroup: Group) {
+    public func onGroupMemberUnban(unbannedUserUser: User, unbannedUserGroup: Group) {
         
     }
     
-    func onGroupMemberKick(kickedUser: User, kickedGroup: Group) {
+    public func onGroupMemberKick(kickedUser: User, kickedGroup: Group) {
         
     }
     
-    func onGroupMemberChangeScope(updatedBy: User, updatedUser: User, scopeChangedTo: CometChat.MemberScope, scopeChangedFrom: CometChat.MemberScope, group: Group) {
+    public func onGroupMemberChangeScope(updatedBy: User, updatedUser: User, scopeChangedTo: CometChat.MemberScope, scopeChangedFrom: CometChat.MemberScope, group: Group) {
         
     }
     
-    func onError(group: Group?, error: CometChatException) {
+    public func onError(group: Group?, error: CometChatException) {
         
     }
     
@@ -325,7 +333,7 @@ extension CometChatMessages: CometChatGroupEventListner {
 extension CometChatMessages: CometChatMessageEventListner {
     
     
-    func onMessageSent(message: BaseMessage, status: MessageStatus) {
+    public func onMessageSent(message: BaseMessage, status: MessageStatus) {
         switch status {
         case .inProgress:
             self.messageList.add(message: message)
@@ -334,11 +342,11 @@ extension CometChatMessages: CometChatMessageEventListner {
         }
     }
     
-    func onMessageEdit(message: BaseMessage, status: MessageStatus) {
+    public func onMessageEdit(message: BaseMessage, status: MessageStatus) {
         self.messageList.update(message: message)
     }
     
-    func onMessageDelete(message: BaseMessage, status: MessageStatus) {
+    public func onMessageDelete(message: BaseMessage, status: MessageStatus) {
         if messageList.hideDeletedMessages {
             self.messageList.remove(message: message)
         }else{
@@ -346,59 +354,59 @@ extension CometChatMessages: CometChatMessageEventListner {
         }
     }
     
-    func onMessageReply(message: BaseMessage, status: MessageStatus) {
+    public func onMessageReply(message: BaseMessage, status: MessageStatus) {
         
     }
     
-    func onMessageRead(message: BaseMessage) {
+    public func onMessageRead(message: BaseMessage) {
         
     }
     
-    func onLiveReaction(reaction message: TransientMessage) {
+    public func onLiveReaction(reaction message: TransientMessage) {
         messageList.startLiveReaction(image: liveReactionImage)
     }
     
-    func onMessageError(error: CometChatException) {
+    public func onMessageError(error: CometChatException) {
         
     }
     
-    func onVoiceCall(user: User) {
+    public func onVoiceCall(user: User) {
         
     }
     
-    func onVoiceCall(group: Group) {
+    public func onVoiceCall(group: Group) {
         
     }
     
-    func onVideoCall(user: User) {
+    public func onVideoCall(user: User) {
         
     }
     
-    func onVideoCall(group: Group) {
+    public func onVideoCall(group: Group) {
         
     }
     
-    func onViewInformation(user: User) {
+    public func onViewInformation(user: User) {
         let userDetail = CometChatDetail()
         userDetail.set(user: user)
         let naviVC = UINavigationController(rootViewController: userDetail)
         self.present(naviVC, animated: true)
     }
     
-    func onViewInformation(group: Group) {
+    public func onViewInformation(group: Group) {
         let groupDetail = CometChatDetail()
         groupDetail.set(group: group)
         let naviVC = UINavigationController(rootViewController: groupDetail)
         self.present(naviVC, animated: true)
     }
     
-    func onError(message: BaseMessage?, error: CometChatException) {
+    public func onError(message: BaseMessage?, error: CometChatException) {
         if let message = message {
             self.messageList.update(message: message)
         }
     }
     
-    func onMessageReact(message: BaseMessage, reaction: CometChatMessageReaction) {
+    public func onMessageReact(message: BaseMessage, reaction: CometChatMessageReaction) {
         
     }
 }
