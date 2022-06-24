@@ -17,6 +17,14 @@ class CometChatTransferOwnership: CometChatListBase {
     var configurations: [CometChatConfiguration]?
     var group: Group?
     
+    override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view = contentView
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()

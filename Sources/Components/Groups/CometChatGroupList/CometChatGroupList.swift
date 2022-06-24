@@ -290,10 +290,12 @@ import CometChatPro
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("CometChatGroupList", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.frame = bounds
+            addSubview(contentView)
+        }
         setuptTableView()
         registerCells()
         setupDelegates()

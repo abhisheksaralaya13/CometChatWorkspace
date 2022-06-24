@@ -31,13 +31,21 @@ import CometChatPro
 }
 
 
-class CometChatAddMembers: CometChatListBase {
+open class CometChatAddMembers: CometChatListBase {
 
     @IBOutlet weak var userList: CometChatUserList!
 
     var addMemberButton: UIBarButtonItem?
     var configurations: [CometChatConfiguration]?
     var group: Group?
+    
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view = contentView
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
