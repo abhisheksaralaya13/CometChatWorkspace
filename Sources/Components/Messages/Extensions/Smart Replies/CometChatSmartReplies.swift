@@ -118,7 +118,7 @@ protocol CometChatSmartRepliesDelegate: class {
     }
     
     override func draw(_ rect: CGRect) {
-        commonInit()
+
     }
     
     private func commonInit() {
