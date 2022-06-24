@@ -31,7 +31,7 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
     var message: BaseMessage?
     
     static var emojiKeyboardDelegate: CometChatEmojiKeyboardDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -39,12 +39,13 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
     }
 
     override func loadView() {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "CometChatEmojiKeyboard", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view  = view
-        self.view.backgroundColor = CometChatTheme.palatte?.accent200
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.frame = bounds
+            self.view = contentView
+            self.view.backgroundColor = CometChatTheme.palatte?.accent200
+        }
     }
     
     private func setupCollectionView() {

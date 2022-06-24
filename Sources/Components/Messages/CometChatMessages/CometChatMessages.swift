@@ -29,7 +29,7 @@ open class CometChatMessages: UIViewController {
     var messageTemplates: [CometChatMessageTemplate]?
     var configuration: CometChatConfiguration?
     var configurations: [CometChatConfiguration]?
-    var liveReactionImage: UIImage = UIImage(named: "message-composer-heart.png") ?? UIImage()
+    var liveReactionImage: UIImage = UIImage(named: "message-composer-heart.png", in: CometChatUIKit.bundle, with: nil) ?? UIImage()
     
     open override func loadView() {
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)

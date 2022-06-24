@@ -17,7 +17,7 @@ protocol  StickerViewDelegate {
 
 
 
-class CometChatStickerKeyboard: UIViewController {
+open class CometChatStickerKeyboard: UIViewController {
 
     @IBOutlet weak var stickersCollectionView: UICollectionView!
     @IBOutlet weak var stickerSetCollectionVew: UICollectionView!
@@ -29,7 +29,7 @@ class CometChatStickerKeyboard: UIViewController {
     var stickerSet = [CometChatStickerSet]()
     var activityIndicator:UIActivityIndicatorView?
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.setupBackgroundView()
         self.setupCollectionView()
@@ -37,12 +37,12 @@ class CometChatStickerKeyboard: UIViewController {
         
     }
     
-    override func loadView() {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "CometChatStickerKeyboard", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view  = view
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
     }
     
     private func setupBackgroundView(){
@@ -159,7 +159,7 @@ extension CometChatStickerKeyboard : UICollectionViewDelegate , UICollectionView
     /// - Parameters:
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - section: A signed integer value type.
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.stickerSetCollectionVew {
             return stickerSet.count
         }else if collectionView == self.stickersCollectionView {
@@ -175,7 +175,7 @@ extension CometChatStickerKeyboard : UICollectionViewDelegate , UICollectionView
     /// - Parameters:
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - indexPath: A list of indexes that together represent the path to a specific location in a tree of nested arrays.
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let sticketSetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CometChatStickerKeyboardItem", for: indexPath) as! CometChatStickerKeyboardItem
         if collectionView == self.stickersCollectionView {
@@ -198,7 +198,7 @@ extension CometChatStickerKeyboard : UICollectionViewDelegate , UICollectionView
     /// - Parameters:
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - indexPath: A list of indexes that together represent the path to a specific location in a tree of nested arrays.
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == self.stickerSetCollectionVew {
             if let cell = collectionView.cellForItem(at: indexPath) as? CometChatStickerKeyboardItem, let stickerSet = cell.stickerSet, let stickers = stickerSet.stickers {
@@ -227,7 +227,7 @@ extension CometChatStickerKeyboard : UICollectionViewDelegate , UICollectionView
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - cell: A single data item when that item is within the collection view’s visible bounds.
     ///   - indexPath: A list of indexes that together represent the path to a specific location in a tree of nested arrays.
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.stickerSetCollectionVew {
             
             
@@ -244,7 +244,7 @@ extension CometChatStickerKeyboard : UICollectionViewDelegate , UICollectionView
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - collectionViewLayout: An abstract base class for generating layout information for a collection view.
     ///   - indexPath: A list of indexes that together represent the path to a specific location in a tree of nested arrays.
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.stickersCollectionView {
             
             let screenSize = UIScreen.main.bounds
@@ -260,7 +260,7 @@ extension CometChatStickerKeyboard : UICollectionViewDelegate , UICollectionView
         return CGSize(width: 0, height: 0)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
         {
         return UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
         }
