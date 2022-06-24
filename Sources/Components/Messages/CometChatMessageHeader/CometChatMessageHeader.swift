@@ -26,10 +26,10 @@ import CometChatPro
     
     var currentUser: User?
     var currentGroup: Group?
-    var backButtonIcon: UIImage = UIImage(named: "messages-back.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
-    var audioCallIcon: UIImage = UIImage(named: "messages-audio-call.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
-    var videoCallIcon: UIImage = UIImage(named: "messages-video-call.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
-    var infoIcon: UIImage = UIImage(named: "messages-info.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var backButtonIcon: UIImage = UIImage(named: "messages-back.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var audioCallIcon: UIImage = UIImage(named: "messages-audio-call.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var videoCallIcon: UIImage = UIImage(named: "messages-video-call.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var infoIcon: UIImage = UIImage(named: "messages-info.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
     var controller: UIViewController?
     var configuration: CometChatConfiguration?
     var configurations: [CometChatConfiguration]?

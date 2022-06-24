@@ -61,9 +61,9 @@ enum MessageComposerMode {
     var plusIcon = UIImage(named: "message-composer-plus", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
     var attachmentIcon = UIImage(named: "message-composer-attachment", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)  ?? UIImage()
     var stickerIcon = UIImage(named: "message-composer-sticker", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)  ?? UIImage()
-    var liveReactionIcon: UIImage = UIImage(named: "message-composer-heart.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
-    var sendIcon: UIImage = UIImage(named: "message-composer-send.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
-    var closeIcon: UIImage = UIImage(named: "message-composer-close.png")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var liveReactionIcon: UIImage = UIImage(named: "message-composer-heart.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var sendIcon: UIImage = UIImage(named: "message-composer-send.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
+    var closeIcon: UIImage = UIImage(named: "message-composer-close.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage()
     
     var hideLiveReaction: Bool = false
     var hideEmoji: Bool = false
