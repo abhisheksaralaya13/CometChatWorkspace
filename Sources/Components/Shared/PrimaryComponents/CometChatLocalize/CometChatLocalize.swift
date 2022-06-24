@@ -68,9 +68,9 @@ public class CometChatLocalize: Bundle {
     public class func set(locale: Language){
         self.locale = locale.rawValue
         defer {
-            object_setClass(Bundle.main, CometChatLocalize.self)
+            object_setClass(CometChatUIKit.bundle, CometChatLocalize.self)
         }
-        objc_setAssociatedObject(Bundle.main, &bundleKey,    Bundle.main.path(forResource: locale.rawValue, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(CometChatUIKit.bundle, &bundleKey,    CometChatUIKit.bundle.path(forResource: locale.rawValue, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
     /**

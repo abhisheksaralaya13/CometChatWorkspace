@@ -318,7 +318,7 @@ import CometChatPro
     }
     
     private func registerCellWith(title: String){
-        let cell = UINib(nibName: title, bundle: Bundle.main)
+        let cell = UINib(nibName: title, bundle: CometChatUIKit.bundle)
         self.tableView.register(cell, forCellReuseIdentifier: title)
     }
     

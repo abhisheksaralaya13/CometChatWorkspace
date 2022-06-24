@@ -194,10 +194,12 @@ public protocol CometChatSectionListDelegate  {
     
     private func commonInit() {
         print(" CometChatSectionList configurations: \(configurations)")
-        Bundle.main.loadNibNamed("CometChatSectionList", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.frame = bounds
+            addSubview(contentView)
+        }
         setuptTableView()
         registerCells()
         configureDetailList()
@@ -238,7 +240,7 @@ public protocol CometChatSectionListDelegate  {
     }
     
     private func registerCellWith(title: String){
-        let cell = UINib(nibName: title, bundle: Bundle.main)
+        let cell = UINib(nibName: title, bundle: CometChatUIKit.bundle)
         self.tableView.register(cell, forCellReuseIdentifier: title)
     }
     

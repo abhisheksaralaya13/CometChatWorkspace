@@ -52,12 +52,13 @@ protocol ActionSheetHeaderViewDelegate: NSObject {
     }
     
     private func commonInit() {
-      Bundle.main.loadNibNamed("ActionSheetHeaderView", owner: self, options: nil)
-      addSubview(contentView)
-      contentView.frame = bounds
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.frame = bounds
+            addSubview(contentView)
+        }
         background.backgroundColor = CometChatActionSheet.backgroundColor
-      contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         let image = UIImage(named: "actionsheet-list.png")?.withRenderingMode(.alwaysTemplate)
         layoutMode.setImage(image, for: .normal)
         layoutMode.tintColor = CometChatTheme.palatte?.primary

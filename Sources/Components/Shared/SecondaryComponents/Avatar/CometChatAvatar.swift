@@ -146,7 +146,7 @@ import AVFAudio
             if let image = image {
                 strongSelf.image = image
             } else {
-                strongSelf.image = UIImage(named: "defaultAvatar.jpg", in: Bundle.main , compatibleWith: nil)
+                strongSelf.image = UIImage(named: "defaultAvatar.jpg", in: CometChatUIKit.bundle , compatibleWith: nil)
             }
         }
         self.set(outerView: setOuterView)

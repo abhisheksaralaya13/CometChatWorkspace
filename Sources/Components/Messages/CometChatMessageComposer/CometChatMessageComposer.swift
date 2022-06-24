@@ -575,10 +575,12 @@ enum MessageComposerMode {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("CometChatMessageComposer", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.frame = bounds
+            addSubview(contentView)
+        }
         configureMessageComposer()
         locationAuthStatus()
         setupDelegates()
@@ -635,7 +637,7 @@ enum MessageComposerMode {
         send.isHidden = true
         
         if #available(iOS 13.0, *) {
-            let sendImage = UIImage(named: "message-composer-send.png", in: Bundle.main, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            let sendImage = UIImage(named: "message-composer-send.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
             send.setImage(sendImage, for: .normal)
             send.tintColor = CometChatTheme.palatte?.primary
         } else {}
