@@ -31,11 +31,11 @@
                         <constraint firstAttribute="height" constant="60" id="fOc-Ce-3je"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-Aj-jOl" customClass="CometChatMessageList">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-Aj-jOl" customClass="CometChatMessageList" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="104" width="414" height="658"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a93-Tz-O8A" customClass="CometChatMessageComposer">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a93-Tz-O8A" customClass="CometChatMessageComposer" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="762" width="414" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

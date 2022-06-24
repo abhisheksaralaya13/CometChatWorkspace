@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="572" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZp-CI-ue7" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZp-CI-ue7" customClass="CometChatGradientView" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="0.0" width="572" height="80"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GUM-fJ-of0">

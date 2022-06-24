@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageComposer">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageComposer" customModule="CometChatUIKit">
             <connections>
                 <outlet property="attachment" destination="wys-dO-xKt" id="NMr-KO-YPg"/>
                 <outlet property="background" destination="0zE-kA-sqy" id="JSZ-3c-ziT"/>
