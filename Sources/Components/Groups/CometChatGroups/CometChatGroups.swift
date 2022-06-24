@@ -8,7 +8,7 @@
 import UIKit
 import CometChatPro
 
-class CometChatGroups: CometChatListBase {
+open class CometChatGroups: CometChatListBase {
 
     @IBOutlet weak var groupList: CometChatGroupList!
     var createGroupIcon = UIImage(named: "groups-create.png", in: CometChatUIKit.bundle, compatibleWith: nil)
@@ -16,7 +16,16 @@ class CometChatGroups: CometChatListBase {
     var configurations: [CometChatConfiguration]?
     var joinedOnly: Bool = true
     
-    override func viewDidLoad() {
+    open override func loadView() {
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view  = contentView
+        }
+    }
+    
+    
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
         addObervers()
@@ -147,37 +156,37 @@ extension CometChatGroups: CometChatListBaseDelegate {
 
 extension CometChatGroups: CometChatGroupEventListner {
     
-    func onGroupMemberAdd(group: Group, members: [GroupMember]) {
+    public func onGroupMemberAdd(group: Group, members: [GroupMember]) {
         print(#function)
     }
     
-    func onCreateGroupClick() {
+    public func onCreateGroupClick() {
         print(#function)
     }
     
     
-    func onItemClick(group: Group, index: IndexPath?) {
+    public func onItemClick(group: Group, index: IndexPath?) {
         print(#function)
     }
     
-    func onGroupCreate(group: Group) {
+    public func onGroupCreate(group: Group) {
         groupList.insert(group: group)
     }
     
-    func onGroupMemberJoin(joinedUser: User, joinedGroup: Group) {
+    public func onGroupMemberJoin(joinedUser: User, joinedGroup: Group) {
         groupList.update(group: joinedGroup)
     }
     
     
-    func onItemLongClick(group: Group, index: IndexPath?) {
+    public func onItemLongClick(group: Group, index: IndexPath?) {
         print(#function)
     }
     
-    func onGroupDelete(group: Group) {
+    public func onGroupDelete(group: Group) {
         groupList.remove(group: group)
     }
     
-    func onGroupMemberLeave(leftUser: User, leftGroup: Group) {
+    public func onGroupMemberLeave(leftUser: User, leftGroup: Group) {
         if joinedOnly == true {
             groupList.remove(group: leftGroup)
         }else{
@@ -187,23 +196,23 @@ extension CometChatGroups: CometChatGroupEventListner {
     }
     
 
-    func onGroupMemberBan(bannedUser: User, bannedGroup: Group) {
+    public func onGroupMemberBan(bannedUser: User, bannedGroup: Group) {
         print(#function)
     }
     
-    func onGroupMemberUnban(unbannedUserUser: User, unbannedUserGroup: Group) {
+    public func onGroupMemberUnban(unbannedUserUser: User, unbannedUserGroup: Group) {
         print(#function)
     }
     
-    func onGroupMemberKick(kickedUser: User, kickedGroup: Group) {
+    public func onGroupMemberKick(kickedUser: User, kickedGroup: Group) {
         print(#function)
     }
     
-    func onGroupMemberChangeScope(updatedBy: User, updatedUser: User, scopeChangedTo: CometChat.MemberScope, scopeChangedFrom: CometChat.MemberScope, group: Group) {
+    public func onGroupMemberChangeScope(updatedBy: User, updatedUser: User, scopeChangedTo: CometChat.MemberScope, scopeChangedFrom: CometChat.MemberScope, group: Group) {
         print(#function)
     }
     
-    func onError(group: Group?, error: CometChatException) {
+    public func onError(group: Group?, error: CometChatException) {
         print(#function)
     }
 }
