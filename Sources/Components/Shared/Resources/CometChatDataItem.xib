@@ -149,7 +149,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="avatarWidthconstant" destination="8z5-45-wxG" id="Ujf-n2-Wcn"/>
                 <outlet property="background" destination="vGx-AB-kI8" id="tyo-oT-EfY"/>
                 <outlet property="check" destination="QdY-nr-vcz" id="Y7L-Kh-gZN"/>
                 <outlet property="scopeChangeButton" destination="zKB-lW-YA6" id="1aw-Uw-6Lb"/>
