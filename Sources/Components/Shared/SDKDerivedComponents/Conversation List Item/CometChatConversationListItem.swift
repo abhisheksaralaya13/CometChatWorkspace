@@ -677,7 +677,7 @@ import AVFAudio
                         self.set(title: name)
                     }
                     
-                    avatar.setAvatar(avatarUrl: group.icon ?? "", with: group.name ?? "")
+                    self.set(avatar: avatar.setAvatar(avatarUrl: group.icon ?? "", with: group.name ?? ""))
                   
                     switch group.groupType {
                     case .public:

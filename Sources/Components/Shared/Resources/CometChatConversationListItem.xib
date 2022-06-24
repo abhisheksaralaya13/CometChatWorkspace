@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tly-lr-9EV" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="534" height="148"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qg6-2M-6C7" customClass="CometChatAvatar" customModule="CometChatUIKit" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qg6-2M-6C7" customClass="CometChatAvatar" customModule="CometChatUIKit">
                                 <rect key="frame" x="15" y="10" width="48" height="48"/>
                                 <color key="backgroundColor" red="0.62740999460220337" green="0.76244419813156128" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -44,7 +44,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAD-LJ-cxp" customClass="CometChatStatusIndicator" customModule="CometChatUIKit" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAD-LJ-cxp" customClass="CometChatStatusIndicator" customModule="CometChatUIKit">
                                 <rect key="frame" x="49" y="44" width="14" height="14"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -98,7 +98,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-Tr-HO0">
                                         <rect key="frame" x="0.0" y="30" width="441" height="93"/>
                                         <subviews>
-                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chats-message-read.png" translatesAutoresizingMaskIntoConstraints="NO" id="n71-Of-vwF" customClass="CometChatMessageReceipt" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chats-message-read.png" translatesAutoresizingMaskIntoConstraints="NO" id="n71-Of-vwF" customClass="CometChatMessageReceipt" customModule="CometChatUIKit">
                                                 <rect key="frame" x="-24" y="0.0" width="24" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="HiJ-i1-Tav"/>
