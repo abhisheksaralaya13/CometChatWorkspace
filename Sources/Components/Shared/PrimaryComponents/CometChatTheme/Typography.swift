@@ -111,6 +111,7 @@ public class CometChatFontFamily {
     static var semibold: String  = ""
     static var bold: String  = ""
   
+    public init() {}
     
     init(regular: String, medium: String, semibold: String, bold: String) {
         CometChatFontFamily.regular = regular
