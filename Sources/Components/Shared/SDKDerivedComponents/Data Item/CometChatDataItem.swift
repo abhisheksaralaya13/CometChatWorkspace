@@ -447,7 +447,7 @@ class CometChatDataItem: UITableViewCell {
                             return String(memberCount) + " " + "MEMBERS".localize()
                         }
                     }
-                   
+                   return ""
                 })
                 
                 configureDataItem()
