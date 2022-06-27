@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Typography {
+public struct Typography {
     
     var Heading: UIFont = UIFont.systemFont(ofSize: 34, weight: .bold)
     

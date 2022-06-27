@@ -10,15 +10,15 @@ import UIKit
 
  public class CometChatTheme {
     
-    static var typography: Typography?
-    static var palatte: Palette?
+    public static var typography: Typography?
+    public static var palatte: Palette?
     
     
-    init() {}
+     public init() {}
     
 
     @discardableResult
-    init(typography: Typography, palatte: Palette) {
+     public init(typography: Typography, palatte: Palette) {
         CometChatTheme.typography = typography
         CometChatTheme.palatte = palatte
     }
