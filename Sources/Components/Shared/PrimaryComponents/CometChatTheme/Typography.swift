@@ -113,21 +113,21 @@ public class CometChatFontFamily {
   
     public init() {}
     
-    init(regular: String, medium: String, semibold: String, bold: String) {
+    public init(regular: String, medium: String, semibold: String, bold: String) {
         CometChatFontFamily.regular = regular
         CometChatFontFamily.medium = medium
         CometChatFontFamily.semibold = semibold
         CometChatFontFamily.bold = bold
     }
     
-    init(regular: String, medium: String, bold: String) {
+    public init(regular: String, medium: String, bold: String) {
         CometChatFontFamily.regular = regular
         CometChatFontFamily.medium = medium
         CometChatFontFamily.semibold = medium
         CometChatFontFamily.bold = bold
     }
     
-    init(regular: String) {
+    public init(regular: String) {
         CometChatFontFamily.regular = regular
         CometChatFontFamily.medium = regular
         CometChatFontFamily.semibold = regular
