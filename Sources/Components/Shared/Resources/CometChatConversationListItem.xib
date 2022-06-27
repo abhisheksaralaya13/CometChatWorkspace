@@ -136,7 +136,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="Cbr-f2-Tyn" secondAttribute="trailing" id="jZu-18-VCU"/>
                                                         </constraints>
                                                     </view>
-                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9k-XE-qnp" customClass="CometChatBadgeCount" customModule="CometChatUIKit" customModuleProvider="target">
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9k-XE-qnp" customClass="CometChatBadgeCount" customModule="CometChatUIKit">
                                                         <rect key="frame" x="441" y="0.0" width="32" height="23"/>
                                                         <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
