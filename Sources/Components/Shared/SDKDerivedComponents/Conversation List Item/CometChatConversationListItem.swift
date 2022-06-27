@@ -358,7 +358,7 @@ import AVFAudio
     @discardableResult
     public func hide(unreadCount: Bool) -> CometChatConversationListItem {
         self.hideUnreadCount = unreadCount
-        self.unreadCount.isHidden = unreadCountunreadCount
+        self.unreadCount.isHidden = unreadCount
         return self
     }
     
