@@ -375,8 +375,12 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: false)
-                    self.set(subTitle:  subtitle(user))
+                    if !subtitle(user).isEmpty {
+                        self.hide(subtitle: false)
+                        self.set(subTitle:  subtitle(user))
+                    }else{
+                        self.hide(subtitle: true)
+                    }
                 }else{
                     self.hide(subtitle: true)
                 }
@@ -461,12 +465,15 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: false)
-                    self.set(subTitle:  subtitle(group))
+                    if !subtitle(group).isEmpty {
+                        self.hide(subtitle: false)
+                        self.set(subTitle:  subtitle(group))
+                    }else{
+                        self.hide(subtitle: true)
+                    }
                 }else{
                     self.hide(subtitle: true)
                 }
-
                 // Style
                 
                 let style = Style(background: CometChatTheme.palatte?.background, border: 1, cornerRadius: 20.0, titleColor: CometChatTheme.palatte?.accent, titleFont: CometChatTheme.typography?.Name2, subTitleColor: CometChatTheme.palatte?.accent600, subTitleFont: CometChatTheme.typography?.Subtitle1)
@@ -504,8 +511,12 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: false)
-                    self.set(subTitle:  subtitle(groupMember))
+                    if !subtitle(groupMember).isEmpty {
+                        self.hide(subtitle: false)
+                        self.set(subTitle:  subtitle(groupMember))
+                    }else{
+                        self.hide(subtitle: true)
+                    }
                 }else{
                     self.hide(subtitle: true)
                 }
@@ -551,8 +562,12 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: false)
-                    self.set(subTitle:  subtitle(bannedGroupMember))
+                    if !subtitle(bannedGroupMember).isEmpty {
+                        self.hide(subtitle: false)
+                        self.set(subTitle:  subtitle(bannedGroupMember))
+                    }else{
+                        self.hide(subtitle: true)
+                    }
                 }else{
                     self.hide(subtitle: true)
                 }
