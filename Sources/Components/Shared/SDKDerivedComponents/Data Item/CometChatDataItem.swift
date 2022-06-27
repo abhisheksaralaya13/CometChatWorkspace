@@ -384,7 +384,7 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitleText = inputData?.subtitleText {
-                    self.set(subTitle: subtitleText)
+                    self.set(subTitle:  subtitleText(user))
                 }
                 
                
