@@ -35,13 +35,15 @@ public class ConversationInputData : InputData {
     var readReceipt: Bool?
     var timestamp: Bool?
     
-    public init(thumbnail: Bool?, status: Bool?, unreadCount: Bool?, readReceipt: Bool?, timestamp: Bool?) {
+    public init(title: Bool?, thumbnail: Bool?, status: Bool?, unreadCount: Bool?, readReceipt: Bool?, timestamp: Bool?, subtitle: ((_ object: AnyObject) -> String)?) {
         super.init()
         self.thumbnail = thumbnail
         self.status = status
         self.unreadCount = unreadCount
         self.readReceipt = readReceipt
         self.timestamp = timestamp
+        self.title = title
+        self.subtitle = subtitle
     }
     
 }
