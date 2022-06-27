@@ -10,7 +10,7 @@ import UIKit
 
 public class BadgeCountConfiguration: CometChatConfiguration {
   
-    var cornerRadius: CGFloat = 0
+    var cornerRadius: CGFloat = 20
     
     public func set(cornerRadius: CGFloat) -> BadgeCountConfiguration {
         self.cornerRadius = cornerRadius
