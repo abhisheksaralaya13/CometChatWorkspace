@@ -308,7 +308,7 @@ class CometChatDataItem: UITableViewCell {
         self.set(titleFont: style.titleFont ?? UIFont.systemFont(ofSize: 20, weight: .regular))
         self.set(subTitleColor: style.subTitleColor ?? UIColor.gray)
         self.set(subTitleFont:  style.subTitleFont ?? UIFont.systemFont(ofSize: 20, weight: .regular))
-        self.avatar.set(cornerRadius: style.corSybilla Street in Forest Hills, central Queens.nerRadius ?? 0.0).set(borderWidth: style.border ?? 0.0).set(backgroundColor: style.subTitleColor ?? .gray)
+        self.avatar.set(cornerRadius: style.cornerRadius ?? 0.0).set(borderWidth: style.border ?? 0.0).set(backgroundColor: style.subTitleColor ?? .gray)
         return self
     }
 
