@@ -297,6 +297,7 @@ import AVFAudio
     
     @discardableResult
     @objc public func hide(time: Bool) -> CometChatConversationListItem {
+        self.hideTime = time
         self.time.isHidden = time
         return self
     }
@@ -357,6 +358,7 @@ import AVFAudio
     @discardableResult
     public func hide(unreadCount: Bool) -> CometChatConversationListItem {
         self.hideUnreadCount = unreadCount
+        self.unreadCount.isHidden = unreadCountunreadCount
         return self
     }
     
@@ -900,6 +902,10 @@ import AVFAudio
             
             if let readReceipt = conversationInputData?.readReceipt {
                 self.hide(receipt: !readReceipt)
+            }
+            
+            if let unreadCount = conversationInputData?.unreadCount {
+                self.hide(unreadCount: true)
             }
             
             self.addLongPress()
