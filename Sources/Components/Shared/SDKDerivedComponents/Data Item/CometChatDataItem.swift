@@ -358,7 +358,7 @@ class CometChatDataItem: UITableViewCell {
                 self.set(statusIndicator: user.status)
                self.set(avatar: avatar.setAvatar(avatarUrl: user.avatar ?? "", with: user.name ?? ""))
                 
-                inputData = InputData(title: true, thumbnail: true, status: true, subtitle: nil)
+                inputData = InputData(title: true, thumbnail: true, status: false, subtitle: nil)
                 configureDataItem()
                 
                 
