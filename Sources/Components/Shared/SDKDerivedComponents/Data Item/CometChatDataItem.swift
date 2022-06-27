@@ -358,21 +358,12 @@ class CometChatDataItem: UITableViewCell {
                 self.set(statusIndicator: user.status)
                self.set(avatar: avatar.setAvatar(avatarUrl: user.avatar ?? "", with: user.name ?? ""))
                 
-                inputData =  InputData(title: true, subtitle: true, thumbnail: true, status: true) { user in
-                    return String(user.lastActiveAt)
-                }
-                
-               // inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
-                
+                inputData = InputData(title: true, thumbnail: true, status: true, subtitle: nil)
                 configureDataItem()
                 
                 
                 if let title = inputData?.title {
                     self.hide(title: !title)
-                }
-                
-                if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: !subtitle)
                 }
                 
                 if let status = inputData?.status {
@@ -383,11 +374,13 @@ class CometChatDataItem: UITableViewCell {
                     self.hide(avatar: !thumbnail)
                 }
                 
-                if let subtitleText = inputData?.subtitleText {
-                    self.set(subTitle:  subtitleText(user))
+                if let subtitle = inputData?.subtitle {
+                    self.hide(subtitle: false)
+                    self.set(subTitle:  subtitle(user))
+                }else{
+                    self.hide(subtitle: true)
                 }
-                
-               
+
                 
                 // Style
                 
@@ -419,12 +412,6 @@ class CometChatDataItem: UITableViewCell {
                     self.set(title: name)
                 }
                 
-                if group.membersCount == 1 {
-                    self.set(subTitle: "\(group.membersCount) " + "MEMBER".localize())
-                }else{
-                    self.set(subTitle: "\(group.membersCount) " + "MEMBERS".localize())
-                }
-               
                 self.set(avatar: avatar.setAvatar(avatarUrl: group.icon ?? "", with: group.name ?? ""))
               
                 switch group.groupType {
@@ -448,9 +435,13 @@ class CometChatDataItem: UITableViewCell {
                     break
                 }
                 
-                inputData =  InputData(title: true, subtitle: true, thumbnail: true, status: true) { group in
-                    return String((group as? Group)?.createdAt ?? 0)
-                }
+                inputData = InputData(title: true, thumbnail: true, status: true, subtitle: { group in
+                    if group.membersCount == 1 {
+                        return "\(String(describing: group.membersCount)) " + "MEMBER".localize()
+                    }else{
+                        return "\(String(describing: group.membersCount)) " + "MEMBERS".localize()
+                    }
+                })
                 
                 configureDataItem()
                 // Input Data
@@ -459,20 +450,21 @@ class CometChatDataItem: UITableViewCell {
                     self.hide(title: !title)
                 }
                 
-                if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: !subtitle)
-                }
-                
                 if let status = inputData?.status {
-                    self.hide(statusIndicator: !status)
+                    if group.groupType != .public {
+                        self.hide(statusIndicator: !status)
+                    }
                 }
                 
                 if let thumbnail = inputData?.thumbnail {
                     self.hide(avatar: !thumbnail)
                 }
                 
-                if let subtitleText = inputData?.subtitleText {
-                    self.set(subTitle:  subtitleText(group))
+                if let subtitle = inputData?.subtitle {
+                    self.hide(subtitle: false)
+                    self.set(subTitle:  subtitle(group))
+                }else{
+                    self.hide(subtitle: true)
                 }
 
                 // Style
@@ -503,7 +495,7 @@ class CometChatDataItem: UITableViewCell {
                 self.set(statusIndicator: groupMember.status)
                 self.set(avatar: avatar.setAvatar(avatarUrl: groupMember.avatar ?? "", with: groupMember.name ?? ""))
             
-                inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
+                inputData = InputData(title: true, thumbnail: false, status: true, subtitle: nil)
                 
                 configureDataItem()
                 
@@ -512,7 +504,10 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: !subtitle)
+                    self.hide(subtitle: false)
+                    self.set(subTitle:  subtitle(groupMember))
+                }else{
+                    self.hide(subtitle: true)
                 }
                 
                 if let status = inputData?.status {
@@ -547,7 +542,7 @@ class CometChatDataItem: UITableViewCell {
                 self.set(statusIndicator: bannedGroupMember.status)
                 self.set(avatar: avatar.setAvatar(avatarUrl: bannedGroupMember.avatar ?? "", with: bannedGroupMember.name ?? ""))
             
-                inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
+                inputData = InputData(title: true, thumbnail: false, status: true, subtitle: nil)
                 
                 configureDataItem()
                 configureTailView(bannedGroupMember: bannedGroupMember)
@@ -556,7 +551,10 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 if let subtitle = inputData?.subtitle {
-                    self.hide(subtitle: !subtitle)
+                    self.hide(subtitle: false)
+                    self.set(subTitle:  subtitle(bannedGroupMember))
+                }else{
+                    self.hide(subtitle: true)
                 }
                 
                 if let status = inputData?.status {

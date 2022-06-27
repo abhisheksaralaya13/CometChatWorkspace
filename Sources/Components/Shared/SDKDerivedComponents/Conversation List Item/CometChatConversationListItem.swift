@@ -879,7 +879,10 @@ import AVFAudio
             }
             
             if let subtitle = conversationInputData?.subtitle {
-                self.hide(subtitle: !subtitle)
+                self.hide(subtitle: false)
+              //  self.set(subTitle:  subtitle(conversation))
+            }else{
+                self.hide(subtitle: true)
             }
             
             if let status = conversationInputData?.status {

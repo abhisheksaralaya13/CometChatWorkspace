@@ -9,13 +9,13 @@ import UIKit
 import CometChatPro
 
 
-class CometChatBannedMembers: CometChatListBase {
+open class CometChatBannedMembers: CometChatListBase {
 
     @IBOutlet weak var bannedMemberList: CometChatBannedMemberList!
     var configurations: [CometChatConfiguration]?
     var group: Group?
     
-    override func loadView() {
+    open override func loadView() {
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -23,7 +23,7 @@ class CometChatBannedMembers: CometChatListBase {
         }
     }
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
         addObervers()

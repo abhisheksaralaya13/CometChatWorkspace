@@ -9,7 +9,7 @@ import UIKit
 import CometChatPro
 
 
-class CometChatTransferOwnership: CometChatListBase {
+open class CometChatTransferOwnership: CometChatListBase {
 
     @IBOutlet weak var memberList: CometChatMemberList!
     
@@ -17,7 +17,7 @@ class CometChatTransferOwnership: CometChatListBase {
     var configurations: [CometChatConfiguration]?
     var group: Group?
     
-    override func loadView() {
+    open override func loadView() {
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -25,7 +25,7 @@ class CometChatTransferOwnership: CometChatListBase {
         }
     }
         
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
         addObervers()
@@ -139,8 +139,4 @@ extension CometChatTransferOwnership: CometChatListBaseDelegate {
             removeObervers()
         }
     }
-}
-
-extension CometChatTransferOwnership {
-    //static var comethatMemberDelegate: ComethatMemberDelegate?
 }
