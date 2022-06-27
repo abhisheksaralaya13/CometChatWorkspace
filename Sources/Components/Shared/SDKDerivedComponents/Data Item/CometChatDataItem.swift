@@ -440,11 +440,14 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 inputData = InputData(title: true, thumbnail: true, status: true, subtitle: { group in
-                    if group.membersCount == 1 {
-                        return "\(String(describing: group.membersCount)) " + "MEMBER".localize()
-                    }else{
-                        return "\(String(describing: group.membersCount)) " + "MEMBERS".localize()
+                    if let memberCount = group.membersCount {
+                        if group.membersCount < 1 {
+                            return String(memberCount) + " " + "MEMBER".localize()
+                        }else{
+                            return String(memberCount) + " " + "MEMBERS".localize()
+                        }
                     }
+                   
                 })
                 
                 configureDataItem()
