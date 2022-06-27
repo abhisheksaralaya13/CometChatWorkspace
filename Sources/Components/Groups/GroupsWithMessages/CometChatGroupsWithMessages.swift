@@ -8,10 +8,10 @@
 import UIKit
 import CometChatPro
 
-class CometChatGroupsWithMessages: CometChatGroups {
+open class CometChatGroupsWithMessages: CometChatGroups {
 
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
       
     }
@@ -21,7 +21,7 @@ class CometChatGroupsWithMessages: CometChatGroups {
     }
    
     
-    override func onItemClick(group: Group, index: IndexPath?) {
+    public override func onItemClick(group: Group, index: IndexPath?) {
         if group.hasJoined == true {
             let messages = CometChatMessages()
             messages.set(group: group)
@@ -33,7 +33,7 @@ class CometChatGroupsWithMessages: CometChatGroups {
         }
     }
     
-    override func onGroupCreate(group: Group) {
+    public  override func onGroupCreate(group: Group) {
         groupList.add(group: group)
         if group.hasJoined == true {
             let messages = CometChatMessages()
@@ -46,7 +46,7 @@ class CometChatGroupsWithMessages: CometChatGroups {
         }
     }
     
-    override func onGroupMemberJoin(joinedUser: User, joinedGroup: Group) {
+    public override func onGroupMemberJoin(joinedUser: User, joinedGroup: Group) {
         groupList.update(group: joinedGroup)
         if joinedGroup.hasJoined == true {
             let messages = CometChatMessages()
@@ -61,11 +61,11 @@ class CometChatGroupsWithMessages: CometChatGroups {
     
 
     
-    override func onGroupDelete(group: Group) {
+    public  override func onGroupDelete(group: Group) {
         groupList.remove(group: group)
     }
     
-    override func onGroupMemberLeave(leftUser: User, leftGroup: Group) {
+    public override func onGroupMemberLeave(leftUser: User, leftGroup: Group) {
         if joinedOnly == true {
             groupList.remove(group: leftGroup)
         }else{

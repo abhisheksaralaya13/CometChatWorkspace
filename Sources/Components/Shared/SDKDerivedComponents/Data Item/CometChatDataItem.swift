@@ -358,7 +358,11 @@ class CometChatDataItem: UITableViewCell {
                 self.set(statusIndicator: user.status)
                self.set(avatar: avatar.setAvatar(avatarUrl: user.avatar ?? "", with: user.name ?? ""))
                 
-                inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
+                inputData =  InputData(title: true, subtitle: true, thumbnail: true, status: true) { user in
+                    return String(user.lastActiveAt)
+                }
+                
+               // inputData = InputData(title: true, subtitle: false, thumbnail: true, status: true)
                 
                 configureDataItem()
                 
@@ -379,6 +383,11 @@ class CometChatDataItem: UITableViewCell {
                     self.hide(avatar: !thumbnail)
                 }
                 
+                if let subtitleText = inputData?.subtitleText {
+                    self.set(subTitle: subtitleText)
+                }
+                
+               
                 
                 // Style
                 

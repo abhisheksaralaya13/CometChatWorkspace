@@ -16,15 +16,17 @@ public class InputData : NSObject {
     var subtitle: Bool?
     var thumbnail: Bool?
     var status: Bool?
-
+    
+    var subtitleText: ((_ user: User) -> String)?
     
     override init() { }
     
-    init(title: Bool?, subtitle: Bool, thumbnail: Bool?, status: Bool?) {
+    init(title: Bool?, subtitle: Bool, thumbnail: Bool?, status: Bool?, subtitleText: ((_ user: User) -> String)? = nil) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
         self.status = status
+        self.subtitleText = subtitleText
     }
 }
 
