@@ -33,6 +33,7 @@ import CometChatPro
     var controller: UIViewController?
     var configuration: CometChatConfiguration?
     var configurations: [CometChatConfiguration]?
+    var inputData: InputData?
     
     @discardableResult
     @objc public func set(user: User) -> CometChatMessageHeader {
@@ -53,6 +54,13 @@ import CometChatPro
         }
         return self
     }
+    
+    @discardableResult
+    @objc public func set(inputData: InputData) -> CometChatMessageHeader {
+        self.inputData = inputData
+        return self
+    }
+    
     
     @discardableResult
     @objc public func set(statusIndicator: CometChatStatusIndicator) -> CometChatMessageHeader {
@@ -349,11 +357,45 @@ import CometChatPro
                     statusIndicator.set(status: .offline, backgroundColor: configuration.backgroundColorForOfflineState)
                 }
                 
-                hide(title:  messageHeaderConfiguration.hideTitle)
-                hide(subtitle: messageHeaderConfiguration.hideSubtitle)
-                hide(avatar: messageHeaderConfiguration.hideAvatar)
-                hide(statusIndicator: messageHeaderConfiguration.hideStatusIndicator)
-                hide(statusIndicator: messageHeaderConfiguration.hideStatusIndicator)
+                if let title = inputData?.title {
+                    self.hide(title: !title)
+                }
+                
+                if let status = inputData?.status {
+                    self.hide(statusIndicator: !status)
+                }
+                
+                if let thumbnail = inputData?.thumbnail {
+                    self.hide(avatar: !thumbnail)
+                }
+                
+                if let currentUser = currentUser {
+                    if let subtitle = inputData?.subtitle {
+                        if !subtitle(currentUser).isEmpty {
+                            self.hide(subtitle: false)
+                            self.set(subTitle:  subtitle(currentUser))
+                        }else{
+                            self.hide(subtitle: true)
+                        }
+                    }else{
+                        self.hide(subtitle: true)
+                    }
+                    
+                }
+                
+                if let currentGroup = currentGroup {
+                    if let subtitle = inputData?.subtitle {
+                        if !subtitle(currentGroup).isEmpty {
+                            self.hide(subtitle: false)
+                            self.set(subTitle:  subtitle(currentGroup))
+                        }else{
+                            self.hide(subtitle: true)
+                        }
+                    }else{
+                        self.hide(subtitle: true)
+                    }
+                    
+                }\
                 hide(backButton: messageHeaderConfiguration.hideBackButton)
                 hide(videoCallButton: messageHeaderConfiguration.hideVideoCallButton)
                 hide(voiceCallButton: messageHeaderConfiguration.hideVoiceCallButton)

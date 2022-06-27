@@ -14,12 +14,15 @@ public class  MessageHeaderConfiguration: CometChatConfiguration {
     lazy var hideVideoCallButton: Bool = true
     lazy var hideVoiceCallButton: Bool = true
     lazy var hideInfoButton: Bool = false
-    lazy var hideTitle: Bool = false
-    lazy var hideSubtitle:  Bool = false
-    lazy var hideAvatar: Bool = false
-    lazy var hideStatusIndicator: Bool = false
     var avatarConfiguration: AvatarConfiguration?
+    var inputData: InputData?
     var statusIndicatorConfiguration: StatusIndicatorConfiguration?
+    
+    
+    public func set(inputData: InputData) -> Self {
+        self.inputData = inputData
+        return self
+    }
     
     public func hide(backButton: Bool) -> Self {
         self.hideBackButton = backButton
@@ -41,26 +44,6 @@ public class  MessageHeaderConfiguration: CometChatConfiguration {
         return self
     }
     
-    public func hide(title: Bool) -> Self {
-        self.hideTitle = title
-        return self
-    }
-    
-    public func hide(subtitle: Bool) -> Self {
-        self.hideSubtitle = subtitle
-        return self
-    }
-    
-    public func hide(avatar: Bool) -> Self {
-        self.hideAvatar = avatar
-        self.hideStatusIndicator = avatar
-        return self
-    }
-    
-    public func hide(statusIndicator: Bool) -> Self {
-        self.hideStatusIndicator = statusIndicator
-        return self
-    }
     
     public func set(avatarConfiguration: AvatarConfiguration) -> Self {
         self.avatarConfiguration = avatarConfiguration
