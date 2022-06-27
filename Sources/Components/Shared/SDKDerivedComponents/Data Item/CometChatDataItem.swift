@@ -448,6 +448,10 @@ class CometChatDataItem: UITableViewCell {
                     break
                 }
                 
+                inputData =  InputData(title: true, subtitle: true, thumbnail: true, status: true) { group in
+                    return String((group as? Group)?.createdAt)
+                }
+                
                 configureDataItem()
                 // Input Data
                 
@@ -465,6 +469,10 @@ class CometChatDataItem: UITableViewCell {
                 
                 if let thumbnail = inputData?.thumbnail {
                     self.hide(avatar: !thumbnail)
+                }
+                
+                if let subtitleText = inputData?.subtitleText {
+                    self.set(subTitle:  subtitleText(group))
                 }
 
                 // Style
