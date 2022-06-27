@@ -373,7 +373,7 @@ import CometChatPro
                     if let subtitle = inputData?.subtitle {
                         if !subtitle(currentUser).isEmpty {
                             self.hide(subtitle: false)
-                            self.set(subTitle:  subtitle(currentUser))
+                            self.set(subtitle:  subtitle(currentUser))
                         }else{
                             self.hide(subtitle: true)
                         }
@@ -386,7 +386,7 @@ import CometChatPro
                     if let subtitle = inputData?.subtitle {
                         if !subtitle(currentGroup).isEmpty {
                             self.hide(subtitle: false)
-                            self.set(subTitle:  subtitle(currentGroup))
+                            self.set(subtitle:  subtitle(currentGroup))
                         }else{
                             self.hide(subtitle: true)
                         }
