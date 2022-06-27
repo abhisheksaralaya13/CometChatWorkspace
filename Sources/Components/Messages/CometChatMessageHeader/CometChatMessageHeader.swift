@@ -380,7 +380,6 @@ import CometChatPro
                     }else{
                         self.hide(subtitle: true)
                     }
-                    
                 }
                 
                 if let currentGroup = currentGroup {
@@ -394,8 +393,7 @@ import CometChatPro
                     }else{
                         self.hide(subtitle: true)
                     }
-                    
-                }\
+                }
                 hide(backButton: messageHeaderConfiguration.hideBackButton)
                 hide(videoCallButton: messageHeaderConfiguration.hideVideoCallButton)
                 hide(voiceCallButton: messageHeaderConfiguration.hideVoiceCallButton)
