@@ -20,7 +20,7 @@ public class InputData : NSObject {
     
     override init() { }
     
-    init(title: Bool?, thumbnail: Bool?, status: Bool?, subtitle: ((_ object: AnyObject) -> String)?) {
+    public init(title: Bool?, thumbnail: Bool?, status: Bool?, subtitle: ((_ object: AnyObject) -> String)?) {
         self.title = title
         self.subtitle = subtitle
         self.thumbnail = thumbnail
@@ -35,7 +35,7 @@ public class ConversationInputData : InputData {
     var readReceipt: Bool?
     var timestamp: Bool?
     
-    init(thumbnail: Bool?, status: Bool?, unreadCount: Bool?, readReceipt: Bool?, timestamp: Bool?) {
+    public init(thumbnail: Bool?, status: Bool?, unreadCount: Bool?, readReceipt: Bool?, timestamp: Bool?) {
         super.init()
         self.thumbnail = thumbnail
         self.status = status
@@ -51,7 +51,7 @@ public class SentMessageInputData : InputData {
     var timestamp: Bool?
     var readReceipt: Bool?
     
-    init(title: Bool?, thumbnail: Bool?, readReceipt: Bool?,  timestamp: Bool?) {
+    public init(title: Bool?, thumbnail: Bool?, readReceipt: Bool?,  timestamp: Bool?) {
         super.init()
         self.title = title
         self.thumbnail = thumbnail
@@ -66,7 +66,7 @@ public class ReceivedMessageInputData : InputData {
     var timestamp: Bool?
     var readReceipt: Bool?
     
-    init(title: Bool?, thumbnail: Bool?, readReceipt: Bool?,  timestamp: Bool?) {
+    public init(title: Bool?, thumbnail: Bool?, readReceipt: Bool?,  timestamp: Bool?) {
         super.init()
         self.title = title
         self.thumbnail = thumbnail

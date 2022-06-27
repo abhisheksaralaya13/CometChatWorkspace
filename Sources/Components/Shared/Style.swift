@@ -30,7 +30,7 @@ public struct Style {
     
     init() {}
     
-    init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?) {
+    public init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?) {
         self.background = background
         self.border = border
         self.cornerRadius = cornerRadius
@@ -38,7 +38,7 @@ public struct Style {
         self.titleColor = titleColor
     }
     
-    init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?, subTitleColor: UIColor?, subTitleFont: UIFont?) {
+    public init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?, subTitleColor: UIColor?, subTitleFont: UIFont?) {
         self.background = background
         self.border = border
         self.cornerRadius = cornerRadius
@@ -48,7 +48,7 @@ public struct Style {
         self.subTitleFont = subTitleFont
     }
     
-    init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?, subTitleColor: UIColor?, subTitleFont: UIFont?, loadingIconTint: UIColor?, emptyStateTextFont: UIFont?, emptyStateTextColor: UIColor?, errorStateTextFont: UIFont?, errorStateTextColor: UIColor?) {
+    public init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?, subTitleColor: UIColor?, subTitleFont: UIFont?, loadingIconTint: UIColor?, emptyStateTextFont: UIFont?, emptyStateTextColor: UIColor?, errorStateTextFont: UIFont?, errorStateTextColor: UIColor?) {
         self.background = background
         self.border = border
         self.cornerRadius = cornerRadius
