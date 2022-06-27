@@ -297,7 +297,7 @@ import AVFAudio
     
     @discardableResult
     @objc public func hide(time: Bool) -> CometChatConversationListItem {
-        self.hideTime = time
+        self.time.isHidden = time
         return self
     }
     /**
