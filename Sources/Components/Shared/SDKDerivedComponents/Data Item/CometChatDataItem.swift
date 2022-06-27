@@ -449,7 +449,7 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
                 inputData =  InputData(title: true, subtitle: true, thumbnail: true, status: true) { group in
-                    return String((group as? Group)?.createdAt)
+                    return String((group as? Group)?.createdAt ?? 0)
                 }
                 
                 configureDataItem()
