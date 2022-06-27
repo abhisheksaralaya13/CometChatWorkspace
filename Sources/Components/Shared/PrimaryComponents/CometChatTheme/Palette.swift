@@ -66,6 +66,8 @@ public struct Palette {
         return accent?.withAlphaComponent(1)
     }
     
+    public init() {}
+    
     @discardableResult
     public mutating func set(primary: UIColor) -> Palette {
         self.primary = primary

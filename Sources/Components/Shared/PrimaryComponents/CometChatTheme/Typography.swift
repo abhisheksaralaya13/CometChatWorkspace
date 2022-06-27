@@ -30,7 +30,7 @@ public struct Typography {
     
     var Caption2: UIFont = UIFont.systemFont(ofSize: 11, weight: .medium)
     
-
+    public init() {}
     
     @discardableResult
     public mutating func setFont(heading: UIFont) -> Typography {
