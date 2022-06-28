@@ -556,7 +556,7 @@ class CometChatDataItem: UITableViewCell {
                 self.set(statusIndicator: bannedGroupMember.status)
                 self.set(avatar: avatar.setAvatar(avatarUrl: bannedGroupMember.avatar ?? "", with: bannedGroupMember.name ?? ""))
             
-                inputData = InputData(title: true, thumbnail: false, status: true, subtitle: nil)
+                inputData = InputData(title: true, thumbnail: true, status: true, subtitle: nil)
                 
                 configureDataItem()
                 configureTailView(bannedGroupMember: bannedGroupMember)
