@@ -704,7 +704,7 @@ class CometChatDataItem: UITableViewCell {
             
             switch parentGroup.scope {
             case .admin where groupMember.scope == .admin:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.accent
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 
@@ -715,15 +715,15 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
             case .admin where groupMember.scope == .moderator:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.primary
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.primary, for: .normal)
                 self.scopeChangeButton.setTitle("MODERATOR".localize()  + "  " , for: .normal)
                 
             case .admin where groupMember.scope == .participant:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.primary
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.primary, for: .normal)
                 self.scopeChangeButton.setTitle("PARTICIPANT".localize()  + "  ", for: .normal)
                 
             case .moderator where groupMember.scope == .admin:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.accent
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 if parentGroup.owner == groupMember.uid {
@@ -733,17 +733,17 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
             case .moderator where groupMember.scope == .moderator:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.accent
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 self.scopeChangeButton.setTitle("MODERATOR".localize()  + "  " , for: .normal)
                 
             case .moderator where groupMember.scope == .participant:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.primary
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.primary, for: .normal)
                 self.scopeChangeButton.setTitle("PARTICIPANT".localize()  + "  " , for: .normal)
                 
             case .participant where groupMember.scope == .admin:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.accent
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 if parentGroup.owner == groupMember.uid {
@@ -753,13 +753,13 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
             case .participant where groupMember.scope == .moderator:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.accent
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 self.scopeChangeButton.setTitle("MODERATOR".localize() + "  ", for: .normal)
                 
             case .participant where groupMember.scope == .participant:
-                self.scopeChangeButton.tintColor = CometChatTheme.palatte?.accent
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 self.scopeChangeButton.setTitle("PARTICIPANT".localize() + "  ", for: .normal)
