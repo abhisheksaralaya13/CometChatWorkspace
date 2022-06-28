@@ -704,7 +704,7 @@ class CometChatDataItem: UITableViewCell {
             
             switch parentGroup.scope {
             case .admin where groupMember.scope == .admin:
-                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 
@@ -723,7 +723,7 @@ class CometChatDataItem: UITableViewCell {
                 self.scopeChangeButton.setTitle("PARTICIPANT".localize()  + "  ", for: .normal)
                 
             case .moderator where groupMember.scope == .admin:
-                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 if parentGroup.owner == groupMember.uid {
@@ -733,7 +733,7 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
             case .moderator where groupMember.scope == .moderator:
-                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 self.scopeChangeButton.setTitle("MODERATOR".localize()  + "  " , for: .normal)
@@ -743,7 +743,7 @@ class CometChatDataItem: UITableViewCell {
                 self.scopeChangeButton.setTitle("PARTICIPANT".localize()  + "  " , for: .normal)
                 
             case .participant where groupMember.scope == .admin:
-                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 if parentGroup.owner == groupMember.uid {
@@ -753,13 +753,13 @@ class CometChatDataItem: UITableViewCell {
                 }
                 
             case .participant where groupMember.scope == .moderator:
-                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 self.scopeChangeButton.setTitle("MODERATOR".localize() + "  ", for: .normal)
                 
             case .participant where groupMember.scope == .participant:
-                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent, for: .normal)
+                self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
                 self.scopeChangeButton.isEnabled = false
                 self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0)
                 self.scopeChangeButton.setTitle("PARTICIPANT".localize() + "  ", for: .normal)
@@ -803,6 +803,7 @@ class CometChatDataItem: UITableViewCell {
         self.scopeChangeButton.imageView?.layer.transform = CATransform3DMakeScale(0, 0, 0);
         self.scopeChangeButton.isEnabled = false
         self.scopeChangeButton.setTitle("BANNED".localize(), for: .normal)
+        self.scopeChangeButton.setTitleColor(CometChatTheme.palatte?.accent600, for: .normal)
     }
     
 }
