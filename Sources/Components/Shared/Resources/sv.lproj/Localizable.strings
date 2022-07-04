@@ -517,3 +517,4 @@
 "PEOPLE_VOTED" = "People Voted";
 "TRANSLATED_MESSAGE" = "Translated message";
 "DELETE_CONVERSATION_MESSAGE" = "Would you like to delete this conversation? This conversation will be deleted from all of your devices.";
+"THIS_MAY_CONTAIN_UNSAFE_CONTENT_MESSAGE" = "Are you surely want to see this unsafe content?";
