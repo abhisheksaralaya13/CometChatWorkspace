@@ -42,12 +42,9 @@ class CometChatTextBubble: UIView {
             translatedText.append(translatedString)
             self.set(attributedText: translatedText)
         }else{
-            let messageText = NSMutableAttributedString(string: "\(message.text)\n\n",
-                                                        attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
-            
             self.parseProfanityFilter(forMessage: message)
             self.parseMaskedData(forMessage: message)
-            // set(attributedText: messageText)
+            
         }
         
         

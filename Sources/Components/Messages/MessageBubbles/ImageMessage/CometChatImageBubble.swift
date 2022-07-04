@@ -13,7 +13,9 @@ import QuickLook
 class CometChatImageBubble: UIView {
     
     // MARK: - Properties
-    
+    @IBOutlet weak var unsafeContent: UILabel!
+    @IBOutlet weak var unsafeContentView: UIStackView!
+    @IBOutlet weak var imageModerationView: UIView!
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -49,9 +51,10 @@ class CometChatImageBubble: UIView {
             activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
         }
-        
+        unsafeContent.text = "SENSITIVE_CONTENT".localize()
         guard let mediaURL = message.metaData, let imageURL = mediaURL["fileURL"] as? String, let url = URL(string: imageURL) else {
             parseThumbnailForImage(forMessage: message)
+            parseImageForModeration(forMessage: message)
             print("Media Message not found.")
             return }
         
@@ -63,12 +66,18 @@ class CometChatImageBubble: UIView {
                     guard let strongSelf = self else { return }
                     strongSelf.imageThumbnail.image = image
                 }
+                if message.sender?.uid != CometChat.getLoggedInUser()?.uid  {
+                    parseImageForModeration(forMessage: message)
+                }
                 
             } catch {
                 print("Image url not found correctly.")
             }
         } else {
-            self.parseThumbnailForImage(forMessage: message)
+            parseThumbnailForImage(forMessage: message)
+            if message.sender?.uid != CometChat.getLoggedInUser()?.uid  {
+                parseImageForModeration(forMessage: message)
+            }
         }
     }
     
@@ -79,7 +88,7 @@ class CometChatImageBubble: UIView {
     // MARK: - Helper Methods
     
     private func commonInit() {
-        CometChatUIKit.bundle.loadNibNamed("CometChatImageBubble", owner: self, options: nil)
+        Bundle.module.loadNibNamed("CometChatImageBubble", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -87,17 +96,53 @@ class CometChatImageBubble: UIView {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onImageClick))
         imageThumbnail.addGestureRecognizer(tap)
         imageThumbnail.isUserInteractionEnabled = true
+        
+        let tapOnImageModerationView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onImageClick))
+        imageModerationView.addGestureRecognizer(tapOnImageModerationView)
+        imageModerationView.isUserInteractionEnabled = true
+        
+        let tapOnUnsafeContentView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onImageClick))
+        unsafeContentView.addGestureRecognizer(tapOnUnsafeContentView)
+        unsafeContentView.isUserInteractionEnabled = true
     }
     
+    
     @objc  func onImageClick() {
-        self.previewMediaMessage(url: message?.attachment?.fileUrl ?? "", completion: {(success, fileURL) in
-            if success {
-                if let url = fileURL {
-                    self.previewItem = url as NSURL
-                    self.presentQuickLook()
+        
+        if let metaData = message?.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let imageModerationDictionary = cometChatExtension["image-moderation"] as? [String : Any], let imageModeration = imageModerationDictionary["image-moderation"] as? [String:Any] , message?.sender?.uid != CometChat.getLoggedInUser()?.uid {
+            
+            if let unsafeContent = imageModeration["unsafe"] as? String {
+                if unsafeContent == "yes" {
+                    
+                    let confirmDialog = CometChatDialog()
+                    confirmDialog.set(title: "SENSITIVE_CONTENT".localize())
+                    confirmDialog.set(messageText: "THIS_MAY_CONTAIN_UNSAFE_CONTENT_MESSAGE".localize())
+                    confirmDialog.set(confirmButtonText: "OK".localize())
+                    confirmDialog.set(cancelButtonText: "CANCEL".localize())
+                    confirmDialog.open {
+                        self.previewMediaMessage(url: self.message?.attachment?.fileUrl ?? "", completion: {(success, fileURL) in
+                            if success {
+                                if let url = fileURL {
+                                    self.previewItem = url as NSURL
+                                    self.presentQuickLook()
+                                }
+                            }
+                        })
+                    } onCancel: { }
                 }
             }
-        })
+        }else{
+            self.previewMediaMessage(url: message?.attachment?.fileUrl ?? "", completion: {(success, fileURL) in
+                if success {
+                    if let url = fileURL {
+                        self.previewItem = url as NSURL
+                        self.presentQuickLook()
+                    }
+                }
+            })
+        }
+        
+        
     }
     
     private func parseThumbnailForImage(forMessage: MediaMessage?) {
@@ -130,22 +175,19 @@ class CometChatImageBubble: UIView {
     }
     
     private func parseImageForModeration(forMessage: MediaMessage?) {
-        if let metaData = forMessage?.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let imageModerationDictionary = cometChatExtension["image-moderation"] as? [String : Any] {
-            if let unsafeContent = imageModerationDictionary["unsafe"] as? String {
+        if let metaData = forMessage?.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let imageModerationDictionary = cometChatExtension["image-moderation"] as? [String : Any], let imageModeration = imageModerationDictionary["image-moderation"] as? [String:Any] {
+            
+            if let unsafeContent = imageModeration["unsafe"] as? String {
                 if unsafeContent == "yes" {
-                    // TODO: - Add these commented line's view.
-                    //   imageModerationView.addBlur()
-                    //  imageModerationView.isHidden = false
-                    //  unsafeContentImage.isHidden = false
+                    imageModerationView.addBlur()
+                    imageModerationView.roundViewCorners([.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner], radius: 15)
+                    imageModerationView.isHidden = false
+                    unsafeContentView.isHidden = false
                 }else{
-                    // imageModerationView.isHidden = true
-                    //  unsafeContentImage.isHidden = true
+                    imageModerationView.isHidden = true
+                    unsafeContentView.isHidden = true
                 }
-            }else{
-                parseThumbnailForImage(forMessage: forMessage)
             }
-        }else{
-            parseThumbnailForImage(forMessage: forMessage)
         }
     }
     

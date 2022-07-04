@@ -427,6 +427,12 @@ class CometChatMessageBubble: UITableViewCell {
                 backgroundWidthConstraint.constant = width > widthFixed ? widthFixed + 20: width + 20
                 let textBubble = CometChatTextBubble(frame: CGRect(x: 10, y: -5, width: backgroundWidthConstraint.constant - 15 , height: height), message: message, isStandard: isStandard)
                 background.addSubview(textBubble)
+            }else if let  metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], let _ = linkArray[safe: 0] {
+               
+                
+               let linkPreviewBubble =  CometChatLinkPreviewBubble(frame: CGRect(x: 10, y: 8, width: 228, height: 400), message: message)
+                background.addSubview(linkPreviewBubble)
+                        
             } else {
                 let widthFixed = 228.0
                 let heightFixed = 22.0
@@ -714,6 +720,7 @@ class CometChatMessageBubble: UITableViewCell {
             configureMessageBubble(forMessage: message)
         }
         
+        self.reactions.isHidden = true
     }
     
 
