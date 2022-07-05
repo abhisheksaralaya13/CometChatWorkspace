@@ -371,6 +371,9 @@ import CometChatPro
                set(tags: configuration.tags)
                set(roles: configuration.roles)
                set(uids: configuration.uids)
+               set(emptyView: configuration.emptyView)
+               set(errorMessage: configuration.errorText)
+               set(emptyStateMessage: configuration.emptyText)
            }
        }
     }

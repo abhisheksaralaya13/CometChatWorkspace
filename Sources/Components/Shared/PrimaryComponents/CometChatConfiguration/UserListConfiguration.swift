@@ -23,6 +23,8 @@ public class UserListConfiguration: CometChatConfiguration {
     var hideBlockedUsers: Bool = false
     var hideError: Bool = false
     var searchKeyword: String = ""
+    var emptyText: String = "NO_USERS_FOUND".localize()
+    var errorText: String = "SOMETHING_WENT_WRONG_ERROR".localize()
     var status: CometChat.UserStatus = .offline
     var limit: Int = 30
     var tags: [String] = [String]()
@@ -85,6 +87,21 @@ public class UserListConfiguration: CometChatConfiguration {
     
     public func set(uids: [String]) -> UserListConfiguration {
         self.uids = uids
+        return self
+    }
+    
+    public func set(emptyView: UIView?) -> UserListConfiguration {
+        self.emptyView = emptyView
+        return self
+    }
+    
+    public func set(errorText: String?) -> UserListConfiguration {
+        self.errorText = errorText ?? ""
+        return self
+    }
+    
+    public func set(emptyText: String?) -> UserListConfiguration {
+        self.emptyText = emptyText ?? ""
         return self
     }
 
