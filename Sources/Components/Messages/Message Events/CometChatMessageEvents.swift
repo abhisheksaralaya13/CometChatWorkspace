@@ -37,7 +37,7 @@ public protocol CometChatMessageEventListner {
 
 
 
-class CometChatMessageEvents {
+public class CometChatMessageEvents {
     
     static private var observer = [String: CometChatMessageEventListner]()
     

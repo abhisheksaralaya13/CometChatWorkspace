@@ -20,7 +20,7 @@ import Foundation
     
 }
 
-class CometChatConversationEvents {
+public class CometChatConversationEvents {
     
     static private var observer = [String: CometChatConversationEventListner]()
     

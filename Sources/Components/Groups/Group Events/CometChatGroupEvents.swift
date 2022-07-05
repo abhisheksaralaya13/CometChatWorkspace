@@ -28,7 +28,7 @@ import Foundation
     
 }
 
-class  CometChatGroupEvents {
+public class  CometChatGroupEvents {
     
     static private var observer = [String: CometChatGroupEventListner]()
     
