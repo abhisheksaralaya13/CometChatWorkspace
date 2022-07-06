@@ -20,6 +20,9 @@ open class CometChatUsersWithMessages: CometChatUsers {
         
         let cometChatMessages: CometChatMessages = CometChatMessages()
         cometChatMessages.set(user: user)
+        if let configurations = configurations {
+            cometChatMessages.set(configurations: configurations)
+        }
         cometChatMessages.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(cometChatMessages, animated: true)
     

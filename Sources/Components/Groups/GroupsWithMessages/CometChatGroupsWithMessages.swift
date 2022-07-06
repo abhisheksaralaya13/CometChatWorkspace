@@ -25,6 +25,9 @@ open class CometChatGroupsWithMessages: CometChatGroups {
         if group.hasJoined == true {
             let messages = CometChatMessages()
             messages.set(group: group)
+            if let configurations = configurations {
+                messages.set(configurations: configurations)
+            }
             if navigationController != nil {
                 self.navigationController?.pushViewController(messages, animated: true)
             }else{
