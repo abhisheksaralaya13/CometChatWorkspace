@@ -55,7 +55,7 @@ public class GroupListConfiguration: CometChatConfiguration {
         return self
     }
     
-    public func set(emptyView: UIView) -> GroupListConfiguration {
+    public func set(emptyView: UIView?) -> GroupListConfiguration {
         self.emptyView = emptyView
         return self
     }
