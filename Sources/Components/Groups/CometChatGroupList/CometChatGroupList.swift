@@ -257,7 +257,8 @@ import CometChatPro
                 set(searchKeyword: configuration.searchKeyWord)
                 set(limit: configuration.limit)
                 set(tags: configuration.tags)
-               
+                set(errorMessage: configuration.errorText)
+                set(emptyStateMessage: configuration.emptyText)
             }
         }
      }

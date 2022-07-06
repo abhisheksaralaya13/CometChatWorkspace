@@ -30,6 +30,8 @@ public class GroupListConfiguration: CometChatConfiguration {
     var limit : Int = 30
     var groupListMode: GroupDisplayMode  = .none
     var groupListItemConfiguration : GroupListItemConfiguration?
+    var emptyText: String = "NO_GROUPS_FOUND".localize()
+    var errorText: String = "SOMETHING_WENT_WRONG_ERROR".localize()
     
     public func set(background: [CGColor]) -> GroupListConfiguration {
         self.background = background
@@ -80,6 +82,16 @@ public class GroupListConfiguration: CometChatConfiguration {
     
     public func set(limit: Int) -> GroupListConfiguration {
         self.limit = limit
+        return self
+    }
+    
+    public func set(errorText: String?) -> GroupListConfiguration {
+        self.errorText = errorText ?? ""
+        return self
+    }
+    
+    public func set(emptyText: String?) -> GroupListConfiguration {
+        self.emptyText = emptyText ?? ""
         return self
     }
     
