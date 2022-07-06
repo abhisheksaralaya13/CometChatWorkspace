@@ -36,13 +36,13 @@ import UIKit
         }
     }
     @discardableResult
-    @objc func set(backgroundColor: UIColor) -> CometChatGradientView {
+    @objc public func set(backgroundColor: UIColor) -> CometChatGradientView {
         self.backgroundColor = backgroundColor
         return self
     }
     
     @discardableResult
-    @objc func set(backgroundColorWithGradient: [Any]?) ->  CometChatGradientView {
+    @objc public func set(backgroundColorWithGradient: [Any]?) ->  CometChatGradientView {
         if let currentColors = backgroundColorWithGradient as? [CGColor] {
             self.colors = currentColors
         }

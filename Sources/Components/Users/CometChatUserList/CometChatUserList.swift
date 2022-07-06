@@ -684,7 +684,7 @@ extension CometChatUserList: UITableViewDelegate, UITableViewDataSource {
             
             if let user = filteredUsers[safe: indexPath.row] , let cometChatDataItem = tableView.dequeueReusableCell(withIdentifier: "CometChatDataItem", for: indexPath) as? CometChatDataItem {
                 cometChatDataItem.set(configurations: configurations)
-                cometChatDataItem.allow(selction: isSelectionEnabled)
+                cometChatDataItem.allow(selection: isSelectionEnabled)
                 cometChatDataItem.set(user: user)
                 return cometChatDataItem
             }
@@ -692,7 +692,7 @@ extension CometChatUserList: UITableViewDelegate, UITableViewDataSource {
 
             if let user = users[safe: section]?[safe: indexPath.row] , let cometChatDataItem = tableView.dequeueReusableCell(withIdentifier: "CometChatDataItem", for: indexPath) as? CometChatDataItem {
                 cometChatDataItem.set(configurations: configurations)
-                cometChatDataItem.allow(selction: isSelectionEnabled)
+                cometChatDataItem.allow(selection: isSelectionEnabled)
                 cometChatDataItem.set(user: user)
                 return cometChatDataItem
             }

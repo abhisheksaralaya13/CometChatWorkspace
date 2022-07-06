@@ -548,7 +548,7 @@ extension CometChatMemberList: UITableViewDelegate, UITableViewDataSource {
             if let groupMember = filteredGroupMembers[safe: indexPath.row] , let cometChatDataItem = tableView.dequeueReusableCell(withIdentifier: "CometChatDataItem", for: indexPath) as? CometChatDataItem {
                 cometChatDataItem.set(configurations: configurations)
                 cometChatDataItem.set(parentGroup: group)
-                cometChatDataItem.allow(selction: allowSelection)
+                cometChatDataItem.allow(selection: allowSelection)
                 cometChatDataItem.allow(pramoteDemoteModerators: allowPromoteDemoteMembers)
                 cometChatDataItem.set(groupMember: groupMember)
                 return cometChatDataItem
@@ -558,7 +558,7 @@ extension CometChatMemberList: UITableViewDelegate, UITableViewDataSource {
             if let groupMember = groupMembers[safe: indexPath.row] , let cometChatDataItem = tableView.dequeueReusableCell(withIdentifier: "CometChatDataItem", for: indexPath) as? CometChatDataItem {
                 cometChatDataItem.set(configurations: configurations)
                 cometChatDataItem.set(parentGroup: group)
-                cometChatDataItem.allow(selction: allowSelection)
+                cometChatDataItem.allow(selection: allowSelection)
                 cometChatDataItem.allow(pramoteDemoteModerators: allowPromoteDemoteMembers)
                 cometChatDataItem.set(groupMember: groupMember)
 

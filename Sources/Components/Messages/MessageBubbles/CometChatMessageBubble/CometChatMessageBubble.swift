@@ -150,13 +150,13 @@ class CometChatMessageBubble: UITableViewCell {
     }
     
     @discardableResult
-    @objc func set(borderColor : UIColor) -> Self {
+    @objc public func set(borderColor : UIColor) -> Self {
         self.background.layer.borderColor = borderColor.cgColor
         return self
     }
     
     @discardableResult
-    @objc func set(borderWidth : CGFloat) -> Self {
+    @objc public func set(borderWidth : CGFloat) -> Self {
         self.background.layer.borderWidth = borderWidth
         return self
     }

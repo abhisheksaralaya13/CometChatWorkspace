@@ -18,25 +18,25 @@ public class MessagesConfiguration:  CometChatConfiguration {
 
     
     @discardableResult
-    @objc func set(messageHeaderConfiguration: MessageHeaderConfiguration) -> Self {
+    @objc public func set(messageHeaderConfiguration: MessageHeaderConfiguration) -> Self {
         self.messageHeaderConfiguration = messageHeaderConfiguration
         return self
     }
     
     @discardableResult
-    @objc func set(messageListConfiguration: MessageListConfiguration) -> Self {
+    @objc public func set(messageListConfiguration: MessageListConfiguration) -> Self {
         self.messageListConfiguration = messageListConfiguration
         return self
     }
     
     @discardableResult
-    @objc func set(messageBubbleConfiguration: MessageBubbleConfiguration) -> Self {
+    @objc public func set(messageBubbleConfiguration: MessageBubbleConfiguration) -> Self {
         self.messageBubbleConfiguration = messageBubbleConfiguration
         return self
     }
     
     @discardableResult
-    @objc func set(messageComposerConfiguration: MessageComposerConfiguration) -> Self {
+    @objc public func set(messageComposerConfiguration: MessageComposerConfiguration) -> Self {
         self.messageComposerConfiguration = messageComposerConfiguration
         return self
     }

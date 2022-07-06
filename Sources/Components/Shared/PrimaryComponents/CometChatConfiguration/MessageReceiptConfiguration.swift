@@ -17,51 +17,56 @@ public class MessageReceiptConfiguration: CometChatConfiguration  {
     var messageErrorIcon = UIImage(named: "messages-wait", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     
     @discardableResult
-    @objc func setProgressIcon(icon: UIImage) -> MessageReceiptConfiguration {
+    @objc public func setProgressIcon(icon: UIImage) -> MessageReceiptConfiguration {
         self.messageWaitIcon = icon
         return self
     }
     
     @discardableResult
-    @objc func setSentIcon(icon: UIImage) -> MessageReceiptConfiguration {
+    @objc public func setSentIcon(icon: UIImage) -> MessageReceiptConfiguration {
         self.messageSentIcon = icon
         return self
     }
     
     @discardableResult
-    @objc func setDeliveredIcon(icon: UIImage) -> MessageReceiptConfiguration {
+    @objc public func setDeliveredIcon(icon: UIImage) -> MessageReceiptConfiguration {
         self.messageSentIcon = icon
         return self
     }
     
     @discardableResult
-    @objc func setReadIcon(icon: UIImage) -> MessageReceiptConfiguration {
+    @objc public func setReadIcon(icon: UIImage) -> MessageReceiptConfiguration {
         self.messageReadIcon = icon
         return self
     }
     
     @discardableResult
-    @objc func setFailureIcon(icon: UIImage) -> MessageReceiptConfiguration {
+    @objc public func setFailureIcon(icon: UIImage) -> MessageReceiptConfiguration {
         self.messageErrorIcon = icon
         return self
     }
     
+    @discardableResult
     public func getProgressIcon() -> UIImage{
         return messageWaitIcon ?? UIImage()
     }
     
+    @discardableResult
     public func getDeliveredIcon() -> UIImage {
         return messageDeliveredIcon ?? UIImage()
     }
     
+    @discardableResult
     public func getReadIcon() -> UIImage {
         return messageReadIcon ?? UIImage()
     }
     
+    @discardableResult
     public func getFailureIcon() -> UIImage {
         return messageErrorIcon ?? UIImage()
     }
     
+    @discardableResult
     public func getSentIcon() -> UIImage {
         return messageSentIcon ?? UIImage()
     }

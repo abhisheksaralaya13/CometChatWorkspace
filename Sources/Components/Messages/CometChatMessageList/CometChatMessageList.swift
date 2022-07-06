@@ -181,7 +181,7 @@ public enum  MessageType : String {
     }
     
     @discardableResult
-    @objc func enableSoundForMessages(bool: Bool) -> Self {
+    @objc public func enableSoundForMessages(bool: Bool) -> Self {
         self.enableSoundForMessages = bool
         return self
     }

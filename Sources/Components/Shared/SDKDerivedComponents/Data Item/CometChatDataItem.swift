@@ -83,15 +83,15 @@ class CometChatDataItem: UITableViewCell {
         return self
     }
         
-        @discardableResult  public func allow(selction: Bool?) ->  CometChatDataItem {
-            if let selction = selction {
-                allowSelection = selction
-                if selction == true {
-                    self.check.isHidden = false
-                }
+    @discardableResult  public func allow(selection: Bool?) ->  CometChatDataItem {
+        if let selction = selection {
+            allowSelection = selction
+            if selction == true {
+                self.check.isHidden = false
             }
-            return self
         }
+        return self
+    }
     
     
     @discardableResult

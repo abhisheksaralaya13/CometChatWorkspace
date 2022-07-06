@@ -107,13 +107,13 @@ class CometChatMeetingBubble: UITableViewCell {
     
     
     @discardableResult
-    @objc func set(borderColor : UIColor) -> CometChatMeetingBubble {
+    @objc public func set(borderColor : UIColor) -> CometChatMeetingBubble {
         self.background.layer.borderColor = borderColor.cgColor
         return self
     }
 
     @discardableResult
-    @objc func set(borderWidth : CGFloat) -> CometChatMeetingBubble {
+    @objc public func set(borderWidth : CGFloat) -> CometChatMeetingBubble {
         self.background.layer.borderWidth = borderWidth
         return self
     }

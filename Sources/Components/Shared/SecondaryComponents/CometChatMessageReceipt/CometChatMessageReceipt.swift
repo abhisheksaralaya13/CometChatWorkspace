@@ -40,31 +40,31 @@ import  CometChatPro
     
     // MARK: - instance methods
     @discardableResult
-    @objc func set(messageInProgressIcon: UIImage) -> CometChatMessageReceipt {
+    @objc public func set(messageInProgressIcon: UIImage) -> CometChatMessageReceipt {
         self.messageWaitIcon = messageInProgressIcon
         return self
     }
     
     @discardableResult
-    @objc func set(messageSentIcon: UIImage) -> CometChatMessageReceipt {
+    @objc public func set(messageSentIcon: UIImage) -> CometChatMessageReceipt {
         self.messageSentIcon = messageWaitIcon
         return self
     }
     
     @discardableResult
-    @objc func set(messageDeliveredIcon: UIImage) -> CometChatMessageReceipt {
+    @objc public func set(messageDeliveredIcon: UIImage) -> CometChatMessageReceipt {
         self.messageDeliveredIcon = messageDeliveredIcon
         return self
     }
     
     @discardableResult
-    @objc func set(messageReadIcon: UIImage) -> CometChatMessageReceipt {
+    @objc public func set(messageReadIcon: UIImage) -> CometChatMessageReceipt {
         self.messageReadIcon = messageReadIcon
         return self
     }
     
     @discardableResult
-    @objc func set(messageErrorIcon: UIImage) -> CometChatMessageReceipt {
+    @objc public func set(messageErrorIcon: UIImage) -> CometChatMessageReceipt {
         self.messageErrorIcon = messageErrorIcon
         return self
     }
@@ -77,7 +77,7 @@ import  CometChatPro
      [CometChatAvatar Documentation](https://prodocs.cometchat.com/docs/ios-ui-components#section-1-avatar)
      */
     @discardableResult
-    @objc func set(receipt forMessage: BaseMessage) -> CometChatMessageReceipt {
+    @objc public func set(receipt forMessage: BaseMessage) -> CometChatMessageReceipt {
         if let metaData = forMessage.metaData, let isError = metaData["error"] as? Bool, isError {
             self.isHidden = false
             self.image = messageErrorIcon

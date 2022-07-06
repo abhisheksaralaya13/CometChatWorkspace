@@ -239,28 +239,28 @@ enum MessageComposerMode {
     }
     
     @discardableResult
-    @objc func set(plusIcon: UIImage) -> CometChatMessageComposer {
+    @objc public func set(plusIcon: UIImage) -> CometChatMessageComposer {
         self.plusIcon = plusIcon.withRenderingMode(.alwaysTemplate)
         self.attachment.setImage(plusIcon, for: .normal)
         return self
     }
     
     @discardableResult
-    @objc func set(attachmentIcon: UIImage) -> CometChatMessageComposer {
+    @objc public func set(attachmentIcon: UIImage) -> CometChatMessageComposer {
         self.attachmentIcon = attachmentIcon.withRenderingMode(.alwaysTemplate)
         self.attachment.setImage(attachmentIcon, for: .normal)
         return self
     }
     
     @discardableResult
-    @objc func set(stickerIcon: UIImage) -> CometChatMessageComposer {
+    @objc public func set(stickerIcon: UIImage) -> CometChatMessageComposer {
         self.stickerIcon = stickerIcon.withRenderingMode(.alwaysTemplate)
         self.sticker.setImage(stickerIcon, for: .normal)
         return self
     }
     
     @discardableResult
-    @objc func set(liveReactionIcon: UIImage) -> CometChatMessageComposer {
+    @objc public func set(liveReactionIcon: UIImage) -> CometChatMessageComposer {
         self.liveReactionIcon = liveReactionIcon.withRenderingMode(.alwaysTemplate)
         self.liveReaction.setImage(liveReactionIcon, for: .normal)
         return self
@@ -268,39 +268,39 @@ enum MessageComposerMode {
     
     
     @discardableResult
-    @objc func set(sendIcon: UIImage) -> CometChatMessageComposer {
+    @objc public func set(sendIcon: UIImage) -> CometChatMessageComposer {
         self.sendIcon = sendIcon.withRenderingMode(.alwaysTemplate)
         self.send.setImage(sendIcon, for: .normal)
         return self
     }
     
     @discardableResult
-    @objc func set(plusIconTint: UIColor) -> CometChatMessageComposer {
+    @objc public func set(plusIconTint: UIColor) -> CometChatMessageComposer {
         self.attachment.tintColor = plusIconTint
         return self
     }
     
     @discardableResult
-    @objc func set(attachmentIconTint: UIColor) -> CometChatMessageComposer {
+    @objc public func set(attachmentIconTint: UIColor) -> CometChatMessageComposer {
         self.attachment.tintColor = attachmentIconTint
         return self
     }
     
     @discardableResult
-    @objc func set(stickerIconTint: UIColor) -> CometChatMessageComposer {
+    @objc public func set(stickerIconTint: UIColor) -> CometChatMessageComposer {
         self.sticker.tintColor = stickerIconTint
         return self
     }
     
     @discardableResult
-    @objc func set(liveReactionIconTint: UIColor) -> CometChatMessageComposer {
+    @objc public func set(liveReactionIconTint: UIColor) -> CometChatMessageComposer {
         self.liveReaction.tintColor = liveReactionIconTint
         return self
     }
     
     
     @discardableResult
-    @objc func set(sendIconTint: UIColor) -> CometChatMessageComposer {
+    @objc public func set(sendIconTint: UIColor) -> CometChatMessageComposer {
         self.send.tintColor = sendIconTint
         return self
     }

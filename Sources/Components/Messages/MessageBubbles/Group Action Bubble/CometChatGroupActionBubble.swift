@@ -44,13 +44,13 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     
     @discardableResult
-    @objc func set(borderColor : UIColor) -> CometChatGroupActionBubble {
+    @objc public func set(borderColor : UIColor) -> CometChatGroupActionBubble {
         self.message.layer.borderColor = borderColor.cgColor
         return self
     }
 
     @discardableResult
-    @objc func set(borderWidth : CGFloat) -> CometChatGroupActionBubble {
+    @objc public func set(borderWidth : CGFloat) -> CometChatGroupActionBubble {
         self.message.layer.borderWidth = borderWidth
         return self
     }

@@ -66,7 +66,7 @@ import AVFAudio
      [CometChatAvatar Documentation](https://prodocs.cometchat.com/docs/ios-ui-components#section-1-avatar)
      */
     @discardableResult
-    @objc func set(cornerRadius : CGFloat) -> CometChatAvatar {
+    @objc public func set(cornerRadius : CGFloat) -> CometChatAvatar {
         self.cornerRadius = cornerRadius
         self.clipsToBounds = true
         return self
@@ -81,19 +81,19 @@ import AVFAudio
      [CometChatAvatar Documentation](https://prodocs.cometchat.com/docs/ios-ui-components#section-1-avatar)
      */
     @discardableResult
-    @objc func set(borderColor : UIColor) -> CometChatAvatar {
+    @objc public func set(borderColor : UIColor) -> CometChatAvatar {
         self.borderColor = borderColor
         return self
     }
     
     @discardableResult
-    @objc func set(font : UIFont) -> CometChatAvatar {
+    @objc public func set(font : UIFont) -> CometChatAvatar {
         self.setFont = font
         return self
     }
     
     @discardableResult
-    @objc func set(fontColor: UIColor) -> CometChatAvatar {
+    @objc public func set(fontColor: UIColor) -> CometChatAvatar {
         self.setFontColor = fontColor
         return self
     }
@@ -108,7 +108,7 @@ import AVFAudio
      [Avatar Documentation](https://prodocs.cometchat.com/docs/ios-ui-components#section-1-avatar)
      */
     @discardableResult
-    @objc func set(backgroundColor : UIColor) -> CometChatAvatar {
+    @objc public func set(backgroundColor : UIColor) -> CometChatAvatar {
         self.setBackgroundColor = backgroundColor
         return self
     }
@@ -122,7 +122,7 @@ import AVFAudio
      [Avatar Documentation](https://prodocs.cometchat.com/docs/ios-ui-components#section-1-avatar)
      */
     @discardableResult
-    @objc func set(borderWidth : CGFloat) -> CometChatAvatar {
+    @objc public func set(borderWidth : CGFloat) -> CometChatAvatar {
         self.borderWidth = borderWidth
         return self
     }
@@ -137,7 +137,7 @@ import AVFAudio
      [Avatar Documentation](https://prodocs.cometchat.com/docs/ios-ui-components#section-1-avatar)
      */
     @discardableResult
-    @objc func setAvatar(avatarUrl: String) -> CometChatAvatar {
+    @objc public func setAvatar(avatarUrl: String) -> CometChatAvatar {
         guard let url = URL(string: avatarUrl) else { return self }
         //  let url = URL(string: avatarUrl)
         imageRequest = imageService.image(for: url) { [weak self] image in
@@ -154,7 +154,7 @@ import AVFAudio
     }
     
     @discardableResult
-    @objc func setAvatar(avatarUrl: String, with name: String) -> CometChatAvatar {
+    @objc public func setAvatar(avatarUrl: String, with name: String) -> CometChatAvatar {
         guard  let url = URL(string: avatarUrl) else {
             setImage(string: name.uppercased(), color: setBackgroundColor, textAttributes: [ NSAttributedString.Key.font: setFont, NSAttributedString.Key.foregroundColor: setFontColor])
             return self
@@ -174,7 +174,7 @@ import AVFAudio
     }
     
     @discardableResult
-    @objc func setAvatar(user: User) -> CometChatAvatar {
+    @objc public func setAvatar(user: User) -> CometChatAvatar {
         guard  let stringURL = user.avatar, let url = URL(string: stringURL), let name = user.name else {
             setImage(string: user.name!.uppercased(), color: setBackgroundColor, textAttributes: [ NSAttributedString.Key.font: setFont, NSAttributedString.Key.foregroundColor: setFontColor])
             return self
@@ -194,7 +194,7 @@ import AVFAudio
     }
     
     @discardableResult
-    @objc func setAvatar(group: Group) -> CometChatAvatar {
+    @objc public func setAvatar(group: Group) -> CometChatAvatar {
         guard  let stringURL = group.icon, let url = URL(string: stringURL), let name = group.name else {
             setImage(string: group.name!.uppercased(), color: setBackgroundColor, textAttributes: [ NSAttributedString.Key.font: setFont, NSAttributedString.Key.foregroundColor: setFontColor])
             return self
@@ -213,7 +213,7 @@ import AVFAudio
     }
     
     @discardableResult
-    @objc func set(outerView: Bool) -> CometChatAvatar {
+    @objc public func set(outerView: Bool) -> CometChatAvatar {
         if outerView == true {
         self.layer.borderWidth = 5.0
         self.layer.borderColor = setBackgroundColor.cgColor
@@ -230,13 +230,13 @@ import AVFAudio
     }
     
     @discardableResult
-    public func set(configuration: AvatarConfiguration)  -> CometChatAvatar {
+    public  func set(configuration: AvatarConfiguration)  -> CometChatAvatar {
         self.set(cornerRadius: configuration.cornerRadius)
         self.set(borderWidth: configuration.borderWidth)
         return self
     }
 
-    @objc func cancel() {
+    @objc public func cancel() {
         /// This method will cancel the request.
         imageRequest?.cancel()
     }
