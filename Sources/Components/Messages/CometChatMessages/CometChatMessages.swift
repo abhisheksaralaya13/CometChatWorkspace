@@ -59,8 +59,10 @@ open class CometChatMessages: UIViewController {
         return self
     }
     
-    private func set(templates: [CometChatMessageTemplate]) {
-        self.messageTemplates = templates
+    @discardableResult
+    public func set(mesageTypes: [CometChatMessageTemplate])  ->  Self {
+        self.messageTemplates = mesageTypes
+        return self
     }
     
     
