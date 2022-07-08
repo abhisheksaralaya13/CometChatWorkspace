@@ -69,11 +69,15 @@ open class CometChatTransferOwnership: CometChatListBase {
         
         if let member = memberList.selectedMember {
             CometChat.transferGroupOwnership(UID: member.uid ?? "", GUID: group?.guid ?? "") { success in
+                CometChatGroupEvents.emitOnOwnershipChange(group: self.group, member: member)
                 DispatchQueue.main.async {
                     self.dismiss(animated: true)
                 }
             }
         onError: { error in
+            if let error = error {
+                CometChatGroupEvents.emitOnError(group: self.group, error: error)
+            }
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }

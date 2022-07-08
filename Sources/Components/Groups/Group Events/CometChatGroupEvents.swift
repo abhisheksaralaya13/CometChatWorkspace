@@ -18,6 +18,7 @@ import Foundation
     func onCreateGroupClick()
     func onGroupCreate(group: Group)
     func onGroupDelete(group: Group)
+    func onOwnershipChange(group: Group?, member: GroupMember?)
     func onGroupMemberLeave(leftUser: User, leftGroup:  Group)
     func onGroupMemberJoin(joinedUser: User, joinedGroup:  Group)
     func onGroupMemberBan(bannedUser: User, bannedGroup:  Group)
@@ -74,6 +75,15 @@ public class  CometChatGroupEvents {
             observer.onGroupDelete(group: group)
         })
     }
+    
+    internal static  func emitOnOwnershipChange(group: Group?, member: GroupMember?) {
+        self.observer.forEach({
+            (key,observer) in
+            observer.onOwnershipChange(group: group, member: member)
+        })
+    }
+    
+    
     internal static  func emitOnGroupMemberLeave(leftUser: User, leftGroup:  Group) {
         self.observer.forEach({
             (key,observer) in

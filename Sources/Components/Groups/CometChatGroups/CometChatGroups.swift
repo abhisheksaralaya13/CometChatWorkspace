@@ -156,6 +156,11 @@ extension CometChatGroups: CometChatListBaseDelegate {
 
 extension CometChatGroups: CometChatGroupEventListner {
     
+    public func onOwnershipChange(group: Group?, member: GroupMember?) {
+        
+    }
+    
+    
     public func onGroupMemberAdd(group: Group, members: [GroupMember]) {
         print(#function)
     }

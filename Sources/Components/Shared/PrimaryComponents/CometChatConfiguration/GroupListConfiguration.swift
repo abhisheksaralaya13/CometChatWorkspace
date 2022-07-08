@@ -20,7 +20,6 @@ public class GroupListConfiguration: CometChatConfiguration {
     
     var emptyView: UIView?
     var background: [CGColor]?
-    var hideCreateGroup : Bool = true
     var hideDeleteGroup : Bool = true
     var hideLeaveGroup : Bool = true
     var hideError : Bool = false
@@ -33,24 +32,17 @@ public class GroupListConfiguration: CometChatConfiguration {
     var emptyText: String = "NO_GROUPS_FOUND".localize()
     var errorText: String = "SOMETHING_WENT_WRONG_ERROR".localize()
     
-    public func set(background: [CGColor]) -> GroupListConfiguration {
+    private func set(background: [CGColor]) -> GroupListConfiguration {
         self.background = background
         return self
     }
-    
-    
-    
-    public func hide(createGroup: Bool) -> GroupListConfiguration {
-        self.hideCreateGroup = createGroup
-        return self
-    }
-    
-    public func hide(deleteGroup: Bool) -> GroupListConfiguration {
+
+    private func hide(deleteGroup: Bool) -> GroupListConfiguration {
         self.hideDeleteGroup = deleteGroup
         return self
     }
     
-    public func hide(leaveGroup: Bool) -> GroupListConfiguration {
+    private func hide(leaveGroup: Bool) -> GroupListConfiguration {
         self.hideLeaveGroup = leaveGroup
         return self
     }

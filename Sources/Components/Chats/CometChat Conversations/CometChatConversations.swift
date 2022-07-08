@@ -270,6 +270,11 @@ extension CometChatConversations: CometChatMessageEventListner {
 
 extension CometChatConversations: CometChatGroupEventListner {
     
+    public func onOwnershipChange(group: Group?, member: GroupMember?) {
+        
+    }
+    
+    
     public func onItemClick(group: Group, index: IndexPath?) {
         
     }

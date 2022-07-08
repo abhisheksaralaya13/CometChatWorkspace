@@ -59,7 +59,7 @@ open class CometChatMessages: UIViewController {
         return self
     }
     
-    public func set(templates: [CometChatMessageTemplate]) {
+    private func set(templates: [CometChatMessageTemplate]) {
         self.messageTemplates = templates
     }
     
@@ -113,6 +113,9 @@ open class CometChatMessages: UIViewController {
     }
     
     private func setupMessageList() {
+        if let messageTemplates = messageTemplates {
+            messageList.set(templates: messageTemplates)
+        }
         if let configuration = configuration {
             messageList.set(configurations: [configuration])
         }
@@ -129,15 +132,15 @@ open class CometChatMessages: UIViewController {
     }
     
     private func setupMessageComposer(){
+        if let messageTemplates = messageTemplates {
+            messageComposer.set(templates: messageTemplates)
+        }
         if let user = currentUser {
             messageComposer.set(user: user)
         }else if let group = currentGroup {
             messageComposer.set(group: group)
         }
         messageComposer.set(controller: self)
-        if let messageTemplates = messageTemplates {
-            messageComposer.set(templates: messageTemplates)
-        }
         if let configuration = configuration {
             messageList.set(configurations: [configuration])
         }
@@ -252,6 +255,11 @@ extension CometChatMessages: CometChatMessageOptionDelegate {
 }
 
 extension CometChatMessages: CometChatGroupEventListner {
+    
+    public func onOwnershipChange(group: Group?, member: GroupMember?) {
+        
+    }
+    
     
     public func onGroupMemberAdd(group: Group, members: [GroupMember]) {
         messageHeader.set(group: group)
