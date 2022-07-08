@@ -840,7 +840,7 @@ public enum  MessageType : String {
                 
             }
         }else{
-            set(messageTypes: [])
+            set(messageTypes: messagetTypeTemplates)
         }
     }
     
