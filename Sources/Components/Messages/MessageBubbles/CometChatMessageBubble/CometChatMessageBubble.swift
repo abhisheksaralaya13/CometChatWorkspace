@@ -458,6 +458,7 @@ class CometChatMessageBubble: UITableViewCell {
                 ])
             return
         }
+        background.backgroundColor = .clear
         /// show when message has been deleted.
         if message.deletedAt > 0.0 {
             containerStackView.addBackground(color: .clear)
