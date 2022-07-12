@@ -460,15 +460,16 @@ class CometChatMessageBubble: UITableViewCell {
         background.backgroundColor = .clear
         /// show when message has been deleted.
         if message.deletedAt > 0.0 {
-            containerStackView.addBackground(color: .clear)
+            containerStackView.addBackground(color: CometChatTheme.palatte!.background!)
+            background.backgroundColor = .clear
             backgroundHeightConstraint.constant = 36
             backgroundWidthConstraint.constant = 173
             let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
-            containerStackView.addSubview(deleteBubble)
+            background.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
+            reactions.isHidden = true
             heightReactions.constant = 0
             reactions.reactions.removeAll()
-            reactions.isHidden = true
             return
         }
         
