@@ -46,8 +46,6 @@ class CometChatTextBubble: UIView {
             self.parseMaskedData(forMessage: message)
             
         }
-        
-        
         setupStyle(isStandard: isStandard)
     }
     

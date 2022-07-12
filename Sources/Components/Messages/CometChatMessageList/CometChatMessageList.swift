@@ -55,7 +55,7 @@ public enum  MessageType : String {
     var isAnimating = false
     var currentReaction: LiveReaction = .heart
     weak var controller: UIViewController?
-    var customViews:[String: UIView ] = [String:UIView]()
+    var customViews: [String: ((_ message: BaseMessage) -> (UIView))?] = [:]
     var messagesConfigurations: MessageListConfiguration?
     var messageOptions:[String: [CometChatMessageOption]] = [String: [CometChatMessageOption]]()
     var messagetTypeTemplates: [CometChatMessageTemplate] = [CometChatMessageTemplate]()
@@ -202,9 +202,23 @@ public enum  MessageType : String {
         return self
     }
     
+    /**
+     The` background` is a `UIView` which is present in the backdrop for `CometChatUserList`.
+     - Parameters:
+     - background: This method will set the background color for CometChatUserList, it can take an array of multiple colors for the gradient background.
+     - Returns: This method will return `CometChatUserList`
+     - Author: CometChat Team
+     - Copyright:  ©  2022 CometChat Inc.
+     */
     @discardableResult
-    @objc public func set(backgroundColor: UIColor) -> CometChatMessageList {
-        self.background.backgroundColor = backgroundColor
+    public func set(background: [Any]?) ->  CometChatMessageList {
+        if let backgroundColors = background as? [CGColor] {
+            if backgroundColors.count == 1 {
+                self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
+            }else{
+                self.background.set(backgroundColorWithGradient: background)
+            }
+        }
         return self
     }
     
@@ -218,19 +232,6 @@ public enum  MessageType : String {
     @discardableResult
     @objc public func set(controller: UIViewController) -> CometChatMessageList {
         self.controller = controller
-        return self
-    }
-    
-    @discardableResult
-    @objc public func set(templates: [CometChatMessageTemplate]) -> CometChatMessageList {
-        print("template is: \(templates)")
-        self.messagetTypeTemplates = templates
-        if let currentUser = currentUser {
-            self.set(conversationWith: currentUser, type: .user)
-        }
-        if let currentGroup = currentGroup {
-            self.set(conversationWith: currentGroup, type: .group)
-        }
         return self
     }
     
@@ -291,17 +292,18 @@ public enum  MessageType : String {
     
     @discardableResult
     @objc public func set(messageTypes: [CometChatMessageTemplate]?) -> CometChatMessageList {
+        self.messagetTypeTemplates = messageTypes ?? []
         if let messageTemplates = messageTypes {
             if !messageTemplates.isEmpty {
                 print("messageTemplates: \(messageTemplates)")
                 for template in messageTemplates {
-                    switch template.id {
+                    switch template.type {
                     case "text", "image", "video", "audio", "file":
                         if !(messageCategories.contains("message")){
                             self.messageCategories.append("message")
                         }
-                        if !(self.messageTypes.contains(template.id)){
-                            self.messageTypes.append(template.id)
+                        if !(self.messageTypes.contains(template.type)){
+                            self.messageTypes.append(template.type)
                         }
                         
                     case "groupActions":
@@ -326,15 +328,15 @@ public enum  MessageType : String {
                         if !(messageCategories.contains("custom")){
                             self.messageCategories.append("custom")
                         }
-                        if !(self.messageTypes.contains(template.id)){
-                            self.messageTypes.append(template.id)
+                        if !(self.messageTypes.contains(template.type)){
+                            self.messageTypes.append(template.type)
                         }
                     }
                      if let customView = template.customView {
-                        self.customViews.append(with: [template.id : customView])
+                        self.customViews.append(with: [template.type : customView])
                      }
                      if let messageOptions = template.options {
-                        self.messageOptions.append(with: [template.id : messageOptions])
+                        self.messageOptions.append(with: [template.type : messageOptions])
                     }
                 }
             }else{
@@ -342,6 +344,14 @@ public enum  MessageType : String {
                 self.messageCategories = ["message", "custom", "call",  "action"]
                 self.messageTypes = ["text", "image", "video", "audio", "file", "groupMember", "location", "extension_poll", "extension_whiteboard", "extension_document", "extension_sticker", "meeting"]
                 
+            }
+            
+          
+            if let currentUser = currentUser {
+                self.set(conversationWith: currentUser, type: .user)
+            }
+            if let currentGroup = currentGroup {
+                self.set(conversationWith: currentGroup, type: .group)
             }
         }
         
@@ -864,6 +874,7 @@ public enum  MessageType : String {
         
         // New Combined Cells
         self.registerCellWith(title: "CometChatMessageBubble")
+        self.registerCellWith(title: "CometChatTextAutoSizeBubble")
         self.registerCellWith(title: "CometChatGroupActionBubble")
         
     }
@@ -930,34 +941,48 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
         guard let section = indexPath.section as? Int else { return UITableViewCell() }
-        
         if let message = chatMessages[safe: section]?[safe: indexPath.row] {
-            
-            if message.messageCategory == .action {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatGroupActionBubble", for: indexPath) as? CometChatGroupActionBubble {
-                    cell.set(messageObject: message)
-                    return cell
-                }
-            }else{
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatMessageBubble", for: indexPath) as? CometChatMessageBubble {
-                    if let configurations = configurations {
-                        cell.set(configurations: configurations)
-                    }
-                    cell.set(allMessageOptions: messageOptions)
-                    if let controller = controller {
-                        cell.set(controller: controller)
-                    }
-                    cell.set(messageAlignment: messageListAlignment)
-                    print("messageOptions: \(messageOptions)")
-                    cell.set(messageObject: message)
-                    return cell
-                }
+          if message.messageCategory == .action {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatGroupActionBubble", for: indexPath) as? CometChatGroupActionBubble {
+              cell.set(messageObject: message)
+              return cell
             }
+          } else {
+            if let message = message as? TextMessage, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
+              if let configurations = configurations {
+                cell.set(configurations: configurations)
+                cell.customViews = self.customViews
+                cell.set(allMessageOptions: messageOptions)
+              }
+              if let controller = controller {
+                cell.set(controller: controller)
+              }
+              cell.set(messageAlignment: messageListAlignment)
+              print("messageOptions: \(messageOptions)")
+              cell.set(messageObject: message)
+              return cell
+            } else {
+              if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatMessageBubble", for: indexPath) as? CometChatMessageBubble {
+                if let configurations = configurations {
+                  cell.set(configurations: configurations)
+                  cell.customViews = self.customViews
+                  cell.set(allMessageOptions: messageOptions)
+                }
+                if let controller = controller {
+                  cell.set(controller: controller)
+                }
+                cell.set(messageAlignment: messageListAlignment)
+                print("messageOptions: \(messageOptions)")
+                cell.set(messageObject: message)
+                return cell
+              }
+            }
+          }
         }
         return UITableViewCell()
-    }
+      }
+
 }
 
 extension CometChatMessageList: CometChatEmojiKeyboardDelegate {

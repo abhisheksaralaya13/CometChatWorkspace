@@ -6,20 +6,21 @@ import CometChatPro
 extension CometChatMessageList {
 
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        
         guard let message = chatMessages[safe: indexPath.section]?[safe: indexPath.row], let id = message.id as? Int else {
-            return nil
+          return nil
         }
-        
         if let cell = tableView.cellForRow(at: indexPath) as? CometChatMessageBubble {
-            
-            return UIContextMenuConfiguration(identifier: String(id) as? NSCopying, previewProvider: nil) { suggestedActions in
-                return self.configureMessageOptions(options: cell.messageOptions, message: message, indexPath: indexPath)
-            }
-            
+          return UIContextMenuConfiguration(identifier: String(id) as? NSCopying, previewProvider: nil) { suggestedActions in
+            return self.configureMessageOptions(options: cell.messageOptions, message: message, indexPath: indexPath)
+          }
+        }
+        if let cell = tableView.cellForRow(at: indexPath) as? CometChatTextAutoSizeBubble {
+          return UIContextMenuConfiguration(identifier: String(id) as? NSCopying, previewProvider: nil) { suggestedActions in
+            return self.configureMessageOptions(options: cell.messageOptions, message: message, indexPath: indexPath)
+          }
         }
         return nil
-    }
+      }
     
     func tableView(_ tableView: UITableView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
       return makeTargetedPreview(for: configuration)
@@ -45,12 +46,14 @@ extension CometChatMessageList {
     }
     
     private func ifCellIsAt(indexPath: IndexPath) -> UIView? {
+        if let cell = tableView.cellForRow(at: indexPath) as? CometChatTextAutoSizeBubble {
+          return cell.background
+        }
         if let cell = tableView.cellForRow(at: indexPath) as? CometChatMessageBubble {
-            return cell.background
+          return cell.background
         }
         return UIView()
-     
-    }
+      }
     
     private func configureMessageOptions(options: [CometChatMessageOption], message: BaseMessage, indexPath: IndexPath) -> UIMenu {
         var menuElements = [UIMenuElement]()

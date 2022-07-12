@@ -13,7 +13,7 @@ struct CometChatEmojiCategories: Decodable {
 
 struct CometChatEmojiCategory: Decodable {
     let id: String
-    let symbolURL: String
+    let symbol: String
     let name: String
     let emojis: [CometChatEmoji]
 }

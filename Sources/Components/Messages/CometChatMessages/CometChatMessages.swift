@@ -116,7 +116,7 @@ open class CometChatMessages: UIViewController {
     
     private func setupMessageList() {
         if let messageTemplates = messageTemplates {
-            messageList.set(templates: messageTemplates)
+            messageList.set(messageTypes: messageTemplates)
         }
         if let configuration = configuration {
             messageList.set(configurations: [configuration])

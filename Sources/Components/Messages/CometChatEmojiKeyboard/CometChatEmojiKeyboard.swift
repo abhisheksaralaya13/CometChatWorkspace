@@ -31,7 +31,7 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
     var message: BaseMessage?
     
     static var emojiKeyboardDelegate: CometChatEmojiKeyboardDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -112,7 +112,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as! CometChatEmojiKeyboardItem
-        cell.emojiIcon.image = UIImage(named: emojiCategories[indexPath.row].symbolURL, in: CometChatUIKit.bundle, compatibleWith: nil)
+        cell.emojiIcon.image = UIImage(named: emojiCategories[indexPath.row].symbol)
         
         return cell
     }
@@ -137,7 +137,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == emojiCollectionView {
-            return CGSize(width: 40, height: 40)
+            return CGSize(width: 30, height: 30)
         }
         return CGSize(width: 30, height: 30)
     }

@@ -24,6 +24,8 @@ import CometChatPro
 @IBDesignable open class CometChatMessageReactions: UIView {
     
       // MARK: - Declaration of Variables
+    var message: BaseMessage?
+    weak var controller: UIViewController?
     
     var view:UIView!
     var reactions = [CometChatMessageReaction]()
@@ -40,13 +42,22 @@ import CometChatPro
    
     required  public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-     
-        
     }
     
     open override func draw(_ rect: CGRect) {
         collectionView.showsHorizontalScrollIndicator = false
         setupCollectionView()
+    }
+    
+    @objc public func set(messageObject: BaseMessage) -> Self {
+        self.message = messageObject
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(controller: UIViewController) -> Self {
+        self.controller = controller
+        return self
     }
     
     private func setupCollectionView() {
@@ -69,15 +80,19 @@ import CometChatPro
                         let name = (user as? [String:Any])?["name"] as? String ?? ""
                         let avatar = (user as? [String:Any])?["avatar"]  as? String ?? ""
                         let reactor = CometChatMessageReactor(uid: uid, name: name, avatar: avatar)
-                        currentReactors.append(reactor)
+                        currentReactors.insert(reactor, at: 0)
                     }
                     let reaction = CometChatMessageReaction(title: reaction, name: reaction, messageId: message.id, reactors: currentReactors)
-                    currentReactions.append(reaction)
+                    currentReactions.insert(reaction, at: 0)
                 }
                handler(true)
             }
         }
-        self.reactions = currentReactions
+        //TODO: - Should add default reaction
+        self.reactions.append(contentsOf: currentReactions.map{$0})
+        if !reactions.isEmpty {
+            self.reactions.append(CometChatMessageReaction(title: "", name: "add", messageId: 111111, reactors: []))
+        }
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -117,6 +132,17 @@ extension CometChatMessageReactions: UICollectionViewDataSource, UICollectionVie
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reactionCountCell", for: indexPath) as! ReactionCountCell
         let reaction = reactions[safe: indexPath.row]
+        if reactions.count == indexPath.row + 1 && reactions.count > 1 {
+            cell.addReactionsIcon.isHidden = false
+            cell.reactionLabel.isHidden = true
+            cell.addReactionsIcon.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(onAddReactionsClick))
+            tap.numberOfTapsRequired = 1
+            cell.addReactionsIcon.addGestureRecognizer(tap)
+        } else if reactions.count > 0 {
+            cell.addReactionsIcon.isHidden = true
+            cell.reactionLabel.isHidden = false
+        }
         cell.reaction = reaction
        return cell
     }
@@ -126,11 +152,18 @@ extension CometChatMessageReactions: UICollectionViewDataSource, UICollectionVie
             CometChatMessageReactions.cometChatMessageReactionsDelegate?.didReactionPressed(reaction: reaction)
         }
     }
+    
+    @objc func onAddReactionsClick() {
+        let emojiKeyboard = CometChatEmojiKeyboard()
+        guard let message = message else { return }
+        emojiKeyboard.set(message: message)
+        controller?.presentPanModal(emojiKeyboard)
+    }
 }
 
 extension CometChatMessageReactions: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 65, height: 45)
+        return CGSize(width: 42, height: 30)
     }
 }
 

@@ -12,6 +12,12 @@ class ReactionCountCell: UICollectionViewCell {
 
     @IBOutlet weak var reactionCountView: UIView!
     @IBOutlet weak var reactionLabel: UILabel!
+    @IBOutlet weak var addReactionsIcon: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.reactionCountView.layer.cornerRadius = 9
+    }
     
     override var isHighlighted: Bool {
         didSet {
@@ -33,13 +39,5 @@ class ReactionCountCell: UICollectionViewCell {
             }
         }
     }
-
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-       
-    }
-    
-
 
 }

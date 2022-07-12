@@ -19,6 +19,40 @@ public enum  MessageBubbleTimeAlignment {
     case bottom
 }
 
+struct MessageTypesBubble {
+    
+    static func getMessageType(message: BaseMessage) -> String {
+        
+        switch message.messageCategory {
+        case .message:
+            switch message.messageType {
+            case .text:
+                return "text"
+            case .image:
+                return "image"
+            case .audio:
+                return "audio"
+            case .groupMember:
+                return "groupMember"
+            case .file:
+                return "file"
+            case .video:
+                return "video"
+            case .custom:
+                return (message as? CustomMessage)?.type ?? ""
+            default:
+                return (message as? CustomMessage)?.type ?? ""
+                
+            }
+        case .custom: return (message as? CustomMessage)?.type ?? ""
+        case .call: break;
+        case .action: break;
+        default:
+            return (message as? CustomMessage)?.type ?? ""
+        }
+        return ""
+    }
+}
 
 class CometChatMessageBubble: UITableViewCell {
     
@@ -42,6 +76,7 @@ class CometChatMessageBubble: UITableViewCell {
     @IBOutlet weak var receiptStack: UIStackView!
     @IBOutlet weak var reactions: CometChatMessageReactions!
   //  @IBOutlet weak var reactions: UIView!
+    @IBOutlet weak var containerStackView: UIStackView!
     
     private var allMessageOptions = [String: [CometChatMessageOption]]()
     var messageOptions: [CometChatMessageOption] = []
@@ -51,6 +86,10 @@ class CometChatMessageBubble: UITableViewCell {
     var configurations: [CometChatConfiguration]?
     var sentMessageInputData: SentMessageInputData?
     var receivedMessageInputData: ReceivedMessageInputData?
+    var customViews: [String: ((BaseMessage) -> (UIView))?] = [:]
+    
+    @IBOutlet weak var heightReactions: NSLayoutConstraint!
+  //  @IBOutlet weak var heightCollectoinView: NSLayoutConstraint!
     
     var indexPath: IndexPath?
     unowned var selectionColor: UIColor {
@@ -107,6 +146,17 @@ class CometChatMessageBubble: UITableViewCell {
         return self
     }
     
+//    @discardableResult
+//    public func set(customView: ((BaseMessage) -> (UIView))?) -> Self {
+//        self.customViewTest = customView
+//        return self
+//    }
+    
+//    @discardableResult
+//    public func get(customView key: String) -> UIView? {
+//        return self.customViews[key]
+//    }
+    
     @discardableResult
     public func set(messageOptions: [CometChatMessageOption]) -> Self {
         self.messageOptions = messageOptions
@@ -150,13 +200,13 @@ class CometChatMessageBubble: UITableViewCell {
     }
     
     @discardableResult
-    @objc public func set(borderColor : UIColor) -> Self {
+    @objc func set(borderColor : UIColor) -> Self {
         self.background.layer.borderColor = borderColor.cgColor
         return self
     }
     
     @discardableResult
-    @objc public func set(borderWidth : CGFloat) -> Self {
+    @objc func set(borderWidth : CGFloat) -> Self {
         self.background.layer.borderWidth = borderWidth
         return self
     }
@@ -187,10 +237,8 @@ class CometChatMessageBubble: UITableViewCell {
         switch timeAlignment {
         case .top:
             self.time.isHidden = true
-            self.topTime.isHidden = false
         case .bottom:
             self.time.isHidden = false
-            self.topTime.isHidden = true
         }
         return self
     }
@@ -376,32 +424,59 @@ class CometChatMessageBubble: UITableViewCell {
     /// Bubble Configuration.
     private func configureCell(baseMessage message: BaseMessage) {
         messageOptions.removeAll()
-        
+        if let controller = controller {
+            reactions.set(controller: controller).set(messageObject: message)
+        }
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         // TODO: - Secondary color code is different from #141414
         set(messageAlignment: isStandard ? .right : .left)
         background.backgroundColor = isStandard ? CometChatTheme.palatte?.primary : CometChatTheme.palatte?.secondary
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
-        set(userName: (message.sender?.name)!)
-        set(backgroundRadius: 12.0)
-        
+        set(userName: (message.sender?.name) ?? "")
+       // set(backgroundRadius: 12.0)
+        containerStackView.addBackground(color: (isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte?.background)!)
+        containerStackView.layer.cornerRadius = 12.0
+        containerStackView.clipsToBounds = true
         // To hide & show receipt
         if !isStandard {
             self.receipt.isHidden = true
         } else {
             set(receipt: receipt.set(receipt: message))
         }
-        
+        /// when user send custom view that are not existing type such as payment.
+        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)], let view = customView?(message){
+                background.addSubview(view)
+                view.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    view.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+                    view.centerYAnchor.constraint(equalTo: background.centerYAnchor),
+                    view.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0),
+                    view.topAnchor.constraint(equalTo: background.topAnchor, constant: 0),
+                    view.bottomAnchor.constraint(equalTo: background.bottomAnchor),
+                    view.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
+                ])
+            return
+        }
+      // self.heightReactions.constant = 50 // Initial size
+       
         if message.deletedAt > 0.0 {
+            containerStackView.addBackground(color: .clear)
             backgroundHeightConstraint.constant = 36
             backgroundWidthConstraint.constant = 173
             let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
             background.backgroundColor = .clear
             background.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
+            heightReactions.constant = 0
+            reactions.reactions.removeAll()
+            reactions.isHidden = true
             return
         }
+        self.heightReactions.constant = 35
+        set(reactions: message, with: .left)
+      
         
+    //    set(reactions: message, with: isStandard ? .right : .left)
         switch (message.messageCategory, message.messageType) {
             
         case (.message, .text): /// category - message && type - text
@@ -427,12 +502,6 @@ class CometChatMessageBubble: UITableViewCell {
                 backgroundWidthConstraint.constant = width > widthFixed ? widthFixed + 20: width + 20
                 let textBubble = CometChatTextBubble(frame: CGRect(x: 10, y: -5, width: backgroundWidthConstraint.constant - 15 , height: height), message: message, isStandard: isStandard)
                 background.addSubview(textBubble)
-            }else if let  metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], let _ = linkArray[safe: 0] {
-               
-                
-               let linkPreviewBubble =  CometChatLinkPreviewBubble(frame: CGRect(x: 10, y: 8, width: 228, height: 400), message: message)
-                background.addSubview(linkPreviewBubble)
-                        
             } else {
                 let widthFixed = 228.0
                 let heightFixed = 22.0
@@ -450,16 +519,15 @@ class CometChatMessageBubble: UITableViewCell {
                     CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .copy),
                     CometChatMessageOption(defaultOption: .share),
-                    CometChatMessageOption(defaultOption: .translate)
+                    CometChatMessageOption(defaultOption: .translate),
+                    CometChatMessageOption(defaultOption: .reaction)
                 ]
                 self.set(messageOptions: defaultOptions)
-            }else{
+            } else {
                 if let fetchedOptions = allMessageOptions["text"] {
                     self.set(messageOptions: fetchedOptions)
                 }
             }
-                set(reactions: message, with: isStandard ? .right : .left)
-              
              //   reactions.addSubview(CometChatMessageReactions(frame: CGRect(x: 0, y: 0, width: background.frame.width, height: 60)))
      
             
@@ -473,10 +541,12 @@ class CometChatMessageBubble: UITableViewCell {
             if let controller = controller {
                 imageBubble.set(controller: controller)
             }
-            imageBubble.imageThumbnail.image = UIImage(named: "default-image", in: CometChatUIKit.bundle, compatibleWith: nil)
+            imageBubble.imageThumbnail.image = UIImage(named: "default-image")
+            
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .delete),
+                    CometChatMessageOption(defaultOption: .reaction),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
@@ -491,6 +561,7 @@ class CometChatMessageBubble: UITableViewCell {
             debugPrint(" ---> message audio")
             backgroundHeightConstraint.constant = 56
             backgroundWidthConstraint.constant = 228
+            
             //TODO: - Replace with CometChatAudioBubble
             let audioBubble = CometChatFileBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
             background.addSubview(audioBubble)
@@ -498,6 +569,7 @@ class CometChatMessageBubble: UITableViewCell {
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .delete),
+                    CometChatMessageOption(defaultOption: .reaction),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
@@ -512,6 +584,7 @@ class CometChatMessageBubble: UITableViewCell {
             debugPrint(" ---> message video")
             backgroundHeightConstraint.constant = 168
             backgroundWidthConstraint.constant = 228
+            
             let videoView = CometChatVideoBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
             background.addSubview(videoView)
             if let controller = controller {
@@ -534,6 +607,7 @@ class CometChatMessageBubble: UITableViewCell {
             debugPrint(" ---> message file")
             backgroundWidthConstraint.constant = 228
             backgroundHeightConstraint.constant = 56
+           
             let fileBubble = CometChatFileBubble(frame: CGRect(x: 0, y: 0, width: background.bounds.width, height: 56), message: message, isStandard: isStandard)
             background.addSubview(fileBubble)
             if let controller = controller {
@@ -542,6 +616,7 @@ class CometChatMessageBubble: UITableViewCell {
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .delete),
+                    CometChatMessageOption(defaultOption: .reaction),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
@@ -574,6 +649,7 @@ class CometChatMessageBubble: UITableViewCell {
             case "location": /// type - location
                 backgroundHeightConstraint.constant = 230
                 backgroundWidthConstraint.constant = 228
+                
                 let locationView = CometChatLocationBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
                 debugPrint(" ---> custom location")
                 background.addSubview(locationView)
@@ -581,10 +657,10 @@ class CometChatMessageBubble: UITableViewCell {
                 if let controller = controller {
                     locationView.set(controller: controller)
                 }
-                
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .delete),
+                        CometChatMessageOption(defaultOption: .reaction),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -609,6 +685,7 @@ class CometChatMessageBubble: UITableViewCell {
                     if allMessageOptions.isEmpty {
                         let defaultOptions = [
                             CometChatMessageOption(defaultOption: .delete),
+                            CometChatMessageOption(defaultOption: .reaction),
                             CometChatMessageOption(defaultOption: .share)
                         ]
                         self.set(messageOptions: defaultOptions)
@@ -620,8 +697,10 @@ class CometChatMessageBubble: UITableViewCell {
                 }
                 
             case "extension_sticker": /// type - extension_sticker
+                
                 backgroundHeightConstraint.constant = 140
                 backgroundWidthConstraint.constant = 130
+             
                 let stickyBubble = CometChatStickerBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message)
                 debugPrint(" ---> custom extesnsion_sticker")
                 background.addSubview(stickyBubble)
@@ -629,6 +708,7 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .delete),
+                        CometChatMessageOption(defaultOption: .reaction),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -641,6 +721,7 @@ class CometChatMessageBubble: UITableViewCell {
             case "extension_whiteboard": /// type - extension_whiteboard
                 backgroundHeightConstraint.constant = 140
                 backgroundWidthConstraint.constant = 228
+                
                 let whiteboardView = CometChatWhiteboardBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
                 if let controller = controller {
                     whiteboardView.set(controller: controller)
@@ -651,6 +732,7 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .delete),
+                        CometChatMessageOption(defaultOption: .reaction),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -663,6 +745,7 @@ class CometChatMessageBubble: UITableViewCell {
             case "extension_document": /// type - extension_document
                 backgroundHeightConstraint.constant = 140
                 backgroundWidthConstraint.constant = 228
+                
                 let documentView = CometChatDocumentBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
                 if let controller = controller {
                     documentView.set(controller: controller)
@@ -673,6 +756,7 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .delete),
+                        CometChatMessageOption(defaultOption: .reaction),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -690,15 +774,44 @@ class CometChatMessageBubble: UITableViewCell {
                 debugPrint("Custom message placeholder cell.")
                 backgroundHeightConstraint.constant = 140
                 backgroundWidthConstraint.constant = 228
+              
                 let customView = CometChatCustomBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message)
                 background.addSubview(customView)
                 
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .delete),
+                    CometChatMessageOption(defaultOption: .reaction),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
-                
+            // TODO: - Remove this code after review.
+               /*
+                if let customView = self.customViews["payment"], let view = customView?(message) {
+                       // let view  = customView(message)
+                        background.addSubview(view)
+                        view.translatesAutoresizingMaskIntoConstraints = false
+                        NSLayoutConstraint.activate([
+                            view.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+                            view.centerYAnchor.constraint(equalTo: background.centerYAnchor),
+                            view.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0),
+                            view.topAnchor.constraint(equalTo: background.topAnchor, constant: 0),
+                            view.bottomAnchor.constraint(equalTo: background.bottomAnchor),
+                            view.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
+                        ])
+                }
+
+                if allMessageOptions.isEmpty {
+                    let defaultOptions = [
+                        CometChatMessageOption(defaultOption: .delete),
+                        CometChatMessageOption(defaultOption: .share)
+                    ]
+                    self.set(messageOptions: defaultOptions)
+                }else{
+                    if let fetchedOptions = allMessageOptions["payment"] {
+                        self.set(messageOptions: fetchedOptions)
+                    }
+                }
+                */
             }
             
         default: /// Outer default.
@@ -719,14 +832,28 @@ class CometChatMessageBubble: UITableViewCell {
         if configurations != nil {
             configureMessageBubble(forMessage: message)
         }
-        
-        self.reactions.isHidden = true
+        /// Count is the
+        let count = reactions.reactions.count
+        let numberOfItemInRow = Int(228 / 45)
+        if count > 0 {
+            let row = count % numberOfItemInRow != 0 ? count / numberOfItemInRow + 1 : count / numberOfItemInRow
+            self.reactions.isHidden = false
+            self.heightReactions.constant = CGFloat(row * 35)
+        } else {
+            self.heightReactions.constant = 0
+            self.reactions.isHidden = true
+        }
     }
     
-
+    private func removeReactions() {
+        reactions.reactions.removeAll()
+    }
+    
     override func prepareForReuse() {
         /// Remove subviews before resuing the cell.
         background.subviews.forEach({ $0.removeFromSuperview() })
+      //  self.heightReactions.constant = 35
+        self.removeReactions()
     }
 }
 
@@ -746,4 +873,18 @@ extension String {
         return ceil(boundingBox.height)
     }
     
+}
+
+// TODO: - This extension for provide back to stackview in separate file.
+extension UIStackView {
+    func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
+        
+        subView.layer.cornerRadius = 12
+        subView.layer.masksToBounds = true
+        subView.clipsToBounds = true
+    }
 }
