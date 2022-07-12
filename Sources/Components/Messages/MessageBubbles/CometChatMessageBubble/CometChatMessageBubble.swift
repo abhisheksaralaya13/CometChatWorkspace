@@ -434,7 +434,8 @@ class CometChatMessageBubble: UITableViewCell {
         // TODO: - change the hard coded the value.
         set(backgroundRadius: 12.0)
         containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
-        self.heightReactions.constant = 35
+        
+        self.heightReactions.constant = 32
         set(reactions: message, with: .left)
         // To hide & show receipt
         if !isStandard {
@@ -463,7 +464,7 @@ class CometChatMessageBubble: UITableViewCell {
             backgroundHeightConstraint.constant = 36
             backgroundWidthConstraint.constant = 173
             let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
-            background.addSubview(deleteBubble)
+            containerStackView.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
             heightReactions.constant = 0
             reactions.reactions.removeAll()
@@ -827,14 +828,18 @@ class CometChatMessageBubble: UITableViewCell {
         if configurations != nil {
             configureMessageBubble(forMessage: message)
         }
-        /// Count is the
+        /// Count the number of reactions.
         let count = reactions.reactions.count
+        /// numberOfItemInARow. MaxWidth is 228 and one item width is 45.
         let numberOfItemInRow = Int(228 / 45)
         if count > 0 {
+            /// calculate the number of rows.
             let row = count % numberOfItemInRow != 0 ? count / numberOfItemInRow + 1 : count / numberOfItemInRow
             self.reactions.isHidden = false
-            self.heightReactions.constant = CGFloat(row * 35)
+            /// Calculate the height of the message reactions, and one row height is 32.
+            self.heightReactions.constant = CGFloat(row * 32)
         } else {
+            /// when reactions count is zero.
             self.heightReactions.constant = 0
             self.reactions.isHidden = true
         }
@@ -847,7 +852,6 @@ class CometChatMessageBubble: UITableViewCell {
     override func prepareForReuse() {
         /// Remove subviews before resuing the cell.
         background.subviews.forEach({ $0.removeFromSuperview() })
-      //  self.heightReactions.constant = 35
         self.removeReactions()
     }
 }

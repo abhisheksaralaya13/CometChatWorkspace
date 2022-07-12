@@ -25,6 +25,7 @@ class CometChatDeleteBubble: UIView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    
   private func addDashedBorder() {
     let shapeLayer:CAShapeLayer = CAShapeLayer()
     let frameSize = self.frame.size
@@ -39,6 +40,7 @@ class CometChatDeleteBubble: UIView {
     shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 12).cgPath
     self.layer.addSublayer(shapeLayer)
   }
+    
   private func customInit() {
       CometChatUIKit.bundle.loadNibNamed("CometChatDeleteBubble", owner: self, options: nil)
     addSubview(containerView)
