@@ -436,7 +436,7 @@ class CometChatMessageBubble: UITableViewCell {
         containerStackView.addBackground(color: CometChatTheme.palatte!.background!)
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-        set(borderWidth: 2.0)
+        set(borderWidth: 10)
         set(borderColor: CometChatTheme.palatte?.accent400)
         // To hide & show receipt
         if !isStandard {
@@ -458,8 +458,7 @@ class CometChatMessageBubble: UITableViewCell {
                 ])
             return
         }
-      // self.heightReactions.constant = 50 // Initial size
-       
+        /// show when message has been deleted.
         if message.deletedAt > 0.0 {
             containerStackView.addBackground(color: .clear)
             backgroundHeightConstraint.constant = 36
