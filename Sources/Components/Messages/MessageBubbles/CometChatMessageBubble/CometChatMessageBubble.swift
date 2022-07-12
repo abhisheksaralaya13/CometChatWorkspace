@@ -462,7 +462,7 @@ class CometChatMessageBubble: UITableViewCell {
             backgroundHeightConstraint.constant = 36
             backgroundWidthConstraint.constant = 173
             let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
-            background.addSubview(deleteBubble)
+            containerStackView.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
             reactions.isHidden = true
             heightReactions.constant = 0
@@ -853,6 +853,7 @@ class CometChatMessageBubble: UITableViewCell {
     override func prepareForReuse() {
         /// Remove subviews before resuing the cell.
         background.subviews.forEach({ $0.removeFromSuperview() })
+        containerStackView.addBackground(color: .clear)
         self.removeReactions()
     }
 }

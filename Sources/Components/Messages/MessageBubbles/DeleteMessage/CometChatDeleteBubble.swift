@@ -33,7 +33,7 @@ class CometChatDeleteBubble: UIView {
     shapeLayer.bounds = shapeRect
     shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
     shapeLayer.fillColor = UIColor.clear.cgColor
-    shapeLayer.strokeColor = CometChatTheme.palatte?.accent500?.cgColor
+    shapeLayer.strokeColor = CometChatTheme.palatte?.accent200?.cgColor
     shapeLayer.lineWidth = 2
     shapeLayer.lineJoin = CAShapeLayerLineJoin.round
     shapeLayer.lineDashPattern = [4, 5]
