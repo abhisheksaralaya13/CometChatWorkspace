@@ -40,11 +40,11 @@ class CometChatCreatePoll: CometChatListBase {
     
     // MARK: - View controller lifecycle methods
     override func loadView() {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "CometChatCreatePoll", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view  = view
+        let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
+        if let contentView = loadedNib?.first as? UIView  {
+            contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view = contentView
+        }
     }
     
     override func viewDidLoad() {
