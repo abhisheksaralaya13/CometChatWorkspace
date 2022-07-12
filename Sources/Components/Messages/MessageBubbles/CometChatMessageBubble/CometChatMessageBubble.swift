@@ -89,7 +89,6 @@ class CometChatMessageBubble: UITableViewCell {
     var customViews: [String: ((BaseMessage) -> (UIView))?] = [:]
     
     @IBOutlet weak var heightReactions: NSLayoutConstraint!
-  //  @IBOutlet weak var heightCollectoinView: NSLayoutConstraint!
     
     var indexPath: IndexPath?
     unowned var selectionColor: UIColor {
@@ -434,7 +433,8 @@ class CometChatMessageBubble: UITableViewCell {
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
        // set(backgroundRadius: 12.0)
-        containerStackView.addBackground(color: (isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte?.background)!)
+       // containerStackView.addBackground(color: (isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte?.background)!)
+        containerStackView.addBackground(color: CometChatTheme.palatte!.primary)
         containerStackView.layer.cornerRadius = 12.0
         containerStackView.clipsToBounds = true
         // To hide & show receipt
