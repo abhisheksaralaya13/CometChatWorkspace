@@ -21,7 +21,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="czf-Ur-QZh">
                         <rect key="frame" x="8" y="5" width="516" height="556"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-wd-Hkk" customClass="CometChatAvatar" customModule="CometChatUIKit" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-wd-Hkk" customClass="CometChatAvatar" customModule="CometChatUIKit">
                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                 <constraints>
@@ -59,7 +59,7 @@
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN9-D4-yjK" customClass="CometChatDate" customModule="CometChatUIKit" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN9-D4-yjK" customClass="CometChatDate" customModule="CometChatUIKit">
                                                         <rect key="frame" x="428" y="0.0" width="30" height="15"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
@@ -82,14 +82,14 @@
                                             <stackView opaque="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="jcJ-2m-XWU">
                                                 <rect key="frame" x="0.0" y="0.0" width="228" height="409"/>
                                                 <subviews>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llx-2M-L9R" customClass="CometChatGradientView" customModule="CometChatUIKit" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llx-2M-L9R" customClass="CometChatGradientView" customModule="CometChatUIKit">
                                                         <rect key="frame" x="0.0" y="0.0" width="178" height="409"/>
                                                         <subviews>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3x-RN-y1Z">
                                                                 <rect key="frame" x="0.0" y="0.0" width="178" height="409"/>
                                                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fap-b3-pKe" customClass="HyperlinkLabel" customModule="CometChatUIKit" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fap-b3-pKe" customClass="HyperlinkLabel" customModule="CometChatUIKit">
                                                                 <rect key="frame" x="15" y="10" width="148" height="389"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -130,7 +130,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
-                                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="reactionView" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-40-TNY" customClass="CometChatMessageReactions" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="reactionView" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-40-TNY" customClass="CometChatMessageReactions" customModule="CometChatUIKit">
                                                 <rect key="frame" x="0.0" y="409" width="228" height="50"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4u6-E8-uCP">
@@ -175,13 +175,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="1 Reply"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOj-xr-xyC" customClass="CometChatDate" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOj-xr-xyC" customClass="CometChatDate" customModule="CometChatUIKit">
                                                 <rect key="frame" x="0.0" y="4.5" width="30" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-delivered.png" translatesAutoresizingMaskIntoConstraints="NO" id="7zA-1Y-N7O" customClass="CometChatMessageReceipt" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-delivered.png" translatesAutoresizingMaskIntoConstraints="NO" id="7zA-1Y-N7O" customClass="CometChatMessageReceipt" customModule="CometChatUIKit">
                                                 <rect key="frame" x="30" y="3.5" width="20" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="20J-hM-KjU"/>
