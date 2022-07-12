@@ -628,22 +628,26 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 if profanity == "yes" {
                     let messageText = NSMutableAttributedString(string: "\(filteredMessage)\n\n",
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
-                    set(attributedText: messageText)
+                   // set(attributedText: messageText)
+                    set(text: forMessage.text)
                 }else{
                     
                     let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
-                    set(attributedText: messageText)
+                 //   set(attributedText: messageText)
+                    set(text: forMessage.text)
                 }
             }else{
                 let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                             attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
-                set(attributedText: messageText)
+                //set(attributedText: messageText)
+                set(text: forMessage.text)
             }
         }else{
             let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                         attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
-            set(attributedText: messageText)
+           // set(attributedText: messageText)
+            set(text: forMessage.text)
         }
     }
     
@@ -656,11 +660,13 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                     if let maskedMessage = data["message_masked"] as? String {
                         let messageText = NSMutableAttributedString(string: "\(maskedMessage)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
-                        set(attributedText: messageText)
+                     //   set(attributedText: messageText)
+                        set(text: maskedMessage)
                     }else{
                         let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
-                        set(attributedText: messageText)
+                       // set(attributedText: messageText)
+                        set(text: forMessage.text)
                     }
                 }else{
                     self.parseProfanityFilter(forMessage: forMessage)
