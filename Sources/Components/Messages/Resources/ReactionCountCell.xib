@@ -30,7 +30,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reactions Add" translatesAutoresizingMaskIntoConstraints="NO" id="oux-8t-80B">
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messages-add-reaction" translatesAutoresizingMaskIntoConstraints="NO" id="oux-8t-80B">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="bko-RT-0vF"/>
@@ -67,6 +67,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Reactions Add" width="24" height="24"/>
+        <image name="messages-add-reaction" width="23" height="23"/>
     </resources>
 </document>
