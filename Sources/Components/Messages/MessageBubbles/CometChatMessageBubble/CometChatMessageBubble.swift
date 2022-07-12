@@ -135,7 +135,8 @@ class CometChatMessageBubble: UITableViewCell {
     
     @discardableResult
     @objc public func set(backgroundRadius: CGFloat) -> Self {
-        background.layer.cornerRadius = backgroundRadius
+        containerStackView.layer.cornerRadius = backgroundRadius
+        containerStackView.clipsToBounds = true
         return self
     }
     
@@ -429,14 +430,12 @@ class CometChatMessageBubble: UITableViewCell {
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         // TODO: - Secondary color code is different from #141414
         set(messageAlignment: isStandard ? .right : .left)
-        background.backgroundColor = isStandard ? CometChatTheme.palatte?.primary : CometChatTheme.palatte?.secondary
+        background.backgroundColor = CometChatTheme.palatte?.primary
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
-       // set(backgroundRadius: 12.0)
-       // containerStackView.addBackground(color: (isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte?.background)!)
-        containerStackView.addBackground(color: CometChatTheme.palatte!.primary!)
-        containerStackView.layer.cornerRadius = 12.0
-        containerStackView.clipsToBounds = true
+        // TODO: - change the hard coded the value.
+        set(backgroundRadius: 12.0)
+        containerStackView.addBackground(color: CometChatTheme.palatte!.background!)
         // To hide & show receipt
         if !isStandard {
             self.receipt.isHidden = true
@@ -474,15 +473,12 @@ class CometChatMessageBubble: UITableViewCell {
         }
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-      
-        
-    //    set(reactions: message, with: isStandard ? .right : .left)
         switch (message.messageCategory, message.messageType) {
             
         case (.message, .text): /// category - message && type - text
             guard let message = message as? TextMessage else { print("Text messag not found."); return }
             debugPrint(" ---> message text")
-          
+             /*
             if let translatedMessage = message.metaData?["translated-message"] as? String {
                 let widthFixed = 228.0
                 let heightFixed = 22.0
@@ -529,7 +525,7 @@ class CometChatMessageBubble: UITableViewCell {
                 }
             }
              //   reactions.addSubview(CometChatMessageReactions(frame: CGRect(x: 0, y: 0, width: background.frame.width, height: 60)))
-     
+         */
             
         case (.message, .image): /// category - message && type - image
             guard let message = message as? MediaMessage else { print("Media message not found."); return }
