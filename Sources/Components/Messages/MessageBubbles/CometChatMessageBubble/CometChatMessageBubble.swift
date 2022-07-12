@@ -201,13 +201,13 @@ class CometChatMessageBubble: UITableViewCell {
     
     @discardableResult
     @objc func set(borderColor : UIColor) -> Self {
-        self.background.layer.borderColor = borderColor.cgColor
+        self.containerStackView.layer.borderColor = borderColor.cgColor
         return self
     }
     
     @discardableResult
     @objc func set(borderWidth : CGFloat) -> Self {
-        self.background.layer.borderWidth = borderWidth
+        self.containerStackView.layer.borderWidth = borderWidth
         return self
     }
     
@@ -428,7 +428,6 @@ class CometChatMessageBubble: UITableViewCell {
             reactions.set(controller: controller).set(messageObject: message)
         }
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
-        // TODO: - Secondary color code is different from #141414
         set(messageAlignment: isStandard ? .right : .left)
         background.backgroundColor = CometChatTheme.palatte?.primary
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
@@ -436,6 +435,10 @@ class CometChatMessageBubble: UITableViewCell {
         // TODO: - change the hard coded the value.
         set(backgroundRadius: 12.0)
         containerStackView.addBackground(color: CometChatTheme.palatte!.background!)
+        self.heightReactions.constant = 35
+        set(reactions: message, with: .left)
+        set(borderWidth: 2.0)
+        set(borderColor: CometChatTheme.palatte?.accent400)
         // To hide & show receipt
         if !isStandard {
             self.receipt.isHidden = true
@@ -463,7 +466,6 @@ class CometChatMessageBubble: UITableViewCell {
             backgroundHeightConstraint.constant = 36
             backgroundWidthConstraint.constant = 173
             let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard)
-            background.backgroundColor = .clear
             background.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
             heightReactions.constant = 0
@@ -471,8 +473,8 @@ class CometChatMessageBubble: UITableViewCell {
             reactions.isHidden = true
             return
         }
-        self.heightReactions.constant = 35
-        set(reactions: message, with: .left)
+        
+       
         switch (message.messageCategory, message.messageType) {
             
         case (.message, .text): /// category - message && type - text

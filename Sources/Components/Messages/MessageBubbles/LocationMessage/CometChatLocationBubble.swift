@@ -53,11 +53,11 @@ class CometChatLocationBubble: UIView {
     
     private func setupStyle(isStandard: Bool) {
         let locationStyle = LocationBubbleStyle(
-            titleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900,
+            titleColor: CometChatTheme.palatte?.accent900,
             titleFont: CometChatTheme.typography?.Subtitle1,
-            subTitleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent700,
+            subTitleColor:CometChatTheme.palatte?.accent700,
             subTitleFont: CometChatTheme.typography?.Subtitle2,
-            descriptionViewBackgroundColor: isStandard ? CometChatTheme.palatte?.primary : CometChatTheme.palatte?.secondary
+            descriptionViewBackgroundColor: CometChatTheme.palatte?.secondary
         )
         set(style: locationStyle)
     }

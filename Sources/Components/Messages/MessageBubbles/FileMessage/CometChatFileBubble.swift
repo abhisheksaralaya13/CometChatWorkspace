@@ -45,11 +45,11 @@ class CometChatFileBubble: UIView {
     
     private func setup(message: MediaMessage, isStandard: Bool) {
         let fileBubbleView  = FileBubbleStyle(
-            titleColor: isStandard ? CometChatTheme.palatte?.background :CometChatTheme.palatte?.accent900,
+            titleColor: CometChatTheme.palatte?.accent900,
             titleFont: CometChatTheme.typography?.Subtitle1,
-            subTitleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent700,
+            subTitleColor: CometChatTheme.palatte?.accent700,
             subTitleFont: CometChatTheme.typography?.Subtitle2,
-            thumbnailColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.primary
+            thumbnailColor: CometChatTheme.palatte?.primary
         )
         set(style: fileBubbleView)
     }

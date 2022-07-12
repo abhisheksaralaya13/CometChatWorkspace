@@ -45,14 +45,14 @@ class CometChatWhiteboardBubble: UIView {
         set(buttonTitle: "OPEN_WHITEBOARD".localize())
         self.customMessage = message
         let whiteboardBubbleStyle = WhiteboardBubbleStyle(
-            titleColor: (isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900)!,
+            titleColor: (CometChatTheme.palatte?.accent900)!,
             titleFont: CometChatTheme.typography?.Subtitle1,
-            subTitleColor: isStandard ? (CometChatTheme.palatte?.background)! : (CometChatTheme.palatte?.accent600)!,
+            subTitleColor: (CometChatTheme.palatte?.accent600)!,
             subTitleFont: CometChatTheme.typography?.Subtitle2,
-            iconColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent700,
-            whiteboardButtonTitleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.primary,
+            iconColor:  CometChatTheme.palatte?.accent700,
+            whiteboardButtonTitleColor: CometChatTheme.palatte?.primary,
             whiteboardButtonTitleFont: CometChatTheme.typography?.Name2,
-            lineColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent100
+            lineColor: CometChatTheme.palatte?.accent100
         )
         set(style: whiteboardBubbleStyle)
 

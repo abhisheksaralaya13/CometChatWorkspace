@@ -54,14 +54,14 @@ class CometChatDocumentBubble: UIView {
     private func setup(message: CustomMessage, isStandard: Bool) {
         self.customMessage = message
         let documentBubbleStyle = DocumentBubbleStyle(
-            titleColor: (isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900)!,
+            titleColor: (CometChatTheme.palatte?.accent900)!,
             titleFont: CometChatTheme.typography?.Subtitle1,
-            subTitleColor: isStandard ? (CometChatTheme.palatte?.background)! : (CometChatTheme.palatte?.accent600)!,
+            subTitleColor: (CometChatTheme.palatte?.accent600)!,
             subTitleFont: CometChatTheme.typography?.Subtitle2,
-            iconColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent700,
-            documentButtonTitleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.primary,
+            iconColor: CometChatTheme.palatte?.accent700,
+            documentButtonTitleColor: CometChatTheme.palatte?.primary,
             documentButtonTitleFont: CometChatTheme.typography?.Name2,
-            lineColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent100
+            lineColor: CometChatTheme.palatte?.accent100
         )
         set(style: documentBubbleStyle)
     }
