@@ -369,27 +369,45 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
        // print(widthReactions.constant)
         
         
+//        if let translatedMessage = message.metaData?["translated-message"] as? String {
+//            set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
+//
+//            let specialWidth = "\(translatedMessage)\n\n\(message.text)\n\nTRANSLATED_MESSAGE".width(22, font: CometChatTheme.typography!.Body)
+//            print("Special Width \(specialWidth)")
+//
+//            //TODO: -  It is not working with attributed sting.
+//            /*
+//            let translatedText = NSMutableAttributedString(string: "\(translatedMessage.lowercased())\n\n",
+//                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.9), NSAttributedString.Key.font: CometChatTheme.typography!.Body])
+//            let messageText = NSMutableAttributedString(string: "\(message.text)\n\n",
+//                                                           attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.8), NSAttributedString.Key.font: CometChatTheme.typography!.Subtitle2])
+//            let translatedString = NSMutableAttributedString(string: "TRANSLATED_MESSAGE".localize(),
+//                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.6), NSAttributedString.Key.font: CometChatTheme.typography!.Caption2])
+//            translatedText.append(messageText)
+//            translatedText.append(translatedString)
+//            self.set(attributedText: translatedText)
+//             */
+//          } else {
+//              set(text: message.text)
+//          }
+        
         if let translatedMessage = message.metaData?["translated-message"] as? String {
-            set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
             
-            let specialWidth = "\(translatedMessage)\n\n\(message.text)\n\nTRANSLATED_MESSAGE".width(22, font: CometChatTheme.typography!.Body)
-            print("Special Width \(specialWidth)")
-            
-            //TODO: -  It is not working with attributed sting.
-            /*
             let translatedText = NSMutableAttributedString(string: "\(translatedMessage.lowercased())\n\n",
-                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.9), NSAttributedString.Key.font: CometChatTheme.typography!.Body])
+                                                           attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.9), NSAttributedString.Key.font: CometChatTheme.typography!.Body])
             let messageText = NSMutableAttributedString(string: "\(message.text)\n\n",
-                                                           attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.8), NSAttributedString.Key.font: CometChatTheme.typography!.Subtitle2])
+                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.8), NSAttributedString.Key.font: CometChatTheme.typography!.Subtitle2])
             let translatedString = NSMutableAttributedString(string: "TRANSLATED_MESSAGE".localize(),
-                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.6), NSAttributedString.Key.font: CometChatTheme.typography!.Caption2])
+                                                             attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.6), NSAttributedString.Key.font: CometChatTheme.typography!.Caption2])
             translatedText.append(messageText)
             translatedText.append(translatedString)
             self.set(attributedText: translatedText)
-             */
-          } else {
-              set(text: message.text)
-          }
+        }else{
+            self.parseProfanityFilter(forMessage: message)
+            self.parseMaskedData(forMessage: message)
+            
+        }
+        
       //  set(reactions: message, with: isStandard ? .right : .left)
         if allMessageOptions.isEmpty {
             let defaultOptions = [
@@ -600,6 +618,77 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
        // self.heightReactions.constant = 0
         reactions.isHidden = true
         reactions.reactions.removeAll()
+    }
+    
+    private func parseProfanityFilter(forMessage: TextMessage) {
+        if let metaData = forMessage.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let profanityFilterDictionary = cometChatExtension["profanity-filter"] as? [String : Any] {
+            
+            if let profanity = profanityFilterDictionary["profanity"] as? String, let filteredMessage = profanityFilterDictionary["message_clean"] as? String {
+                
+                if profanity == "yes" {
+                    let messageText = NSMutableAttributedString(string: "\(filteredMessage)\n\n",
+                                                                attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
+                    set(attributedText: messageText)
+                }else{
+                    
+                    let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                                                                attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
+                    set(attributedText: messageText)
+                }
+            }else{
+                let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                                                            attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
+                set(attributedText: messageText)
+            }
+        }else{
+            let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                                                        attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
+            set(attributedText: messageText)
+        }
+    }
+    
+    private func parseMaskedData(forMessage: TextMessage){
+        if let metaData = forMessage.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let dataMaskingDictionary = cometChatExtension["data-masking"] as? [String : Any] {
+            
+            if let data = dataMaskingDictionary["data"] as? [String:Any], let sensitiveData = data["sensitive_data"] as? String {
+                
+                if sensitiveData == "yes" {
+                    if let maskedMessage = data["message_masked"] as? String {
+                        let messageText = NSMutableAttributedString(string: "\(maskedMessage)\n\n",
+                                                                    attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
+                        set(attributedText: messageText)
+                    }else{
+                        let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                                                                    attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
+                        set(attributedText: messageText)
+                    }
+                }else{
+                    self.parseProfanityFilter(forMessage: forMessage)
+                }
+            }else{
+                self.parseProfanityFilter(forMessage: forMessage)
+            }
+        }else{
+            self.parseProfanityFilter(forMessage: forMessage)
+        }
+    }
+    
+    
+    
+    private func applyLargeSizeEmoji(forMessage: TextMessage) -> UIFont {
+        if forMessage.text.containsOnlyEmojis() {
+            if forMessage.text.count == 1 {
+                return UIFont.systemFont(ofSize: 51, weight: .regular)
+            }else if forMessage.text.count == 2 {
+                return  UIFont.systemFont(ofSize: 34, weight: .regular)
+            }else if forMessage.text.count == 3 {
+                return UIFont.systemFont(ofSize: 25, weight: .regular)
+            }else{
+                return UIFont.systemFont(ofSize: 17, weight: .regular)
+            }
+        }else{
+            return UIFont.systemFont(ofSize: 17, weight: .regular)
+        }
     }
     
 }
