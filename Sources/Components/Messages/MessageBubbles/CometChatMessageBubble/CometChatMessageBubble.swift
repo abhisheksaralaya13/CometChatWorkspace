@@ -434,7 +434,7 @@ class CometChatMessageBubble: UITableViewCell {
         set(userName: (message.sender?.name) ?? "")
        // set(backgroundRadius: 12.0)
        // containerStackView.addBackground(color: (isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte?.background)!)
-        containerStackView.addBackground(color: CometChatTheme.palatte!.primary)
+        containerStackView.addBackground(color: CometChatTheme.palatte!.primary!)
         containerStackView.layer.cornerRadius = 12.0
         containerStackView.clipsToBounds = true
         // To hide & show receipt
