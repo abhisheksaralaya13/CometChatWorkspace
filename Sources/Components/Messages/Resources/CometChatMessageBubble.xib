@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="491"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eKK-mH-541" customClass="CometChatAvatar" customModule="CometChatUIKit" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eKK-mH-541" customClass="CometChatAvatar" customModule="CometChatUIKit">
                                         <rect key="frame" x="0.0" y="491" width="40" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -86,7 +86,7 @@
                                             <stackView opaque="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="eRc-vc-Wz1">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 <subviews>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-vn-NfP" customClass="CometChatImageBubbleView" customModule="CometChatUIKit" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-vn-NfP" customClass="CometChatImageBubbleView">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemFillColor"/>
                                                         <constraints>
@@ -149,13 +149,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="1 Reply"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBd-xW-itq" customClass="CometChatDate" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBd-xW-itq" customClass="CometChatDate" customModule="CometChatUIKit">
                                                 <rect key="frame" x="0.0" y="4.5" width="30" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-delivered.png" translatesAutoresizingMaskIntoConstraints="NO" id="TgJ-21-RBQ" customClass="CometChatMessageReceipt" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message-delivered.png" translatesAutoresizingMaskIntoConstraints="NO" id="TgJ-21-RBQ" customClass="CometChatMessageReceipt" customModule="CometChatUIKit">
                                                 <rect key="frame" x="30" y="3.5" width="20" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="ZfJ-8i-K35"/>
