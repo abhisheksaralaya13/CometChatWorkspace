@@ -42,6 +42,9 @@ open class CometChatMessages: UIViewController {
     open override func viewDidLoad() {
         setupKeyboard()
         addObservers()
+        setupMessageHeader()
+        setupMessageList()
+        setupMessageComposer()
     }
       
     
@@ -65,14 +68,7 @@ open class CometChatMessages: UIViewController {
         return self
     }
     
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        setupMessageHeader()
-        setupMessageList()
-        setupMessageComposer()
-        
-    }
-    
+
     private func addObservers() {
         CometChatMessageOption.messageOptionDelegate = self
         CometChatMessageEvents.addListener("messages-message-listner", self as CometChatMessageEventListner)
