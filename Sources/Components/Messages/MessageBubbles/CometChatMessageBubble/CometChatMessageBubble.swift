@@ -433,7 +433,7 @@ class CometChatMessageBubble: UITableViewCell {
         set(userName: (message.sender?.name) ?? "")
         // TODO: - change the hard coded the value.
         set(backgroundRadius: 12.0)
-        containerStackView.addBackground(color: CometChatTheme.palatte!.background!)
+        containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
         set(borderWidth: 1.0)
