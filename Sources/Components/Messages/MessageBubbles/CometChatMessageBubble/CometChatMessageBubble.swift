@@ -433,10 +433,7 @@ class CometChatMessageBubble: UITableViewCell {
         set(userName: (message.sender?.name) ?? "")
         // TODO: - change the hard coded the value.
         set(backgroundRadius: 12.0)
-        containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
-        
-        self.heightReactions.constant = 32
-        set(reactions: message, with: .left)
+       
         // To hide & show receipt
         if !isStandard {
             self.receipt.isHidden = true
@@ -473,6 +470,9 @@ class CometChatMessageBubble: UITableViewCell {
             return
         }
         
+        containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
+        self.heightReactions.constant = 32
+        set(reactions: message, with: .left)
        
         switch (message.messageCategory, message.messageType) {
             
