@@ -429,7 +429,6 @@ class CometChatMessageBubble: UITableViewCell {
         }
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         set(messageAlignment: isStandard ? .right : .left)
-        background.backgroundColor = CometChatTheme.palatte?.primary
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
         // TODO: - change the hard coded the value.
