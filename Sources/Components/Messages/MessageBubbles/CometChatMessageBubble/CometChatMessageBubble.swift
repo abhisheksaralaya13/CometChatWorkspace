@@ -436,7 +436,7 @@ class CometChatMessageBubble: UITableViewCell {
         containerStackView.addBackground(color: CometChatTheme.palatte!.background!)
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-        set(borderWidth: 10)
+        set(borderWidth: 1.0)
         set(borderColor: (CometChatTheme.palatte?.accent400!)!)
         // To hide & show receipt
         if !isStandard {
