@@ -112,7 +112,8 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as! CometChatEmojiKeyboardItem
-        cell.emojiIcon.image = UIImage(named: emojiCategories[indexPath.row].symbol)
+
+        cell.emojiIcon.image =   UIImage(named: emojiCategories[indexPath.row].symbol, in: CometChatUIKit.bundle, compatibleWith: nil)
         
         return cell
     }
