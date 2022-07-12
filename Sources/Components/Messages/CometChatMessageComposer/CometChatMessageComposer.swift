@@ -616,9 +616,12 @@ enum MessageComposerMode {
     }
     
     func locationAuthStatus() {
+        print("&&& YES")
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             curentLocation = locationManager.location
+            print("&&& YES Inside if \(curentLocation)")
         } else {
+            print("&&& YES Inside else ")
             locationManager.requestWhenInUseAuthorization()
         }
     }
