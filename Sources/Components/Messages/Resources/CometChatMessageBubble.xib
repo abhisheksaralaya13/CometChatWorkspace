@@ -105,7 +105,7 @@
                                                     <constraint firstItem="qY1-vn-NfP" firstAttribute="centerY" secondItem="eRc-vc-Wz1" secondAttribute="centerY" id="nmc-Fd-wco"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" restorationIdentifier="reactionView" translatesAutoresizingMaskIntoConstraints="NO" id="0GP-dZ-EOs" customClass="CometChatMessageReactions" customModule="CometChatUIKit" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" restorationIdentifier="reactionView" translatesAutoresizingMaskIntoConstraints="NO" id="0GP-dZ-EOs" customClass="CometChatMessageReactions" customModule="CometChatUIKit">
                                                 <rect key="frame" x="0.0" y="150" width="228" height="259"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-Fp-3fE">
