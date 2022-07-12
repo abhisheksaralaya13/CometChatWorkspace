@@ -288,75 +288,75 @@ public enum  MessageType : String {
         return self
       }
 
+    @discardableResult
+      @objc public func set(templates: [CometChatMessageTemplate]) -> CometChatMessageList {
+        print("template is: \(templates)")
+        self.messagetTypeTemplates = templates
+        if let currentUser = currentUser {
+          self.set(conversationWith: currentUser, type: .user)
+        }
+        if let currentGroup = currentGroup {
+          self.set(conversationWith: currentGroup, type: .group)
+        }
+        return self
+      }
     
     
     @discardableResult
-    @objc public func set(messageTypes: [CometChatMessageTemplate]?) -> CometChatMessageList {
-        self.messagetTypeTemplates = messageTypes ?? []
+      @objc public func set(messageTypes: [CometChatMessageTemplate]?) -> CometChatMessageList {
         if let messageTemplates = messageTypes {
-            if !messageTemplates.isEmpty {
-                print("messageTemplates: \(messageTemplates)")
-                for template in messageTemplates {
-                    switch template.type {
-                    case "text", "image", "video", "audio", "file":
-                        if !(messageCategories.contains("message")){
-                            self.messageCategories.append("message")
-                        }
-                        if !(self.messageTypes.contains(template.type)){
-                            self.messageTypes.append(template.type)
-                        }
-                        
-                    case "groupActions":
-                        if !(messageCategories.contains("action")){
-                            self.messageCategories.append("action")
-                        }
-                        if !(self.messageTypes.contains("groupMember")){
-                            self.messageTypes.append("groupMember")
-                        }
-                        
-                    case "call":
-                        if !(messageCategories.contains("call")){
-                            self.messageCategories.append("call")
-                        }
-                        if !(self.messageTypes.contains("audio")){
-                            self.messageTypes.append("audio")
-                        }
-                        if !(self.messageTypes.contains("video")){
-                            self.messageTypes.append("video")
-                        }
-                    default:
-                        if !(messageCategories.contains("custom")){
-                            self.messageCategories.append("custom")
-                        }
-                        if !(self.messageTypes.contains(template.type)){
-                            self.messageTypes.append(template.type)
-                        }
-                    }
-                     if let customView = template.customView {
-                        self.customViews.append(with: [template.type : customView])
-                     }
-                     if let messageOptions = template.options {
-                        self.messageOptions.append(with: [template.type : messageOptions])
-                    }
+          if !messageTemplates.isEmpty {
+            print("messageTemplates: \(messageTemplates)")
+            for template in messageTemplates {
+              switch template.type {
+              case "text", "image", "video", "audio", "file":
+                if !(messageCategories.contains("message")){
+                  self.messageCategories.append("message")
                 }
-            }else{
-                
-                self.messageCategories = ["message", "custom", "call",  "action"]
-                self.messageTypes = ["text", "image", "video", "audio", "file", "groupMember", "location", "extension_poll", "extension_whiteboard", "extension_document", "extension_sticker", "meeting"]
-                
+                if !(self.messageTypes.contains(template.type)){
+                  self.messageTypes.append(template.type)
+                }
+              case "groupActions":
+                if !(messageCategories.contains("action")){
+                  self.messageCategories.append("action")
+                }
+                if !(self.messageTypes.contains("groupMember")){
+                  self.messageTypes.append("groupMember")
+                }
+              case "call":
+                if !(messageCategories.contains("call")){
+                  self.messageCategories.append("call")
+                }
+                if !(self.messageTypes.contains("audio")){
+                  self.messageTypes.append("audio")
+                }
+                if !(self.messageTypes.contains("video")){
+                  self.messageTypes.append("video")
+                }
+              default:
+                if !(messageCategories.contains("custom")){
+                  self.messageCategories.append("custom")
+                }
+                if !(self.messageTypes.contains(template.type)){
+                  self.messageTypes.append(template.type)
+                }
+              }
+               if let customView = template.customView {
+                self.customViews.append(with: [template.type : customView])
+               }
+               if let messageOptions = template.options {
+                self.messageOptions.append(with: [template.type : messageOptions])
+              }
             }
-            
-          
-            if let currentUser = currentUser {
-                self.set(conversationWith: currentUser, type: .user)
-            }
-            if let currentGroup = currentGroup {
-                self.set(conversationWith: currentGroup, type: .group)
-            }
+          }else{
+            self.messageCategories = ["message", "custom", "call", "action"]
+            self.messageTypes = ["text", "image", "video", "audio", "file", "groupMember", "location", "extension_poll", "extension_whiteboard", "extension_document", "extension_sticker", "meeting"]
+          }
         }
-        
         return self
-    }
+      }
+
+
     
     
     /**
