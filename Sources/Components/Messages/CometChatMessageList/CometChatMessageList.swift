@@ -941,51 +941,39 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let section = indexPath.section as? Int else { return UITableViewCell() }
-        if let message = chatMessages[safe: section]?[safe: indexPath.row] {
-          if message.messageCategory == .action {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatGroupActionBubble", for: indexPath) as? CometChatGroupActionBubble {
+        guard let message = chatMessages[safe: section]?[safe: indexPath.row] else { return; print("No message found.")}
+        
+          if message.messageCategory == .action, if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatGroupActionBubble", for: indexPath) as? CometChatGroupActionBubble {
+              /// Action bubble
               cell.set(messageObject: message)
               return cell
-            }
-          } else {
-              
-
-              
-              if let message = message as? TextMessage, message.deletedAt == 0.0 , let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
-              if let configurations = configurations {
-                cell.set(configurations: configurations)
-                cell.customViews = self.customViews
-                cell.set(allMessageOptions: messageOptions)
-              }
-              if let controller = controller {
-                cell.set(controller: controller)
-              }
-              cell.set(messageAlignment: messageListAlignment)
-              print("messageOptions: \(messageOptions)")
-              cell.set(messageObject: message)
+          } else if let _ = message as? TextMessage, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
+              /// Text message
+              setupCellforRowAtIndex(message: message)
               return cell
-            } else {
-              if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatMessageBubble", for: indexPath) as? CometChatMessageBubble {
-                if let configurations = configurations {
-                  cell.set(configurations: configurations)
-                  cell.customViews = self.customViews
-                  cell.set(allMessageOptions: messageOptions)
-                }
-                if let controller = controller {
-                  cell.set(controller: controller)
-                }
-                cell.set(messageAlignment: messageListAlignment)
-                print("messageOptions: \(messageOptions)")
-                cell.set(messageObject: message)
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatMessageBubble", for: indexPath) as? CometChatMessageBubble {
+                /// Messsage bubble.
+               setupCellforRowAtIndex(message: message)
                 return cell
               }
-            }
-          }
-        }
         return UITableViewCell()
       }
-
+    
+    private func setupCellforRowAtIndex(message: BaseMessage) {
+        if let configurations = configurations {
+          cell.set(configurations: configurations)
+          cell.customViews = self.customViews
+          cell.set(allMessageOptions: messageOptions)
+        }
+        if let controller = controller {
+          cell.set(controller: controller)
+        }
+        cell.set(messageAlignment: messageListAlignment)
+        print("messageOptions: \(messageOptions)")
+        cell.set(messageObject: message)
+    }
 }
 
 extension CometChatMessageList: CometChatEmojiKeyboardDelegate {

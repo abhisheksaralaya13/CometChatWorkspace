@@ -125,7 +125,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     }
     
     @discardableResult
-    @objc public func set(messageObject: TextMessage) -> Self {
+    @objc public func set(messageObject: BaseMessage) -> Self {
+        guard let messageObject = messageObject as? TextMessage
         configureCell(baseMessage: messageObject)
         return self
     }
