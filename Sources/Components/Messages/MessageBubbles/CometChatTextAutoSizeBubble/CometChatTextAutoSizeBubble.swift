@@ -717,16 +717,4 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             return UIFont.systemFont(ofSize: 17, weight: .regular)
         }
     }
-    
-//    private func setupStyle(isStandard: Bool) {
-//        let textStyle = TextBubbleStyle(titleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900, titleFont: CometChatTheme.typography?.Body)
-//        set(style: textStyle)
-//    }
-//
-//    @discardableResult
-//    public func set(style: TextBubbleStyle) -> Self {
-//        self.set(textColor: style.titleColor!)
-//        self.set(textFont: style.titleFont!)
-//        return self
-//    }
 }
