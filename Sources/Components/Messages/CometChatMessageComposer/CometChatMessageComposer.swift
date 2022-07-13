@@ -616,11 +616,29 @@ enum MessageComposerMode {
     }
     
     func locationAuthStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            curentLocation = locationManager.location
+        let authorizationStatus: CLAuthorizationStatus
+
+        if #available(iOS 14, *) {
+            authorizationStatus = locationManager.authorizationStatus
         } else {
-            locationManager.requestWhenInUseAuthorization()
+            authorizationStatus = CLLocationManager.authorizationStatus()
         }
+
+        switch authorizationStatus {
+        case .authorizedAlways:
+            locationManager.requestAlwaysAuthorization()
+        case .authorizedWhenInUse:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            print("denied or restricted")
+        default:
+            locationManager.requestLocation()
+        }
+//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+//            curentLocation = locationManager.location
+//        } else {
+//            locationManager.requestWhenInUseAuthorization()
+//        }
     }
     
     
@@ -1025,17 +1043,3 @@ extension CometChatMessageComposer: CometChatEmojiKeyboardDelegate {
         liveReaction.isHidden = true
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
