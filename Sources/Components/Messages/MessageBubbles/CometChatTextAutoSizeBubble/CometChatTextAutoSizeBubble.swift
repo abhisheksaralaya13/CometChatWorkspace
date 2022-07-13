@@ -53,7 +53,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var messageListAlignment: MessageAlignment = .standard
     var messageOptions: [CometChatMessageOption] = []
     var deleteBubble: CometChatDeleteBubble!
-    
+    var linkPreviewURL: String?
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
     @IBOutlet weak var containerStackView: UIStackView!
@@ -65,6 +65,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var textMessageStackView: UIStackView!
+    @IBOutlet weak var linkPreviewMessage: UILabel!
     
     
     @discardableResult
@@ -412,7 +413,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             }
             
             if let thumbnail = linkPreview["image"] as? String , let url = URL(string: thumbnail){
-                
+                self.thumbnail.isHidden = true
                 self.thumbnail.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
                 imageRequest = imageService.image(for: url) { [weak self] image in
                     guard let strongSelf = self else { return }
@@ -420,15 +421,15 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                     if let image = image {
                         strongSelf.thumbnail.image = image
                     }else{
-                        strongSelf.thumbnail.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
+                        self.thumbnail.isHidden = true
                     }
                 }
             }
-            
             if let linkURL = linkPreview["url"] as? String {
-               // self.url = linkURL
+                self.linkPreviewURL = linkURL
             }
             set(backgroundColor: [CometChatTheme.palatte?.secondary?.cgColor])
+            self.linkPreviewMessage.text = message.text
         }
         else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
