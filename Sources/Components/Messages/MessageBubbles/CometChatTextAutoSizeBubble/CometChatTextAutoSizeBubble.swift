@@ -582,29 +582,29 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
 //        return self
 //    }
 //
-//    @discardableResult
-//    @objc public func set(messageAlignment: MessageAlignment) -> Self {
-//        switch messageAlignment {
-//        case .left:
-//            name.isHidden = false
-//            alightmentStack.alignment = .leading
-//            spacer.isHidden = false
-//            avatar.isHidden = false
-//            receipt.isHidden = true
-//            leadingReplyButton.isHidden = true
-//            trailingReplyButton.isHidden = true
-//
-//        case .right:
-//            alightmentStack.alignment = .trailing
-//            spacer.isHidden = true
-//            avatar.isHidden = true
-//            name.isHidden = true
-//            receipt.isHidden = false
-//            leadingReplyButton.isHidden = true
-//            trailingReplyButton.isHidden = true
-//        }
-//        return self
-//    }
+    @discardableResult
+    @objc public func set(messageAlignment: MessageAlignment) -> Self {
+        switch messageAlignment {
+        case .left:
+            name.isHidden = false
+            alightmentStack.alignment = .leading
+            spacer.isHidden = false
+            avatar.isHidden = false
+            receipt.isHidden = true
+            leadingReplyButton.isHidden = true
+            trailingReplyButton.isHidden = true
+
+        case .right:
+            alightmentStack.alignment = .trailing
+            spacer.isHidden = true
+            avatar.isHidden = true
+            name.isHidden = true
+            receipt.isHidden = false
+            leadingReplyButton.isHidden = true
+            trailingReplyButton.isHidden = true
+        }
+        return self
+    }
     
 
     
