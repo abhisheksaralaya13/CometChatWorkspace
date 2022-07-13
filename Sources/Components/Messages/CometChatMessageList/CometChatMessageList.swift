@@ -945,7 +945,7 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
         guard let section = indexPath.section as? Int else { return UITableViewCell() }
         guard let message = chatMessages[safe: section]?[safe: indexPath.row] else { print("No message found."); return UITableViewCell() }
         
-          if message.messageCategory == .action, if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatGroupActionBubble", for: indexPath) as? CometChatGroupActionBubble {
+          if message.messageCategory == .action, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatGroupActionBubble", for: indexPath) as? CometChatGroupActionBubble {
               /// Action bubble
               cell.set(messageObject: message)
               return cell
