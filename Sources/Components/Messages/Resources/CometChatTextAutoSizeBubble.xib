@@ -47,6 +47,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T2-fu-vBR">
+                                        <rect key="frame" x="0.0" y="516" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="bKi-wd-Hkk" secondAttribute="bottom" constant="45" id="buh-ss-rak"/>
