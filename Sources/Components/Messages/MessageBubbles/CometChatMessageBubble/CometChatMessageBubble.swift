@@ -243,17 +243,17 @@ class CometChatMessageBubble: UITableViewCell {
         return self
     }
     
-    @discardableResult
-    public func set(messageAlignment: MessageAlignment) -> Self {
-        self.messageListAlignment = messageAlignment
-        switch messageAlignment {
-        case .standard:
-            set(timeAlignment: .bottom)
-        case .leftAligned:
-            set(timeAlignment: .top)
-        }
-        return self
-    }
+//    @discardableResult
+//    public func set(messageAlignment: MessageAlignment) -> Self {
+//        self.messageListAlignment = messageAlignment
+//        switch messageAlignment {
+//        case .standard:
+//            set(timeAlignment: .bottom)
+//        case .leftAligned:
+//            set(timeAlignment: .top)
+//        }
+//        return self
+//    }
     
     
     @discardableResult
@@ -477,56 +477,7 @@ class CometChatMessageBubble: UITableViewCell {
         switch (message.messageCategory, message.messageType) {
             
         case (.message, .text): /// category - message && type - text
-            guard let message = message as? TextMessage else { print("Text messag not found."); return }
             debugPrint(" ---> message text")
-             /*
-            if let translatedMessage = message.metaData?["translated-message"] as? String {
-                let widthFixed = 228.0
-                let heightFixed = 22.0
-               // let fullMessage = message.text + "\n\n" + translatedMessage + "\n\nTranslated message"
-                let messageHeight = (message.text + "\n\n").lowercased().height(widthFixed, font: CometChatTheme.typography!.Body)
-                let translatedMessageHeight = (translatedMessage + "\n\n").lowercased().height(widthFixed, font: CometChatTheme.typography!.Subtitle2)
-                let translatedStringHeight = "TRANSLATED_MESSAGE".localize().height(widthFixed, font: CometChatTheme.typography!.Caption2)
-                
-                let height = messageHeight + translatedMessageHeight + translatedStringHeight
-                print("Height for \(message.text) is \(height)")
-                let widthE = message.text.width(heightFixed, font: CometChatTheme.typography!.Body)
-                let widthO = translatedMessage.width(heightFixed, font: CometChatTheme.typography!.Body)
-                let widthM = widthE > widthO ? widthE : widthO
-                backgroundHeightConstraint.constant = height < heightFixed ? 36 : height - 5
-                let translatedStringWidth = "TRANSLATED_MESSAGE".localize().width(heightFixed, font: CometChatTheme.typography!.Caption2)
-                let width = widthM > translatedStringWidth ? widthM : translatedStringWidth
-                backgroundWidthConstraint.constant = width > widthFixed ? widthFixed + 20: width + 20
-                let textBubble = CometChatTextBubble(frame: CGRect(x: 10, y: -5, width: backgroundWidthConstraint.constant - 15 , height: height), message: message, isStandard: isStandard)
-                background.addSubview(textBubble)
-            } else {
-                let widthFixed = 228.0
-                let heightFixed = 22.0
-                let height = message.text.lowercased().height(widthFixed, font: CometChatTheme.typography!.Body)
-                print("Height for \(message.text) is \(height)")
-                let width = message.text.width(heightFixed, font: CometChatTheme.typography!.Body)
-                backgroundHeightConstraint.constant = height < heightFixed ? 36 : height + 20
-                backgroundWidthConstraint.constant = width > widthFixed ? widthFixed + 20: width + 20
-                let textBubble = CometChatTextBubble(frame: CGRect(x: 10, y: 8, width: backgroundWidthConstraint.constant - 15 , height: height ), message: message, isStandard: isStandard)
-                background.addSubview(textBubble)
-            }
-            if allMessageOptions.isEmpty {
-                let defaultOptions = [
-                    CometChatMessageOption(defaultOption: .edit),
-                    CometChatMessageOption(defaultOption: .delete),
-                    CometChatMessageOption(defaultOption: .copy),
-                    CometChatMessageOption(defaultOption: .share),
-                    CometChatMessageOption(defaultOption: .translate),
-                    CometChatMessageOption(defaultOption: .reaction)
-                ]
-                self.set(messageOptions: defaultOptions)
-            } else {
-                if let fetchedOptions = allMessageOptions["text"] {
-                    self.set(messageOptions: fetchedOptions)
-                }
-            }
-             //   reactions.addSubview(CometChatMessageReactions(frame: CGRect(x: 0, y: 0, width: background.frame.width, height: 60)))
-         */
             
         case (.message, .image): /// category - message && type - image
             guard let message = message as? MediaMessage else { print("Media message not found."); return }
@@ -875,4 +826,3 @@ extension String {
     }
     
 }
-
