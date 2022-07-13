@@ -360,10 +360,13 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
         
         if message.deletedAt > 0.0 {
+            containerStackView.addBackground(color: .clear)
+            background.backgroundColor = CometChatTheme.palatte!.background!
             let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: 173, height: 36), message: message, isStandard: isStandard)
-            background.backgroundColor = .clear
             background.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
+            heightReactions.constant = 0
+            reactions.reactions.removeAll()
             return
         }
        // print(widthReactions.constant)
@@ -430,7 +433,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         let widthM = message.text.capitalized.width(22, font: CometChatTheme.typography!.Body) + 30.0
         print(widthM)
         
-        if widthM < 228 {
+        if widthM < 228 && count > 0 {
             if count >= 5 {
                 widthReactions.isActive = true
                 widthReactions.constant = 228
@@ -463,8 +466,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             reactions.isHidden = true
             heightReactions.constant = 0
         }
-
-        
     }
     
     private func setupStyle(isStandard: Bool) {
@@ -616,7 +617,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     override func prepareForReuse() {
         background.subviews.forEach({ $0.removeFromSuperview() })
         containerStackView.addBackground(color: .clear)
-        reactions.isHidden = true
         reactions.reactions.removeAll()
     }
     
