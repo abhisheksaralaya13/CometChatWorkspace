@@ -383,7 +383,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             translatedText.append(messageText)
             translatedText.append(translatedString)
             self.set(attributedText: translatedText) */
-            set(text: translatedMessage.text + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
+            set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
         }else{
             self.parseProfanityFilter(forMessage: message)
             self.parseMaskedData(forMessage: message)
