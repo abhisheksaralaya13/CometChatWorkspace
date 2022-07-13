@@ -332,6 +332,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         set(reactions: message, with: .left)
         
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
+        set(messageAlignment: isStandard ? .right : .left)          
         // TODO: - Secondary color code is different from #141414
         set(messageAlignment: isStandard ? .standard : .leftAligned)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
