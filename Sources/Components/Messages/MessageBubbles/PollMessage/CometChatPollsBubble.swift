@@ -52,9 +52,9 @@ class CometChatPollsBubble: UIView {
     
     private func setupStyle(isStandard: Bool) {
         let pollStyle = PollBubbleStyle(
-            questionColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900 ,
+            questionColor: CometChatTheme.palatte?.accent900 ,
             questionFont: CometChatTheme.typography?.Name2,
-            answeredPollTextColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent600,
+            answeredPollTextColor: CometChatTheme.palatte?.accent600,
             answeredPollTextFont: CometChatTheme.typography?.Subtitle2)
             set(style: pollStyle)
        
