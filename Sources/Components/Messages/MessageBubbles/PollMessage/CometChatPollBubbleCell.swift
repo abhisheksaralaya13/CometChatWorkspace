@@ -25,7 +25,7 @@ class CometChatPollBubbleCell: UITableViewCell {
         pollBackgroundView.clipsToBounds = true
         selectionStyle = .none
         // TODO: This should be set through styling..
-        answer.textColor = .white
+        answer.textColor = CometChatTheme.palatte?.accent900
         self.backgroundColor = .clear
     }
     
