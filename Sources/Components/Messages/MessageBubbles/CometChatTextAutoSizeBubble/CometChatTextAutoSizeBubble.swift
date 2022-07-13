@@ -426,7 +426,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             }
             
             if let linkURL = linkPreview["url"] as? String {
-                self.url = linkURL
+               // self.url = linkURL
             }
         }
         else {
