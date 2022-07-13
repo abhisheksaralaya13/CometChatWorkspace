@@ -614,8 +614,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     }
     
     override func prepareForReuse() {
-       // self.reactions.reactions.removeAll()
-       // self.heightReactions.constant = 0
+        background.subviews.forEach({ $0.removeFromSuperview() })
+        containerStackView.addBackground(color: .clear)
         reactions.isHidden = true
         reactions.reactions.removeAll()
     }
