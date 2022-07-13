@@ -429,7 +429,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                // self.url = linkURL
             }
         }
-        else if {
+        else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
                 self.parseProfanityFilter(forMessage: message)
                 self.parseMaskedData(forMessage: message)
