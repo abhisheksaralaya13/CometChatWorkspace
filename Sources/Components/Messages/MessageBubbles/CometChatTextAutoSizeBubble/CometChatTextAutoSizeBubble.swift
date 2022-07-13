@@ -385,8 +385,15 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             self.set(attributedText: translatedText) */
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
         } else {
-            self.parseProfanityFilter(forMessage: message)
-            self.parseMaskedData(forMessage: message)
+            if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
+                self.parseProfanityFilter(forMessage: message)
+                self.parseMaskedData(forMessage: message)
+            } else {
+                let font = applyLargeSizeEmoji(forMessage: message.text)
+                set(text: message.text)
+                set(textFont: font)
+            }
+           
         }
         if allMessageOptions.isEmpty {
             let defaultOptions = [
