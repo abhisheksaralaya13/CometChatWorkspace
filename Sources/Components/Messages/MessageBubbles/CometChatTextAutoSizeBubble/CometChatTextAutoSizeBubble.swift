@@ -621,8 +621,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
                    set(text: filteredMessage)
-                }else{
-                    
+                } else {
+                    /// No profanity
                     let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
@@ -631,7 +631,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                     set(text: forMessage.text)
                     self.message.font = font
                 }
-            }else{
+            } else {
+                /// No Profanity
                 let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                             attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
               //  set(attributedText: messageText)
@@ -640,7 +641,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 set(text: forMessage.text)
                 self.message.font = font
             }
-        }else{
+        } else {
+            /// Simple text.
             let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                         attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
            // set(attributedText: messageText)
@@ -661,10 +663,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                       //  set(attributedText: messageText)
                        set(text: maskedMessage)
-                        let font = applyLargeSizeEmoji(forMessage: forMessage)
-                        set(text: forMessage.text)
-                        self.message.font = font
-                    }else{
+                    } else {
+                        /// No Masked
                         let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                        // set(attributedText: messageText)
@@ -673,7 +673,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                         set(text: forMessage.text)
                         self.message.font = font
                     }
-                }else{
+                } else {
                     self.parseProfanityFilter(forMessage: forMessage)
                 }
             }else{
