@@ -433,7 +433,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         let widthM = message.text.capitalized.width(22, font: CometChatTheme.typography!.Body) + 30.0
         print(widthM)
         
-        if widthM < 228 && count > 0 {
+        if widthM < 228 {
             if count >= 5 {
                 widthReactions.isActive = true
                 widthReactions.constant = 228
