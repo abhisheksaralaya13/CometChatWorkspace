@@ -332,7 +332,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
-        setupStyle(isStandard: isStandard)
+        setupStyle(isStandard: !isStandard)
         background.backgroundColor = .clear
         set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         set(messageAlignment: isStandard ? .right : .left)
