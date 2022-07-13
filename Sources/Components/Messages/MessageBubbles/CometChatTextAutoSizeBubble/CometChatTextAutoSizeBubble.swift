@@ -384,7 +384,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             translatedText.append(translatedString)
             self.set(attributedText: translatedText) */
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
-        }else{
+        } else {
             self.parseProfanityFilter(forMessage: message)
             self.parseMaskedData(forMessage: message)
         }
@@ -627,22 +627,30 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
                     set(text: forMessage.text)
+                    let font = applyLargeSizeEmoji(forMessage: forMessage)
+                    set(text: forMessage.text)
+                    self.message.font = font
                 }
             }else{
                 let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                             attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
               //  set(attributedText: messageText)
                 set(text: forMessage.text)
+                let font = applyLargeSizeEmoji(forMessage: forMessage)
+                set(text: forMessage.text)
+                self.message.font = font
             }
         }else{
             let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                         attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
            // set(attributedText: messageText)
+            let font = applyLargeSizeEmoji(forMessage: forMessage)
             set(text: forMessage.text)
+            self.message.font = font
         }
     }
     
-    private func parseMaskedData(forMessage: TextMessage){
+    private func parseMaskedData(forMessage: TextMessage) {
         if let metaData = forMessage.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let dataMaskingDictionary = cometChatExtension["data-masking"] as? [String : Any] {
             
             if let data = dataMaskingDictionary["data"] as? [String:Any], let sensitiveData = data["sensitive_data"] as? String {
@@ -653,11 +661,17 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                       //  set(attributedText: messageText)
                        set(text: maskedMessage)
+                        let font = applyLargeSizeEmoji(forMessage: forMessage)
+                        set(text: forMessage.text)
+                        self.message.font = font
                     }else{
                         let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                        // set(attributedText: messageText)
                        set(text: forMessage.text)
+                        let font = applyLargeSizeEmoji(forMessage: forMessage)
+                        set(text: forMessage.text)
+                        self.message.font = font
                     }
                 }else{
                     self.parseProfanityFilter(forMessage: forMessage)
