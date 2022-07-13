@@ -16,7 +16,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var background: CometChatGradientView!
     @IBOutlet weak var sentimentAnalysisView: UIView!
-    @IBOutlet weak var message: HyperlinkLabel!
+    @IBOutlet weak var message: UILabel!
     @IBOutlet weak var spacer: UIView!
     @IBOutlet weak var sentimentAnalysisButton: UIButton!
     @IBOutlet weak var sentimentAnalysisButtonLeadingSpace: NSLayoutConstraint!
