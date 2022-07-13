@@ -627,12 +627,15 @@ enum MessageComposerMode {
         switch authorizationStatus {
         case .authorizedAlways:
             locationManager.requestAlwaysAuthorization()
+            curentLocation = locationManager.location
         case .authorizedWhenInUse:
             locationManager.requestWhenInUseAuthorization()
+            curentLocation = locationManager.location
         case .restricted, .denied:
             print("denied or restricted")
         default:
             locationManager.requestLocation()
+            curentLocation = locationManager.location
         }
 //        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
 //            curentLocation = locationManager.location
