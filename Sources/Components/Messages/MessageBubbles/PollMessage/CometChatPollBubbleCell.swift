@@ -34,11 +34,11 @@ class CometChatPollBubbleCell: UITableViewCell {
         let pollStyle = PollBubbleStyle(
             percentageTextColor: CometChatTheme.palatte?.accent600,
             percentageTextFont: CometChatTheme.typography?.Subtitle1,
-            pollButtonColor: isStandard ? CometChatTheme.palatte?.primary : CometChatTheme.palatte?.accent400,
+            pollButtonColor: CometChatTheme.palatte?.accent400,
             answerTextColor: CometChatTheme.palatte?.accent900,
             answerTextFont: CometChatTheme.typography?.Subtitle1,
             pollBackgroundViewColor: .white,
-            spacerViewColor: isStandard ? CometChatTheme.palatte?.primary : .clear)
+            spacerViewColor: .clear)
           set(style: pollStyle)
 
         if  let options = results["options"] as? [String: Any], let total = results["total"] as? Int, let dict = options["\(indexPath.row + 1)"] as? [String: Any], let count = dict["count"] as? Int, let text = dict["text"] as? String {
