@@ -77,7 +77,7 @@ extension CometChatMessageComposer : CometChatActionSheetDelegate {
     
     func shareLocationPressed() {
         if let controller = controller {
-            
+            print("~~~", curentLocation)
             let alert = UIAlertController(title: "" , message: "SHARE_LOCATION_CONFIRMATION_MESSAGE".localize(), preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "SHARE".localize(), style: .default, handler: { action in
