@@ -55,9 +55,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="bKi-wd-Hkk" secondAttribute="bottom" constant="45" id="buh-ss-rak"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" id="Fa3-VG-QLa">
                                 <rect key="frame" x="58" y="20" width="458" height="450"/>
