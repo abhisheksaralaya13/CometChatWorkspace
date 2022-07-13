@@ -21,25 +21,34 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="czf-Ur-QZh">
                         <rect key="frame" x="8" y="5" width="516" height="556"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-wd-Hkk" customClass="CometChatAvatar" customModule="CometChatUIKit">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemFillColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="I3a-KW-wqH"/>
-                                    <constraint firstAttribute="height" constant="30" id="fAu-ra-jYO"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vE2-Yn-7pV">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="556"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ar6-yf-eZe">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="511"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-wd-Hkk" customClass="CometChatAvatar" customModule="CometChatUIKit">
+                                        <rect key="frame" x="0.0" y="516" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="I3a-KW-wqH"/>
+                                            <constraint firstAttribute="height" constant="40" id="fAu-ra-jYO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" id="Fa3-VG-QLa">
                                 <rect key="frame" x="58" y="20" width="458" height="450"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,17 +60,11 @@
                                                 <rect key="frame" x="0.0" y="2" width="458" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-vp-tcL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="423" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="458" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="JlW-Kh-aw1"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                                        <color key="textColor" systemColor="systemGrayColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:43" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN9-D4-yjK" customClass="CometChatDate" customModule="CometChatUIKit">
-                                                        <rect key="frame" x="428" y="0.0" width="30" height="15"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -205,6 +208,9 @@
                                 <viewLayoutGuide key="safeArea" id="bkZ-vp-Hyu"/>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vE2-Yn-7pV" secondAttribute="bottom" id="zm3-RI-8ra"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -234,7 +240,6 @@
                 <outlet property="sentimentAnalysisView" destination="J3x-RN-y1Z" id="Deg-oG-cP4"/>
                 <outlet property="spacer" destination="rYs-Js-7zm" id="dPg-ZE-amH"/>
                 <outlet property="time" destination="HOj-xr-xyC" id="pFf-5f-s4P"/>
-                <outlet property="topTime" destination="IN9-D4-yjK" id="S1y-s1-NYW"/>
                 <outlet property="trailingReplyButton" destination="LTx-pj-l75" id="gyx-P6-TPr"/>
                 <outlet property="widthReactions" destination="PF6-to-bzd" id="pdc-nq-jOG"/>
             </connections>
@@ -248,9 +253,6 @@
         <designable name="HOj-xr-xyC">
             <size key="intrinsicContentSize" width="30" height="13.5"/>
         </designable>
-        <designable name="IN9-D4-yjK">
-            <size key="intrinsicContentSize" width="30" height="13.5"/>
-        </designable>
         <designable name="bKi-wd-Hkk">
             <size key="intrinsicContentSize" width="240" height="240"/>
         </designable>
@@ -261,6 +263,9 @@
     <resources>
         <image name="defaultAvatar.jpg" width="240" height="240"/>
         <image name="message-delivered.png" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

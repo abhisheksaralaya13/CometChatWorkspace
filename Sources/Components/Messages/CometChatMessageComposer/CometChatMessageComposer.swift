@@ -616,6 +616,12 @@ enum MessageComposerMode {
     }
     
     func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            curentLocation = locationManager.location
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        /*
         let authorizationStatus: CLAuthorizationStatus
 
         if #available(iOS 14, *) {
@@ -636,12 +642,7 @@ enum MessageComposerMode {
         default:
             locationManager.requestLocation()
             curentLocation = locationManager.location
-        }
-//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-//            curentLocation = locationManager.location
-//        } else {
-//            locationManager.requestWhenInUseAuthorization()
-//        }
+        }*/
     }
     
     
