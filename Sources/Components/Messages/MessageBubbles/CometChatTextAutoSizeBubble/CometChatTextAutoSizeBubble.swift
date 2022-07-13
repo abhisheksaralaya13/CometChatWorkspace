@@ -413,7 +413,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             }
             
             if let thumbnail = linkPreview["image"] as? String , let url = URL(string: thumbnail){
-                self.thumbnail.isHidden = true
+                self.thumbnail.isHidden = false
                 self.thumbnail.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
                 imageRequest = imageService.image(for: url) { [weak self] image in
                     guard let strongSelf = self else { return }
@@ -421,7 +421,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                     if let image = image {
                         strongSelf.thumbnail.image = image
                     }else{
-                        self.thumbnail.isHidden = true
+                        strongSelf.thumbnail.isHidden = true
                     }
                 }
             }
