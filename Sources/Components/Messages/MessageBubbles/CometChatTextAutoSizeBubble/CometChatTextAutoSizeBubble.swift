@@ -428,6 +428,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             if let linkURL = linkPreview["url"] as? String {
                // self.url = linkURL
             }
+            set(backgroundColor: [CometChatTheme.palatte?.secondary?.cgColor])
         }
         else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
