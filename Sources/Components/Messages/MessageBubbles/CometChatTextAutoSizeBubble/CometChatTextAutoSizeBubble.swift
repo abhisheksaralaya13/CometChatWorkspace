@@ -16,7 +16,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var background: CometChatGradientView!
     @IBOutlet weak var sentimentAnalysisView: UIView!
-    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var message: HyperlinkLabel!
     @IBOutlet weak var spacer: UIView!
     @IBOutlet weak var sentimentAnalysisButton: UIButton!
     @IBOutlet weak var sentimentAnalysisButtonLeadingSpace: NSLayoutConstraint!
@@ -400,15 +400,17 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         
         if let translatedMessage = message.metaData?["translated-message"] as? String {
             
-            let translatedText = NSMutableAttributedString(string: "\(translatedMessage.lowercased())\n\n",
-                                                           attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.9), NSAttributedString.Key.font: CometChatTheme.typography!.Body])
-            let messageText = NSMutableAttributedString(string: "\(message.text)\n\n",
-                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.8), NSAttributedString.Key.font: CometChatTheme.typography!.Subtitle2])
-            let translatedString = NSMutableAttributedString(string: "TRANSLATED_MESSAGE".localize(),
-                                                             attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.6), NSAttributedString.Key.font: CometChatTheme.typography!.Caption2])
-            translatedText.append(messageText)
-            translatedText.append(translatedString)
-            self.set(attributedText: translatedText)
+//            let translatedText = NSMutableAttributedString(string: "\(translatedMessage.lowercased())\n\n",
+//                                                           attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.9), NSAttributedString.Key.font: CometChatTheme.typography!.Body])
+//            let messageText = NSMutableAttributedString(string: "\(message.text)\n\n",
+//                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.8), NSAttributedString.Key.font: CometChatTheme.typography!.Subtitle2])
+//            let translatedString = NSMutableAttributedString(string: "TRANSLATED_MESSAGE".localize(),
+//                                                             attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.6), NSAttributedString.Key.font: CometChatTheme.typography!.Caption2])
+//            translatedText.append(messageText)
+//            translatedText.append(translatedString)
+//            self.set(attributedText: translatedText)
+            
+            self.set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
         }else{
             self.parseProfanityFilter(forMessage: message)
             self.parseMaskedData(forMessage: message)
