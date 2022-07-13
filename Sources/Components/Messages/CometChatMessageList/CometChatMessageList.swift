@@ -949,7 +949,7 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
               /// Action bubble
               cell.set(messageObject: message)
               return cell
-          } else if let message = message as? TextMessage, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
+          } else if let message = message as? TextMessage, message.deletedAt == 0, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
               /// Text message
               if let configurations = configurations {
                 cell.set(configurations: configurations)
