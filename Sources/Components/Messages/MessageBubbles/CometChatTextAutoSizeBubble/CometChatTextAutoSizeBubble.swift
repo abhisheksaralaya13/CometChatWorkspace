@@ -326,7 +326,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         reactions.isHidden = true
         self.message.isHidden = false
         
-        reactions.collectionView.backgroundColor = CometChatTheme.palatte?.primary!
         if let controller = controller {
             reactions.set(controller: controller).set(messageObject: message)
         }
