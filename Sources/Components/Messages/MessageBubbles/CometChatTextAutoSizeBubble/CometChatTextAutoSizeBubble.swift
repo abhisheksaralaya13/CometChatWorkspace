@@ -413,7 +413,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             
             if let thumbnail = linkPreview["image"] as? String , let url = URL(string: thumbnail){
                 
-                self.icon.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
+                self.thumbnail.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
                 imageRequest = imageService.image(for: url) { [weak self] image in
                     guard let strongSelf = self else { return }
                     // Update Thumbnail Image View
