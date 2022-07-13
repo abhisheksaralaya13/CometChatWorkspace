@@ -325,7 +325,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         messageOptions.removeAll()
         reactions.isHidden = true
         self.message.isHidden = false
-        set(containerBG: (CometChatTheme.palatte?.primary)!)
+        
         reactions.collectionView.backgroundColor = CometChatTheme.palatte?.primary!
         if let controller = controller {
             reactions.set(controller: controller).set(messageObject: message)
@@ -334,9 +334,9 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         set(reactions: message, with: .left)
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         setupStyle(isStandard: isStandard)
-        background.backgroundColor = isStandard ? CometChatTheme.palatte!.primary! : CometChatTheme.palatte!.background!
+        background.backgroundColor = .clear
+        set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         set(messageAlignment: isStandard ? .right : .left)
-        // TODO: - Secondary color code is different from #141414
         set(messageAlignment: isStandard ? .standard : .leftAligned)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
