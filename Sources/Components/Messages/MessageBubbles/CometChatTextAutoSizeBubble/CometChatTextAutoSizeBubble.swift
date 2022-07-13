@@ -332,7 +332,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-        
+        setupStyle(isStandard: isStandard)
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         set(messageAlignment: isStandard ? .right : .left)
         // TODO: - Secondary color code is different from #141414
@@ -719,4 +719,15 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
     }
     
+    private func setupStyle(isStandard: Bool) {
+        let textStyle = TextBubbleStyle(titleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900, titleFont: CometChatTheme.typography?.Body)
+        set(style: textStyle)
+    }
+    
+    @discardableResult
+    public func set(style: TextBubbleStyle) -> Self {
+        self.set(textColor: style.titleColor!)
+        self.set(textFont: style.titleFont!)
+        return self
+    }
 }
