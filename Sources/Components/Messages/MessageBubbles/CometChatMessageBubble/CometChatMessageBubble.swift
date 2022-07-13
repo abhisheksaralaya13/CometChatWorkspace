@@ -243,17 +243,17 @@ class CometChatMessageBubble: UITableViewCell {
         return self
     }
     
-//    @discardableResult
-//    public func set(messageAlignment: MessageAlignment) -> Self {
-//        self.messageListAlignment = messageAlignment
-//        switch messageAlignment {
-//        case .standard:
-//            set(timeAlignment: .bottom)
-//        case .leftAligned:
-//            set(timeAlignment: .top)
-//        }
-//        return self
-//    }
+    @discardableResult
+    public func set(messageAlignment: MessageAlignment) -> Self {
+        self.messageListAlignment = messageAlignment
+        switch messageAlignment {
+        case .standard:
+            set(timeAlignment: .bottom)
+        case .leftAligned:
+            set(timeAlignment: .top)
+        }
+        return self
+    }
     
     
     @discardableResult
