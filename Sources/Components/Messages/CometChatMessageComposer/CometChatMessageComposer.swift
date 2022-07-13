@@ -96,7 +96,7 @@ enum MessageComposerMode {
                                      CometChatMessageTemplate(type: .video),
                                      CometChatMessageTemplate(type: .audio),
                                      CometChatMessageTemplate(type: .file),
-                                     CometChatMessageTemplate(type: .location),
+                                   //  CometChatMessageTemplate(type: .location),
                                      CometChatMessageTemplate(type: .poll),
                                      CometChatMessageTemplate(type: .collaborativeWhiteboard),
                                      CometChatMessageTemplate(type: .collaborativeDocument),
@@ -616,12 +616,9 @@ enum MessageComposerMode {
     }
     
     func locationAuthStatus() {
-        print("&&& YES")
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             curentLocation = locationManager.location
-            print("&&& YES Inside if \(curentLocation)")
         } else {
-            print("&&& YES Inside else ")
             locationManager.requestWhenInUseAuthorization()
         }
     }
