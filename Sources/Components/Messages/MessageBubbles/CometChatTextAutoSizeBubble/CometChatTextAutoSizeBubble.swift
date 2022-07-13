@@ -395,7 +395,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             translatedText.append(translatedString)
             self.set(attributedText: translatedText) */
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
-        } else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]] {
+        } else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], !linkArray.isEmpty {
             self.linkPreview.isHidden = false
             self.textMessageStackView.isHidden = true
             
@@ -429,7 +429,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                // self.url = linkURL
             }
         }
-        else {
+        else if {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
                 self.parseProfanityFilter(forMessage: message)
                 self.parseMaskedData(forMessage: message)
