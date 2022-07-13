@@ -389,7 +389,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 self.parseProfanityFilter(forMessage: message)
                 self.parseMaskedData(forMessage: message)
             } else {
-                let font = applyLargeSizeEmoji(forMessage: message.text)
+                let font = applyLargeSizeEmoji(forMessage: message)
                 set(text: message.text)
                 set(textFont: font)
             }
