@@ -52,6 +52,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var controller: UIViewController?
     var messageListAlignment: MessageAlignment = .standard
     var messageOptions: [CometChatMessageOption] = []
+    var deleteBubble: CometChatDeleteBubble!
     @IBOutlet weak var containerStackView: UIStackView!
     @IBOutlet weak var heightReactions: NSLayoutConstraint!
     @IBOutlet var widthReactions: NSLayoutConstraint!
@@ -323,6 +324,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     private func configureCell(baseMessage message: TextMessage) {
         messageOptions.removeAll()
         reactions.isHidden = true
+        self.message.isHidden = false
         set(containerBG: (CometChatTheme.palatte?.primary)!)
         reactions.collectionView.backgroundColor = CometChatTheme.palatte?.primary!
         if let controller = controller {
@@ -363,7 +365,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         if message.deletedAt > 0.0 {
             containerStackView.addBackground(color: .clear)
             background.backgroundColor = CometChatTheme.palatte!.background!
-            let deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: 173, height: 36), message: message, isStandard: isStandard)
+            self.message.isHidden = true
+            deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: 173, height: 36), message: message, isStandard: isStandard)
             background.addSubview(deleteBubble)
             configureMessageBubble(forMessage: message)
             heightReactions.constant = 0
