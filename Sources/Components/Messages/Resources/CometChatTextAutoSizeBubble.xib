@@ -50,6 +50,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T2-fu-vBR">
                                         <rect key="frame" x="0.0" y="516" width="40" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="PMf-7m-6xE"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
