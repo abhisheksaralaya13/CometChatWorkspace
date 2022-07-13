@@ -336,7 +336,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         background.backgroundColor = .clear
         set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         set(messageAlignment: isStandard ? .right : .left)
-        set(messageAlignment: isStandard ? .standard : .leftAligned)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
         set(backgroundRadius: 12.0)
