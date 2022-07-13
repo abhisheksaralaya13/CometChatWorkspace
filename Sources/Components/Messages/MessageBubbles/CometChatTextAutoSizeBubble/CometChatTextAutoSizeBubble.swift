@@ -620,7 +620,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                     let messageText = NSMutableAttributedString(string: "\(filteredMessage)\n\n",
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
-                   set(text: forMessage.text)
+                   set(text: filteredMessage)
                 }else{
                     
                     let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
