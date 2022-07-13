@@ -46,8 +46,8 @@
             filePath = "Sources/Components/Messages/MessageBubbles/CometChatTextAutoSizeBubble/CometChatTextAutoSizeBubble.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "646"
-            endingLineNumber = "646"
+            startingLineNumber = "691"
+            endingLineNumber = "691"
             landmarkName = "parseProfanityFilter(forMessage:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Sources/Components/Messages/MessageBubbles/CometChatTextAutoSizeBubble/CometChatTextAutoSizeBubble.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "657"
-            endingLineNumber = "657"
+            startingLineNumber = "702"
+            endingLineNumber = "702"
             landmarkName = "parseProfanityFilter(forMessage:)"
             landmarkType = "7">
          </BreakpointContent>

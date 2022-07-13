@@ -53,9 +53,19 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var messageListAlignment: MessageAlignment = .standard
     var messageOptions: [CometChatMessageOption] = []
     var deleteBubble: CometChatDeleteBubble!
+    
+    private var imageRequest: Cancellable?
+    private lazy var imageService = ImageService()
     @IBOutlet weak var containerStackView: UIStackView!
     @IBOutlet weak var heightReactions: NSLayoutConstraint!
     @IBOutlet var widthReactions: NSLayoutConstraint!
+    
+    @IBOutlet weak var linkPreview: UIStackView!
+    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subTitle: UILabel!
+    @IBOutlet weak var textMessageStackView: UIStackView!
+    
     
     @discardableResult
     @objc public func set(corner: CometChatCorner) -> Self {
@@ -371,7 +381,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             reactions.reactions.removeAll()
             return
         }
-        
+        self.linkPreview.isHidden = true
+        self.textMessageStackView.isHidden = false
         if let translatedMessage = message.metaData?["translated-message"] as? String {
             /*
             let translatedText = NSMutableAttributedString(string: "\(translatedMessage.lowercased())\n\n",
@@ -384,7 +395,41 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             translatedText.append(translatedString)
             self.set(attributedText: translatedText) */
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
-        } else {
+        } else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]] {
+            self.linkPreview.isHidden = false
+            self.textMessageStackView.isHidden = true
+            
+            guard let linkPreview = linkArray[safe: 0] else {
+                return
+            }
+            
+            if let linkTitle = linkPreview["title"] as? String {
+                title.text = linkTitle
+            }
+            
+            if let description = linkPreview["description"] as? String {
+                subTitle.text = description
+            }
+            
+            if let thumbnail = linkPreview["image"] as? String , let url = URL(string: thumbnail){
+                
+                self.icon.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
+                imageRequest = imageService.image(for: url) { [weak self] image in
+                    guard let strongSelf = self else { return }
+                    // Update Thumbnail Image View
+                    if let image = image {
+                        strongSelf.thumbnail.image = image
+                    }else{
+                        strongSelf.thumbnail.image = UIImage(named: "default-image.png", in: CometChatUIKit.bundle, compatibleWith: nil)
+                    }
+                }
+            }
+            
+            if let linkURL = linkPreview["url"] as? String {
+                self.url = linkURL
+            }
+        }
+        else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
                 self.parseProfanityFilter(forMessage: message)
                 self.parseMaskedData(forMessage: message)
