@@ -332,8 +332,9 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-        setupStyle(isStandard: isStandard)
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
+        setupStyle(isStandard: isStandard)
+        background.backgroundColor = isStandard ? CometChatTheme.palatte!.background! ? CometChatTheme.palatte!.primary!
         set(messageAlignment: isStandard ? .right : .left)
         // TODO: - Secondary color code is different from #141414
         set(messageAlignment: isStandard ? .standard : .leftAligned)
@@ -364,7 +365,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         
         if message.deletedAt > 0.0 {
             containerStackView.addBackground(color: .clear)
-            background.backgroundColor = CometChatTheme.palatte!.background!
             self.message.isHidden = true
             deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: 173, height: 36), message: message, isStandard: isStandard)
             background.addSubview(deleteBubble)
@@ -437,7 +437,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         if configurations != nil {
             configureMessageBubble(forMessage: message)
         }
-        setupStyle(isStandard: isStandard)
         
         let count = reactions.reactions.count
         let widthM = message.text.capitalized.width(22, font: CometChatTheme.typography!.Body) + 30.0
@@ -719,15 +718,15 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
     }
     
-    private func setupStyle(isStandard: Bool) {
-        let textStyle = TextBubbleStyle(titleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900, titleFont: CometChatTheme.typography?.Body)
-        set(style: textStyle)
-    }
-    
-    @discardableResult
-    public func set(style: TextBubbleStyle) -> Self {
-        self.set(textColor: style.titleColor!)
-        self.set(textFont: style.titleFont!)
-        return self
-    }
+//    private func setupStyle(isStandard: Bool) {
+//        let textStyle = TextBubbleStyle(titleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900, titleFont: CometChatTheme.typography?.Body)
+//        set(style: textStyle)
+//    }
+//
+//    @discardableResult
+//    public func set(style: TextBubbleStyle) -> Self {
+//        self.set(textColor: style.titleColor!)
+//        self.set(textFont: style.titleFont!)
+//        return self
+//    }
 }
