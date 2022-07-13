@@ -70,7 +70,7 @@ class CometChatPollBubbleCell: UITableViewCell {
     
      private func set(style: PollBubbleStyle) -> Self {
         self.set(thumbnailTintColor: style.pollButtonColor!)
-       // self.set(answetTextColor: style.answeredPollTextColor!)
+        self.set(answetTextColor: style.answeredPollTextColor!)
         self.set(answetTextFont: style.answeredPollTextFont!)
         self.set(spacerViewColor: style.spacerViewColor!)
         self.set(percentageTextColor: style.percentageTextColor!)
