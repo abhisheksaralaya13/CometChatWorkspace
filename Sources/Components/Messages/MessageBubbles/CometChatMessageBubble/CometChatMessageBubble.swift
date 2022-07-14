@@ -441,7 +441,9 @@ class CometChatMessageBubble: UITableViewCell {
             set(receipt: receipt.set(receipt: message))
         }
         /// when user send custom view that are not existing type such as payment.
-        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)], let view = customView?(message) {
+        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)] {
+            
+            if let view = customView?(message) {
                 background.addSubview(view)
                 
                 view.translatesAutoresizingMaskIntoConstraints = false
@@ -454,7 +456,12 @@ class CometChatMessageBubble: UITableViewCell {
                     view.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
                 ])
             return
+                
+            }
         }
+//        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)], let view = customView?(message) {
+//
+//        }
         background.backgroundColor = .clear
         /// show when message has been deleted.
         if message.deletedAt > 0.0 {
