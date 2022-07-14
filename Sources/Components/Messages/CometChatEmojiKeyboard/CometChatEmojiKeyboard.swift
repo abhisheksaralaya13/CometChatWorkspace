@@ -203,8 +203,8 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         if collectionView == emojiCollectionView {
             let section = indexPath.section
             let cell = emojiSetCollectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as? CometChatEmojiKeyboardItem
-            
             cell.emojiIcon.backgroundColor = .yellow
+            print(section)
         }
         
     }
