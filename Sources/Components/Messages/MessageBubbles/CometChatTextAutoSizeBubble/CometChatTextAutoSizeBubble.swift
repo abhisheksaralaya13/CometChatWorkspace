@@ -402,7 +402,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             if let linkURL = linkPreview["url"] as? String {
                 self.linkPreviewURL = linkURL
             }
-          //  set(backgroundColor: [CometChatTheme.palatte?.secondary?.cgColor])
             self.linkPreviewMessage.text = message.text
         }
         else {
@@ -578,6 +577,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
                    set(text: filteredMessage)
+                    layoutIfNeeded()
                 } else {
                     /// No profanity
                     let _ = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
@@ -615,6 +615,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                       //  set(attributedText: messageText)
                        set(text: maskedMessage)
+                        layoutIfNeeded()
                     } else {
                         /// No Masked
                         let _ = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
