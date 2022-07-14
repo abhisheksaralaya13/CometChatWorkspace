@@ -202,8 +202,6 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    collectionview
-    
 }
 
 // TODO: - This extension should be in separate file.
