@@ -199,13 +199,14 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        /*
+        
         if collectionView == emojiCollectionView {
             let section = indexPath.section
             if let cell = emojiSetCollectionView.cellForItem(at: indexPath) as? CometChatEmojiKeyboardItem {
-                cell.emojiIcon.image = UIImage(named: "messages-edit")
+                cell.emojiIcon.tintColor = .yellow
+                cell.emojiIcon.image =   UIImage(named: emojiCategories[indexPath.row].symbol, in: CometChatUIKit.bundle, compatibleWith: nil)
             }
-        }*/
+        }
     }
 
 }
