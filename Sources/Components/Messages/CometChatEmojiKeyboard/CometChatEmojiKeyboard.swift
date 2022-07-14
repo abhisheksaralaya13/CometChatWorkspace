@@ -199,7 +199,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        print(indexPath.section)
     }
     
 }
