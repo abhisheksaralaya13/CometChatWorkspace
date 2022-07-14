@@ -28,6 +28,15 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     @IBOutlet weak var receipt: CometChatMessageReceipt!
     @IBOutlet weak var receiptStack: UIStackView!
     @IBOutlet weak var reactions: CometChatMessageReactions!
+    @IBOutlet weak var containerStackView: UIStackView!
+    @IBOutlet weak var heightReactions: NSLayoutConstraint!
+    @IBOutlet var widthReactions: NSLayoutConstraint!
+    @IBOutlet weak var linkPreview: UIStackView!
+    @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subTitle: UILabel!
+    @IBOutlet weak var textMessageStackView: UIStackView!
+    @IBOutlet weak var linkPreviewMessage: UILabel!
     
     //var messageListAlignment: MessageAlignment = .standard
     var indexPath: IndexPath?
@@ -41,8 +50,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             return self.selectedBackgroundView?.backgroundColor ?? UIColor.white
         }
     }
-    
-    // Added
     var configuration: CometChatConfiguration?
     var configurations: [CometChatConfiguration]?
     var sentMessageInputData: SentMessageInputData?
@@ -54,20 +61,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var messageOptions: [CometChatMessageOption] = []
     var deleteBubble: CometChatDeleteBubble!
     var linkPreviewURL: String?
-    var isStandard: Bool = false
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
-    @IBOutlet weak var containerStackView: UIStackView!
-    @IBOutlet weak var heightReactions: NSLayoutConstraint!
-    @IBOutlet var widthReactions: NSLayoutConstraint!
-    
-    @IBOutlet weak var linkPreview: UIStackView!
-    @IBOutlet weak var thumbnail: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var subTitle: UILabel!
-    @IBOutlet weak var textMessageStackView: UIStackView!
-    @IBOutlet weak var linkPreviewMessage: UILabel!
-    
     
     @discardableResult
     @objc public func set(corner: CometChatCorner) -> Self {
@@ -128,11 +123,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         switch timeAlignment {
         case .top:
             self.time.isHidden = true
-          //
-            //self.topTime.isHidden = false
         case .bottom:
             self.time.isHidden = false
-          //  self.topTime.isHidden = true
         }
         return self
     }
@@ -194,18 +186,10 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         self.receivedMessageInputData = receivedMessageInputData
         return self
     }
-    
-//    @discardableResult
-//    public func hide(avatar: Bool) ->  Self {
-//        self.avatar.isHidden = avatar
-//        self.avatarWidth.constant = 0
-//        return self
-//    }
-    
+
     @discardableResult
     public func hide(avatar: Bool) ->  Self {
         self.avatar.isHidden = avatar
-       // self.avatarWidth.constant = 0
         return self
     }
     
@@ -343,14 +327,13 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-        isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
+        let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         setupStyle(isStandard: isStandard)
-       // background.backgroundColor = .clear
-        
         set(messageAlignment: isStandard ? .right : .left)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
         set(backgroundRadius: 12.0)
+        set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         // To hide & show receipt
         if !isStandard {
             self.receipt.isHidden = true
@@ -487,7 +470,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             reactions.isHidden = true
             heightReactions.constant = 0
         }
-        set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
+        
     }
     
     private func setupStyle(isStandard: Bool) {
@@ -519,17 +502,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         self.avatar = avatar
         return self
     }
-    
-//    @discardableResult
-//    @objc public func set(userName: String) -> Self {
-//        if bubbleType == . {
-//            self.name.text = userName
-//        }else{
-//            self.name.text = userName + ":"
-//        }
-//
-//        return self
-//    }
     
     @discardableResult
     @objc public func set(text: String) -> Self {
@@ -567,63 +539,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         self.receipt = receipt
         return self
     }
-    
-//    @discardableResult
-//    @objc public func set(reactions forMessage: TextMessage, with alignment: MessageAlignment) -> Self {
-//        self.reactions.parseMessageReactionForMessage(message: forMessage) { (success) in
-//            if success == true {
-//                if alignment == .right {
-//                    self.reactions.collectionView.semanticContentAttribute = .forceRightToLeft
-//                }
-//                self.reactions.isHidden = false
-//            }else{
-//                self.reactions.isHidden = true
-//            }
-//        }
-//        return self
-//    }
-
-//    @discardableResult
-//    @objc public func set(time: CometChatDate) -> Self {
-//        switch  bubbleType {
-//        case .standard:
-//            self.topTime.isHidden = true
-//            self.time.isHidden = false
-//            self.topTime = time
-//            self.time = time
-//        case .leftAligned:
-//            self.topTime.isHidden = false
-//            self.time.isHidden = true
-//            self.topTime = time
-//            self.time = time
-//        }
-//        return self
-//    }
-//
-//    @discardableResult
-//    @objc public func set(messageAlignment: MessageAlignment) -> Self {
-//        switch messageAlignment {
-//        case .left:
-//            name.isHidden = false
-//            alightmentStack.alignment = .leading
-//            spacer.isHidden = false
-//            avatar.isHidden = false
-//            receipt.isHidden = true
-//            leadingReplyButton.isHidden = true
-//            trailingReplyButton.isHidden = true
-//
-//        case .right:
-//            alightmentStack.alignment = .trailing
-//            spacer.isHidden = true
-//            avatar.isHidden = true
-//            name.isHidden = true
-//            receipt.isHidden = false
-//            leadingReplyButton.isHidden = true
-//            trailingReplyButton.isHidden = true
-//        }
-//        return self
-//    }
-    
 
     @discardableResult
     @objc public func set(messageAlignment: MessageBubbleAlignment) -> Self {
@@ -649,9 +564,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        // background.subviews.forEach({ $0.removeFromSuperview() })
-       // containerStackView.addBackground(color: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
-        // background.backgroundColor = .clear
         containerStackView.subviews.forEach({ $0.backgroundColor = .clear })
         reactions.reactions.removeAll()
     }
@@ -662,13 +574,13 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             if let profanity = profanityFilterDictionary["profanity"] as? String, let filteredMessage = profanityFilterDictionary["message_clean"] as? String {
                 
                 if profanity == "yes" {
-                    let messageText = NSMutableAttributedString(string: "\(filteredMessage)\n\n",
+                    let _ = NSMutableAttributedString(string: "\(filteredMessage)\n\n",
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
                    set(text: filteredMessage)
                 } else {
                     /// No profanity
-                    let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                    let _ = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
                     set(text: forMessage.text)
@@ -676,7 +588,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 }
             } else {
                 /// No Profanity
-                let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                let _ = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                             attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
               //  set(attributedText: messageText)
                 set(text: forMessage.text)
@@ -684,7 +596,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             }
         } else {
             /// Simple text.
-            let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+            let _ = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                         attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
            // set(attributedText: messageText)
             set(text: forMessage.text)
@@ -699,13 +611,13 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 
                 if sensitiveData == "yes" {
                     if let maskedMessage = data["message_masked"] as? String {
-                        let messageText = NSMutableAttributedString(string: "\(maskedMessage)\n\n",
+                        let _ = NSMutableAttributedString(string: "\(maskedMessage)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                       //  set(attributedText: messageText)
                        set(text: maskedMessage)
                     } else {
                         /// No Masked
-                        let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
+                        let _ = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                        // set(attributedText: messageText)
                         set(text: forMessage.text)
