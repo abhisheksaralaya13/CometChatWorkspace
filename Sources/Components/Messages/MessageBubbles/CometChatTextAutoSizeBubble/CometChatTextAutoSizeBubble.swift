@@ -480,7 +480,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         } else if !reactions.reactions.count.isMultiple(of: numberOfItemInARow) && reactions.reactions.count >= 6 {
             let rows = reactions.reactions.count / numberOfItemInARow + 1
             heightReactions.constant = CGFloat(rows * Int(heightReactions.constant))
-        } else if !reactions.reactions.count.isMultiple(of: numberOfItemInARow) && reactions.reactions.count > 1 && reactions.reactions.count < 6 {
+        } else if !reactions.reactions.count.isMultiple(of: numberOfItemInARow) && reactions.reactions.count > 1 && reactions.reactions.count < 6 { 
             let rows = reactions.reactions.count / numberOfItemInARow + 1
             heightReactions.constant = CGFloat(rows * Int(heightReactions.constant))
         } else if reactions.reactions.count == 0 {
