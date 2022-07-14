@@ -204,6 +204,8 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
             let section = indexPath.section
             let cell = emojiSetCollectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as? CometChatEmojiKeyboardItem
             cell!.emojiIcon.backgroundColor = .yellow
+            cell?.backgroundColor = .green
+            cell?.emojiIcon.tintColor = .magenta
             print(section)
         }
         
