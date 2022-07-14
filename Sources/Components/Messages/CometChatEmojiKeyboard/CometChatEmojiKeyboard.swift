@@ -207,6 +207,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
             cell?.backgroundColor = .green
             cell?.emojiIcon.tintColor = .magenta
             print(section)
+            cell?.emojiIcon.isHidden = true
         }
         
     }
