@@ -206,7 +206,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
                 if section == 0 {
                     cell.emojiIcon.tintColor = .green
                 } else {
-                    cell.emojiIcon.tintColor = .yellow
+                    cell.emojiIcon.tintColor = .blue
                 }
                 
             }
