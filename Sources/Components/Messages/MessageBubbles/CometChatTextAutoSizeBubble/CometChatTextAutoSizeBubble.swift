@@ -54,7 +54,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var messageOptions: [CometChatMessageOption] = []
     var deleteBubble: CometChatDeleteBubble!
     var linkPreviewURL: String?
-    var isStandard: Bool = fasle
+    var isStandard: Bool = false
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
     @IBOutlet weak var containerStackView: UIStackView!
