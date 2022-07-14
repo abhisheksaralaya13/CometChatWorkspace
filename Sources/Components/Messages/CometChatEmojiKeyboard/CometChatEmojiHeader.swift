@@ -22,6 +22,7 @@ class CometChatEmojiHeader: UICollectionReusableView {
     @discardableResult
     @objc public func set(backgroundColor: UIColor) -> Self {
         self.backgroundColor = backgroundColor
+        return self
     }
     
 }
