@@ -813,7 +813,8 @@ class CometChatMessageBubble: UITableViewCell {
     override func prepareForReuse() {
         /// Remove subviews before resuing the cell.
         background.subviews.forEach({ $0.removeFromSuperview() })
-        containerStackView.addBackground(color: .clear)
+        //containerStackView.addBackground(color: .clear)
+        containerStackView.subviews.forEach({ $0.backgroundColor = .clear})
         self.removeReactions()
     }
 }
