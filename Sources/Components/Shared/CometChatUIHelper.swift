@@ -10,7 +10,7 @@ import CometChatPro
 
 final public class CometChatUIHelper {
     
-    static func onMessageSend(message: BaseMessage, status: MessageStatus) {
+    static func onMessageSent(message: BaseMessage, status: MessageStatus) {
         CometChatMessageEvents.emitOnMessageSent(message: message, status: status)
     }
     
