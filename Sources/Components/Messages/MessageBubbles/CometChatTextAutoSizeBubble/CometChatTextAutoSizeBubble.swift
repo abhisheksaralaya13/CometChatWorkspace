@@ -346,7 +346,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         setupStyle(isStandard: isStandard)
        // background.backgroundColor = .clear
-        set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
+        
         set(messageAlignment: isStandard ? .right : .left)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
@@ -487,6 +487,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             reactions.isHidden = true
             heightReactions.constant = 0
         }
+        set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
     }
     
     private func setupStyle(isStandard: Bool) {
