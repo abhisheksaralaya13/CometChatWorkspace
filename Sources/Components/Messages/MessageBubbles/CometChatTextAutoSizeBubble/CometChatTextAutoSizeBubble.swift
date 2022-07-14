@@ -371,17 +371,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 ])
             return
         }
-        
-        if message.deletedAt > 0.0 {
-            containerStackView.addBackground(color: .clear)
-            self.message.isHidden = true
-            deleteBubble = CometChatDeleteBubble(frame: CGRect(x: 0, y: 0, width: 173, height: 36), message: message, isStandard: isStandard)
-            background.addSubview(deleteBubble)
-            configureMessageBubble(forMessage: message)
-            heightReactions.constant = 0
-            reactions.reactions.removeAll()
-            return
-        }
+
         self.linkPreview.isHidden = true
         self.textMessageStackView.isHidden = false
         if let translatedMessage = message.metaData?["translated-message"] as? String {
@@ -428,7 +418,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             if let linkURL = linkPreview["url"] as? String {
                 self.linkPreviewURL = linkURL
             }
-            set(backgroundColor: [CometChatTheme.palatte?.secondary?.cgColor])
+          //  set(backgroundColor: [CometChatTheme.palatte?.secondary?.cgColor])
             self.linkPreviewMessage.text = message.text
         }
         else {
