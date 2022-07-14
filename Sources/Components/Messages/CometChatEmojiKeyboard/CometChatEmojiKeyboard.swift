@@ -202,12 +202,12 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
           
         if collectionView == emojiCollectionView {
             let section = indexPath.section
-            let cell = emojiSetCollectionView.cellForItem(at: indexPath) as? CometChatEmojiKeyboardItem
-            cell!.emojiIcon.backgroundColor = .yellow
-            cell?.backgroundColor = .green
-            cell?.emojiIcon.tintColor = .magenta
-            print(section)
-            cell?.emojiIcon.isHidden = true
+            if let cell = emojiSetCollectionView.cellForItem(at: indexPath) as? CometChatEmojiKeyboardItem
+                cell!.emojiIcon.backgroundColor = .yellow
+                cell?.backgroundColor = .green
+                cell?.emojiIcon.tintColor = .magenta
+                print(section)
+                cell?.emojiIcon.isHidden = true
         }
         
     }
