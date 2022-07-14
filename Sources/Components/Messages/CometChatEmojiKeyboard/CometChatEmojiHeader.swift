@@ -16,6 +16,12 @@ class CometChatEmojiHeader: UICollectionReusableView {
         super.awakeFromNib()
         // Initialization code
         category.textColor = CometChatTheme.palatte?.accent600
+        set(backgroundColor: (CometChatTheme.palatte?.background)!)
+    }
+    
+    @discardableResult
+    @objc public func set(backgroundColor: UIColor) -> Self {
+        self.backgroundColor = backgroundColor
     }
     
 }
