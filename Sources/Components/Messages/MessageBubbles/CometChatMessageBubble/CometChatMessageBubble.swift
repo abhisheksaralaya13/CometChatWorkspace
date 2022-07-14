@@ -440,8 +440,7 @@ class CometChatMessageBubble: UITableViewCell {
         } else {
             set(receipt: receipt.set(receipt: message))
         }
-        self.heightReactions.constant = 32
-        set(reactions: message, with: .left)
+       
         /// when user send custom view that are not existing type such as payment.
         if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)] {
             
@@ -479,7 +478,8 @@ class CometChatMessageBubble: UITableViewCell {
             reactions.reactions.removeAll()
             return
         }
-        
+        self.heightReactions.constant = 32
+        set(reactions: message, with: .left)
         containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
        
        
