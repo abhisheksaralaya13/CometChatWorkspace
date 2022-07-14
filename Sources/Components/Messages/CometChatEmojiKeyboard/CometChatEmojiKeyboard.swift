@@ -203,7 +203,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         if collectionView == emojiCollectionView {
             let section = indexPath.section
             if let cell = emojiSetCollectionView.cellForItem(at: indexPath) as? CometChatEmojiKeyboardItem {
-                cell.emojiIcon.tintColor = .yellow
+                cell.emojiIcon.tintColor = .green
                 cell.emojiIcon.image =   UIImage(named: emojiCategories[indexPath.row].symbol, in: CometChatUIKit.bundle, compatibleWith: nil)
             }
         }
