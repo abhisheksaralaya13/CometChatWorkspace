@@ -54,6 +54,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var messageOptions: [CometChatMessageOption] = []
     var deleteBubble: CometChatDeleteBubble!
     var linkPreviewURL: String?
+    var isStandard: Bool = fasle
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
     @IBOutlet weak var containerStackView: UIStackView!
@@ -342,7 +343,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         }
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
-        let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
+        isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
         setupStyle(isStandard: isStandard)
         background.backgroundColor = .clear
         set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
@@ -648,7 +649,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     
     override func prepareForReuse() {
         // background.subviews.forEach({ $0.removeFromSuperview() })
-        containerStackView.addBackground(color: .clear)
+        containerStackView.addBackground(color: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         background.backgroundColor = .clear
         reactions.reactions.removeAll()
     }
