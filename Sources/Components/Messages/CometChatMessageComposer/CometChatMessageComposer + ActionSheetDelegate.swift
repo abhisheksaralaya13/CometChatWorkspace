@@ -33,10 +33,10 @@ extension CometChatMessageComposer : CometChatActionSheetDelegate {
             for messageType in messageTypes {
                 if messageType.type == item.id {
                     if let user = currentUser {
-                        messageType.onActionClick!(user, nil)
+                        messageType.onActionClick?(user, nil)
                     }
                     if let group = currentGroup {
-                        messageType.onActionClick!(nil, group)
+                        messageType.onActionClick?(nil, group)
                     }
                 }
             }
