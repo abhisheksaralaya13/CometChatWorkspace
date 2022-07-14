@@ -333,7 +333,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
         set(backgroundRadius: 12.0)
-        set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         // To hide & show receipt
         if !isStandard {
             self.receipt.isHidden = true
@@ -370,6 +369,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             translatedText.append(translatedString)
             self.set(attributedText: translatedText) */
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
+            set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         } else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], !linkArray.isEmpty {
             self.linkPreview.isHidden = false
             self.textMessageStackView.isHidden = true
@@ -403,6 +403,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 self.linkPreviewURL = linkURL
             }
             self.linkPreviewMessage.text = message.text
+            set(containerBG: CometChatTheme.palatte!.secondary!)
         }
         else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
@@ -412,6 +413,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 set(text: message.text)
                 set(textFont: applyLargeSizeEmoji(forMessage: message))
             }
+            set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         }
         if allMessageOptions.isEmpty {
             let defaultOptions = [
