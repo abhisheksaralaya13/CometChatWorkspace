@@ -30,23 +30,23 @@ extension CometChatMessageComposer : CometChatActionSheetDelegate {
         }else if item.id == "extension_sticker" {
             shareSticker()
         } else {
-//            for messageType in messageTypes {
-//                if messageType.type == item.id {
-//                    if let user = currentUser {
-//                        messageType.onActionClick!(user, nil)
-//                    }
-//                    if let group = currentGroup {
-//                        messageType.onActionClick!(nil, group)
-//                    }
-//                }
+            for messageType in messageTypes {
+                if messageType.type == item.id {
+                    if let user = currentUser {
+                        messageType.onActionClick!(user, nil)
+                    }
+                    if let group = currentGroup {
+                        messageType.onActionClick!(nil, group)
+                    }
+                }
+            }
+//            let template = messageTypes.filter {$0.type == item.id}.first
+//            if let user = currentUser {
+//                template?.onActionClick!(user, nil)
 //            }
-            let template = messageTypes.filter {$0.type == item.id}.first
-            if let user = currentUser {
-                template?.onActionClick!(user, nil)
-            }
-            if let group = currentGroup {
-                template?.onActionClick!(nil, group)
-            }
+//            if let group = currentGroup {
+//                template?.onActionClick!(nil, group)
+//            }
         }
         
     }
