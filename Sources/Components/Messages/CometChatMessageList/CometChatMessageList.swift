@@ -949,21 +949,24 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
               /// Action bubble
               cell.set(messageObject: message)
               return cell
-          } else if let message = message as? TextMessage, message.deletedAt == 0, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
-              /// Text message
-              if let configurations = configurations {
-                cell.set(configurations: configurations)
-                cell.customViews = self.customViews
-                cell.set(allMessageOptions: messageOptions)
-              }
-              if let controller = controller {
-                cell.set(controller: controller)
-              }
-              cell.set(messageAlignment: messageListAlignment)
-              print("messageOptions: \(messageOptions)")
-              cell.set(messageObject: message)
-              return cell
-            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatMessageBubble", for: indexPath) as? CometChatMessageBubble {
+          }
+//        else if let message = message as? TextMessage, message.deletedAt == 0, let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatTextAutoSizeBubble", for: indexPath) as? CometChatTextAutoSizeBubble {
+//              /// Text message
+//              if let configurations = configurations {
+//                cell.set(configurations: configurations)
+//                cell.customViews = self.customViews
+//                cell.set(allMessageOptions: messageOptions)
+//              }
+//              if let controller = controller {
+//                cell.set(controller: controller)
+//              }
+//              cell.set(messageAlignment: messageListAlignment)
+//              print("messageOptions: \(messageOptions)")
+//              cell.set(messageObject: message)
+//              return cell
+//            }
+        
+        else if let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatMessageBubble", for: indexPath) as? CometChatMessageBubble {
                 /// Messsage bubble.
                 if let configurations = configurations {
                   cell.set(configurations: configurations)

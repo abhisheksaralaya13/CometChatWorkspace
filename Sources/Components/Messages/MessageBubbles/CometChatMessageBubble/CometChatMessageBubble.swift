@@ -441,8 +441,9 @@ class CometChatMessageBubble: UITableViewCell {
             set(receipt: receipt.set(receipt: message))
         }
         /// when user send custom view that are not existing type such as payment.
-        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)], let view = customView?(message){
+        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)], let view = customView?(message) {
                 background.addSubview(view)
+                
                 view.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
                     view.centerXAnchor.constraint(equalTo: background.centerXAnchor),
