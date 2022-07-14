@@ -460,9 +460,7 @@ class CometChatMessageBubble: UITableViewCell {
                 
             }
         }
-//        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)], let view = customView?(message) {
-//
-//        }
+
         background.backgroundColor = .clear
         /// show when message has been deleted.
         if message.deletedAt > 0.0 {
