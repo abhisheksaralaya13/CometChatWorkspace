@@ -516,7 +516,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             if backgroundColors.count == 1 {
                 self.containerStackView.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
             }else{
-                self.containerStackView.set(backgroundColorWithGradient: backgroundColor)
+               // self.background.set(backgroundColorWithGradient: backgroundColor)
             }
         }
         return self
