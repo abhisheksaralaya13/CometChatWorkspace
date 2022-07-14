@@ -29,6 +29,17 @@ extension CometChatMessageComposer : CometChatActionSheetDelegate {
             shareCollaborativeDocument()
         }else if item.id == "extension_sticker" {
             shareSticker()
+        } else {
+            for messageType in messageTypes {
+                if messageType.type == item.id {
+                    if let user = currentUser {
+                        messageType.onActionClick!(user, nil)
+                    }
+                    if let group = currentGroup {
+                        messageType.onActionClick!(nil, group)
+                    }
+                }
+            }
         }
         
     }
