@@ -436,11 +436,9 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 self.parseProfanityFilter(forMessage: message)
                 self.parseMaskedData(forMessage: message)
             } else {
-                let font = applyLargeSizeEmoji(forMessage: message)
                 set(text: message.text)
-                set(textFont: font)
+                set(textFont: applyLargeSizeEmoji(forMessage: message))
             }
-           
         }
         if allMessageOptions.isEmpty {
             let defaultOptions = [
@@ -476,7 +474,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 widthReactions.isActive = true
                 widthReactions.constant = max(widthM, CGFloat(widthR))
             } else if count == 0 {
-               // widthReactions.constant = widthM + 25.0
                 widthReactions.isActive = false
             }
         } else {
@@ -517,9 +514,9 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     public func set(backgroundColor: [Any]?) ->  Self {
         if let backgroundColors = backgroundColor as? [CGColor] {
             if backgroundColors.count == 1 {
-                self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
+                self.containerStackView.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
             }else{
-                self.background.set(backgroundColorWithGradient: backgroundColor)
+                self.containerStackView.set(backgroundColorWithGradient: backgroundColor)
             }
         }
         return self
@@ -681,9 +678,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                                 attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
                    // set(attributedText: messageText)
                     set(text: forMessage.text)
-                    let font = applyLargeSizeEmoji(forMessage: forMessage)
-                    set(text: forMessage.text)
-                    self.message.font = font
+                    set(textFont: applyLargeSizeEmoji(forMessage: forMessage))
                 }
             } else {
                 /// No Profanity
@@ -691,18 +686,15 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                                                             attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
               //  set(attributedText: messageText)
                 set(text: forMessage.text)
-                let font = applyLargeSizeEmoji(forMessage: forMessage)
-                set(text: forMessage.text)
-                self.message.font = font
+                set(textFont: applyLargeSizeEmoji(forMessage: forMessage))
             }
         } else {
             /// Simple text.
             let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                         attributes: [NSAttributedString.Key.font: applyLargeSizeEmoji(forMessage: forMessage)])
            // set(attributedText: messageText)
-            let font = applyLargeSizeEmoji(forMessage: forMessage)
             set(text: forMessage.text)
-            self.message.font = font
+            set(textFont: applyLargeSizeEmoji(forMessage: forMessage))
         }
     }
     
@@ -722,10 +714,8 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                         let messageText = NSMutableAttributedString(string: "\(forMessage.text)\n\n",
                                                                     attributes: [NSAttributedString.Key.font: CometChatTheme.typography!.Body])
                        // set(attributedText: messageText)
-                       set(text: forMessage.text)
-                        let font = applyLargeSizeEmoji(forMessage: forMessage)
                         set(text: forMessage.text)
-                        self.message.font = font
+                        set(textFont: applyLargeSizeEmoji(forMessage: forMessage))
                     }
                 } else {
                     self.parseProfanityFilter(forMessage: forMessage)
