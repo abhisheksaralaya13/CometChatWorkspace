@@ -199,8 +199,17 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(indexPath.section)
+          
+        if collectionView = emojiCollectionView {
+            let section = indexPath.section
+            let cell = emojiSetCollectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as? CometChatEmojiKeyboardItem
+            
+            cell.emojiIcon.backgroundColor = .yellow
+        }
+        
     }
+
+    
     
 }
 
