@@ -15,7 +15,7 @@ final public class CometChatUIHelper {
     }
     
     public static func onMessageError(message: BaseMessage, error: CometChatException) {
-         CometChatMessageEvents.emitOnError(message: message, error: error)
+        CometChatMessageEvents.emitOnError(message: message, error: error)
     }
 
     public static func onMessageEdit(message: BaseMessage, status: MessageStatus) {
