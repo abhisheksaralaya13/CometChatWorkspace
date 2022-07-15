@@ -4941,7 +4941,928 @@ struct CometChatEmojiCategoryJSON {
             }
           ]
       },
-    
+      {
+          "id": "food_and_drink",
+          "name": "Food",
+          "symbol": "messages-emoji-keyboard-food.png",
+          "emojis": [
+            {
+              "keywords": [
+                "fruit",
+                "nature"
+              ],
+              "emoji": "🍏"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "mac",
+                "school"
+              ],
+              "emoji": "🍎"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "nature",
+                "food"
+              ],
+              "emoji": "🍐"
+            },
+            {
+              "keywords": [
+                "food",
+                "fruit",
+                "nature",
+                "orange"
+              ],
+              "emoji": "🍊"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "nature"
+              ],
+              "emoji": "🍋"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "food",
+                "monkey"
+              ],
+              "emoji": "🍌"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "food",
+                "picnic",
+                "summer"
+              ],
+              "emoji": "🍉"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "food",
+                "wine"
+              ],
+              "emoji": "🍇"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "food",
+                "nature"
+              ],
+              "emoji": "🍓"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "nature",
+                "food"
+              ],
+              "emoji": "🍈"
+            },
+             {
+              "keywords": [
+                "food",
+                "fruit"
+              ],
+              "emoji": "🍒"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "nature",
+                "food"
+              ],
+              "emoji": "🍑"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "nature",
+                "food"
+              ],
+              "emoji": "🍍"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "nature",
+                "food",
+                "palm"
+              ],
+              "emoji": "🥥"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "food"
+              ],
+              "emoji": "🥝"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "food",
+                "tropical"
+              ],
+              "emoji": "🥭"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "food"
+              ],
+              "emoji": "🥑"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "food",
+                "vegetable"
+              ],
+              "emoji": "🥦"
+            },
+            {
+              "keywords": [
+                "fruit",
+                "vegetable",
+                "nature",
+                "food"
+              ],
+              "emoji": "🍅"
+            },
+             {
+              "keywords": [
+                "vegetable",
+                "nature",
+                "food",
+                "aubergine"
+              ],
+              "emoji": "🍆"
+            },
+             {
+              "keywords": [
+                "fruit",
+                "food",
+                "pickle"
+              ],
+              "emoji": "🥒"
+            },
+            {
+              "keywords": [
+                "vegetable",
+                "food",
+                "orange"
+              ],
+              "emoji": "🥕"
+            },
+             {
+              "keywords": [
+                "food",
+                "spicy",
+                "chilli",
+                "chili"
+              ],
+              "emoji": "🌶"
+            },
+            {
+              "keywords": [
+                "food",
+                "tuber",
+                "vegatable",
+                "starch"
+              ],
+              "emoji": "🥔"
+            },
+             {
+              "keywords": [
+                "food",
+                "vegetable",
+                "plant"
+              ],
+              "emoji": "🌽"
+            },
+             {
+              "keywords": [
+                "food",
+                "vegetable",
+                "plant",
+                "bok choy",
+                "cabbage",
+                "kale",
+                "lettuce"
+              ],
+              "emoji": "🥬"
+            },
+             {
+              "keywords": [
+                "food",
+                "nature"
+              ],
+              "emoji": "🍠"
+            },
+             {
+              "keywords": [
+                "food",
+                "nut"
+              ],
+              "emoji": "🥜"
+            },
+             {
+              "keywords": [
+                "bees",
+                "sweet",
+                "kitchen"
+              ],
+              "emoji": "🍯"
+            },
+             {
+              "keywords": [
+                "food",
+                "bread",
+                "french"
+              ],
+              "emoji": "🥐"
+            },
+             {
+              "keywords": [
+                "food",
+                "wheat",
+                "breakfast",
+                "toast"
+              ],
+              "emoji": "🍞"
+            },
+             {
+              "keywords": [
+                "food",
+                "bread",
+                "french"
+              ],
+              "emoji": "🥖"
+            },
+            {
+              "keywords": [
+                "food",
+                "bread",
+                "bakery",
+                "schmear"
+              ],
+              "emoji": "🥯"
+            },
+             {
+              "keywords": [
+                "food",
+                "bread",
+                "twisted"
+              ],
+              "emoji": "🥨"
+            },
+            {
+              "keywords": [
+                "food",
+                "chadder"
+              ],
+              "emoji": "🧀"
+            },
+            {
+              "keywords": [
+                "food",
+                "chicken",
+                "breakfast"
+              ],
+              "emoji": "🥚"
+            },
+             {
+              "keywords": [
+                "food",
+                "breakfast",
+                "pork",
+                "pig",
+                "meat"
+              ],
+              "emoji": "🥓"
+            },
+            {
+              "keywords": [
+                "food",
+                "cow",
+                "meat",
+                "cut",
+                "chop",
+                "lambchop",
+                "porkchop"
+              ],
+              "emoji": "🥩"
+            },
+            {
+              "keywords": [
+                "food",
+                "breakfast",
+                "flapjacks",
+                "hotcakes"
+              ],
+              "emoji": "🥞"
+            },
+            {
+              "keywords": [
+                "food",
+                "meat",
+                "drumstick",
+                "bird",
+                "chicken",
+                "turkey"
+              ],
+              "emoji": "🍗"
+            },
+            {
+              "keywords": [
+                "good",
+                "food",
+                "drumstick"
+              ],
+              "emoji": "🍖"
+            },
+             {
+              "keywords": [
+                "skeleton"
+              ],
+              "emoji": "🦴"
+            },
+            {
+              "keywords": [
+                "food",
+                "animal",
+                "appetizer",
+                "summer"
+              ],
+              "emoji": "🍤"
+            },
+            {
+              "keywords": [
+                "food",
+                "breakfast",
+                "kitchen",
+                "egg"
+              ],
+              "emoji": "🍳"
+            },
+             {
+              "keywords": [
+                "meat",
+                "fast food",
+                "beef",
+                "cheeseburger",
+                "mcdonalds",
+                "burger king"
+              ],
+              "emoji": "🍔"
+            },
+            {
+              "keywords": [
+                "chips",
+                "snack",
+                "fast food"
+              ],
+              "emoji": "🍟"
+            },
+            {
+              "keywords": [
+                "food",
+                "flatbread",
+                "stuffed",
+                "gyro"
+              ],
+              "emoji": "🥙"
+            },
+            {
+              "keywords": [
+                "food",
+                "frankfurter"
+              ],
+              "emoji": "🌭"
+            },
+             {
+              "keywords": [
+                "food",
+                "party"
+              ],
+              "emoji": "🍕"
+            },
+             {
+              "keywords": [
+                "food",
+                "lunch",
+                "bread"
+              ],
+              "emoji": "🥪"
+            },
+             {
+              "keywords": [
+                "food",
+                "soup"
+              ],
+              "emoji": "🥫"
+            },
+            {
+              "keywords": [
+                "food",
+                "italian",
+                "noodle"
+              ],
+              "emoji": "🍝"
+            },
+            {
+              "keywords": [
+                "food",
+                "mexican"
+              ],
+              "emoji": "🌮"
+            },
+             {
+              "keywords": [
+                "food",
+                "mexican"
+              ],
+              "emoji": "🌯"
+            },
+            {
+              "keywords": [
+                "food",
+                "healthy",
+                "lettuce"
+              ],
+              "emoji": "🥗"
+            },
+            {
+              "keywords": [
+                "food",
+                "cooking",
+                "casserole",
+                "paella"
+              ],
+              "emoji": "🥘"
+            },
+            {
+              "keywords": [
+                "food",
+                "japanese",
+                "noodle",
+                "chopsticks"
+              ],
+              "emoji": "🍜"
+            },
+            {
+              "keywords": [
+                "food",
+                "meat",
+                "soup"
+              ],
+              "emoji": "🍲"
+            },
+            {
+              "keywords": [
+                "food",
+                "japan",
+                "sea",
+                "beach",
+                "narutomaki",
+                "pink",
+                "swirl",
+                "kamaboko",
+                "surimi",
+                "ramen"
+              ],
+              "emoji": "🍥"
+            },
+            {
+              "keywords": [
+                "food",
+                "prophecy"
+              ],
+              "emoji": "🥠"
+            },
+            {
+              "keywords": [
+                "food",
+                "fish",
+                "japanese",
+                "rice"
+              ],
+              "emoji": "🍣"
+            },
+            "bento": {
+              "keywords": [
+                "food",
+                "japanese",
+                "box"
+              ],
+              "emoji": "🍱"
+            },
+             {
+              "keywords": [
+                "food",
+                "spicy",
+                "hot",
+                "indian"
+              ],
+              "emoji": "🍛"
+            },
+            {
+              "keywords": [
+                "food",
+                "japanese"
+              ],
+              "emoji": "🍙"
+            },
+             {
+              "keywords": [
+                "food",
+                "china",
+                "asian"
+              ],
+              "emoji": "🍚"
+            },
+            {
+              "keywords": [
+                "food",
+                "japanese"
+              ],
+              "emoji": "🍘"
+            },
+            {
+              "keywords": [
+                "food",
+                "japanese"
+              ],
+              "emoji": "🍢"
+            },
+            {
+              "keywords": [
+                "food",
+                "dessert",
+                "sweet",
+                "japanese",
+                "barbecue",
+                "meat"
+              ],
+              "emoji": "🍡"
+            },
+             {
+              "keywords": [
+                "hot",
+                "dessert",
+                "summer"
+              ],
+              "emoji": "🍧"
+            },
+            {
+              "keywords": [
+                "food",
+                "hot",
+                "dessert"
+              ],
+              "emoji": "🍨"
+            },
+            {
+              "keywords": [
+                "food",
+                "hot",
+                "dessert",
+                "summer"
+              ],
+              "emoji": "🍦"
+            },
+            {
+              "keywords": [
+                "food",
+                "dessert",
+                "pastry"
+              ],
+              "emoji": "🥧"
+            },
+            {
+              "keywords": [
+                "food",
+                "dessert"
+              ],
+              "emoji": "🍰"
+            },
+             {
+              "keywords": [
+                "food",
+                "dessert",
+                "bakery",
+                "sweet"
+              ],
+              "emoji": "🧁"
+            },
+             {
+              "keywords": [
+                "food",
+                "autumn"
+              ],
+              "emoji": "🥮"
+            },
+            {
+              "keywords": [
+                "food",
+                "dessert",
+                "cake"
+              ],
+              "emoji": "🎂"
+            },
+             {
+              "keywords": [
+                "dessert",
+                "food"
+              ],
+              "emoji": "🍮"
+            },
+            {
+              "keywords": [
+                "snack",
+                "dessert",
+                "sweet",
+                "lolly"
+              ],
+              "emoji": "🍬"
+            },
+             {
+              "keywords": [
+                "food",
+                "snack",
+                "candy",
+                "sweet"
+              ],
+              "emoji": "🍭"
+            },
+            {
+              "keywords": [
+                "food",
+                "snack",
+                "dessert",
+                "sweet"
+              ],
+              "emoji": "🍫"
+            },
+            {
+              "keywords": [
+                "food",
+                "movie theater",
+                "films",
+                "snack"
+              ],
+              "emoji": "🍿"
+            },
+             {
+              "keywords": [
+                "food",
+                "empanada",
+                "pierogi",
+                "potsticker"
+              ],
+              "emoji": "🥟"
+            },
+            {
+              "keywords": [
+                "food",
+                "dessert",
+                "snack",
+                "sweet",
+                "donut"
+              ],
+              "emoji": "🍩"
+            },
+            {
+              "keywords": [
+                "food",
+                "snack",
+                "oreo",
+                "chocolate",
+                "sweet",
+                "dessert"
+              ],
+              "emoji": "🍪"
+            },
+             {
+              "keywords": [
+                "beverage",
+                "drink",
+                "cow"
+              ],
+              "emoji": "🥛"
+            },
+            {
+              "keywords": [
+                "relax",
+                "beverage",
+                "drink",
+                "drunk",
+                "party",
+                "pub",
+                "summer",
+                "alcohol",
+                "booze"
+              ],
+              "emoji": "🍺"
+            },
+             {
+              "keywords": [
+                "relax",
+                "beverage",
+                "drink",
+                "drunk",
+                "party",
+                "pub",
+                "summer",
+                "alcohol",
+                "booze"
+              ],
+              "emoji": "🍻"
+            },
+             {
+              "keywords": [
+                "beverage",
+                "drink",
+                "party",
+                "alcohol",
+                "celebrate",
+                "cheers",
+                "wine",
+                "champagne",
+                "toast"
+              ],
+              "emoji": "🥂"
+            },
+             {
+              "keywords": [
+                "drink",
+                "beverage",
+                "drunk",
+                "alcohol",
+                "booze"
+              ],
+              "emoji": "🍷"
+            },
+            {
+              "keywords": [
+                "drink",
+                "beverage",
+                "drunk",
+                "alcohol",
+                "liquor",
+                "booze",
+                "bourbon",
+                "scotch",
+                "whisky",
+                "glass",
+                "shot"
+              ],
+              "emoji": "🥃"
+            },
+            {
+              "keywords": [
+                "drink",
+                "drunk",
+                "alcohol",
+                "beverage",
+                "booze",
+                "mojito"
+              ],
+              "emoji": "🍸"
+            },
+            {
+              "keywords": [
+                "beverage",
+                "cocktail",
+                "summer",
+                "beach",
+                "alcohol",
+                "booze",
+                "mojito"
+              ],
+              "emoji": "🍹"
+            },
+            {
+              "keywords": [
+                "drink",
+                "wine",
+                "bottle",
+                "celebration"
+              ],
+              "emoji": "🍾"
+            },
+            {
+              "keywords": [
+                "wine",
+                "drink",
+                "drunk",
+                "beverage",
+                "japanese",
+                "alcohol",
+                "booze"
+              ],
+              "emoji": "🍶"
+            },
+             {
+              "keywords": [
+                "drink",
+                "bowl",
+                "breakfast",
+                "green",
+                "british"
+              ],
+              "emoji": "🍵"
+            },
+            {
+              "keywords": [
+                "drink",
+                "soda"
+              ],
+              "emoji": "🥤"
+            },
+            {
+              "keywords": [
+                "beverage",
+                "caffeine",
+                "latte",
+                "espresso"
+              ],
+              "emoji": "☕"
+            },
+             {
+              "keywords": [
+                "food",
+                "container",
+                "milk"
+              ],
+              "emoji": "🍼"
+            },
+            {
+              "keywords": [
+                "condiment",
+                "shaker"
+              ],
+              "emoji": "🧂"
+            },
+            {
+              "keywords": [
+                "cutlery",
+                "kitchen",
+                "tableware"
+              ],
+              "emoji": "🥄"
+            },
+            {
+              "keywords": [
+                "cutlery",
+                "kitchen"
+              ],
+              "emoji": "🍴"
+            },
+            {
+              "keywords": [
+                "food",
+                "eat",
+                "meal",
+                "lunch",
+                "dinner",
+                "restaurant"
+              ],
+              "emoji": "🍽"
+            },
+            {
+              "keywords": [
+                "food",
+                "breakfast",
+                "cereal",
+                "oatmeal",
+                "porridge"
+              ],
+              "emoji": "🥣"
+            },
+            {
+              "keywords": [
+                "food",
+                "leftovers"
+              ],
+              "emoji": "🥡"
+            },
+            {
+              "keywords": [
+                "food"
+              ],
+              "emoji": "🥢"
+            }
+          ]
+      },
                      {
                          "id": "symbols",
                          "name": "symbols",
