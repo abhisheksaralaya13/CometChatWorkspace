@@ -459,6 +459,19 @@ class CometChatMessageBubble: UITableViewCell {
                     self.customView.bottomAnchor.constraint(equalTo: background.bottomAnchor),
                     self.customView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
                 ])
+                
+                if allMessageOptions.isEmpty {
+                    let defaultOptions = [
+                        CometChatMessageOption(defaultOption: .delete),
+                        CometChatMessageOption(defaultOption: .reaction),
+                        CometChatMessageOption(defaultOption: .share)
+                    ]
+                    self.set(messageOptions: defaultOptions)
+                } else {
+                    if let fetchedOptions = allMessageOptions[MessageTypesBubble.getMessageType(message: message)] {
+                        self.set(messageOptions: fetchedOptions)
+                    }
+                }
             return
                 
             }
