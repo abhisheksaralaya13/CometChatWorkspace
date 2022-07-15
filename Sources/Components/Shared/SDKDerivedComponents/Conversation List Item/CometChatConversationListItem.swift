@@ -859,6 +859,16 @@ import AVFAudio
                                 self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_DOCUMENT".localize())
                             }else if customMessage.type == "meeting" {
                                 self.set(subTitle: senderName + ":  " + "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
+                            }else{
+                                if let pushNotificationTitle = customMessage.metaData?["pushNotification"] as? String {
+                                    if !pushNotificationTitle.isEmpty {
+                                        self.set(subTitle: senderName + ":  " + pushNotificationTitle)
+                                    }else{
+                                        self.set(subTitle: senderName + ":  " + "\(customMessage.customData)")
+                                    }
+                                }else{
+                                    self.set(subTitle: senderName + ":  " + "\(customMessage.customData)")
+                                }
                             }
                         }
                     case .custom: break
