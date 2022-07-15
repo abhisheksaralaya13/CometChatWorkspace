@@ -3325,6 +3325,1623 @@ struct CometChatEmojiCategoryJSON {
             }
           ]
       },
+    
+      {
+          "id": "animals_and_nature",
+          "name": "Animals & Nature",
+          "symbol": "messages-emoji-keyboard-animals.png",
+          "emojis": [
+            {
+              "keywords": [
+                "animal",
+                "friend",
+                "nature",
+                "woof",
+                "puppy",
+                "pet",
+                "faithful"
+              ],
+              "emoji": "🐶"
+            },
+            {
+              "keywords": [
+                "animal",
+                "meow",
+                "nature",
+                "pet",
+                "kitten"
+              ],
+              "emoji": "🐱"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "cheese_wedge",
+                "rodent"
+              ],
+              "emoji": "🐭"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐹"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "pet",
+                "spring",
+                "magic",
+                "bunny"
+              ],
+              "emoji": "🐰"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "face"
+              ],
+              "emoji": "🦊"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "wild"
+              ],
+              "emoji": "🐻"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "panda"
+              ],
+              "emoji": "🐼"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐨"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cat",
+                "danger",
+                "wild",
+                "nature",
+                "roar"
+              ],
+              "emoji": "🐯"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🦁"
+            },
+            {
+              "keywords": [
+                "beef",
+                "ox",
+                "animal",
+                "nature",
+                "moo",
+                "milk"
+              ],
+              "emoji": "🐮"
+            },
+            {
+              "keywords": [
+                "animal",
+                "oink",
+                "nature"
+              ],
+              "emoji": "🐷"
+            },
+            {
+              "keywords": [
+                "animal",
+                "oink"
+              ],
+              "emoji": "🐽"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "croak",
+                "toad"
+              ],
+              "emoji": "🐸"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "ocean",
+                "sea"
+              ],
+              "emoji": "🦑"
+            },
+             {
+              "keywords": [
+                "animal",
+                "creature",
+                "ocean",
+                "sea",
+                "nature",
+                "beach"
+              ],
+              "emoji": "🐙"
+            },
+            {
+              "keywords": [
+                "animal",
+                "ocean",
+                "nature",
+                "seafood"
+              ],
+              "emoji": "🦐"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "circus"
+              ],
+              "emoji": "🐵"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "circus"
+              ],
+              "emoji": "🦍"
+            },
+            {
+              "keywords": [
+                "monkey",
+                "animal",
+                "nature",
+                "haha"
+              ],
+              "emoji": "🙈"
+            },
+            {
+              "keywords": [
+                "animal",
+                "monkey",
+                "nature"
+              ],
+              "emoji": "🙉"
+            },
+            {
+              "keywords": [
+                "monkey",
+                "animal",
+                "nature",
+                "omg"
+              ],
+              "emoji": "🙊"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "banana",
+                "circus"
+              ],
+              "emoji": "🐒"
+            },
+             {
+              "keywords": [
+                "animal",
+                "cluck",
+                "nature",
+                "bird"
+              ],
+              "emoji": "🐔"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐧"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "fly",
+                "tweet",
+                "spring"
+              ],
+              "emoji": "🐦"
+            },
+            {
+              "keywords": [
+                "animal",
+                "chicken",
+                "bird"
+              ],
+              "emoji": "🐤"
+            },
+            {
+              "keywords": [
+                "animal",
+                "chicken",
+                "egg",
+                "born",
+                "baby",
+                "bird"
+              ],
+              "emoji": "🐣"
+            },
+             {
+              "keywords": [
+                "animal",
+                "chicken",
+                "baby",
+                "bird"
+              ],
+              "emoji": "🐥"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "bird",
+                "mallard"
+              ],
+              "emoji": "🦆"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "bird"
+              ],
+              "emoji": "🦅"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "bird",
+                "hoot"
+              ],
+              "emoji": "🦉"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "blind",
+                "vampire"
+              ],
+              "emoji": "🦇"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "wild"
+              ],
+              "emoji": "🐺"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐗"
+            },
+             {
+              "keywords": [
+                "animal",
+                "brown",
+                "nature"
+              ],
+              "emoji": "🐴"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "mystical"
+              ],
+              "emoji": "🦄"
+            },
+             {
+              "keywords": [
+                "animal",
+                "insect",
+                "nature",
+                "bug",
+                "spring",
+                "honey"
+              ],
+              "emoji": "🐝"
+            },
+            {
+              "keywords": [
+                "animal",
+                "insect",
+                "nature",
+                "worm"
+              ],
+              "emoji": "🐛"
+            },
+            {
+              "keywords": [
+                "animal",
+                "insect",
+                "nature",
+                "caterpillar"
+              ],
+              "emoji": "🦋"
+            },
+            {
+              "keywords": [
+                "slow",
+                "animal",
+                "shell"
+              ],
+              "emoji": "🐌"
+            },
+            {
+              "keywords": [
+                "animal",
+                "insect",
+                "nature",
+                "ladybug"
+              ],
+              "emoji": "🐞"
+            },
+            {
+              "keywords": [
+                "animal",
+                "insect",
+                "nature",
+                "bug"
+              ],
+              "emoji": "🐜"
+            },
+             {
+              "keywords": [
+                "animal",
+                "cricket",
+                "chirp"
+              ],
+              "emoji": "🦗"
+            },
+            {
+              "keywords": [
+                "animal",
+                "arachnid"
+              ],
+              "emoji": "🕷"
+            },
+            {
+              "keywords": [
+                "animal",
+                "arachnid"
+              ],
+              "emoji": "🦂"
+            },
+            {
+              "keywords": [
+                "animal",
+                "crustacean"
+              ],
+              "emoji": "🦀"
+            },
+            {
+              "keywords": [
+                "animal",
+                "evil",
+                "nature",
+                "hiss",
+                "python"
+              ],
+              "emoji": "🐍"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "reptile"
+              ],
+              "emoji": "🦎"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "dinosaur",
+                "tyrannosaurus",
+                "extinct"
+              ],
+              "emoji": "🦖"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "dinosaur",
+                "brachiosaurus",
+                "brontosaurus",
+                "diplodocus",
+                "extinct"
+              ],
+              "emoji": "🦕"
+            },
+            {
+              "keywords": [
+                "animal",
+                "slow",
+                "nature",
+                "tortoise"
+              ],
+              "emoji": "🐢"
+            },
+            {
+              "keywords": [
+                "animal",
+                "swim",
+                "ocean",
+                "beach",
+                "nemo"
+              ],
+              "emoji": "🐠"
+            },
+            {
+              "keywords": [
+                "animal",
+                "food",
+                "nature"
+              ],
+              "emoji": "🐟"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "food",
+                "sea",
+                "ocean"
+              ],
+              "emoji": "🐡"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "fish",
+                "sea",
+                "ocean",
+                "flipper",
+                "fins",
+                "beach"
+              ],
+              "emoji": "🐬"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "fish",
+                "sea",
+                "ocean",
+                "jaws",
+                "fins",
+                "beach"
+              ],
+              "emoji": "🦈"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "sea",
+                "ocean"
+              ],
+              "emoji": "🐳"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "sea",
+                "ocean"
+              ],
+              "emoji": "🐋"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "reptile",
+                "lizard",
+                "alligator"
+              ],
+              "emoji": "🐊"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐆"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "stripes",
+                "safari"
+              ],
+              "emoji": "🦓"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "roar"
+              ],
+              "emoji": "🐅"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "ox",
+                "cow"
+              ],
+              "emoji": "🐃"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cow",
+                "beef"
+              ],
+              "emoji": "🐂"
+            },
+            {
+              "keywords": [
+                "beef",
+                "ox",
+                "animal",
+                "nature",
+                "moo",
+                "milk"
+              ],
+              "emoji": "🐄"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "horns",
+                "venison"
+              ],
+              "emoji": "🦌"
+            },
+            {
+              "keywords": [
+                "animal",
+                "hot",
+                "desert",
+                "hump"
+              ],
+              "emoji": "🐪"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "hot",
+                "desert",
+                "hump"
+              ],
+              "emoji": "🐫"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "spots",
+                "safari"
+              ],
+              "emoji": "🦒"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "nose",
+                "th",
+                "circus"
+              ],
+              "emoji": "🐘"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "horn"
+              ],
+              "emoji": "🦏"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐐"
+            },
+            {
+              "keywords": [
+                "animal",
+                "sheep",
+                "nature"
+              ],
+              "emoji": "🐏"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "wool",
+                "shipit"
+              ],
+              "emoji": "🐑"
+            },
+            {
+              "keywords": [
+                "animal",
+                "gamble",
+                "luck"
+              ],
+              "emoji": "🐎"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🐖"
+            },
+            {
+              "keywords": [
+                "animal",
+                "mouse",
+                "rodent"
+              ],
+              "emoji": "🐀"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "rodent"
+              ],
+              "emoji": "🐁"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "chicken"
+              ],
+              "emoji": "🐓"
+            },
+             {
+              "keywords": [
+                "animal",
+                "bird"
+              ],
+              "emoji": "🦃"
+            },
+            {
+              "keywords": [
+                "animal",
+                "bird"
+              ],
+              "emoji": "🕊"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "friend",
+                "doge",
+                "pet",
+                "faithful"
+              ],
+              "emoji": "🐕"
+            },
+             {
+              "keywords": [
+                "dog",
+                "animal",
+                "101",
+                "nature",
+                "pet"
+              ],
+              "emoji": "🐩"
+            },
+            {
+              "keywords": [
+                "animal",
+                "meow",
+                "pet",
+                "cats"
+              ],
+              "emoji": "🐈"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "pet",
+                "magic",
+                "spring"
+              ],
+              "emoji": "🐇"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "rodent",
+                "squirrel"
+              ],
+              "emoji": "🐿"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "spiny"
+              ],
+              "emoji": "🦔"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🦝"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "alpaca"
+              ],
+              "emoji": "🦙"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature"
+              ],
+              "emoji": "🦛"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "australia",
+                "joey",
+                "hop",
+                "marsupial"
+              ],
+              "emoji": "🦘"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "honey"
+              ],
+              "emoji": "🦡"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "bird"
+              ],
+              "emoji": "🦢"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "peahen",
+                "bird"
+              ],
+              "emoji": "🦚"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "bird",
+                "pirate",
+                "talk"
+              ],
+              "emoji": "🦜"
+            },
+             {
+              "keywords": [
+                "animal",
+                "nature",
+                "bisque",
+                "claws",
+                "seafood"
+              ],
+              "emoji": "🦞"
+            },
+            {
+              "keywords": [
+                "animal",
+                "nature",
+                "insect",
+                "malaria"
+              ],
+              "emoji": "🦟"
+            },
+            {
+              "keywords": [
+                "animal",
+                "tracking",
+                "footprints",
+                "dog",
+                "cat",
+                "pet",
+                "feet"
+              ],
+              "emoji": "🐾"
+            },
+            {
+              "keywords": [
+                "animal",
+                "myth",
+                "nature",
+                "chinese",
+                "green"
+              ],
+              "emoji": "🐉"
+            },
+            {
+              "keywords": [
+                "animal",
+                "myth",
+                "nature",
+                "chinese",
+                "green"
+              ],
+              "emoji": "🐲"
+            },
+             {
+              "keywords": [
+                "vegetable",
+                "plant",
+                "nature"
+              ],
+              "emoji": "🌵"
+            },
+             {
+              "keywords": [
+                "festival",
+                "vacation",
+                "december",
+                "xmas",
+                "celebration"
+              ],
+              "emoji": "🎄"
+            },
+            {
+              "keywords": [
+                "plant",
+                "nature"
+              ],
+              "emoji": "🌲"
+            },
+            {
+              "keywords": [
+                "plant",
+                "nature"
+              ],
+              "emoji": "🌳"
+            },
+            {
+              "keywords": [
+                "plant",
+                "vegetable",
+                "nature",
+                "summer",
+                "beach",
+                "mojito",
+                "tropical"
+              ],
+              "emoji": "🌴"
+            },
+             {
+              "keywords": [
+                "plant",
+                "nature",
+                "grass",
+                "lawn",
+                "spring"
+              ],
+              "emoji": "🌱"
+            },
+            {
+              "keywords": [
+                "vegetable",
+                "plant",
+                "medicine",
+                "weed",
+                "grass",
+                "lawn"
+              ],
+              "emoji": "🌿"
+            },
+            {
+              "keywords": [
+                "vegetable",
+                "plant",
+                "nature",
+                "irish",
+                "clover"
+              ],
+              "emoji": "☘"
+            },
+            {
+              "keywords": [
+                "vegetable",
+                "plant",
+                "nature",
+                "lucky",
+                "irish"
+              ],
+              "emoji": "🍀"
+            },
+             {
+              "keywords": [
+                "plant",
+                "nature",
+                "vegetable",
+                "panda",
+                "pine_decoration"
+              ],
+              "emoji": "🎍"
+            },
+            {
+              "keywords": [
+                "plant",
+                "nature",
+                "branch",
+                "summer"
+              ],
+              "emoji": "🎋"
+            },
+             {
+              "keywords": [
+                "nature",
+                "plant",
+                "tree",
+                "vegetable",
+                "grass",
+                "lawn",
+                "spring"
+              ],
+              "emoji": "🍃"
+            },
+             {
+              "keywords": [
+                "nature",
+                "plant",
+                "vegetable",
+                "leaves"
+              ],
+              "emoji": "🍂"
+            },
+            {
+              "keywords": [
+                "nature",
+                "plant",
+                "vegetable",
+                "ca",
+                "fall"
+              ],
+              "emoji": "🍁"
+            },
+            {
+              "keywords": [
+                "nature",
+                "plant"
+              ],
+              "emoji": "🌾"
+            },
+            {
+              "keywords": [
+                "plant",
+                "vegetable",
+                "flowers",
+                "beach"
+              ],
+              "emoji": "🌺"
+            },
+            {
+              "keywords": [
+                "nature",
+                "plant",
+                "fall"
+              ],
+              "emoji": "🌻"
+            },
+            {
+              "keywords": [
+                "flowers",
+                "valentines",
+                "love",
+                "spring"
+              ],
+              "emoji": "🌹"
+            },
+             {
+              "keywords": [
+                "plant",
+                "nature",
+                "flower"
+              ],
+              "emoji": "🥀"
+            },
+            {
+              "keywords": [
+                "flowers",
+                "plant",
+                "nature",
+                "summer",
+                "spring"
+              ],
+              "emoji": "🌷"
+            },
+            {
+              "keywords": [
+                "nature",
+                "flowers",
+                "yellow"
+              ],
+              "emoji": "🌼"
+            },
+             {
+              "keywords": [
+                "nature",
+                "plant",
+                "spring",
+                "flower"
+              ],
+              "emoji": "🌸"
+            },
+            {
+              "keywords": [
+                "flowers",
+                "nature",
+                "spring"
+              ],
+              "emoji": "💐"
+            },
+             {
+              "keywords": [
+                "plant",
+                "vegetable"
+              ],
+              "emoji": "🍄"
+            },
+            {
+              "keywords": [
+                "food",
+                "squirrel"
+              ],
+              "emoji": "🌰"
+            },
+            {
+              "keywords": [
+                "halloween",
+                "light",
+                "pumpkin",
+                "creepy",
+                "fall"
+              ],
+              "emoji": "🎃"
+            },
+            {
+              "keywords": [
+                "nature",
+                "sea",
+                "beach"
+              ],
+              "emoji": "🐚"
+            },
+             {
+              "keywords": [
+                "animal",
+                "insect",
+                "arachnid",
+                "silk"
+              ],
+              "emoji": "🕸"
+            },
+             {
+              "keywords": [
+                "globe",
+                "world",
+                "USA",
+                "international"
+              ],
+              "emoji": "🌎"
+            },
+            {
+              "keywords": [
+                "globe",
+                "world",
+                "international"
+              ],
+              "emoji": "🌍"
+            },
+            {
+              "keywords": [
+                "globe",
+                "world",
+                "east",
+                "international"
+              ],
+              "emoji": "🌏"
+            },
+            {
+              "keywords": [
+                "nature",
+                "yellow",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌕"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep",
+                "waxing_gibbous_moon"
+              ],
+              "emoji": "🌖"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌗"
+            },
+            {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌘"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌑"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌒"
+            },
+            {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌓"
+            },
+             {
+              "keywords": [
+                "nature",
+                "night",
+                "sky",
+                "gray",
+                "twilight",
+                "planet",
+                "space",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌔"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌚"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌝"
+            },
+            {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌛"
+            },
+             {
+              "keywords": [
+                "nature",
+                "twilight",
+                "planet",
+                "space",
+                "night",
+                "evening",
+                "sleep"
+              ],
+              "emoji": "🌜"
+            },
+            {
+              "keywords": [
+                "nature",
+                "morning",
+                "sky"
+              ],
+              "emoji": "🌞"
+            },
+            {
+              "keywords": [
+                "night",
+                "sleep",
+                "sky",
+                "evening",
+                "magic"
+              ],
+              "emoji": "🌙"
+            },
+            {
+              "keywords": [
+                "night",
+                "yellow"
+              ],
+              "emoji": "⭐"
+            },
+            {
+              "keywords": [
+                "night",
+                "sparkle",
+                "awesome",
+                "good",
+                "magic"
+              ],
+              "emoji": "🌟"
+            },
+            {
+              "keywords": [
+                "star",
+                "sparkle",
+                "shoot",
+                "magic"
+              ],
+              "emoji": "💫"
+            },
+            {
+              "keywords": [
+                "stars",
+                "shine",
+                "shiny",
+                "cool",
+                "awesome",
+                "good",
+                "magic"
+              ],
+              "emoji": "✨"
+            },
+            {
+              "keywords": [
+                "space"
+              ],
+              "emoji": "☄"
+            },
+            {
+              "keywords": [
+                "weather",
+                "nature",
+                "brightness",
+                "summer",
+                "beach",
+                "spring"
+              ],
+              "emoji": "☀️"
+            },
+             {
+              "keywords": [
+                "weather"
+              ],
+              "emoji": "🌤"
+            },
+            {
+              "keywords": [
+                "weather",
+                "nature",
+                "cloudy",
+                "morning",
+                "fall",
+                "spring"
+              ],
+              "emoji": "⛅"
+            },
+             {
+              "keywords": [
+                "weather"
+              ],
+              "emoji": "🌥"
+            },
+             {
+              "keywords": [
+                "weather"
+              ],
+              "emoji": "🌦"
+            },
+            {
+              "keywords": [
+                "weather",
+                "sky"
+              ],
+              "emoji": "☁️"
+            },
+             {
+              "keywords": [
+                "weather"
+              ],
+              "emoji": "🌧"
+            },
+             {
+              "keywords": [
+                "weather",
+                "lightning"
+              ],
+              "emoji": "⛈"
+            },
+             {
+              "keywords": [
+                "weather",
+                "thunder"
+              ],
+              "emoji": "🌩"
+            },
+             {
+              "keywords": [
+                "thunder",
+                "weather",
+                "lightning bolt",
+                "fast"
+              ],
+              "emoji": "⚡"
+            },
+             {
+              "keywords": [
+                "hot",
+                "cook",
+                "flame"
+              ],
+              "emoji": "🔥"
+            },
+             {
+              "keywords": [
+                "bomb",
+                "explode",
+                "explosion",
+                "collision",
+                "blown"
+              ],
+              "emoji": "💥"
+            },
+             {
+              "keywords": [
+                "winter",
+                "season",
+                "cold",
+                "weather",
+                "christmas",
+                "xmas"
+              ],
+              "emoji": "❄️"
+            },
+            {
+              "keywords": [
+                "weather"
+              ],
+              "emoji": "🌨"
+            },
+             {
+              "keywords": [
+                "winter",
+                "season",
+                "cold",
+                "weather",
+                "christmas",
+                "xmas",
+                "frozen",
+                "without_snow"
+              ],
+              "emoji": "⛄"
+            },
+             {
+              "keywords": [
+                "winter",
+                "season",
+                "cold",
+                "weather",
+                "christmas",
+                "xmas",
+                "frozen"
+              ],
+              "emoji": "☃"
+            },
+             {
+              "keywords": [
+                "gust",
+                "air"
+              ],
+              "emoji": "🌬"
+            },
+            {
+              "keywords": [
+                "wind",
+                "air",
+                "fast",
+                "shoo",
+                "fart",
+                "smoke",
+                "puff"
+              ],
+              "emoji": "💨"
+            },
+             {
+              "keywords": [
+                "weather",
+                "cyclone",
+                "twister"
+              ],
+              "emoji": "🌪"
+            },
+            {
+              "keywords": [
+                "weather"
+              ],
+              "emoji": "🌫"
+            },
+             {
+              "keywords": [
+                "weather",
+                "spring"
+              ],
+              "emoji": "☂"
+            },
+            {
+              "keywords": [
+                "rainy",
+                "weather",
+                "spring"
+              ],
+              "emoji": "☔"
+            },
+            {
+              "keywords": [
+                "water",
+                "drip",
+                "faucet",
+                "spring"
+              ],
+              "emoji": "💧"
+            },
+             {
+              "keywords": [
+                "water",
+                "drip",
+                "oops"
+              ],
+              "emoji": "💦"
+            },
+            {
+              "keywords": [
+                "sea",
+                "water",
+                "wave",
+                "nature",
+                "tsunami",
+                "disaster"
+              ],
+              "emoji": "🌊"
+            }
+          ]
+      },
+    
                      {
                          "id": "symbols",
                          "name": "symbols",
