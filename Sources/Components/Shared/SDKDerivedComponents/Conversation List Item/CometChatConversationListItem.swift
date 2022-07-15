@@ -1044,6 +1044,13 @@ import AVFAudio
     func parseProfanityFilter(forMessage: TextMessage){
         if let metaData = forMessage.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let profanityFilterDictionary = cometChatExtension["profanity-filter"] as? [String : Any] {
             
+            var senderName = ""
+            if forMessage.sender?.uid == CometChat.getLoggedInUser()?.uid {
+                senderName = "YOU".localize()
+            }else{
+                senderName = forMessage.sender?.name ?? ""
+            }
+            
             if let profanity = profanityFilterDictionary["profanity"] as? String, let filteredMessage = profanityFilterDictionary["message_clean"] as? String {
                 
                 if profanity == "yes" {
@@ -1055,7 +1062,7 @@ import AVFAudio
                         }
                         
                     case .text where forMessage.receiverType == .group:
-                        let senderName = forMessage.sender?.name
+                       
                         if  let text = senderName + ":  " + filteredMessage as NSString? {
                             self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                         }
@@ -1068,7 +1075,7 @@ import AVFAudio
                     case .text where forMessage.receiverType == .user:
                         self.set(subTitleWithAttributedText: addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                     case .text where forMessage.receiverType == .group:
-                        let senderName = forMessage.sender?.name
+                      
                         if  let text = senderName + ":  " + filteredMessage as NSString? {
                             self.set(subTitleWithAttributedText:  addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                         }
@@ -1082,7 +1089,7 @@ import AVFAudio
                 case .text where forMessage.receiverType == .user:
                     self.set(subTitleWithAttributedText:  addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                 case .text where forMessage.receiverType == .group:
-                    let senderName = forMessage.sender?.name
+                    
                     if  let text = senderName + ":  " + forMessage.text as NSString? {
                         self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                     }
@@ -1096,7 +1103,7 @@ import AVFAudio
             case .text where forMessage.receiverType == .user:
                 self.set(subTitleWithAttributedText: addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
             case .text where forMessage.receiverType == .group:
-                let senderName = forMessage.sender?.name
+                let senderName = forMessage.sender?.name ?? ""
                 if  let text = senderName + ":  " + forMessage.text as NSString? {
                     self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                 }
@@ -1109,6 +1116,13 @@ import AVFAudio
     
     func parseMaskedData(forMessage: TextMessage){
         if let metaData = forMessage.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let dataMaskingDictionary = cometChatExtension["data-masking"] as? [String : Any] {
+            
+            var senderName = ""
+            if forMessage.sender?.uid == CometChat.getLoggedInUser()?.uid {
+                senderName = "YOU".localize()
+            }else{
+                senderName = forMessage.sender?.name ?? ""
+            }
             
             if let data = dataMaskingDictionary["data"] as? [String:Any], let sensitiveData = data["sensitive_data"] as? String {
                 
@@ -1123,7 +1137,7 @@ import AVFAudio
                             }
                             
                         case .text where forMessage.receiverType == .group:
-                            let senderName = forMessage.sender?.name
+                        
                             if  let text = senderName + ":  " + maskedMessage as NSString? {
                                 self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                             }
