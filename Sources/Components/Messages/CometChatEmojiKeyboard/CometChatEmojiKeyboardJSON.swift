@@ -5457,7 +5457,7 @@ struct CometChatEmojiCategoryJSON {
               ],
               "emoji": "🍣"
             },
-            "bento": {
+            {
               "keywords": [
                 "food",
                 "japanese",
