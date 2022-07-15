@@ -445,8 +445,9 @@ class CometChatMessageBubble: UITableViewCell {
         if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)] {
             
             if let view = customView?(message) {
-                background.addSubview(view)
+                containerStackView.addSubview(view)
                 background.backgroundColor = .clear
+                
                 view.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
                     view.centerXAnchor.constraint(equalTo: background.centerXAnchor),
