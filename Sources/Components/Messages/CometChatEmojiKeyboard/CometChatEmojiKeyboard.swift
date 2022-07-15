@@ -140,7 +140,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         if collectionView == emojiCollectionView {
             return CGSize(width: 30, height: 30)
         }
-        return CGSize(width: 60, height: 30)
+        return CGSize(width: UIScreen.main.bounds.width / 8, height: 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
