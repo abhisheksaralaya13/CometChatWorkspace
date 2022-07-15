@@ -63,16 +63,6 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var linkPreviewURL: String?
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
-    unowned var selectionColor: UIColor {
-        set {
-            let view = UIView()
-            view.backgroundColor = newValue
-            self.selectedBackgroundView = view
-        }
-        get {
-            return self.selectedBackgroundView?.backgroundColor ?? UIColor.white
-        }
-    }
     
     @discardableResult
     @objc public func set(corner: CometChatCorner) -> Self {
