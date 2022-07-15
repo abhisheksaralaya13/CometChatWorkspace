@@ -6657,6 +6657,1011 @@ struct CometChatEmojiCategoryJSON {
                 }
               ]
           },
+      {
+          "id": "travel_and_places",
+          "name": "Travel & Places",
+          "symbol": "messages-emoji-keyboard-travel.png",
+          "emojis": [
+             {
+              "keywords": [
+                "red",
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚗"
+            },
+            {
+              "keywords": [
+                "uber",
+                "vehicle",
+                "cars",
+                "transportation"
+              ],
+              "emoji": "🚕"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚙"
+            },
+            {
+              "keywords": [
+                "car",
+                "vehicle",
+                "transportation"
+              ],
+              "emoji": "🚌"
+            },
+            {
+              "keywords": [
+                "bart",
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚎"
+            },
+             {
+              "keywords": [
+                "sports",
+                "race",
+                "fast",
+                "formula",
+                "f1"
+              ],
+              "emoji": "🏎"
+            },
+             {
+              "keywords": [
+                "vehicle",
+                "cars",
+                "transportation",
+                "law",
+                "legal",
+                "enforcement"
+              ],
+              "emoji": "🚓"
+            },
+             {
+              "keywords": [
+                "health",
+                "911",
+                "hospital"
+              ],
+              "emoji": "🚑"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "cars",
+                "vehicle"
+              ],
+              "emoji": "🚒"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "car",
+                "transportation"
+              ],
+              "emoji": "🚐"
+            },
+             {
+              "keywords": [
+                "cars",
+                "transportation"
+              ],
+              "emoji": "🚚"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "cars",
+                "transportation",
+                "express"
+              ],
+              "emoji": "🚛"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "car",
+                "farming",
+                "agriculture"
+              ],
+              "emoji": "🚜"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "kick",
+                "razor"
+              ],
+              "emoji": "🛴"
+            },
+            {
+              "keywords": [
+                "race",
+                "sports",
+                "fast"
+              ],
+              "emoji": "🏍"
+            },
+            {
+              "keywords": [
+                "sports",
+                "bicycle",
+                "exercise",
+                "hipster"
+              ],
+              "emoji": "🚲"
+            },
+             {
+              "keywords": [
+                "vehicle",
+                "vespa",
+                "sasha"
+              ],
+              "emoji": "🛵"
+            },
+             {
+              "keywords": [
+                "police",
+                "ambulance",
+                "911",
+                "emergency",
+                "alert",
+                "error",
+                "pinged",
+                "law",
+                "legal"
+              ],
+              "emoji": "🚨"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "law",
+                "legal",
+                "enforcement",
+                "911"
+              ],
+              "emoji": "🚔"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "transportation"
+              ],
+              "emoji": "🚍"
+            },
+            {
+              "keywords": [
+                "car",
+                "vehicle",
+                "transportation"
+              ],
+              "emoji": "🚘"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "cars",
+                "uber"
+              ],
+              "emoji": "🚖"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "ski"
+              ],
+              "emoji": "🚡"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "ski"
+              ],
+              "emoji": "🚠"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "transportation"
+              ],
+              "emoji": "🚟"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚃"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "carriage",
+                "public",
+                "travel"
+              ],
+              "emoji": "🚋"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚝"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚄"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "speed",
+                "fast",
+                "public",
+                "travel"
+              ],
+              "emoji": "🚅"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚈"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚞"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "train"
+              ],
+              "emoji": "🚂"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚆"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "blue-square",
+                "mrt",
+                "underground",
+                "tube"
+              ],
+              "emoji": "🚇"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle"
+              ],
+              "emoji": "🚊"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "public"
+              ],
+              "emoji": "🚉"
+            },
+             {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "ufo"
+              ],
+              "emoji": "🛸"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "vehicle",
+                "fly"
+              ],
+              "emoji": "🚁"
+            },
+             {
+              "keywords": [
+                "flight",
+                "transportation",
+                "fly",
+                "vehicle"
+              ],
+              "emoji": "🛩"
+            },
+            {
+              "keywords": [
+                "vehicle",
+                "transportation",
+                "flight",
+                "fly"
+              ],
+              "emoji": "✈️"
+            },
+             {
+              "keywords": [
+                "airport",
+                "flight",
+                "landing"
+              ],
+              "emoji": "🛫"
+            },
+            {
+              "keywords": [
+                "airport",
+                "flight",
+                "boarding"
+              ],
+              "emoji": "🛬"
+            },
+             {
+              "keywords": [
+                "ship",
+                "summer",
+                "transportation",
+                "water",
+                "sailing"
+              ],
+              "emoji": "⛵"
+            },
+             {
+              "keywords": [
+                "ship"
+              ],
+              "emoji": "🛥"
+            },
+            {
+              "keywords": [
+                "ship",
+                "transportation",
+                "vehicle",
+                "summer"
+              ],
+              "emoji": "🚤"
+            },
+            {
+              "keywords": [
+                "boat",
+                "ship",
+                "yacht"
+              ],
+              "emoji": "⛴"
+            },
+            {
+              "keywords": [
+                "yacht",
+                "cruise",
+                "ferry"
+              ],
+              "emoji": "🛳"
+            },
+             {
+              "keywords": [
+                "launch",
+                "ship",
+                "staffmode",
+                "NASA",
+                "outer space",
+                "outer_space",
+                "fly"
+              ],
+              "emoji": "🚀"
+            },
+            {
+              "keywords": [
+                "communication",
+                "gps",
+                "orbit",
+                "spaceflight",
+                "NASA",
+                "ISS"
+              ],
+              "emoji": "🛰"
+            },
+            {
+              "keywords": [
+                "sit",
+                "airplane",
+                "transport",
+                "bus",
+                "flight",
+                "fly"
+              ],
+              "emoji": "💺"
+            },
+             {
+              "keywords": [
+                "boat",
+                "paddle",
+                "water",
+                "ship"
+              ],
+              "emoji": "🛶"
+            },
+             {
+              "keywords": [
+                "ship",
+                "ferry",
+                "sea",
+                "boat"
+              ],
+              "emoji": "⚓"
+            },
+            {
+              "keywords": [
+                "wip",
+                "progress",
+                "caution",
+                "warning"
+              ],
+              "emoji": "🚧"
+            },
+            {
+              "keywords": [
+                "gas station",
+                "petroleum"
+              ],
+              "emoji": "⛽"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "wait"
+              ],
+              "emoji": "🚏"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "driving"
+              ],
+              "emoji": "🚦"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "signal"
+              ],
+              "emoji": "🚥"
+            },
+             {
+              "keywords": [
+                "contest",
+                "finishline",
+                "race",
+                "gokart"
+              ],
+              "emoji": "🏁"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "titanic",
+                "deploy"
+              ],
+              "emoji": "🚢"
+            },
+             {
+              "keywords": [
+                "photo",
+                "carnival",
+                "londoneye"
+              ],
+              "emoji": "🎡"
+            },
+             {
+              "keywords": [
+                "carnival",
+                "playground",
+                "photo",
+                "fun"
+              ],
+              "emoji": "🎢"
+            },
+            {
+              "keywords": [
+                "photo",
+                "carnival"
+              ],
+              "emoji": "🎠"
+            },
+            {
+              "keywords": [
+                "wip",
+                "working",
+                "progress"
+              ],
+              "emoji": "🏗"
+            },
+            {
+              "keywords": [
+                "photo",
+                "mountain"
+              ],
+              "emoji": "🌁"
+            },
+            {
+              "keywords": [
+                "photo",
+                "japanese"
+              ],
+              "emoji": "🗼"
+            },
+            {
+              "keywords": [
+                "building",
+                "industry",
+                "pollution",
+                "smoke"
+              ],
+              "emoji": "🏭"
+            },
+            {
+              "keywords": [
+                "photo",
+                "summer",
+                "water",
+                "fresh"
+              ],
+              "emoji": "⛲"
+            },
+            {
+              "keywords": [
+                "photo",
+                "japan",
+                "asia",
+                "tsukimi"
+              ],
+              "emoji": "🎑"
+            },
+            {
+              "keywords": [
+                "photo",
+                "nature",
+                "environment"
+              ],
+              "emoji": "⛰"
+            },
+             {
+              "keywords": [
+                "photo",
+                "nature",
+                "environment",
+                "winter",
+                "cold"
+              ],
+              "emoji": "🏔"
+            },
+             {
+              "keywords": [
+                "photo",
+                "mountain",
+                "nature",
+                "japanese"
+              ],
+              "emoji": "🗻"
+            },
+             {
+              "keywords": [
+                "photo",
+                "nature",
+                "disaster"
+              ],
+              "emoji": "🌋"
+            },
+            {
+              "keywords": [
+                "nation",
+                "country",
+                "japanese",
+                "asia"
+              ],
+              "emoji": "🗾"
+            },
+             {
+              "keywords": [
+                "photo",
+                "outdoors",
+                "tent"
+              ],
+              "emoji": "🏕"
+            },
+            {
+              "keywords": [
+                "photo",
+                "camping",
+                "outdoors"
+              ],
+              "emoji": "⛺"
+            },
+            {
+              "keywords": [
+                "photo",
+                "environment",
+                "nature"
+              ],
+              "emoji": "🏞"
+            },
+            {
+              "keywords": [
+                "road",
+                "cupertino",
+                "interstate",
+                "highway"
+              ],
+              "emoji": "🛣"
+            },
+            {
+              "keywords": [
+                "train",
+                "transportation"
+              ],
+              "emoji": "🛤"
+            },
+             {
+              "keywords": [
+                "morning",
+                "view",
+                "vacation",
+                "photo"
+              ],
+              "emoji": "🌅"
+            },
+            {
+              "keywords": [
+                "view",
+                "vacation",
+                "photo"
+              ],
+              "emoji": "🌄"
+            },
+            {
+              "keywords": [
+                "photo",
+                "warm",
+                "saharah"
+              ],
+              "emoji": "🏜"
+            },
+             {
+              "keywords": [
+                "weather",
+                "summer",
+                "sunny",
+                "sand",
+                "mojito"
+              ],
+              "emoji": "🏖"
+            },
+            {
+              "keywords": [
+                "photo",
+                "tropical",
+                "mojito"
+              ],
+              "emoji": "🏝"
+            },
+            {
+              "keywords": [
+                "photo",
+                "good morning",
+                "dawn"
+              ],
+              "emoji": "🌇"
+            },
+             {
+              "keywords": [
+                "photo",
+                "evening",
+                "sky",
+                "buildings"
+              ],
+              "emoji": "🌆"
+            },
+            {
+              "keywords": [
+                "photo",
+                "night life",
+                "urban"
+              ],
+              "emoji": "🏙"
+            },
+             {
+              "keywords": [
+                "evening",
+                "city",
+                "downtown"
+              ],
+              "emoji": "🌃"
+            },
+             {
+              "keywords": [
+                "photo",
+                "sanfrancisco"
+              ],
+              "emoji": "🌉"
+            },
+             {
+              "keywords": [
+                "photo",
+                "space",
+                "stars"
+              ],
+              "emoji": "🌌"
+            },
+            {
+              "keywords": [
+                "night",
+                "photo"
+              ],
+              "emoji": "🌠"
+            },
+             {
+              "keywords": [
+                "stars",
+                "night",
+                "shine"
+              ],
+              "emoji": "🎇"
+            },
+            {
+              "keywords": [
+                "photo",
+                "festival",
+                "carnival",
+                "congratulations"
+              ],
+              "emoji": "🎆"
+            },
+            {
+              "keywords": [
+                "nature",
+                "happy",
+                "unicorn_face",
+                "photo",
+                "sky",
+                "spring"
+              ],
+              "emoji": "🌈"
+            },
+             {
+              "keywords": [
+                "buildings",
+                "photo"
+              ],
+              "emoji": "🏘"
+            },
+            {
+              "keywords": [
+                "building",
+                "royalty",
+                "history"
+              ],
+              "emoji": "🏰"
+            },
+            {
+              "keywords": [
+                "photo",
+                "building"
+              ],
+              "emoji": "🏯"
+            },
+            {
+              "keywords": [
+                "photo",
+                "place",
+                "sports",
+                "concert",
+                "venue"
+              ],
+              "emoji": "🏟"
+            },
+             {
+              "keywords": [
+                "american",
+                "newyork"
+              ],
+              "emoji": "🗽"
+            },
+            {
+              "keywords": [
+                "building",
+                "home"
+              ],
+              "emoji": "🏠"
+            },
+            {
+              "keywords": [
+                "home",
+                "plant",
+                "nature"
+              ],
+              "emoji": "🏡"
+            },
+            {
+              "keywords": [
+                "abandon",
+                "evict",
+                "broken",
+                "building"
+              ],
+              "emoji": "🏚"
+            },
+            {
+              "keywords": [
+                "building",
+                "bureau",
+                "work"
+              ],
+              "emoji": "🏢"
+            },
+             {
+              "keywords": [
+                "building",
+                "shopping",
+                "mall"
+              ],
+              "emoji": "🏬"
+            },
+            {
+              "keywords": [
+                "building",
+                "envelope",
+                "communication"
+              ],
+              "emoji": "🏣"
+            },
+             {
+              "keywords": [
+                "building",
+                "email"
+              ],
+              "emoji": "🏤"
+            },
+            {
+              "keywords": [
+                "building",
+                "health",
+                "surgery",
+                "doctor"
+              ],
+              "emoji": "🏥"
+            },
+            {
+              "keywords": [
+                "building",
+                "money",
+                "sales",
+                "cash",
+                "business",
+                "enterprise"
+              ],
+              "emoji": "🏦"
+            },
+            {
+              "keywords": [
+                "building",
+                "accomodation",
+                "checkin"
+              ],
+              "emoji": "🏨"
+            },
+            {
+              "keywords": [
+                "building",
+                "shopping",
+                "groceries"
+              ],
+              "emoji": "🏪"
+            },
+            {
+              "keywords": [
+                "building",
+                "student",
+                "education",
+                "learn",
+                "teach"
+              ],
+              "emoji": "🏫"
+            },
+            {
+              "keywords": [
+                "like",
+                "affection",
+                "dating"
+              ],
+              "emoji": "🏩"
+            },
+            {
+              "keywords": [
+                "love",
+                "like",
+                "affection",
+                "couple",
+                "marriage",
+                "bride",
+                "groom"
+              ],
+              "emoji": "💒"
+            },
+            {
+              "keywords": [
+                "art",
+                "culture",
+                "history"
+              ],
+              "emoji": "🏛"
+            },
+            {
+              "keywords": [
+                "building",
+                "religion",
+                "christ"
+              ],
+              "emoji": "⛪"
+            },
+             {
+              "keywords": [
+                "islam",
+                "worship",
+                "minaret"
+              ],
+              "emoji": "🕌"
+            },
+            {
+              "keywords": [
+                "judaism",
+                "worship",
+                "temple",
+                "jewish"
+              ],
+              "emoji": "🕍"
+            },
+            {
+              "keywords": [
+                "mecca",
+                "mosque",
+                "islam"
+              ],
+              "emoji": "🕋"
+            },
+             {
+              "keywords": [
+                "temple",
+                "japan",
+                "kyoto"
+              ],
+              "emoji": "⛩"
+            }
+          ]
+      },
                      {
                          "id": "symbols",
                          "name": "symbols",
