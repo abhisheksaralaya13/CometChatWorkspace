@@ -10672,7 +10672,7 @@ struct CometChatEmojiCategoryJSON {
             {
               "id": "flags",
               "name": "Flags",
-              "symbol": "messages-emoji-keyboard-smileys",
+              "symbol": "messages-emoji-keyboard-flags",
               "emojis": [
                  {
                   "keywords": ["af", "flag", "nation", "country", "banner", "afghanistan"],
