@@ -326,7 +326,6 @@ class CometChatMessageBubble: UITableViewCell {
         } else {
             selectionColor = .white
         }
-        print(receipt.isHidden)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -63,6 +63,16 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     var linkPreviewURL: String?
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
+    unowned var selectionColor: UIColor {
+        set {
+            let view = UIView()
+            view.backgroundColor = newValue
+            self.selectedBackgroundView = view
+        }
+        get {
+            return self.selectedBackgroundView?.backgroundColor ?? UIColor.white
+        }
+    }
     
     @discardableResult
     @objc public func set(corner: CometChatCorner) -> Self {
@@ -555,7 +565,12 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     }
     
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
+        if #available(iOS 13.0, *) {
+            selectionColor = .systemBackground
+        } else {
+            selectionColor = .white
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
