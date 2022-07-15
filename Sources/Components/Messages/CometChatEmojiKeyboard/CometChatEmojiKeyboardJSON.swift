@@ -7662,6 +7662,1696 @@ struct CometChatEmojiCategoryJSON {
             }
           ]
       },
+      {
+          "id": "objects",
+          "name": "Objects",
+          "symbol": "messages-emoji-keyboard-objects.png",
+          "emojis": [
+             {
+              "keywords": [
+                "time",
+                "accessories"
+              ],
+              "emoji": "⌚"
+            },
+             {
+              "keywords": [
+                "technology",
+                "apple",
+                "gadgets",
+                "dial"
+              ],
+              "emoji": "📱"
+            },
+             {
+              "keywords": [
+                "iphone",
+                "incoming"
+              ],
+              "emoji": "📲"
+            },
+            {
+              "keywords": [
+                "technology",
+                "laptop",
+                "screen",
+                "display",
+                "monitor"
+              ],
+              "emoji": "💻"
+            },
+             {
+              "keywords": [
+                "technology",
+                "computer",
+                "type",
+                "input",
+                "text"
+              ],
+              "emoji": "⌨"
+            },
+             {
+              "keywords": [
+                "technology",
+                "computing",
+                "screen"
+              ],
+              "emoji": "🖥"
+            },
+            {
+              "keywords": [
+                "paper",
+                "ink"
+              ],
+              "emoji": "🖨"
+            },
+            {
+              "keywords": [
+                "click"
+              ],
+              "emoji": "🖱"
+            },
+             {
+              "keywords": [
+                "technology",
+                "trackpad"
+              ],
+              "emoji": "🖲"
+            },
+            {
+              "keywords": [
+                "game",
+                "play"
+              ],
+              "emoji": "🕹"
+            },
+            {
+              "keywords": [
+                "tool"
+              ],
+              "emoji": "🗜"
+            },
+             {
+              "keywords": [
+                "technology",
+                "record",
+                "emojis",
+                "disk",
+                "90s"
+              ],
+              "emoji": "💽"
+            },
+             {
+              "keywords": [
+                "oldschool",
+                "technology",
+                "save",
+                "90s",
+                "80s"
+              ],
+              "emoji": "💾"
+            },
+            {
+              "keywords": [
+                "technology",
+                "dvd",
+                "disk",
+                "disc",
+                "90s"
+              ],
+              "emoji": "💿"
+            },
+             {
+              "keywords": [
+                "cd",
+                "disk",
+                "disc"
+              ],
+              "emoji": "📀"
+            },
+             {
+              "keywords": [
+                "record",
+                "video",
+                "oldschool",
+                "90s",
+                "80s"
+              ],
+              "emoji": "📼"
+            },
+             {
+              "keywords": [
+                "gadgets",
+                "photography"
+              ],
+              "emoji": "📷"
+            },
+             {
+              "keywords": [
+                "photography",
+                "gadgets"
+              ],
+              "emoji": "📸"
+            },
+            {
+              "keywords": [
+                "film",
+                "record"
+              ],
+              "emoji": "📹"
+            },
+            {
+              "keywords": [
+                "film",
+                "record"
+              ],
+              "emoji": "🎥"
+            },
+            {
+              "keywords": [
+                "video",
+                "tape",
+                "record",
+                "movie"
+              ],
+              "emoji": "📽"
+            },
+            {
+              "keywords": [
+                "movie"
+              ],
+              "emoji": "🎞"
+            },
+            {
+              "keywords": [
+                "technology",
+                "communication",
+                "dial"
+              ],
+              "emoji": "📞"
+            },
+            {
+              "keywords": [
+                "technology",
+                "communication",
+                "dial",
+                "telephone"
+              ],
+              "emoji": "☎️"
+            },
+             {
+              "keywords": [
+                "bbcall",
+                "oldschool",
+                "90s"
+              ],
+              "emoji": "📟"
+            },
+            {
+              "keywords": [
+                "communication",
+                "technology"
+              ],
+              "emoji": "📠"
+            },
+            {
+              "keywords": [
+                "technology",
+                "program",
+                "oldschool",
+                "show",
+                "television"
+              ],
+              "emoji": "📺"
+            },
+             {
+              "keywords": [
+                "communication",
+                "music",
+                "podcast",
+                "program"
+              ],
+              "emoji": "📻"
+            },
+             {
+              "keywords": [
+                "sing",
+                "recording",
+                "artist",
+                "talkshow"
+              ],
+              "emoji": "🎙"
+            },
+             {
+              "keywords": [
+                "scale"
+              ],
+              "emoji": "🎚"
+            },
+             {
+              "keywords": [
+                "dial"
+              ],
+              "emoji": "🎛"
+            },
+             {
+              "keywords": [
+                "magnetic",
+                "navigation",
+                "orienteering"
+              ],
+              "emoji": "🧭"
+            },
+            {
+              "keywords": [
+                "time",
+                "deadline"
+              ],
+              "emoji": "⏱"
+            },
+            {
+              "keywords": [
+                "alarm"
+              ],
+              "emoji": "⏲"
+            },
+            {
+              "keywords": [
+                "time",
+                "wake"
+              ],
+              "emoji": "⏰"
+            },
+             {
+              "keywords": [
+                "time"
+              ],
+              "emoji": "🕰"
+            },
+            {
+              "keywords": [
+                "oldschool",
+                "time",
+                "countdown"
+              ],
+              "emoji": "⏳"
+            },
+            {
+              "keywords": [
+                "time",
+                "clock",
+                "oldschool",
+                "limit",
+                "exam",
+                "quiz",
+                "test"
+              ],
+              "emoji": "⌛"
+            },
+            {
+              "keywords": [
+                "communication",
+                "future",
+                "radio",
+                "space"
+              ],
+              "emoji": "📡"
+            },
+             {
+              "keywords": [
+                "power",
+                "energy",
+                "sustain"
+              ],
+              "emoji": "🔋"
+            },
+             {
+              "keywords": [
+                "charger",
+                "power"
+              ],
+              "emoji": "🔌"
+            },
+             {
+              "keywords": [
+                "light",
+                "electricity",
+                "idea"
+              ],
+              "emoji": "💡"
+            },
+             {
+              "keywords": [
+                "dark",
+                "camping",
+                "sight",
+                "night"
+              ],
+              "emoji": "🔦"
+            },
+             {
+              "keywords": [
+                "fire",
+                "wax"
+              ],
+              "emoji": "🕯"
+            },
+            {
+              "keywords": [
+                "quench"
+              ],
+              "emoji": "🧯"
+            },
+            {
+              "keywords": [
+                "bin",
+                "trash",
+                "rubbish",
+                "garbage",
+                "toss"
+              ],
+              "emoji": "🗑"
+            },
+            {
+              "keywords": [
+                "barrell"
+              ],
+              "emoji": "🛢"
+            },
+            {
+              "keywords": [
+                "dollar",
+                "bills",
+                "payment",
+                "sale"
+              ],
+              "emoji": "💸"
+            },
+            {
+              "keywords": [
+                "money",
+                "sales",
+                "bill",
+                "currency"
+              ],
+              "emoji": "💵"
+            },
+             {
+              "keywords": [
+                "money",
+                "sales",
+                "japanese",
+                "dollar",
+                "currency"
+              ],
+              "emoji": "💴"
+            },
+            {
+              "keywords": [
+                "money",
+                "sales",
+                "dollar",
+                "currency"
+              ],
+              "emoji": "💶"
+            },
+            {
+              "keywords": [
+                "british",
+                "sterling",
+                "money",
+                "sales",
+                "bills",
+                "uk",
+                "england",
+                "currency"
+              ],
+              "emoji": "💷"
+            },
+             {
+              "keywords": [
+                "dollar",
+                "payment",
+                "coins",
+                "sale"
+              ],
+              "emoji": "💰"
+            },
+            {
+              "keywords": [
+                "money",
+                "sales",
+                "dollar",
+                "bill",
+                "payment",
+                "shopping"
+              ],
+              "emoji": "💳"
+            },
+            {
+              "keywords": [
+                "blue",
+                "ruby",
+                "diamond",
+                "jewelry"
+              ],
+              "emoji": "💎"
+            },
+            {
+              "keywords": [
+                "law",
+                "fairness",
+                "weight"
+              ],
+              "emoji": "⚖"
+            },
+            {
+              "keywords": [
+                "tools",
+                "diy",
+                "fix",
+                "maintainer",
+                "mechanic"
+              ],
+              "emoji": "🧰"
+            },
+             {
+              "keywords": [
+                "tools",
+                "diy",
+                "ikea",
+                "fix",
+                "maintainer"
+              ],
+              "emoji": "🔧"
+            },
+             {
+              "keywords": [
+                "tools",
+                "build",
+                "create"
+              ],
+              "emoji": "🔨"
+            },
+             {
+              "keywords": [
+                "tools",
+                "build",
+                "create"
+              ],
+              "emoji": "⚒"
+            },
+            {
+              "keywords": [
+                "tools",
+                "build",
+                "create"
+              ],
+              "emoji": "🛠"
+            },
+             {
+              "keywords": [
+                "tools",
+                "dig"
+              ],
+              "emoji": "⛏"
+            },
+             {
+              "keywords": [
+                "handy",
+                "tools",
+                "fix"
+              ],
+              "emoji": "🔩"
+            },
+             {
+              "keywords": [
+                "cog"
+              ],
+              "emoji": "⚙"
+            },
+             {
+              "keywords": [
+                "bricks"
+              ],
+              "emoji": "🧱"
+            },
+             {
+              "keywords": [
+                "lock",
+                "arrest"
+              ],
+              "emoji": "⛓"
+            },
+            {
+              "keywords": [
+                "attraction",
+                "magnetic"
+              ],
+              "emoji": "🧲"
+            },
+             {
+              "keywords": [
+                "violence",
+                "weapon",
+                "pistol",
+                "revolver"
+              ],
+              "emoji": "🔫"
+            },
+            {
+              "keywords": [
+                "boom",
+                "explode",
+                "explosion",
+                "terrorism"
+              ],
+              "emoji": "💣"
+            },
+            {
+              "keywords": [
+                "dynamite",
+                "boom",
+                "explode",
+                "explosion",
+                "explosive"
+              ],
+              "emoji": "🧨"
+            },
+            {
+              "keywords": [
+                "knife",
+                "blade",
+                "cutlery",
+                "kitchen",
+                "weapon"
+              ],
+              "emoji": "🔪"
+            },
+             {
+              "keywords": [
+                "weapon"
+              ],
+              "emoji": "🗡"
+            },
+            {
+              "keywords": [
+                "weapon"
+              ],
+              "emoji": "⚔"
+            },
+            {
+              "keywords": [
+                "protection",
+                "security"
+              ],
+              "emoji": "🛡"
+            },
+            {
+              "keywords": [
+                "kills",
+                "tobacco",
+                "cigarette",
+                "joint",
+                "smoke"
+              ],
+              "emoji": "🚬"
+            },
+             {
+              "keywords": [
+                "poison",
+                "danger",
+                "deadly",
+                "scary",
+                "death",
+                "pirate",
+                "evil"
+              ],
+              "emoji": "☠"
+            },
+             {
+              "keywords": [
+                "vampire",
+                "dead",
+                "die",
+                "death",
+                "rip",
+                "graveyard",
+                "cemetery",
+                "casket",
+                "funeral",
+                "box"
+              ],
+              "emoji": "⚰"
+            },
+             {
+              "keywords": [
+                "dead",
+                "die",
+                "death",
+                "rip",
+                "ashes"
+              ],
+              "emoji": "⚱"
+            },
+            {
+              "keywords": [
+                "vase",
+                "jar"
+              ],
+              "emoji": "🏺"
+            },
+            {
+              "keywords": [
+                "disco",
+                "party",
+                "magic",
+                "circus",
+                "fortune_teller"
+              ],
+              "emoji": "🔮"
+            },
+            {
+              "keywords": [
+                "dhikr",
+                "religious"
+              ],
+              "emoji": "📿"
+            },
+            {
+              "keywords": [
+                "bead",
+                "charm"
+              ],
+              "emoji": "🧿"
+            },
+            {
+              "keywords": [
+                "hair",
+                "salon",
+                "style"
+              ],
+              "emoji": "💈"
+            },
+            {
+              "keywords": [
+                "distilling",
+                "science",
+                "experiment",
+                "chemistry"
+              ],
+              "emoji": "⚗"
+            },
+            {
+              "keywords": [
+                "stars",
+                "space",
+                "zoom",
+                "science",
+                "astronomy"
+              ],
+              "emoji": "🔭"
+            },
+            {
+              "keywords": [
+                "laboratory",
+                "experiment",
+                "zoomin",
+                "science",
+                "study"
+              ],
+              "emoji": "🔬"
+            },
+            {
+              "keywords": [
+                "embarrassing"
+              ],
+              "emoji": "🕳"
+            },
+            {
+              "keywords": [
+                "health",
+                "medicine",
+                "doctor",
+                "pharmacy",
+                "drug"
+              ],
+              "emoji": "💊"
+            },
+            {
+              "keywords": [
+                "health",
+                "hospital",
+                "drugs",
+                "blood",
+                "medicine",
+                "needle",
+                "doctor",
+                "nurse"
+              ],
+              "emoji": "💉"
+            },
+            {
+              "keywords": [
+                "biologist",
+                "genetics",
+                "life"
+              ],
+              "emoji": "🧬"
+            },
+            {
+              "keywords": [
+                "amoeba",
+                "bacteria",
+                "germs"
+              ],
+              "emoji": "🦠"
+            },
+            {
+              "keywords": [
+                "bacteria",
+                "biology",
+                "culture",
+                "lab"
+              ],
+              "emoji": "🧫"
+            },
+            {
+              "keywords": [
+                "chemistry",
+                "experiment",
+                "lab",
+                "science"
+              ],
+              "emoji": "🧪"
+            },
+            {
+              "keywords": [
+                "weather",
+                "temperature",
+                "hot",
+                "cold"
+              ],
+              "emoji": "🌡"
+            },
+             {
+              "keywords": [
+                "cleaning",
+                "sweeping",
+                "witch"
+              ],
+              "emoji": "🧹"
+            },
+             {
+              "keywords": [
+                "laundry"
+              ],
+              "emoji": "🧺"
+            },
+            {
+              "keywords": [
+                "roll"
+              ],
+              "emoji": "🧻"
+            },
+             {
+              "keywords": [
+                "sale",
+                "tag"
+              ],
+              "emoji": "🏷"
+            },
+            {
+              "keywords": [
+                "favorite",
+                "label",
+                "save"
+              ],
+              "emoji": "🔖"
+            },
+            {
+              "keywords": [
+                "restroom",
+                "wc",
+                "washroom",
+                "bathroom",
+                "potty"
+              ],
+              "emoji": "🚽"
+            },
+            {
+              "keywords": [
+                "clean",
+                "water",
+                "bathroom"
+              ],
+              "emoji": "🚿"
+            },
+            {
+              "keywords": [
+                "clean",
+                "shower",
+                "bathroom"
+              ],
+              "emoji": "🛁"
+            },
+            {
+              "keywords": [
+                "bar",
+                "bathing",
+                "cleaning",
+                "lather"
+              ],
+              "emoji": "🧼"
+            },
+            {
+              "keywords": [
+                "absorbing",
+                "cleaning",
+                "porous"
+              ],
+              "emoji": "🧽"
+            },
+             {
+              "keywords": [
+                "moisturizer",
+                "sunscreen"
+              ],
+              "emoji": "🧴"
+            },
+            {
+              "keywords": [
+                "lock",
+                "door",
+                "password"
+              ],
+              "emoji": "🔑"
+            },
+             {
+              "keywords": [
+                "lock",
+                "door",
+                "password"
+              ],
+              "emoji": "🗝"
+            },
+             {
+              "keywords": [
+                "read",
+                "chill"
+              ],
+              "emoji": "🛋"
+            },
+             {
+              "keywords": [
+                "bed",
+                "rest"
+              ],
+              "emoji": "🛌"
+            },
+             {
+              "keywords": [
+                "sleep",
+                "rest"
+              ],
+              "emoji": "🛏"
+            },
+            {
+              "keywords": [
+                "house",
+                "entry",
+                "exit"
+              ],
+              "emoji": "🚪"
+            },
+             {
+              "keywords": [
+                "service"
+              ],
+              "emoji": "🛎"
+            },
+            {
+              "keywords": [
+                "plush",
+                "stuffed"
+              ],
+              "emoji": "🧸"
+            },
+             {
+              "keywords": [
+                "photography"
+              ],
+              "emoji": "🖼"
+            },
+            {
+              "keywords": [
+                "location",
+                "direction"
+              ],
+              "emoji": "🗺"
+            },
+            {
+              "keywords": [
+                "weather",
+                "summer"
+              ],
+              "emoji": "⛱"
+            },
+             {
+              "keywords": [
+                "rock",
+                "easter island",
+                "moai"
+              ],
+              "emoji": "🗿"
+            },
+            {
+              "keywords": [
+                "mall",
+                "buy",
+                "purchase"
+              ],
+              "emoji": "🛍"
+            },
+            {
+              "keywords": [
+                "trolley"
+              ],
+              "emoji": "🛒"
+            },
+            {
+              "keywords": [
+                "party",
+                "celebration",
+                "birthday",
+                "circus"
+              ],
+              "emoji": "🎈"
+            },
+            {
+              "keywords": [
+                "fish",
+                "japanese",
+                "koinobori",
+                "carp",
+                "banner"
+              ],
+              "emoji": "🎏"
+            },
+             {
+              "keywords": [
+                "decoration",
+                "pink",
+                "girl",
+                "bowtie"
+              ],
+              "emoji": "🎀"
+            },
+            {
+              "keywords": [
+                "present",
+                "birthday",
+                "christmas",
+                "xmas"
+              ],
+              "emoji": "🎁"
+            },
+            {
+              "keywords": [
+                "festival",
+                "party",
+                "birthday",
+                "circus"
+              ],
+              "emoji": "🎊"
+            },
+            {
+              "keywords": [
+                "party",
+                "congratulations",
+                "birthday",
+                "magic",
+                "circus",
+                "celebration"
+              ],
+              "emoji": "🎉"
+            },
+            {
+              "keywords": [
+                "japanese",
+                "toy",
+                "kimono"
+              ],
+              "emoji": "🎎"
+            },
+            {
+              "keywords": [
+                "nature",
+                "ding",
+                "spring",
+                "bell"
+              ],
+              "emoji": "🎐"
+            },
+             {
+              "keywords": [
+                "japanese",
+                "nation",
+                "country",
+                "border"
+              ],
+              "emoji": "🎌"
+            },
+             {
+              "keywords": [
+                "light",
+                "paper",
+                "halloween",
+                "spooky"
+              ],
+              "emoji": "🏮"
+            },
+            {
+              "keywords": [
+                "gift"
+              ],
+              "emoji": "🧧"
+            },
+            {
+              "keywords": [
+                "letter",
+                "postal",
+                "inbox",
+                "communication"
+              ],
+              "emoji": "✉️"
+            },
+            {
+              "keywords": [
+                "email",
+                "communication"
+              ],
+              "emoji": "📩"
+            },
+            {
+              "keywords": [
+                "email",
+                "inbox"
+              ],
+              "emoji": "📨"
+            },
+            {
+              "keywords": [
+                "communication",
+                "inbox"
+              ],
+              "emoji": "📧"
+            },
+            {
+              "keywords": [
+                "email",
+                "like",
+                "affection",
+                "envelope",
+                "valentines"
+              ],
+              "emoji": "💌"
+            },
+            {
+              "keywords": [
+                "email",
+                "letter",
+                "envelope"
+              ],
+              "emoji": "📮"
+            },
+            {
+              "keywords": [
+                "email",
+                "communication",
+                "inbox"
+              ],
+              "emoji": "📪"
+            },
+             {
+              "keywords": [
+                "email",
+                "inbox",
+                "communication"
+              ],
+              "emoji": "📫"
+            },
+             {
+              "keywords": [
+                "email",
+                "inbox",
+                "communication"
+              ],
+              "emoji": "📬"
+            },
+            {
+              "keywords": [
+                "email",
+                "inbox"
+              ],
+              "emoji": "📭"
+            },
+             {
+              "keywords": [
+                "mail",
+                "gift",
+                "cardboard",
+                "box",
+                "moving"
+              ],
+              "emoji": "📦"
+            },
+             {
+              "keywords": [
+                "instrument",
+                "music"
+              ],
+              "emoji": "📯"
+            },
+             {
+              "keywords": [
+                "email",
+                "documents"
+              ],
+              "emoji": "📥"
+            },
+             {
+              "keywords": [
+                "inbox",
+                "email"
+              ],
+              "emoji": "📤"
+            },
+             {
+              "keywords": [
+                "documents",
+                "ancient",
+                "history",
+                "paper"
+              ],
+              "emoji": "📜"
+            },
+             {
+              "keywords": [
+                "documents",
+                "office",
+                "paper"
+              ],
+              "emoji": "📃"
+            },
+             {
+              "keywords": [
+                "favorite",
+                "save",
+                "order",
+                "tidy"
+              ],
+              "emoji": "📑"
+            },
+            {
+              "keywords": [
+                "accounting",
+                "expenses"
+              ],
+              "emoji": "🧾"
+            },
+            {
+              "keywords": [
+                "graph",
+                "presentation",
+                "stats"
+              ],
+              "emoji": "📊"
+            },
+             {
+              "keywords": [
+                "graph",
+                "presentation",
+                "stats",
+                "recovery",
+                "business",
+                "economics",
+                "money",
+                "sales",
+                "good",
+                "success"
+              ],
+              "emoji": "📈"
+            },
+            {
+              "keywords": [
+                "graph",
+                "presentation",
+                "stats",
+                "recession",
+                "business",
+                "economics",
+                "money",
+                "sales",
+                "bad",
+                "failure"
+              ],
+              "emoji": "📉"
+            },
+            {
+              "keywords": [
+                "documents",
+                "office",
+                "paper",
+                "information"
+              ],
+              "emoji": "📄"
+            },
+             {
+              "keywords": [
+                "calendar",
+                "schedule"
+              ],
+              "emoji": "📅"
+            },
+            {
+              "keywords": [
+                "schedule",
+                "date",
+                "planning"
+              ],
+              "emoji": "📆"
+            },
+             {
+              "keywords": [
+                "date",
+                "schedule",
+                "planning"
+              ],
+              "emoji": "🗓"
+            },
+            {
+              "keywords": [
+                "business",
+                "stationery"
+              ],
+              "emoji": "📇"
+            },
+            {
+              "keywords": [
+                "business",
+                "stationery"
+              ],
+              "emoji": "🗃"
+            },
+             {
+              "keywords": [
+                "election",
+                "vote"
+              ],
+              "emoji": "🗳"
+            },
+             {
+              "keywords": [
+                "filing",
+                "organizing"
+              ],
+              "emoji": "🗄"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "documents"
+              ],
+              "emoji": "📋"
+            },
+            {
+              "keywords": [
+                "memo",
+                "stationery"
+              ],
+              "emoji": "🗒"
+            },
+             {
+              "keywords": [
+                "documents",
+                "business",
+                "office"
+              ],
+              "emoji": "📁"
+            },
+             {
+              "keywords": [
+                "documents",
+                "load"
+              ],
+              "emoji": "📂"
+            },
+            {
+              "keywords": [
+                "organizing",
+                "business",
+                "stationery"
+              ],
+              "emoji": "🗂"
+            },
+            {
+              "keywords": [
+                "press",
+                "headline"
+              ],
+              "emoji": "🗞"
+            },
+            {
+              "keywords": [
+                "press",
+                "headline"
+              ],
+              "emoji": "📰"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "record",
+                "notes",
+                "paper",
+                "study"
+              ],
+              "emoji": "📓"
+            },
+            {
+              "keywords": [
+                "read",
+                "library",
+                "knowledge",
+                "textbook",
+                "learn"
+              ],
+              "emoji": "📕"
+            },
+            {
+              "keywords": [
+                "read",
+                "library",
+                "knowledge",
+                "study"
+              ],
+              "emoji": "📗"
+            },
+            {
+              "keywords": [
+                "read",
+                "library",
+                "knowledge",
+                "learn",
+                "study"
+              ],
+              "emoji": "📘"
+            },
+             {
+              "keywords": [
+                "read",
+                "library",
+                "knowledge",
+                "textbook",
+                "study"
+              ],
+              "emoji": "📙"
+            },
+            {
+              "keywords": [
+                "classroom",
+                "notes",
+                "record",
+                "paper",
+                "study"
+              ],
+              "emoji": "📔"
+            },
+             {
+              "keywords": [
+                "notes",
+                "paper"
+              ],
+              "emoji": "📒"
+            },
+            {
+              "keywords": [
+                "literature",
+                "library",
+                "study"
+              ],
+              "emoji": "📚"
+            },
+            {
+              "keywords": [
+                "book",
+                "read",
+                "library",
+                "knowledge",
+                "literature",
+                "learn",
+                "study"
+              ],
+              "emoji": "📖"
+            },
+             {
+              "keywords": [
+                "diaper"
+              ],
+              "emoji": "🧷"
+            },
+             {
+              "keywords": [
+                "rings",
+                "url"
+              ],
+              "emoji": "🔗"
+            },
+            {
+              "keywords": [
+                "documents",
+                "stationery"
+              ],
+              "emoji": "📎"
+            },
+             {
+              "keywords": [
+                "documents",
+                "stationery"
+              ],
+              "emoji": "🖇"
+            },
+             {
+              "keywords": [
+                "stationery",
+                "cut"
+              ],
+              "emoji": "✂️"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "math",
+                "architect",
+                "sketch"
+              ],
+              "emoji": "📐"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "calculate",
+                "length",
+                "math",
+                "school",
+                "drawing",
+                "architect",
+                "sketch"
+              ],
+              "emoji": "📏"
+            },
+            {
+              "keywords": [
+                "calculation"
+              ],
+              "emoji": "🧮"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "mark",
+                "here"
+              ],
+              "emoji": "📌"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "location",
+                "map",
+                "here"
+              ],
+              "emoji": "📍"
+            },
+            {
+              "keywords": [
+                "mark",
+                "milestone",
+                "place"
+              ],
+              "emoji": "🚩"
+            },
+            {
+              "keywords": [
+                "losing",
+                "loser",
+                "lost",
+                "surrender",
+                "give up",
+                "fail"
+              ],
+              "emoji": "🏳"
+            },
+             {
+              "keywords": [
+                "pirate"
+              ],
+              "emoji": "🏴"
+            },
+            {
+              "keywords": [
+                "flag",
+                "rainbow",
+                "pride",
+                "gay",
+                "lgbt",
+                "glbt",
+                "queer",
+                "homosexual",
+                "lesbian",
+                "bisexual",
+                "transgender"
+              ],
+              "emoji": "🏳️‍🌈"
+            },
+             {
+              "keywords": [
+                "security",
+                "privacy"
+              ],
+              "emoji": "🔐"
+            },
+             {
+              "keywords": [
+                "security",
+                "password",
+                "padlock"
+              ],
+              "emoji": "🔒"
+            },
+            {
+              "keywords": [
+                "privacy",
+                "security"
+              ],
+              "emoji": "🔓"
+            },
+             {
+              "keywords": [
+                "security",
+                "secret"
+              ],
+              "emoji": "🔏"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "writing",
+                "write"
+              ],
+              "emoji": "🖊"
+            },
+             {
+              "keywords": [
+                "stationery",
+                "writing",
+                "write"
+              ],
+              "emoji": "🖋"
+            },
+             {
+              "keywords": [
+                "pen",
+                "stationery",
+                "writing",
+                "write"
+              ],
+              "emoji": "✒️"
+            },
+            {
+              "keywords": [
+                "write",
+                "documents",
+                "stationery",
+                "pencil",
+                "paper",
+                "writing",
+                "legal",
+                "exam",
+                "quiz",
+                "test",
+                "study",
+                "compose"
+              ],
+              "emoji": "📝"
+            },
+            {
+              "keywords": [
+                "stationery",
+                "write",
+                "paper",
+                "writing",
+                "school",
+                "study"
+              ],
+              "emoji": "✏️"
+            },
+            {
+              "keywords": [
+                "drawing",
+                "creativity"
+              ],
+              "emoji": "🖍"
+            },
+             {
+              "keywords": [
+                "drawing",
+                "creativity",
+                "art"
+              ],
+              "emoji": "🖌"
+            },
+            {
+              "keywords": [
+                "search",
+                "zoom",
+                "find",
+                "detective"
+              ],
+              "emoji": "🔍"
+            },
+            {
+              "keywords": [
+                "search",
+                "zoom",
+                "find",
+                "detective"
+              ],
+              "emoji": "🔎"
+            }
+          ]
+      },
                      {
                          "id": "symbols",
                          "name": "symbols",
