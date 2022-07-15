@@ -7178,6 +7178,799 @@ struct CometChatEmojiCategoryJSON {
                            }
                          ]
                        },
+      {
+          "id": "activity",
+          "name": "Activity",
+          "symbol": "messages-emoji-keyboard-activity.png",
+          "emojis": [
+            {
+              "keywords": [
+                "sports",
+                "football"
+              ],
+              "emoji": "⚽"
+            },
+            {
+              "keywords": [
+                "sports",
+                "balls",
+                "NBA"
+              ],
+              "emoji": "🏀"
+            },
+             {
+              "keywords": [
+                "sports",
+                "balls",
+                "NFL"
+              ],
+              "emoji": "🏈"
+            },
+             {
+              "keywords": [
+                "sports",
+                "balls"
+              ],
+              "emoji": "⚾"
+            },
+            {
+              "keywords": [
+                "sports",
+                "balls"
+              ],
+              "emoji": "🥎"
+            },
+            {
+              "keywords": [
+                "sports",
+                "balls",
+                "green"
+              ],
+              "emoji": "🎾"
+            },
+            {
+              "keywords": [
+                "sports",
+                "balls"
+              ],
+              "emoji": "🏐"
+            },
+            {
+              "keywords": [
+                "sports",
+                "team"
+              ],
+              "emoji": "🏉"
+            },
+            {
+              "keywords": [
+                "sports",
+                "frisbee",
+                "ultimate"
+              ],
+              "emoji": "🥏"
+            },
+            {
+              "keywords": [
+                "pool",
+                "hobby",
+                "game",
+                "luck",
+                "magic"
+              ],
+              "emoji": "🎱"
+            },
+            {
+              "keywords": [
+                "sports",
+                "business",
+                "flag",
+                "hole",
+                "summer"
+              ],
+              "emoji": "⛳"
+            },
+            {
+              "keywords": [
+                "sports",
+                "business",
+                "woman",
+                "female"
+              ],
+              "emoji": "🏌️‍♀️"
+            },
+             {
+              "keywords": [
+                "sports",
+                "business"
+              ],
+              "emoji": "🏌",
+              "fitzpatrick_scale": true
+            },
+            {
+              "keywords": [
+                "sports",
+                "pingpong"
+              ],
+              "emoji": "🏓"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🏸"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🥅"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🏒"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🏑"
+            },
+            {
+              "keywords": [
+                "sports",
+                "ball",
+                "stick"
+              ],
+              "emoji": "🥍"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🏏"
+            },
+            {
+              "keywords": [
+                "sports",
+                "winter",
+                "cold",
+                "snow"
+              ],
+              "emoji": "🎿"
+            },
+             {
+              "keywords": [
+                "sports",
+                "winter",
+                "snow"
+              ],
+              "emoji": "⛷"
+            },
+            {
+              "keywords": [
+                "sports",
+                "winter"
+              ],
+              "emoji": "🏂"
+            },
+            {
+              "keywords": [
+                "sports",
+                "fencing",
+                "sword"
+              ],
+              "emoji": "🤺"
+            },
+            {
+              "keywords": [
+                "sports",
+                "wrestlers"
+              ],
+              "emoji": "🤼‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "wrestlers"
+              ],
+              "emoji": "🤼‍♂️"
+            },
+             {
+              "keywords": [
+                "gymnastics"
+              ],
+              "emoji": "🤸‍♀️"
+            },
+            {
+              "keywords": [
+                "gymnastics"
+              ],
+              "emoji": "🤸‍♂️"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🤾‍♀️"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🤾‍♂️"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "⛸"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🥌"
+            },
+            {
+              "keywords": [
+                "board"
+              ],
+              "emoji": "🛹"
+            },
+            {
+              "keywords": [
+                "sleigh",
+                "luge",
+                "toboggan"
+              ],
+              "emoji": "🛷"
+            },
+            {
+              "keywords": [
+                "sports"
+              ],
+              "emoji": "🏹"
+            },
+             {
+              "keywords": [
+                "food",
+                "hobby",
+                "summer"
+              ],
+              "emoji": "🎣"
+            },
+            {
+              "keywords": [
+                "sports",
+                "fighting"
+              ],
+              "emoji": "🥊"
+            },
+            {
+              "keywords": [
+                "judo",
+                "karate",
+                "taekwondo"
+              ],
+              "emoji": "🥋"
+            },
+            {
+              "keywords": [
+                "sports",
+                "hobby",
+                "water",
+                "ship",
+                "woman",
+                "female"
+              ],
+              "emoji": "🚣‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "hobby",
+                "water",
+                "ship"
+              ],
+              "emoji": "🚣"
+            },
+            {
+              "keywords": [
+                "sports",
+                "hobby",
+                "woman",
+                "female",
+                "rock"
+              ],
+              "emoji": "🧗‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "hobby",
+                "man",
+                "male",
+                "rock"
+              ],
+              "emoji": "🧗‍♂️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "exercise",
+                "human",
+                "athlete",
+                "water",
+                "summer",
+                "woman",
+                "female"
+              ],
+              "emoji": "🏊‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "exercise",
+                "human",
+                "athlete",
+                "water",
+                "summer"
+              ],
+              "emoji": "🏊"
+            },
+            {
+              "keywords": [
+                "sports",
+                "pool"
+              ],
+              "emoji": "🤽‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "pool"
+              ],
+              "emoji": "🤽‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "meditation",
+                "yoga",
+                "serenity",
+                "zen",
+                "mindfulness"
+              ],
+              "emoji": "🧘‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "meditation",
+                "yoga",
+                "serenity",
+                "zen",
+                "mindfulness"
+              ],
+              "emoji": "🧘‍♂️"
+            },
+             {
+              "keywords": [
+                "sports",
+                "ocean",
+                "sea",
+                "summer",
+                "beach",
+                "woman",
+                "female"
+              ],
+              "emoji": "🏄‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "ocean",
+                "sea",
+                "summer",
+                "beach"
+              ],
+              "emoji": "🏄"
+            },
+            {
+              "keywords": [
+                "clean",
+                "shower",
+                "bathroom"
+              ],
+              "emoji": "🛀"
+            },
+            {
+              "keywords": [
+                "sports",
+                "human",
+                "woman",
+                "female"
+              ],
+              "emoji": "⛹️‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "human"
+              ],
+              "emoji": "⛹"
+            },
+            {
+              "keywords": [
+                "sports",
+                "training",
+                "exercise",
+                "woman",
+                "female"
+              ],
+              "emoji": "🏋️‍♀️"
+            },
+            {
+              "keywords": [
+                "sports",
+                "training",
+                "exercise"
+              ],
+              "emoji": "🏋"
+            },
+             {
+              "keywords": [
+                "sports",
+                "bike",
+                "exercise",
+                "hipster",
+                "woman",
+                "female"
+              ],
+              "emoji": "🚴‍♀️"
+            },
+             {
+              "keywords": [
+                "sports",
+                "bike",
+                "exercise",
+                "hipster"
+              ],
+              "emoji": "🚴"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "sports",
+                "human",
+                "race",
+                "bike",
+                "woman",
+                "female"
+              ],
+              "emoji": "🚵‍♀️"
+            },
+            {
+              "keywords": [
+                "transportation",
+                "sports",
+                "human",
+                "race",
+                "bike"
+              ],
+              "emoji": "🚵"
+            },
+            {
+              "keywords": [
+                "animal",
+                "betting",
+                "competition",
+                "gambling",
+                "luck"
+              ],
+              "emoji": "🏇"
+            },
+            {
+              "keywords": [
+                "suit",
+                "business",
+                "levitate",
+                "hover",
+                "jump"
+              ],
+              "emoji": "🕴"
+            },
+            {
+              "keywords": [
+                "win",
+                "award",
+                "contest",
+                "place",
+                "ftw",
+                "ceremony"
+              ],
+              "emoji": "🏆"
+            },
+            {
+              "keywords": [
+                "play",
+                "pageant"
+              ],
+              "emoji": "🎽"
+            },
+             {
+              "keywords": [
+                "award",
+                "winning"
+              ],
+              "emoji": "🏅"
+            },
+            {
+              "keywords": [
+                "award",
+                "winning",
+                "army"
+              ],
+              "emoji": "🎖"
+            },
+            {
+              "keywords": [
+                "award",
+                "winning",
+                "first"
+              ],
+              "emoji": "🥇"
+            },
+            {
+              "keywords": [
+                "award",
+                "second"
+              ],
+              "emoji": "🥈"
+            },
+            {
+              "keywords": [
+                "award",
+                "third"
+              ],
+              "emoji": "🥉"
+            },
+            {
+              "keywords": [
+                "sports",
+                "cause",
+                "support",
+                "awareness"
+              ],
+              "emoji": "🎗"
+            },
+             {
+              "keywords": [
+                "flower",
+                "decoration",
+                "military"
+              ],
+              "emoji": "🏵"
+            },
+            {
+              "keywords": [
+                "event",
+                "concert",
+                "pass"
+              ],
+              "emoji": "🎫"
+            },
+            {
+              "keywords": [
+                "sports",
+                "concert",
+                "entrance"
+              ],
+              "emoji": "🎟"
+            },
+            {
+              "keywords": [
+                "acting",
+                "theater",
+                "drama"
+              ],
+              "emoji": "🎭"
+            },
+            {
+              "keywords": [
+                "design",
+                "paint",
+                "draw",
+                "colors"
+              ],
+              "emoji": "🎨"
+            },
+            {
+              "keywords": [
+                "festival",
+                "carnival",
+                "party"
+              ],
+              "emoji": "🎪"
+            },
+            {
+              "keywords": [
+                "juggle",
+                "balance",
+                "skill",
+                "multitask"
+              ],
+              "emoji": "🤹‍♀️"
+            },
+            {
+              "keywords": [
+                "juggle",
+                "balance",
+                "skill",
+                "multitask"
+              ],
+              "emoji": "🤹‍♂️"
+            },
+            {
+              "keywords": [
+                "sound",
+                "music",
+                "PA",
+                "sing",
+                "talkshow"
+              ],
+              "emoji": "🎤"
+            },
+            {
+              "keywords": [
+                "music",
+                "score",
+                "gadgets"
+              ],
+              "emoji": "🎧"
+            },
+             {
+              "keywords": [
+                "treble",
+                "clef",
+                "compose"
+              ],
+              "emoji": "🎼"
+            },
+            {
+              "keywords": [
+                "piano",
+                "instrument",
+                "compose"
+              ],
+              "emoji": "🎹"
+            },
+            {
+              "keywords": [
+                "music",
+                "instrument",
+                "drumsticks",
+                "snare"
+              ],
+              "emoji": "🥁"
+            },
+            {
+              "keywords": [
+                "music",
+                "instrument",
+                "jazz",
+                "blues"
+              ],
+              "emoji": "🎷"
+            },
+            {
+              "keywords": [
+                "music",
+                "brass"
+              ],
+              "emoji": "🎺"
+            },
+            {
+              "keywords": [
+                "music",
+                "instrument"
+              ],
+              "emoji": "🎸"
+            },
+            {
+              "keywords": [
+                "music",
+                "instrument",
+                "orchestra",
+                "symphony"
+              ],
+              "emoji": "🎻"
+            },
+            {
+              "keywords": [
+                "movie",
+                "film",
+                "record"
+              ],
+              "emoji": "🎬"
+            },
+            {
+              "keywords": [
+                "play",
+                "console",
+                "PS4",
+                "controller"
+              ],
+              "emoji": "🎮"
+            },
+             {
+              "keywords": [
+                "game",
+                "arcade",
+                "play"
+              ],
+              "emoji": "👾"
+            },
+            {
+              "keywords": [
+                "game",
+                "play",
+                "bar",
+                "target",
+                "bullseye"
+              ],
+              "emoji": "🎯"
+            },
+            {
+              "keywords": [
+                "dice",
+                "random",
+                "tabletop",
+                "play",
+                "luck"
+              ],
+              "emoji": "🎲"
+            },
+             {
+              "keywords": [
+                "expendable"
+              ],
+              "emoji": "♟"
+            },
+            {
+              "keywords": [
+                "bet",
+                "gamble",
+                "vegas",
+                "fruit machine",
+                "luck",
+                "casino"
+              ],
+              "emoji": "🎰"
+            },
+            {
+              "keywords": [
+                "interlocking",
+                "puzzle",
+                "piece"
+              ],
+              "emoji": "🧩"
+            },
+            {
+              "keywords": [
+                "sports",
+                "fun",
+                "play"
+              ],
+              "emoji": "🎳"
+            }
+          ]
+      },
     
             {
               "id": "flags",
