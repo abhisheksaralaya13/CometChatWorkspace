@@ -443,7 +443,7 @@ class CometChatMessageBubble: UITableViewCell {
         set(reactions: message, with: .left)
         containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
         /// when user send custom view that are not existing type such as payment.
-        if let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)] {
+        if message.deletedAt == 0.0, let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)] {
             
             if let view = customView?(message) {
                 self.customView = view
