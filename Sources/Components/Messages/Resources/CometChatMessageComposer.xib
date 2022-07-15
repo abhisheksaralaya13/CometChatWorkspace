@@ -123,24 +123,24 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="8v2-gN-9d6">
-                                    <rect key="frame" x="389" y="10.5" width="133" height="24"/>
+                                    <rect key="frame" x="425" y="10.5" width="97" height="24"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-Ip-RWQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-Ip-RWQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="24"/>
                                             <state key="normal" image="messages-emoji.png"/>
                                             <connections>
                                                 <action selector="onEmojiClick:" destination="-1" eventType="touchUpInside" id="hBR-TL-Cyz"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-Zk-wqH">
-                                            <rect key="frame" x="36" y="0.0" width="24" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                             <state key="normal" image="message-composer-sticker.png"/>
                                             <connections>
                                                 <action selector="onStickerClick:" destination="-1" eventType="touchUpInside" id="fPS-Sn-TSW"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltt-ZF-V8j">
-                                            <rect key="frame" x="72" y="0.0" width="25" height="24"/>
+                                            <rect key="frame" x="36" y="0.0" width="25" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="ncO-HY-g52"/>
                                             </constraints>
@@ -150,7 +150,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhO-YJ-UHF">
-                                            <rect key="frame" x="109" y="0.0" width="24" height="24"/>
+                                            <rect key="frame" x="73" y="0.0" width="24" height="24"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="message-composer-send.png"/>
                                             <userDefinedRuntimeAttributes>
