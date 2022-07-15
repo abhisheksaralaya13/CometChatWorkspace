@@ -743,19 +743,19 @@ import AVFAudio
                             case .image where currentConversation.conversationType == .user:
                                 self.set(subTitle: "MESSAGE_IMAGE".localize())
                             case .image where currentConversation.conversationType == .group:
-                                self.set(subTitle: senderName! + ":  " + "MESSAGE_IMAGE".localize())
+                                self.set(subTitle: senderName + ":  " + "MESSAGE_IMAGE".localize())
                             case .video  where currentConversation.conversationType == .user:
                                 self.set(subTitle: "MESSAGE_VIDEO".localize())
                             case .video  where currentConversation.conversationType == .group:
-                                self.set(subTitle: senderName! + ":  " + "MESSAGE_VIDEO".localize())
+                                self.set(subTitle: senderName + ":  " + "MESSAGE_VIDEO".localize())
                             case .audio  where currentConversation.conversationType == .user:
                                 self.set(subTitle: "MESSAGE_AUDIO".localize())
                             case .audio  where currentConversation.conversationType == .group:
-                                self.set(subTitle: senderName! + ":  " + "MESSAGE_AUDIO".localize())
+                                self.set(subTitle: senderName + ":  " + "MESSAGE_AUDIO".localize())
                             case .file  where currentConversation.conversationType == .user:
                                 self.set(subTitle: "MESSAGE_FILE".localize())
                             case .file  where currentConversation.conversationType == .group:
-                                self.set(subTitle: senderName! + ":  " + "MESSAGE_FILE".localize())
+                                self.set(subTitle: senderName + ":  " + "MESSAGE_FILE".localize())
                             case .custom where currentConversation.conversationType == .user:
                                 
                                 if let customMessage = currentConversation.lastMessage as? CustomMessage {
@@ -780,20 +780,20 @@ import AVFAudio
                             case .custom where currentConversation.conversationType == .group:
                                 if let customMessage = currentConversation.lastMessage as? CustomMessage {
                                     if customMessage.type == "location" {
-                                        self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_LOCATION".localize())
+                                        self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_LOCATION".localize())
                                     }else if customMessage.type == "extension_poll" {
-                                        self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_POLL".localize())
+                                        self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_POLL".localize())
                                     }else if customMessage.type == "extension_sticker" {
-                                        self.set(subTitle:  senderName! + ":  " + "CUSTOM_MESSAGE_STICKER".localize())
+                                        self.set(subTitle:  senderName + ":  " + "CUSTOM_MESSAGE_STICKER".localize())
                                     }else if customMessage.type == "extension_whiteboard" {
-                                        self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_WHITEBOARD".localize())
+                                        self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_WHITEBOARD".localize())
                                     }else if customMessage.type == "extension_document" {
-                                        self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_DOCUMENT".localize())
+                                        self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_DOCUMENT".localize())
                                     }else if customMessage.type == "meeting" {
-                                        self.set(subTitle: senderName! + ":  " + "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
+                                        self.set(subTitle: senderName + ":  " + "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
                                     }
                                 }else{
-                                    self.set(subTitle: senderName! +  ":  " +  "CUSTOM_MESSAGE".localize())
+                                    self.set(subTitle: senderName +  ":  " +  "CUSTOM_MESSAGE".localize())
                                 }
                             case .groupMember, .text, .image, .video,.audio, .file,.custom: break
                             @unknown default: break
@@ -832,7 +832,7 @@ import AVFAudio
                             }else if customMessage.type == "meeting" {
                                 self.set(subTitle: "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
                             }else{
-                                if let pushNotificationTitle = customMessage["pushNotification"] as? String {
+                                if let pushNotificationTitle = customMessage.metaData?["pushNotification"] as? String {
                                     if !pushNotificationTitle.isEmpty {
                                         self.set(subTitle: pushNotificationTitle)
                                     }else{
@@ -848,17 +848,17 @@ import AVFAudio
                     case .custom where currentConversation.conversationType == .group:
                         if let customMessage = currentConversation.lastMessage as? CustomMessage {
                             if customMessage.type == "location" {
-                                self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_LOCATION".localize())
+                                self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_LOCATION".localize())
                             }else if customMessage.type == "extension_poll" {
-                                self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_POLL".localize())
+                                self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_POLL".localize())
                             }else if customMessage.type == "extension_sticker" {
-                                self.set(subTitle:  senderName! + ":  " + "CUSTOM_MESSAGE_STICKER".localize())
+                                self.set(subTitle:  senderName + ":  " + "CUSTOM_MESSAGE_STICKER".localize())
                             }else if customMessage.type == "extension_whiteboard" {
-                                self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_WHITEBOARD".localize())
+                                self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_WHITEBOARD".localize())
                             }else if customMessage.type == "extension_document" {
-                                self.set(subTitle: senderName! + ":  " + "CUSTOM_MESSAGE_DOCUMENT".localize())
+                                self.set(subTitle: senderName + ":  " + "CUSTOM_MESSAGE_DOCUMENT".localize())
                             }else if customMessage.type == "meeting" {
-                                self.set(subTitle: senderName! + ":  " + "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
+                                self.set(subTitle: senderName + ":  " + "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
                             }
                         }
                     case .custom: break
@@ -1056,7 +1056,7 @@ import AVFAudio
                         
                     case .text where forMessage.receiverType == .group:
                         let senderName = forMessage.sender?.name
-                        if  let text = senderName! + ":  " + filteredMessage as NSString? {
+                        if  let text = senderName + ":  " + filteredMessage as NSString? {
                             self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                         }
                         
@@ -1069,7 +1069,7 @@ import AVFAudio
                         self.set(subTitleWithAttributedText: addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                     case .text where forMessage.receiverType == .group:
                         let senderName = forMessage.sender?.name
-                        if  let text = senderName! + ":  " + filteredMessage as NSString? {
+                        if  let text = senderName + ":  " + filteredMessage as NSString? {
                             self.set(subTitleWithAttributedText:  addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                         }
                     case .text, .image, .video, .audio, .file, .custom,.groupMember: break
@@ -1083,7 +1083,7 @@ import AVFAudio
                     self.set(subTitleWithAttributedText:  addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                 case .text where forMessage.receiverType == .group:
                     let senderName = forMessage.sender?.name
-                    if  let text = senderName! + ":  " + forMessage.text as NSString? {
+                    if  let text = senderName + ":  " + forMessage.text as NSString? {
                         self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                     }
                 case .text, .image, .video, .audio, .file, .custom,.groupMember: break
@@ -1097,7 +1097,7 @@ import AVFAudio
                 self.set(subTitleWithAttributedText: addBoldText(fullString: forMessage.text as NSString, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
             case .text where forMessage.receiverType == .group:
                 let senderName = forMessage.sender?.name
-                if  let text = senderName! + ":  " + forMessage.text as NSString? {
+                if  let text = senderName + ":  " + forMessage.text as NSString? {
                     self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                 }
             case .text, .image, .video, .audio, .file, .custom,.groupMember: break
@@ -1124,7 +1124,7 @@ import AVFAudio
                             
                         case .text where forMessage.receiverType == .group:
                             let senderName = forMessage.sender?.name
-                            if  let text = senderName! + ":  " + maskedMessage as NSString? {
+                            if  let text = senderName + ":  " + maskedMessage as NSString? {
                                 self.set(subTitleWithAttributedText:  addBoldText(fullString: text, boldPartOfString: searchedText as NSString, font: normalSubtitlefont, boldFont: boldSubtitlefont))
                             }
                             
