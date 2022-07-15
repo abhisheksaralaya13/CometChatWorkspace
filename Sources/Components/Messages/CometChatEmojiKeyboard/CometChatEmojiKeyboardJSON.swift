@@ -15,6 +15,3316 @@ struct CometChatEmojiCategoryJSON {
     {
       "emojiCategory":
       [
+      {
+          "id": "people",
+          "name": "Smileys",
+          "symbol": "messages-emoji-keyboard-smileys.png",
+          "emojis": [
+              {
+              "keywords": [
+                "face",
+                "smile",
+                "happy",
+                "joy",
+                ":D",
+                "grin"
+              ],
+              "emoji": "😀"
+            },
+            {
+              "keywords": [
+                "face",
+                "grimace",
+                "teeth"
+              ],
+              "emoji": "😬"
+            },
+            {
+              "keywords": [
+                "face",
+                "happy",
+                "smile",
+                "joy",
+                "kawaii"
+              ],
+              "emoji": "😁"
+            },
+            {
+              "keywords": [
+                "face",
+                "cry",
+                "tears",
+                "weep",
+                "happy",
+                "happytears",
+                "haha"
+              ],
+              "emoji": "😂"
+            },
+            {
+              "keywords": [
+                "face",
+                "rolling",
+                "floor",
+                "laughing",
+                "lol",
+                "haha"
+              ],
+              "emoji": "🤣"
+            },
+            {
+              "keywords": [
+                "face",
+                "celebration",
+                "woohoo"
+              ],
+              "emoji": "🥳"
+            },
+            {
+              "keywords": [
+                "face",
+                "happy",
+                "joy",
+                "haha",
+                ":D",
+                ":)",
+                "smile",
+                "funny"
+              ],
+              "emoji": "😃"
+            },
+            {
+              "keywords": [
+                "face",
+                "happy",
+                "joy",
+                "funny",
+                "haha",
+                "laugh",
+                "like",
+                ":D",
+                ":)"
+              ],
+              "emoji": "😄"
+            },
+            {
+              "keywords": [
+                "face",
+                "hot",
+                "happy",
+                "laugh",
+                "sweat",
+                "smile",
+                "relief"
+              ],
+              "emoji": "😅"
+            },
+            {
+              "keywords": [
+                "happy",
+                "joy",
+                "lol",
+                "satisfied",
+                "haha",
+                "face",
+                "glad",
+                "XD",
+                "laugh"
+              ],
+              "emoji": "😆"
+            },
+            {
+              "keywords": [
+                "face",
+                "angel",
+                "heaven",
+                "halo"
+              ],
+              "emoji": "😇"
+            },
+            {
+              "keywords": [
+                "face",
+                "happy",
+                "mischievous",
+                "secret",
+                ";)",
+                "smile",
+                "eye"
+              ],
+              "emoji": "😉"
+            },
+            {
+              "keywords": [
+                "face",
+                "smile",
+                "happy",
+                "flushed",
+                "crush",
+                "embarrassed",
+                "shy",
+                "joy"
+              ],
+              "emoji": "😊"
+            },
+            {
+              "keywords": [
+                "face",
+                "smile"
+              ],
+              "emoji": "🙂"
+            },
+             {
+              "keywords": [
+                "face",
+                "flipped",
+                "silly",
+                "smile"
+              ],
+              "emoji": "🙃"
+            },
+            {
+              "keywords": [
+                "face",
+                "blush",
+                "massage",
+                "happiness"
+              ],
+              "emoji": "☺️"
+            },
+            {
+              "keywords": [
+                "happy",
+                "joy",
+                "tongue",
+                "smile",
+                "face",
+                "silly",
+                "yummy",
+                "nom",
+                "delicious",
+                "savouring"
+              ],
+              "emoji": "😋"
+            },
+            {
+              "keywords": [
+                "face",
+                "relaxed",
+                "phew",
+                "massage",
+                "happiness"
+              ],
+              "emoji": "😌"
+            },
+            {
+              "keywords": [
+                "face",
+                "love",
+                "like",
+                "affection",
+                "valentines",
+                "infatuation",
+                "crush",
+                "heart"
+              ],
+              "emoji": "😍"
+            },
+            {
+              "keywords": [
+                "face",
+                "love",
+                "like",
+                "affection",
+                "valentines",
+                "infatuation",
+                "crush",
+                "hearts",
+                "adore"
+              ],
+              "emoji": "🥰"
+            },
+            {
+              "keywords": [
+                "face",
+                "love",
+                "like",
+                "affection",
+                "valentines",
+                "infatuation",
+                "kiss"
+              ],
+              "emoji": "😘"
+            },
+            {
+              "keywords": [
+                "love",
+                "like",
+                "face",
+                "3",
+                "valentines",
+                "infatuation",
+                "kiss"
+              ],
+              "emoji": "😗"
+            },
+            {
+              "keywords": [
+                "face",
+                "affection",
+                "valentines",
+                "infatuation",
+                "kiss"
+              ],
+              "emoji": "😙"
+            },
+            {
+              "keywords": [
+                "face",
+                "love",
+                "like",
+                "affection",
+                "valentines",
+                "infatuation",
+                "kiss"
+              ],
+              "emoji": "😚"
+            },
+            {
+              "keywords": [
+                "face",
+                "prank",
+                "childish",
+                "playful",
+                "mischievous",
+                "smile",
+                "wink",
+                "tongue"
+              ],
+              "emoji": "😜"
+            },
+            {
+              "keywords": [
+                "face",
+                "goofy",
+                "crazy"
+              ],
+              "emoji": "🤪"
+            },
+            {
+              "keywords": [
+                "face",
+                "distrust",
+                "scepticism",
+                "disapproval",
+                "disbelief",
+                "surprise"
+              ],
+              "emoji": "🤨"
+            },
+            {
+              "keywords": [
+                "face",
+                "stuffy",
+                "wealthy"
+              ],
+              "emoji": "🧐"
+            },
+            {
+              "keywords": [
+                "face",
+                "prank",
+                "playful",
+                "mischievous",
+                "smile",
+                "tongue"
+              ],
+              "emoji": "😝"
+            },
+            {
+              "keywords": [
+                "face",
+                "prank",
+                "childish",
+                "playful",
+                "mischievous",
+                "smile",
+                "tongue"
+              ],
+              "emoji": "😛"
+            },
+            {
+              "keywords": [
+                "face",
+                "rich",
+                "dollar",
+                "money"
+              ],
+              "emoji": "🤑"
+            },
+            {
+              "keywords": [
+                "face",
+                "nerdy",
+                "geek",
+                "dork"
+              ],
+              "emoji": "🤓"
+            },
+            {
+              "keywords": [
+                "face",
+                "cool",
+                "smile",
+                "summer",
+                "beach",
+                "sunglass"
+              ],
+              "emoji": "😎"
+            },
+            {
+              "keywords": [
+                "face",
+                "smile",
+                "starry",
+                "eyes",
+                "grinning"
+              ],
+              "emoji": "🤩"
+            },
+            {
+              "keywords": [
+                "face"
+              ],
+              "emoji": "🤡"
+            },
+            {
+              "keywords": [
+                "face",
+                "cowgirl",
+                "hat"
+              ],
+              "emoji": "🤠"
+            },
+            {
+              "keywords": [
+                "face",
+                "smile",
+                "hug"
+              ],
+              "emoji": "🤗"
+            },
+            {
+              "keywords": [
+                "face",
+                "smile",
+                "mean",
+                "prank",
+                "smug",
+                "sarcasm"
+              ],
+              "emoji": "😏"
+            },
+            {
+              "keywords": [
+                "face",
+                "hellokitty"
+              ],
+              "emoji": "😶"
+            },
+            {
+              "keywords": [
+                "indifference",
+                "meh",
+                ":|",
+                "neutral"
+              ],
+              "emoji": "😐"
+            },
+             {
+              "keywords": [
+                "face",
+                "indifferent",
+                "-_-",
+                "meh",
+                "deadpan"
+              ],
+              "emoji": "😑"
+            },
+            {
+              "keywords": [
+                "indifference",
+                "bored",
+                "straight face",
+                "serious",
+                "sarcasm",
+                "unimpressed",
+                "skeptical",
+                "dubious",
+                "side_eye"
+              ],
+              "emoji": "😒"
+            },
+            {
+              "keywords": [
+                "face",
+                "eyeroll",
+                "frustrated"
+              ],
+              "emoji": "🙄"
+            },
+            {
+              "keywords": [
+                "face",
+                "hmmm",
+                "think",
+                "consider"
+              ],
+              "emoji": "🤔"
+            },
+             {
+              "keywords": [
+                "face",
+                "lie",
+                "pinocchio"
+              ],
+              "emoji": "🤥"
+            },
+            {
+              "keywords": [
+                "face",
+                "whoops",
+                "shock",
+                "surprise"
+              ],
+              "emoji": "🤭"
+            },
+            {
+              "keywords": [
+                "face",
+                "quiet",
+                "shhh"
+              ],
+              "emoji": "🤫"
+            },
+            {
+              "keywords": [
+                "face",
+                "swearing",
+                "cursing",
+                "cussing",
+                "profanity",
+                "expletive"
+              ],
+              "emoji": "🤬"
+            },
+            {
+              "keywords": [
+                "face",
+                "shocked",
+                "mind",
+                "blown"
+              ],
+              "emoji": "🤯"
+            },
+            {
+              "keywords": [
+                "face",
+                "blush",
+                "shy",
+                "flattered"
+              ],
+              "emoji": "😳"
+            },
+            {
+              "keywords": [
+                "face",
+                "sad",
+                "upset",
+                "depressed",
+                ":("
+              ],
+              "emoji": "😞"
+            },
+            {
+              "keywords": [
+                "face",
+                "concern",
+                "nervous",
+                ":("
+              ],
+              "emoji": "😟"
+            },
+            {
+              "keywords": [
+                "mad",
+                "face",
+                "annoyed",
+                "frustrated"
+              ],
+              "emoji": "😠"
+            },
+            {
+              "keywords": [
+                "angry",
+                "mad",
+                "hate",
+                "despise"
+              ],
+              "emoji": "😡"
+            },
+            {
+              "keywords": [
+                "face",
+                "sad",
+                "depressed",
+                "upset"
+              ],
+              "emoji": "😔"
+            },
+            {
+              "keywords": [
+                "face",
+                "indifference",
+                "huh",
+                "weird",
+                "hmmm",
+                ":/"
+              ],
+              "emoji": "😕"
+            },
+            {
+              "keywords": [
+                "face",
+                "frowning",
+                "disappointed",
+                "sad",
+                "upset"
+              ],
+              "emoji": "🙁"
+            },
+            {
+              "keywords": [
+                "face",
+                "sad",
+                "upset",
+                "frown"
+              ],
+              "emoji": "☹"
+            },
+            {
+              "keywords": [
+                "face",
+                "sick",
+                "no",
+                "upset",
+                "oops"
+              ],
+              "emoji": "😣"
+            },
+            {
+              "keywords": [
+                "face",
+                "confused",
+                "sick",
+                "unwell",
+                "oops",
+                ":S"
+              ],
+              "emoji": "😖"
+            },
+            {
+              "keywords": [
+                "sick",
+                "whine",
+                "upset",
+                "frustrated"
+              ],
+              "emoji": "😫"
+            },
+            {
+              "keywords": [
+                "face",
+                "tired",
+                "sleepy",
+                "sad",
+                "frustrated",
+                "upset"
+              ],
+              "emoji": "😩"
+            },
+             {
+              "keywords": [
+                "face",
+                "begging",
+                "mercy"
+              ],
+              "emoji": "🥺"
+            },
+             {
+              "keywords": [
+                "face",
+                "gas",
+                "phew",
+                "proud",
+                "pride"
+              ],
+              "emoji": "😤"
+            },
+            {
+              "keywords": [
+                "face",
+                "surprise",
+                "impressed",
+                "wow",
+                "whoa",
+                ":O"
+              ],
+              "emoji": "😮"
+            },
+            {
+              "keywords": [
+                "face",
+                "munch",
+                "scared",
+                "omg"
+              ],
+              "emoji": "😱"
+            },
+            {
+              "keywords": [
+                "face",
+                "scared",
+                "terrified",
+                "nervous",
+                "oops",
+                "huh"
+              ],
+              "emoji": "😨"
+            },
+            {
+              "keywords": [
+                "face",
+                "nervous",
+                "sweat"
+              ],
+              "emoji": "😰"
+            },
+            {
+              "keywords": [
+                "face",
+                "woo",
+                "shh"
+              ],
+              "emoji": "😯"
+            },
+            {
+              "keywords": [
+                "face",
+                "aw",
+                "what"
+              ],
+              "emoji": "😦"
+            },
+            {
+              "keywords": [
+                "face",
+                "stunned",
+                "nervous"
+              ],
+              "emoji": "😧"
+            },
+            {
+              "keywords": [
+                "face",
+                "tears",
+                "sad",
+                "depressed",
+                "upset",
+                ":'("
+              ],
+              "emoji": "😢"
+            },
+            {
+              "keywords": [
+                "face",
+                "phew",
+                "sweat",
+                "nervous"
+              ],
+              "emoji": "😥"
+            },
+            {
+              "keywords": [
+                "face"
+              ],
+              "emoji": "🤤"
+            },
+            {
+              "keywords": [
+                "face",
+                "tired",
+                "rest",
+                "nap"
+              ],
+              "emoji": "😪"
+            },
+             {
+              "keywords": [
+                "face",
+                "hot",
+                "sad",
+                "tired",
+                "exercise"
+              ],
+              "emoji": "😓"
+            },
+            {
+              "keywords": [
+                "face",
+                "feverish",
+                "heat",
+                "red",
+                "sweating"
+              ],
+              "emoji": "🥵"
+            },
+            {
+              "keywords": [
+                "face",
+                "blue",
+                "freezing",
+                "frozen",
+                "frostbite",
+                "icicles"
+              ],
+              "emoji": "🥶"
+            },
+            {
+              "keywords": [
+                "face",
+                "cry",
+                "tears",
+                "sad",
+                "upset",
+                "depressed"
+              ],
+              "emoji": "😭"
+            },
+            {
+              "keywords": [
+                "spent",
+                "unconscious",
+                "xox",
+                "dizzy"
+              ],
+              "emoji": "😵"
+            },
+            {
+              "keywords": [
+                "face",
+                "xox",
+                "surprised",
+                "poisoned"
+              ],
+              "emoji": "😲"
+            },
+            {
+              "keywords": [
+                "face",
+                "sealed",
+                "zipper",
+                "secret"
+              ],
+              "emoji": "🤐"
+            },
+            {
+              "keywords": [
+                "face",
+                "vomit",
+                "gross",
+                "green",
+                "sick",
+                "throw up",
+                "ill"
+              ],
+              "emoji": "🤢"
+            },
+            {
+              "keywords": [
+                "face",
+                "gesundheit",
+                "sneeze",
+                "sick",
+                "allergy"
+              ],
+              "emoji": "🤧"
+            },
+            {
+              "keywords": [
+                "face",
+                "sick"
+              ],
+              "emoji": "🤮"
+            },
+            {
+              "keywords": [
+                "face",
+                "sick",
+                "ill",
+                "disease"
+              ],
+              "emoji": "😷"
+            },
+            {
+              "keywords": [
+                "sick",
+                "temperature",
+                "thermometer",
+                "cold",
+                "fever"
+              ],
+              "emoji": "🤒"
+            },
+            {
+              "keywords": [
+                "injured",
+                "clumsy",
+                "bandage",
+                "hurt"
+              ],
+              "emoji": "🤕"
+            },
+            {
+              "keywords": [
+                "face",
+                "dizzy",
+                "intoxicated",
+                "tipsy",
+                "wavy"
+              ],
+              "emoji": "🥴"
+            },
+            {
+              "keywords": [
+                "face",
+                "tired",
+                "sleepy",
+                "night",
+                "zzz"
+              ],
+              "emoji": "😴"
+            },
+            {
+              "keywords": [
+                "sleepy",
+                "tired",
+                "dream"
+              ],
+              "emoji": "💤"
+            },
+            {
+              "keywords": [
+                "hankey",
+                "shitface",
+                "fail",
+                "turd",
+                "shit"
+              ],
+              "emoji": "💩"
+            },
+            {
+              "keywords": [
+                "devil",
+                "horns"
+              ],
+              "emoji": "😈"
+            },
+            {
+              "keywords": [
+                "devil",
+                "angry",
+                "horns"
+              ],
+              "emoji": "👿"
+            },
+             {
+              "keywords": [
+                "monster",
+                "red",
+                "mask",
+                "halloween",
+                "scary",
+                "creepy",
+                "devil",
+                "demon",
+                "japanese",
+                "ogre"
+              ],
+              "emoji": "👹"
+            },
+            {
+              "keywords": [
+                "red",
+                "evil",
+                "mask",
+                "monster",
+                "scary",
+                "creepy",
+                "japanese",
+                "goblin"
+              ],
+              "emoji": "👺"
+            },
+            {
+              "keywords": [
+                "dead",
+                "skeleton",
+                "creepy",
+                "death"
+              ],
+              "emoji": "💀"
+            },
+            {
+              "keywords": [
+                "halloween",
+                "spooky",
+                "scary"
+              ],
+              "emoji": "👻"
+            },
+            {
+              "keywords": [
+                "UFO",
+                "paul",
+                "weird",
+                "outer_space"
+              ],
+              "emoji": "👽"
+            },
+            {
+              "keywords": [
+                "computer",
+                "machine",
+                "bot"
+              ],
+              "emoji": "🤖"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats",
+                "happy",
+                "smile"
+              ],
+              "emoji": "😺"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats",
+                "smile"
+              ],
+              "emoji": "😸"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats",
+                "haha",
+                "happy",
+                "tears"
+              ],
+              "emoji": "😹"
+            },
+            {
+              "keywords": [
+                "animal",
+                "love",
+                "like",
+                "affection",
+                "cats",
+                "valentines",
+                "heart"
+              ],
+              "emoji": "😻"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats",
+                "smirk"
+              ],
+              "emoji": "😼"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats",
+                "kiss"
+              ],
+              "emoji": "😽"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats",
+                "munch",
+                "scared",
+                "scream"
+              ],
+              "emoji": "🙀"
+            },
+            {
+              "keywords": [
+                "animal",
+                "tears",
+                "weep",
+                "sad",
+                "cats",
+                "upset",
+                "cry"
+              ],
+              "emoji": "😿"
+            },
+            {
+              "keywords": [
+                "animal",
+                "cats"
+              ],
+              "emoji": "😾"
+            },
+            {
+              "keywords": [
+                "hands",
+                "gesture",
+                "cupped",
+                "prayer"
+              ],
+              "emoji": "🤲"
+            },
+            {
+              "keywords": [
+                "gesture",
+                "hooray",
+                "yea",
+                "celebration",
+                "hands"
+              ],
+              "emoji": "🙌"
+            },
+            {
+              "keywords": [
+                "hands",
+                "praise",
+                "applause",
+                "congrats",
+                "yay"
+              ],
+              "emoji": "👏"
+            },
+            {
+              "keywords": [
+                "hands",
+                "gesture",
+                "goodbye",
+                "solong",
+                "farewell",
+                "hello",
+                "hi",
+                "palm"
+              ],
+              "emoji": "👋"
+            },
+            {
+              "keywords": [
+                "hands",
+                "gesture"
+              ],
+              "emoji": "🤙"
+            },
+            {
+              "keywords": [
+                "thumbsup",
+                "yes",
+                "awesome",
+                "good",
+                "agree",
+                "accept",
+                "cool",
+                "hand",
+                "like"
+              ],
+              "emoji": "👍"
+            },
+            {
+              "keywords": [
+                "thumbsdown",
+                "no",
+                "dislike",
+                "hand"
+              ],
+              "emoji": "👎"
+            },
+            {
+              "keywords": [
+                "angry",
+                "violence",
+                "fist",
+                "hit",
+                "attack",
+                "hand"
+              ],
+              "emoji": "👊"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "hand",
+                "grasp"
+              ],
+              "emoji": "✊"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fistbump"
+              ],
+              "emoji": "🤛"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fistbump"
+              ],
+              "emoji": "🤜"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "ohyeah",
+                "hand",
+                "peace",
+                "victory",
+                "two"
+              ],
+              "emoji": "✌"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "limbs",
+                "perfect",
+                "ok",
+                "okay"
+              ],
+              "emoji": "👌"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "stop",
+                "highfive",
+                "palm",
+                "ban"
+              ],
+              "emoji": "✋"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "raised",
+                "backhand"
+              ],
+              "emoji": "🤚"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "butterfly",
+                "hands",
+                "open"
+              ],
+              "emoji": "👐"
+            },
+            {
+              "keywords": [
+                "arm",
+                "flex",
+                "hand",
+                "summer",
+                "strong",
+                "biceps"
+              ],
+              "emoji": "💪"
+            },
+            {
+              "keywords": [
+                "please",
+                "hope",
+                "wish",
+                "namaste",
+                "highfive"
+              ],
+              "emoji": "🙏"
+            },
+            {
+              "keywords": [
+                "kick",
+                "stomp"
+              ],
+              "emoji": "🦶"
+            },
+            {
+              "keywords": [
+                "kick",
+                "limb"
+              ],
+              "emoji": "🦵"
+            },
+            {
+              "keywords": [
+                "agreement",
+                "shake"
+              ],
+              "emoji": "🤝"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fingers",
+                "direction",
+                "up"
+              ],
+              "emoji": "☝"
+            },
+             {
+              "keywords": [
+                "fingers",
+                "hand",
+                "direction",
+                "up"
+              ],
+              "emoji": "👆"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "hand",
+                "direction",
+                "down"
+              ],
+              "emoji": "👇"
+            },
+            {
+              "keywords": [
+                "direction",
+                "fingers",
+                "hand",
+                "left"
+              ],
+              "emoji": "👈"
+            },
+            {
+              "keywords": [
+                "fingers",
+                "hand",
+                "direction",
+                "right"
+              ],
+              "emoji": "👉"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fingers",
+                "rude",
+                "middle",
+                "flipping"
+              ],
+              "emoji": "🖕"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fingers",
+                "palm"
+              ],
+              "emoji": "🖐"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fingers",
+                "gesture"
+              ],
+              "emoji": "🤟"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fingers",
+                "evil_eye",
+                "sign_of_horns",
+                "rock_on"
+              ],
+              "emoji": "🤘"
+            },
+            {
+              "keywords": [
+                "good",
+                "lucky"
+              ],
+              "emoji": "🤞"
+            },
+            {
+              "keywords": [
+                "hand",
+                "fingers",
+                "spock",
+                "star trek"
+              ],
+              "emoji": "🖖"
+            },
+            {
+              "keywords": [
+                "lower_left_ballpoint_pen",
+                "stationery",
+                "write",
+                "compose"
+              ],
+              "emoji": "✍"
+            },
+             {
+              "keywords": [
+                "camera",
+                "phone"
+              ],
+              "emoji": "🤳"
+            },
+            {
+              "keywords": [
+                "beauty",
+                "manicure",
+                "finger",
+                "fashion",
+                "nail"
+              ],
+              "emoji": "💅"
+            },
+            {
+              "keywords": [
+                "mouth",
+                "kiss"
+              ],
+              "emoji": "👄"
+            },
+            {
+              "keywords": [
+                "teeth",
+                "dentist"
+              ],
+              "emoji": "🦷"
+            },
+            {
+              "keywords": [
+                "mouth",
+                "playful"
+              ],
+              "emoji": "👅"
+            },
+            {
+              "keywords": [
+                "face",
+                "hear",
+                "sound",
+                "listen"
+              ],
+              "emoji": "👂"
+            },
+            {
+              "keywords": [
+                "smell",
+                "sniff"
+              ],
+              "emoji": "👃"
+            },
+            {
+              "keywords": [
+                "face",
+                "look",
+                "see",
+                "watch",
+                "stare"
+              ],
+              "emoji": "👁"
+            },
+            {
+              "keywords": [
+                "look",
+                "watch",
+                "stalk",
+                "peek",
+                "see"
+              ],
+              "emoji": "👀"
+            },
+            {
+              "keywords": [
+                "smart",
+                "intelligent"
+              ],
+              "emoji": "🧠"
+            },
+             {
+              "keywords": [
+                "user",
+                "person",
+                "human"
+              ],
+              "emoji": "👤"
+            },
+            {
+              "keywords": [
+                "user",
+                "person",
+                "human",
+                "group",
+                "team"
+              ],
+              "emoji": "👥"
+            },
+            {
+              "keywords": [
+                "user",
+                "person",
+                "human",
+                "sing",
+                "say",
+                "talk"
+              ],
+              "emoji": "🗣"
+            },
+            {
+              "keywords": [
+                "child",
+                "boy",
+                "girl",
+                "toddler"
+              ],
+              "emoji": "👶"
+            },
+            {
+              "keywords": [
+                "gender-neutral",
+                "young"
+              ],
+              "emoji": "🧒"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "guy",
+                "teenager"
+              ],
+              "emoji": "👦"
+            },
+             {
+              "keywords": [
+                "female",
+                "woman",
+                "teenager"
+              ],
+              "emoji": "👧"
+            },
+            {
+              "keywords": [
+                "gender-neutral",
+                "person"
+              ],
+              "emoji": "🧑"
+            },
+            {
+              "keywords": [
+                "mustache",
+                "father",
+                "dad",
+                "guy",
+                "classy",
+                "sir",
+                "moustache"
+              ],
+              "emoji": "👨"
+            },
+            {
+              "keywords": [
+                "female",
+                "girls",
+                "lady"
+              ],
+              "emoji": "👩"
+            },
+             {
+              "keywords": [
+                "woman",
+                "female",
+                "girl",
+                "blonde",
+                "person"
+              ],
+              "emoji": "👱‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "boy",
+                "blonde",
+                "guy",
+                "person"
+              ],
+              "emoji": "👱"
+            },
+             {
+              "keywords": [
+                "person",
+                "bewhiskered"
+              ],
+              "emoji": "🧔"
+            },
+            {
+              "keywords": [
+                "human",
+                "elder",
+                "senior",
+                "gender-neutral"
+              ],
+              "emoji": "🧓"
+            },
+            {
+              "keywords": [
+                "human",
+                "male",
+                "men",
+                "old",
+                "elder",
+                "senior"
+              ],
+              "emoji": "👴"
+            },
+            {
+              "keywords": [
+                "human",
+                "female",
+                "women",
+                "lady",
+                "old",
+                "elder",
+                "senior"
+              ],
+              "emoji": "👵"
+            },
+             {
+              "keywords": [
+                "male",
+                "boy",
+                "chinese"
+              ],
+              "emoji": "👲"
+            },
+            {
+              "keywords": [
+                "female",
+                "hijab",
+                "mantilla",
+                "tichel"
+              ],
+              "emoji": "🧕"
+            },
+            {
+              "keywords": [
+                "female",
+                "indian",
+                "hinduism",
+                "arabs",
+                "woman"
+              ],
+              "emoji": "👳‍♀️"
+            },
+             {
+              "keywords": [
+                "male",
+                "indian",
+                "hinduism",
+                "arabs"
+              ],
+              "emoji": "👳"
+            },
+            {
+              "keywords": [
+                "woman",
+                "police",
+                "law",
+                "legal",
+                "enforcement",
+                "arrest",
+                "911",
+                "female"
+              ],
+              "emoji": "👮‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "police",
+                "law",
+                "legal",
+                "enforcement",
+                "arrest",
+                "911"
+              ],
+              "emoji": "👮"
+            },
+            {
+              "keywords": [
+                "female",
+                "human",
+                "wip",
+                "build",
+                "construction",
+                "worker",
+                "labor",
+                "woman"
+              ],
+              "emoji": "👷‍♀️"
+            },
+            {
+              "keywords": [
+                "male",
+                "human",
+                "wip",
+                "guy",
+                "build",
+                "construction",
+                "worker",
+                "labor"
+              ],
+              "emoji": "👷"
+            },
+            {
+              "keywords": [
+                "uk",
+                "gb",
+                "british",
+                "female",
+                "royal",
+                "woman"
+              ],
+              "emoji": "💂‍♀️"
+            },
+            {
+              "keywords": [
+                "uk",
+                "gb",
+                "british",
+                "male",
+                "guy",
+                "royal"
+              ],
+              "emoji": "💂"
+            },
+            {
+              "keywords": [
+                "human",
+                "spy",
+                "detective",
+                "female",
+                "woman"
+              ],
+              "emoji": "🕵️‍♀️"
+            },
+            {
+              "keywords": [
+                "human",
+                "spy",
+                "detective"
+              ],
+              "emoji": "🕵"
+            },
+            {
+              "keywords": [
+                "doctor",
+                "nurse",
+                "therapist",
+                "healthcare",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍⚕️"
+            },
+            {
+              "keywords": [
+                "doctor",
+                "nurse",
+                "therapist",
+                "healthcare",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍⚕️"
+            },
+            {
+              "keywords": [
+                "rancher",
+                "gardener",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🌾"
+            },
+            {
+              "keywords": [
+                "rancher",
+                "gardener",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🌾"
+            },
+            {
+              "keywords": [
+                "chef",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🍳"
+            },
+            {
+              "keywords": [
+                "chef",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🍳"
+            },
+            {
+              "keywords": [
+                "graduate",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🎓"
+            },
+             {
+              "keywords": [
+                "graduate",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🎓"
+            },
+             {
+              "keywords": [
+                "rockstar",
+                "entertainer",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🎤"
+            },
+             {
+              "keywords": [
+                "rockstar",
+                "entertainer",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🎤"
+            },
+            {
+              "keywords": [
+                "instructor",
+                "professor",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🏫"
+            },
+            {
+              "keywords": [
+                "instructor",
+                "professor",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🏫"
+            },
+            {
+              "keywords": [
+                "assembly",
+                "industrial",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🏭"
+            },
+            {
+              "keywords": [
+                "assembly",
+                "industrial",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🏭"
+            },
+            {
+              "keywords": [
+                "coder",
+                "developer",
+                "engineer",
+                "programmer",
+                "software",
+                "woman",
+                "human",
+                "laptop",
+                "computer"
+              ],
+              "emoji": "👩‍💻"
+            },
+            {
+              "keywords": [
+                "coder",
+                "developer",
+                "engineer",
+                "programmer",
+                "software",
+                "man",
+                "human",
+                "laptop",
+                "computer"
+              ],
+              "emoji": "👨‍💻"
+            },
+            {
+              "keywords": [
+                "business",
+                "manager",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍💼"
+            },
+            {
+              "keywords": [
+                "business",
+                "manager",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍💼"
+            },
+            {
+              "keywords": [
+                "plumber",
+                "woman",
+                "human",
+                "wrench"
+              ],
+              "emoji": "👩‍🔧"
+            },
+            {
+              "keywords": [
+                "plumber",
+                "man",
+                "human",
+                "wrench"
+              ],
+              "emoji": "👨‍🔧"
+            },
+            {
+              "keywords": [
+                "biologist",
+                "chemist",
+                "engineer",
+                "physicist",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🔬"
+            },
+            {
+              "keywords": [
+                "biologist",
+                "chemist",
+                "engineer",
+                "physicist",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🔬"
+            },
+            {
+              "keywords": [
+                "painter",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🎨"
+            },
+            {
+              "keywords": [
+                "painter",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🎨"
+            },
+            {
+              "keywords": [
+                "fireman",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🚒"
+            },
+            {
+              "keywords": [
+                "fireman",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🚒"
+            },
+            {
+              "keywords": [
+                "aviator",
+                "plane",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍✈️"
+            },
+             {
+              "keywords": [
+                "aviator",
+                "plane",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍✈️"
+            },
+            {
+              "keywords": [
+                "space",
+                "rocket",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍🚀"
+            },
+            {
+              "keywords": [
+                "space",
+                "rocket",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍🚀"
+            },
+            {
+              "keywords": [
+                "justice",
+                "court",
+                "woman",
+                "human"
+              ],
+              "emoji": "👩‍⚖️"
+            },
+            {
+              "keywords": [
+                "justice",
+                "court",
+                "man",
+                "human"
+              ],
+              "emoji": "👨‍⚖️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "good",
+                "heroine",
+                "superpowers"
+              ],
+              "emoji": "🦸‍♀️"
+            },
+             {
+              "keywords": [
+                "man",
+                "male",
+                "good",
+                "hero",
+                "superpowers"
+              ],
+              "emoji": "🦸‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "evil",
+                "bad",
+                "criminal",
+                "heroine",
+                "superpowers"
+              ],
+              "emoji": "🦹‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "evil",
+                "bad",
+                "criminal",
+                "hero",
+                "superpowers"
+              ],
+              "emoji": "🦹‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "xmas",
+                "mother christmas"
+              ],
+              "emoji": "🤶"
+            },
+            {
+              "keywords": [
+                "festival",
+                "man",
+                "male",
+                "xmas",
+                "father christmas"
+              ],
+              "emoji": "🎅"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "mage",
+                "witch"
+              ],
+              "emoji": "🧙‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "mage",
+                "sorcerer"
+              ],
+              "emoji": "🧙‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female"
+              ],
+              "emoji": "🧝‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male"
+              ],
+              "emoji": "🧝‍♂️"
+            },
+             {
+              "keywords": [
+                "woman",
+                "female"
+              ],
+              "emoji": "🧛‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "dracula"
+              ],
+              "emoji": "🧛‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "undead",
+                "walking dead"
+              ],
+              "emoji": "🧟‍♀️"
+            },
+             {
+              "keywords": [
+                "man",
+                "male",
+                "dracula",
+                "undead",
+                "walking dead"
+              ],
+              "emoji": "🧟‍♂️"
+            },
+             {
+              "keywords": [
+                "woman",
+                "female"
+              ],
+              "emoji": "🧞‍♀️"
+            },
+             {
+              "keywords": [
+                "man",
+                "male"
+              ],
+              "emoji": "🧞‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "merwoman",
+                "ariel"
+              ],
+              "emoji": "🧜‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "triton"
+              ],
+              "emoji": "🧜‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female"
+              ],
+              "emoji": "🧚‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male"
+              ],
+              "emoji": "🧚‍♂️"
+            },
+             {
+              "keywords": [
+                "heaven",
+                "wings",
+                "halo"
+              ],
+              "emoji": "👼"
+            },
+            {
+              "keywords": [
+                "baby"
+              ],
+              "emoji": "🤰"
+            },
+             {
+              "keywords": [
+                "nursing",
+                "baby"
+              ],
+              "emoji": "🤱"
+            },
+            {
+              "keywords": [
+                "girl",
+                "woman",
+                "female",
+                "blond",
+                "crown",
+                "royal",
+                "queen"
+              ],
+              "emoji": "👸"
+            },
+            {
+              "keywords": [
+                "boy",
+                "man",
+                "male",
+                "crown",
+                "royal",
+                "king"
+              ],
+              "emoji": "🤴"
+            },
+            {
+              "keywords": [
+                "couple",
+                "marriage",
+                "wedding",
+                "woman",
+                "bride"
+              ],
+              "emoji": "👰"
+            },
+            {
+              "keywords": [
+                "couple",
+                "marriage",
+                "wedding",
+                "groom"
+              ],
+              "emoji": "🤵"
+            },
+            {
+              "keywords": [
+                "woman",
+                "walking",
+                "exercise",
+                "race",
+                "running",
+                "female"
+              ],
+              "emoji": "🏃‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "walking",
+                "exercise",
+                "race",
+                "running"
+              ],
+              "emoji": "🏃"
+            },
+            {
+              "keywords": [
+                "human",
+                "feet",
+                "steps",
+                "woman",
+                "female"
+              ],
+              "emoji": "🚶‍♀️"
+            },
+            {
+              "keywords": [
+                "human",
+                "feet",
+                "steps"
+              ],
+              "emoji": "🚶"
+            },
+            {
+              "keywords": [
+                "female",
+                "girl",
+                "woman",
+                "fun"
+              ],
+              "emoji": "💃"
+            },
+            {
+              "keywords": [
+                "male",
+                "boy",
+                "fun",
+                "dancer"
+              ],
+              "emoji": "🕺"
+            },
+            {
+              "keywords": [
+                "female",
+                "bunny",
+                "women",
+                "girls"
+              ],
+              "emoji": "👯"
+            },
+             {
+              "keywords": [
+                "male",
+                "bunny",
+                "men",
+                "boys"
+              ],
+              "emoji": "👯‍♂️"
+            },
+            {
+              "keywords": [
+                "pair",
+                "people",
+                "human",
+                "love",
+                "date",
+                "dating",
+                "like",
+                "affection",
+                "valentines",
+                "marriage"
+              ],
+              "emoji": "👫"
+            },
+            {
+              "keywords": [
+                "pair",
+                "couple",
+                "love",
+                "like",
+                "bromance",
+                "friendship",
+                "people",
+                "human"
+              ],
+              "emoji": "👬"
+            },
+            {
+              "keywords": [
+                "pair",
+                "friendship",
+                "couple",
+                "love",
+                "like",
+                "female",
+                "people",
+                "human"
+              ],
+              "emoji": "👭"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "girl"
+              ],
+              "emoji": "🙇‍♀️"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "boy"
+              ],
+              "emoji": "🙇"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "boy",
+                "disbelief"
+              ],
+              "emoji": "🤦‍♂️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "girl",
+                "disbelief"
+              ],
+              "emoji": "🤦‍♀️"
+            },
+            {
+              "keywords": [
+                "woman",
+                "female",
+                "girl",
+                "confused",
+                "indifferent",
+                "doubt"
+              ],
+              "emoji": "🤷"
+            },
+            {
+              "keywords": [
+                "man",
+                "male",
+                "boy",
+                "confused",
+                "indifferent",
+                "doubt"
+              ],
+              "emoji": "🤷‍♂️"
+            },
+            {
+              "keywords": [
+                "female",
+                "girl",
+                "woman",
+                "human",
+                "information"
+              ],
+              "emoji": "💁"
+            },
+            {
+              "keywords": [
+                "male",
+                "boy",
+                "man",
+                "human",
+                "information"
+              ],
+              "emoji": "💁‍♂️"
+            },
+            {
+              "keywords": [
+                "female",
+                "girl",
+                "woman",
+                "nope"
+              ],
+              "emoji": "🙅"
+            },
+            {
+              "keywords": [
+                "male",
+                "boy",
+                "man",
+                "nope"
+              ],
+              "emoji": "🙅‍♂️"
+            },
+            {
+              "keywords": [
+                "women",
+                "girl",
+                "female",
+                "pink",
+                "human",
+                "woman"
+              ],
+              "emoji": "🙆"
+            },
+            {
+              "keywords": [
+                "men",
+                "boy",
+                "male",
+                "blue",
+                "human",
+                "man"
+              ],
+              "emoji": "🙆‍♂️"
+            },
+            {
+              "keywords": [
+                "female",
+                "girl",
+                "woman"
+              ],
+              "emoji": "🙋"
+            },
+            {
+              "keywords": [
+                "male",
+                "boy",
+                "man"
+              ],
+              "emoji": "🙋‍♂️"
+            },
+             {
+              "keywords": [
+                "female",
+                "girl",
+                "woman"
+              ],
+              "emoji": "🙎"
+            },
+             {
+              "keywords": [
+                "male",
+                "boy",
+                "man"
+              ],
+              "emoji": "🙎‍♂️"
+            },
+            {
+              "keywords": [
+                "female",
+                "girl",
+                "woman",
+                "sad",
+                "depressed",
+                "discouraged",
+                "unhappy"
+              ],
+              "emoji": "🙍"
+            },
+             {
+              "keywords": [
+                "male",
+                "boy",
+                "man",
+                "sad",
+                "depressed",
+                "discouraged",
+                "unhappy"
+              ],
+              "emoji": "🙍‍♂️"
+            },
+             {
+              "keywords": [
+                "female",
+                "girl",
+                "woman"
+              ],
+              "emoji": "💇"
+            },
+            {
+              "keywords": [
+                "male",
+                "boy",
+                "man"
+              ],
+              "emoji": "💇‍♂️"
+            },
+            {
+              "keywords": [
+                "female",
+                "girl",
+                "woman",
+                "head"
+              ],
+              "emoji": "💆"
+            },
+            {
+              "keywords": [
+                "male",
+                "boy",
+                "man",
+                "head"
+              ],
+              "emoji": "💆‍♂️"
+            },
+            {
+              "keywords": [
+                "female",
+                "woman",
+                "spa",
+                "steamroom",
+                "sauna"
+              ],
+              "emoji": "🧖‍♀️"
+            },
+            {
+              "keywords": [
+                "male",
+                "man",
+                "spa",
+                "steamroom",
+                "sauna"
+              ],
+              "emoji": "🧖‍♂️"
+            },
+             {
+              "keywords": [
+                "pair",
+                "love",
+                "like",
+                "affection",
+                "human",
+                "dating",
+                "valentines",
+                "marriage"
+              ],
+              "emoji": "💑"
+            },
+            {
+              "keywords": [
+                "pair",
+                "love",
+                "like",
+                "affection",
+                "human",
+                "dating",
+                "valentines",
+                "marriage"
+              ],
+              "emoji": "👩‍❤️‍👩"
+            },
+             {
+              "keywords": [
+                "pair",
+                "love",
+                "like",
+                "affection",
+                "human",
+                "dating",
+                "valentines",
+                "marriage"
+              ],
+              "emoji": "👨‍❤️‍👨"
+            },
+            {
+              "keywords": [
+                "pair",
+                "valentines",
+                "love",
+                "like",
+                "dating",
+                "marriage"
+              ],
+              "emoji": "💏"
+            },
+             {
+              "keywords": [
+                "pair",
+                "valentines",
+                "love",
+                "like",
+                "dating",
+                "marriage"
+              ],
+              "emoji": "👩‍❤️‍💋‍👩"
+            },
+            {
+              "keywords": [
+                "pair",
+                "valentines",
+                "love",
+                "like",
+                "dating",
+                "marriage"
+              ],
+              "emoji": "👨‍❤️‍💋‍👨"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "child",
+                "mom",
+                "dad",
+                "father",
+                "mother",
+                "people",
+                "human"
+              ],
+              "emoji": "👪"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "child"
+              ],
+              "emoji": "👨‍👩‍👧"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👩‍👧‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👩‍👦‍👦"
+            },
+             {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👩‍👧‍👧"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👩‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👩‍👧"
+            },
+             {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👩‍👧‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👩‍👦‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👩‍👧‍👧"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👨‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👨‍👧"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👨‍👧‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👨‍👦‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parents",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👨‍👧‍👧"
+            },
+            {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "child"
+              ],
+              "emoji": "👩‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "child"
+              ],
+              "emoji": "👩‍👧"
+            },
+             {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👧‍👦"
+            },
+            {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👦‍👦"
+            },
+             {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👩‍👧‍👧"
+            },
+             {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "child"
+              ],
+              "emoji": "👨‍👦"
+            },
+             {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "child"
+              ],
+              "emoji": "👨‍👧"
+            },
+            {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👧‍👦"
+            },
+             {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👦‍👦"
+            },
+             {
+              "keywords": [
+                "home",
+                "parent",
+                "people",
+                "human",
+                "children"
+              ],
+              "emoji": "👨‍👧‍👧"
+            },
+            {
+              "keywords": [
+                "ball",
+                "crochet",
+                "knit"
+              ],
+              "emoji": "🧶"
+            },
+            {
+              "keywords": [
+                "needle",
+                "sewing",
+                "spool",
+                "string"
+              ],
+              "emoji": "🧵"
+            },
+            {
+              "keywords": [
+                "jacket"
+              ],
+              "emoji": "🧥"
+            },
+             {
+              "keywords": [
+                "doctor",
+                "experiment",
+                "scientist",
+                "chemist"
+              ],
+              "emoji": "🥼"
+            },
+            {
+              "keywords": [
+                "fashion",
+                "shopping_bags",
+                "female"
+              ],
+              "emoji": "👚"
+            },
+            {
+              "keywords": [
+                "fashion",
+                "cloth",
+                "casual",
+                "shirt",
+                "tee"
+              ],
+              "emoji": "👕"
+            },
+            {
+              "keywords": [
+                "fashion",
+                "shopping"
+              ],
+              "emoji": "👖"
+            },
+            {
+              "keywords": [
+                "shirt",
+                "suitup",
+                "formal",
+                "fashion",
+                "cloth",
+                "business"
+              ],
+              "emoji": "👔"
+            },
+            {
+              "keywords": [
+                "clothes",
+                "fashion",
+                "shopping"
+              ],
+              "emoji": "👗"
+            },
+             {
+              "keywords": [
+                "swimming",
+                "female",
+                "woman",
+                "girl",
+                "fashion",
+                "beach",
+                "summer"
+              ],
+              "emoji": "👙"
+            },
+            {
+              "keywords": [
+                "dress",
+                "fashion",
+                "women",
+                "female",
+                "japanese"
+              ],
+              "emoji": "👘"
+            },
+             {
+              "keywords": [
+                "female",
+                "girl",
+                "fashion",
+                "woman"
+              ],
+              "emoji": "💄"
+            },
+            {
+              "keywords": [
+                "face",
+                "lips",
+                "love",
+                "like",
+                "affection",
+                "valentines"
+              ],
+              "emoji": "💋"
+            },
+            {
+              "keywords": [
+                "feet",
+                "tracking",
+                "walking",
+                "beach"
+              ],
+              "emoji": "👣"
+            },
+             {
+              "keywords": [
+                "ballet",
+                "slip-on",
+                "slipper"
+              ],
+              "emoji": "🥿"
+            },
+             {
+              "keywords": [
+                "fashion",
+                "shoes",
+                "female",
+                "pumps",
+                "stiletto"
+              ],
+              "emoji": "👠"
+            },
+             {
+              "keywords": [
+                "shoes",
+                "fashion",
+                "flip flops"
+              ],
+              "emoji": "👡"
+            },
+            {
+              "keywords": [
+                "shoes",
+                "fashion"
+              ],
+              "emoji": "👢"
+            },
+            {
+              "keywords": [
+                "fashion",
+                "male"
+              ],
+              "emoji": "👞"
+            },
+             {
+              "keywords": [
+                "shoes",
+                "sports",
+                "sneakers"
+              ],
+              "emoji": "👟"
+            },
+             {
+              "keywords": [
+                "backpacking",
+                "camping",
+                "hiking"
+              ],
+              "emoji": "🥾"
+            },
+            {
+              "keywords": [
+                "stockings",
+                "clothes"
+              ],
+              "emoji": "🧦"
+            },
+             {
+              "keywords": [
+                "hands",
+                "winter",
+                "clothes"
+              ],
+              "emoji": "🧤"
+            },
+             {
+              "keywords": [
+                "neck",
+                "winter",
+                "clothes"
+              ],
+              "emoji": "🧣"
+            },
+             {
+              "keywords": [
+                "fashion",
+                "accessories",
+                "female",
+                "lady",
+                "spring"
+              ],
+              "emoji": "👒"
+            },
+            {
+              "keywords": [
+                "magic",
+                "gentleman",
+                "classy",
+                "circus"
+              ],
+              "emoji": "🎩"
+            },
+             {
+              "keywords": [
+                "cap",
+                "baseball"
+              ],
+              "emoji": "🧢"
+            },
+             {
+              "keywords": [
+                "construction",
+                "build"
+              ],
+              "emoji": "⛑"
+            },
+            {
+              "keywords": [
+                "school",
+                "college",
+                "degree",
+                "university",
+                "graduation",
+                "cap",
+                "hat",
+                "legal",
+                "learn",
+                "education"
+              ],
+              "emoji": "🎓"
+            },
+            {
+              "keywords": [
+                "king",
+                "kod",
+                "leader",
+                "royalty",
+                "lord"
+              ],
+              "emoji": "👑"
+            },
+            {
+              "keywords": [
+                "student",
+                "education",
+                "bag",
+                "backpack"
+              ],
+              "emoji": "🎒"
+            },
+            {
+              "keywords": [
+                "packing",
+                "travel"
+              ],
+              "emoji": "🧳"
+            },
+             {
+              "keywords": [
+                "bag",
+                "accessories",
+                "shopping"
+              ],
+              "emoji": "👝"
+            },
+            {
+              "keywords": [
+                "fashion",
+                "accessories",
+                "money",
+                "sales",
+                "shopping"
+              ],
+              "emoji": "👛"
+            },
+            {
+              "keywords": [
+                "fashion",
+                "accessory",
+                "accessories",
+                "shopping"
+              ],
+              "emoji": "👜"
+            },
+            {
+              "keywords": [
+                "business",
+                "documents",
+                "work",
+                "law",
+                "legal",
+                "job",
+                "career"
+              ],
+              "emoji": "💼"
+            },
+             {
+              "keywords": [
+                "fashion",
+                "accessories",
+                "eyesight",
+                "nerdy",
+                "dork",
+                "geek"
+              ],
+              "emoji": "👓"
+            },
+            {
+              "keywords": [
+                "face",
+                "cool",
+                "accessories"
+              ],
+              "emoji": "🕶"
+            },
+            {
+              "keywords": [
+                "eyes",
+                "protection",
+                "safety"
+              ],
+              "emoji": "🥽"
+            },
+            {
+              "keywords": [
+                "wedding",
+                "propose",
+                "marriage",
+                "valentines",
+                "diamond",
+                "fashion",
+                "jewelry",
+                "gem",
+                "engagement"
+              ],
+              "emoji": "💍"
+            },
+             {
+              "keywords": [
+                "weather",
+                "rain",
+                "drizzle"
+              ],
+              "emoji": "🌂"
+            }
+          ]
+      },
                      {
                          "id": "symbols",
                          "name": "symbols",
