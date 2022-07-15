@@ -89,7 +89,7 @@ class CometChatMessageBubble: UITableViewCell {
     var receivedMessageInputData: ReceivedMessageInputData?
     var customViews: [String: ((BaseMessage) -> (UIView))?] = [:]
     var indexPath: IndexPath?
-    var customView: UIView = UIView()
+    var customView: UIView?
     unowned var selectionColor: UIColor {
         set {
             let view = UIView()
@@ -447,17 +447,18 @@ class CometChatMessageBubble: UITableViewCell {
             
             if let view = customView?(message) {
                 self.customView = view
-                containerStackView.addSubview(self.customView)
+                guard let customView = self.customView else {return }
+                containerStackView.addSubview(customView)
                 background.backgroundColor = .clear
                 
-                self.customView.translatesAutoresizingMaskIntoConstraints = false
+                customView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    self.customView.centerXAnchor.constraint(equalTo: background.centerXAnchor),
-                    self.customView.centerYAnchor.constraint(equalTo: background.centerYAnchor),
-                    self.customView.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0),
-                    self.customView.topAnchor.constraint(equalTo: background.topAnchor, constant: 0),
-                    self.customView.bottomAnchor.constraint(equalTo: background.bottomAnchor),
-                    self.customView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
+                    customView.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+                    customView.centerYAnchor.constraint(equalTo: background.centerYAnchor),
+                    customView.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0),
+                    customView.topAnchor.constraint(equalTo: background.topAnchor, constant: 0),
+                    customView.bottomAnchor.constraint(equalTo: background.bottomAnchor),
+                    customView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
                 ])
                 
                 if allMessageOptions.isEmpty {
@@ -827,7 +828,10 @@ class CometChatMessageBubble: UITableViewCell {
         background.subviews.forEach({ $0.removeFromSuperview() })
         //containerStackView.addBackground(color: .clear)
         containerStackView.subviews.forEach({ $0.backgroundColor = .clear})
-        self.customView.removeFromSuperview()
+        if let customView = customView {
+            customView.removeFromSuperview()
+        }
+        
         self.removeReactions()
     }
 }

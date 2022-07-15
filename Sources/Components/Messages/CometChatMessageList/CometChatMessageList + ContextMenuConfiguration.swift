@@ -50,6 +50,9 @@ extension CometChatMessageList {
           return cell.background
         }
         if let cell = tableView.cellForRow(at: indexPath) as? CometChatMessageBubble {
+            if let view = cell.customView {
+                return cell.containerStackView
+            }
           return cell.background
         }
         return UIView()
