@@ -707,7 +707,13 @@ import AVFAudio
 
                 
                 if let currentMessage = currentConversation.lastMessage {
-                    let senderName = currentMessage.sender?.name
+                    
+                    var senderName = ""
+                    if currentMessage.sender?.uid == CometChat.getLoggedInUser()?.uid {
+                        senderName = "YOU".localize()
+                    }else{
+                        senderName = currentMessage.sender?.name ?? ""
+                    }
                     switch currentMessage.messageCategory {
                     case .message:
                         if currentMessage.deletedAt > 0.0 {
@@ -826,7 +832,16 @@ import AVFAudio
                             }else if customMessage.type == "meeting" {
                                 self.set(subTitle: "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
                             }else{
-                                self.set(subTitle: "\(customMessage.customData)")
+                                if let pushNotificationTitle = customMessage["pushNotification"] as? String {
+                                    if !pushNotificationTitle.isEmpty {
+                                        self.set(subTitle: pushNotificationTitle)
+                                    }else{
+                                        self.set(subTitle: "\(customMessage.customData)")
+                                    }
+                                }else{
+                                    self.set(subTitle: "\(customMessage.customData)")
+                                }
+                              
                             }
                         }
                         
