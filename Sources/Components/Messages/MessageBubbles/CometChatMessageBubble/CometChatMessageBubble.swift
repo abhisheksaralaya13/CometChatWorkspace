@@ -225,7 +225,7 @@ class CometChatMessageBubble: UITableViewCell {
                 }
                 self.reactions.isHidden = false
             }else{
-                self.reactions.isHidden = false
+                self.reactions.isHidden = true
             }
         }
         return self
