@@ -190,7 +190,7 @@ class CometChatCallActionBubble: UITableViewCell {
     @discardableResult
     @objc fileprivate func isMyMessage() -> Bool {
         if let message = callMessage {
-            if message.sender?.uid == CometChatMessages.loggedInUser?.uid {
+            if message.sender?.uid == CometChat.getLoggedInUser()?.uid {
                 return true
             }else{
                 return false
@@ -212,97 +212,97 @@ class CometChatCallActionBubble: UITableViewCell {
                 
                 switch call.callStatus  {
                     
-                case .initiated where call.callType == .audio && call.receiverType == .user && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .audio && call.receiverType == .user && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     self.set(title: "OUTGOING_AUDIO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-outgoing-audio-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .audio && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .audio && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "INCOMING_AUDIO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-incoming-audio-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .audio && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .audio && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
 
                     self.set(title: "INCOMING_AUDIO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-incoming-audio-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .audio && call.receiverType == .group && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .audio && call.receiverType == .group && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "OUTGOING_AUDIO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-outgoing-audio-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .video && call.receiverType == .user  && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .video && call.receiverType == .user  && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "OUTGOING_VIDEO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-outgoing-video-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .video && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .video && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "INCOMING_VIDEO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-incoming-video-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .video && call.receiverType == .group  && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .video && call.receiverType == .group  && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "OUTGOING_VIDEO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-outgoing-video-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .initiated where call.callType == .video && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .initiated where call.callType == .video && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "INCOMING_VIDEO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-incoming-video-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .audio && call.receiverType == .user  && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .audio && call.receiverType == .user  && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "UNANSWERED_AUDIO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .audio && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .audio && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "MISSED_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .audio && call.receiverType == .group  && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .audio && call.receiverType == .group  && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "UNANSWERED_AUDIO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .audio && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .audio && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "MISSED_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
                     
-                case .unanswered where call.callType == .video && call.receiverType == .user  && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .video && call.receiverType == .user  && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "UNANSWERED_VIDEO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .video && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .video && call.receiverType == .user && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "MISSED_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .video && call.receiverType == .group  && (call.callInitiator as? User)?.uid == CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .video && call.receiverType == .group  && (call.callInitiator as? User)?.uid == CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "UNANSWERED_VIDEO_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
                     self.set(iconTintColor: .white)
                     
-                case .unanswered where call.callType == .video && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChatMessages.loggedInUser?.uid:
+                case .unanswered where call.callType == .video && call.receiverType == .group && (call.callInitiator as? User)?.uid != CometChat.getLoggedInUser()?.uid:
                     
                     self.set(title: "MISSED_CALL".localize())
                     self.set(icon: UIImage(named: "messages-end-call", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate) ?? UIImage())

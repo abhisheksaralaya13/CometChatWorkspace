@@ -123,7 +123,6 @@ extension CometChatConversationList : CometChatMessageDelegate {
             }
         }
     }
-
 }
 
 

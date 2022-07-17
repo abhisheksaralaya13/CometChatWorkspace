@@ -205,7 +205,7 @@ class CometChatMeetingBubble: UITableViewCell {
     @discardableResult
     @objc fileprivate func isMyMessage() -> Bool {
         if let message = meeetingMessage {
-            if message.sender?.uid == CometChatMessages.loggedInUser?.uid {
+            if message.sender?.uid == CometChat.getLoggedInUser()?.uid {
                 return true
             }else{
                 return false

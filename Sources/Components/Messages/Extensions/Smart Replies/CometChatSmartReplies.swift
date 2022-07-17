@@ -151,8 +151,8 @@ protocol CometChatSmartRepliesDelegate: class {
                 textMessage =  TextMessage(receiverUid: guid, text: message, receiverType: .group)
             }
             textMessage?.muid = "\(Int(Date().timeIntervalSince1970 * 1000))"
-            textMessage?.senderUid = CometChatMessages.loggedInUser?.uid ?? ""
-            textMessage?.sender = CometChatMessages.loggedInUser
+            textMessage?.senderUid = CometChat.getLoggedInUser()?.uid ?? ""
+            textMessage?.sender = CometChat.getLoggedInUser()
             
             if let textMessage = textMessage {
                 CometChatSoundManager().play(sound: .outgoingMessage)

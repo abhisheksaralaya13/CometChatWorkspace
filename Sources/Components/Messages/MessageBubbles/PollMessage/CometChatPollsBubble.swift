@@ -201,7 +201,7 @@ extension CometChatPollsBubble: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let message = customMessage, CometChatMessages.loggedInUser!.uid! != message.sender?.uid {
+        if let message = customMessage, CometChat.getLoggedInUser()!.uid! != message.sender?.uid {
             Indicator.show()
             CometChat.callExtension(slug: "polls", type: .post, endPoint: "v2/vote", body: ["vote": indexPath.row + 1, "id": pollID]) { response in
                 Indicator.hide()

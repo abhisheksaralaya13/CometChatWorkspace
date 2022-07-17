@@ -111,7 +111,7 @@ import  CometChatPro
         return self
     }
     
-  
+    self.set(receipt: <#T##BaseMessage#>)
 }
 
 /*  ----------------------------------------------------------------------------------------- */

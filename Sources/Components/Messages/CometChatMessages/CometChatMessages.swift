@@ -23,7 +23,6 @@ open class CometChatMessages: UIViewController {
     @IBOutlet weak var messageComposerBottomSpace: NSLayoutConstraint!
     @IBOutlet weak var messageComposerHeight: NSLayoutConstraint!
     
-    static var loggedInUser = CometChat.getLoggedInUser()
     var currentUser: User?
     var currentGroup: Group?
     var messageTemplates: [CometChatMessageTemplate]?

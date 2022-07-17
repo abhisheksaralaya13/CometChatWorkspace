@@ -74,7 +74,7 @@ extension CometChatMessageList: CometChatMessageDelegate {
     }
     
     func onMessageDeleted(message: BaseMessage) {
-        
+        self.update(message: message)
     }
     
     

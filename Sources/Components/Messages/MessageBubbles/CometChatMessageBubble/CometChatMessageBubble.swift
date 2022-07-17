@@ -425,7 +425,7 @@ class CometChatMessageBubble: UITableViewCell {
         if let controller = controller {
             reactions.set(controller: controller).set(messageObject: message)
         }
-        let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChatMessages.loggedInUser?.uid)
+        let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChat.getLoggedInUser()?.uid)
         set(messageAlignment: isStandard ? .right : .left)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
@@ -664,7 +664,7 @@ class CometChatMessageBubble: UITableViewCell {
                     print("height for \(currentQuestion) will be \(height)")
                     backgroundHeightConstraint.constant =  CGFloat( 140 + (options.count > 2 ? (options.count - 2) * 40 : 0)) + CGFloat(height > height - 18 ? height: 0)
                     
-                    let pollView = CometChatPollsBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard, isSender: (message.sender?.uid == CometChatMessages.loggedInUser?.uid))
+                    let pollView = CometChatPollsBubble(frame: CGRect(x: 0, y: 0, width: backgroundWidthConstraint.constant, height: backgroundHeightConstraint.constant), message: message, isStandard: isStandard, isSender: (message.sender?.uid == CometChat.getLoggedInUser()?.uid))
                     background.addSubview(pollView)
                     
                     if allMessageOptions.isEmpty {

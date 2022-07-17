@@ -889,8 +889,8 @@ extension CometChatMessageComposer {
                 textMessage =  TextMessage(receiverUid: guid, text: message, receiverType: .group)
             }
             textMessage?.muid = "\(Int(Date().timeIntervalSince1970 * 1000))"
-            textMessage?.senderUid = CometChatMessages.loggedInUser?.uid ?? ""
-            textMessage?.sender = CometChatMessages.loggedInUser
+            textMessage?.senderUid = CometChat.getLoggedInUser()?.uid ?? ""
+            textMessage?.sender = CometChat.getLoggedInUser()
             
             if let textMessage = textMessage {
                 CometChatSoundManager().play(sound: .outgoingMessage)
@@ -968,9 +968,9 @@ extension CometChatMessageComposer {
         }
         
         mediaMessage?.muid = "\(Int(Date().timeIntervalSince1970 * 1000))"
-        mediaMessage?.sender = CometChatMessages.loggedInUser
+        mediaMessage?.sender = CometChat.getLoggedInUser()
         mediaMessage?.metaData = ["fileURL": url]
-        mediaMessage?.senderUid = CometChatMessages.loggedInUser?.uid ?? ""
+        mediaMessage?.senderUid = CometChat.getLoggedInUser()?.uid ?? ""
         
         if let mediaMessage = mediaMessage {
             CometChatMessageEvents.emitOnMessageSent(message: mediaMessage, status: .inProgress)
@@ -1001,8 +1001,8 @@ extension CometChatMessageComposer {
             customMessage = CustomMessage(receiverUid: guid , receiverType: .group, customData: data, type: type)
         }
         customMessage?.muid = "\(Int(Date().timeIntervalSince1970 * 1000))"
-        customMessage?.sender = CometChatMessages.loggedInUser
-        customMessage?.senderUid = CometChatMessages.loggedInUser?.uid ?? ""
+        customMessage?.sender = CometChat.getLoggedInUser()
+        customMessage?.senderUid = CometChat.getLoggedInUser()?.uid ?? ""
         customMessage?.metaData = ["pushNotification": pushNotificationTitle, "incrementUnreadCount":true]
         
         if let customMessage = customMessage {
