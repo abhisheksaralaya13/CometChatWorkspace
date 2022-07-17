@@ -13,47 +13,62 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     // MARK: - Declaration of IBInspectable
     
-//    @discardableResult
-//    @objc public func set(corner: CometChatCorner) -> CometChatGroupActionBubble {
-//        switch corner.corner {
-//        case .leftTop:
-//            self.message.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-//        case .rightTop:
-//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-//        case .leftBottom:
-//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-//        case .rightBottom:
-//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
-//        case .none:
-//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-//        }
-//        self.message.clipsToBounds = true
-//        return self
-//    }
-//
+    @IBOutlet weak var message: UILabel!
+    
+    var intrinsicContentSize: CGSize {
+        
+        let originalContentSize = super.intrinsicContentSize
+        let height = originalContentSize.height + 12
+        layer.cornerRadius = height / 2
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemFill.cgColor
+        layer.masksToBounds = true
+        return CGSize(width: originalContentSize.width + 20, height: height)
+        
+    }
+    
+    @discardableResult
+    @objc public func set(corner: CometChatCorner) -> CometChatGroupActionBubble {
+        switch corner.corner {
+        case .leftTop:
+            self.message.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+        case .rightTop:
+            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+        case .leftBottom:
+            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+        case .rightBottom:
+            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
+        case .none:
+            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+        }
+        self.message.clipsToBounds = true
+        return self
+    }
+    
 
     
     @discardableResult
     public func set(backgroundColor: UIColor) ->  CometChatGroupActionBubble {
-      // self.message.backgroundColor = backgroundColor
+    
+                self.message.backgroundColor = backgroundColor
         return self
     }
     
     
     @discardableResult
     @objc public func set(borderColor : UIColor) -> CometChatGroupActionBubble {
-//        self.message.layer.borderColor = borderColor.cgColor
+        self.message.layer.borderColor = borderColor.cgColor
         return self
     }
 
     @discardableResult
     @objc public func set(borderWidth : CGFloat) -> CometChatGroupActionBubble {
-        //  self.message.layer.borderWidth = borderWidth
+        self.message.layer.borderWidth = borderWidth
         return self
     }
     @discardableResult
     @objc public func set(messageObject: BaseMessage) -> CometChatGroupActionBubble {
-      self.actionMessage = messageObject
+        self.actionMessage = messageObject
         return self
     }
     
@@ -70,10 +85,7 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     var actionMessage: BaseMessage? {
         didSet {
-            
-            let message = CometChatMessageDateHeader()
-        
-            
+          
             if let actionMessage = actionMessage as? ActionMessage {
             if let action = actionMessage.action {
                 switch action {
@@ -128,11 +140,8 @@ class CometChatGroupActionBubble: UITableViewCell {
                     message.text = "ACTION_MESSAGE".localize()
                 }
             }
+            message.intrinsicContentSize = intrinsicContentSize
         }
-            
-            contentView.addSubview(message)
-            message.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-            message.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         }
     }
         
