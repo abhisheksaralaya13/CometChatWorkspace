@@ -616,7 +616,7 @@ public enum  MessageType : String {
   //          self.messageRequest = MessagesRequest.MessageRequestBuilder().set(guid: forID).set(categories: messageCategories).set(types: messageTypes).hideReplies(hide: true).hideDeletedMessages(hide: hideDeletedMessages).set(unread: onlyUnreadMessages).hideMessagesFromBlockedUsers(hideMessagesFromBlockedUsers).setTags(tags).set(limit: limit).build()
             
             
-            self.messageRequest = MessagesRequest.MessageRequestBuilder().set(guid: forID).set(categories: messageCategories).hideReplies(hide: true).hideDeletedMessages(hide: hideDeletedMessages).set(unread: onlyUnreadMessages).hideMessagesFromBlockedUsers(hideMessagesFromBlockedUsers).setTags(tags).set(limit: limit).build()
+            self.messageRequest = MessagesRequest.MessageRequestBuilder().set(guid: forID).set(types: messageTypes).hideReplies(hide: true).hideDeletedMessages(hide: hideDeletedMessages).set(unread: onlyUnreadMessages).hideMessagesFromBlockedUsers(hideMessagesFromBlockedUsers).setTags(tags).set(limit: limit).build()
             
             messageRequest?.fetchPrevious(onSuccess: {[weak self] (fetchedMessages) in
                 guard let strongSelf = self else { return }
