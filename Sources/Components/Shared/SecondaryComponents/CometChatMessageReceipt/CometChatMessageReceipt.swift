@@ -110,8 +110,6 @@ import  CometChatPro
         self.set(messageErrorIcon: configuration.messageErrorIcon  ?? UIImage()) 
         return self
     }
-    
-    self.set(receipt: <#T##BaseMessage#>)
 }
 
 /*  ----------------------------------------------------------------------------------------- */

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CometChatPro
 
 class CometChatPollBubbleCell: UITableViewCell {
 
