@@ -53,7 +53,12 @@ extension CometChatConversationList : CometChatMessageDelegate {
                     }
                     
                 }
-                
+            }
+        }
+        
+        if let row = self.conversations.firstIndex(where: {($0.conversationWith as? Group)?.guid == typingDetails.receiverID && $0.conversationType.rawValue == typingDetails.receiverType.rawValue }), let indexPath = IndexPath(row: row, section: 0) as? IndexPath , let conversationListItem = self.tableView.cellForRow(at: indexPath) as? CometChatConversationListItem  {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
                 if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
                     
                     let user = typingDetails.sender?.name ?? ""
@@ -98,9 +103,16 @@ extension CometChatConversationList : CometChatMessageDelegate {
                     strongSelf.tableView.endUpdates()
                     
                 }
+            }
+        }
+        
+        if let row = self.conversations.firstIndex(where: {($0.conversationWith as? User)?.uid == typingDetails.sender?.uid && $0.conversationType.rawValue == typingDetails.receiverType.rawValue }), let indexPath = IndexPath(row: row, section: 0) as? IndexPath , let conversationListItem = self.tableView.cellForRow(at: indexPath) as? CometChatConversationListItem  {
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
                 
                 if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
-                   
+                    
                     strongSelf.tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
                         .set(typingIndicatorText: "")
@@ -111,6 +123,7 @@ extension CometChatConversationList : CometChatMessageDelegate {
             }
         }
     }
+
 }
 
 
