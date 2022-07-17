@@ -224,7 +224,7 @@ import CometChatPro
                 conversation.unreadMessageCount = cell.unreadCount.getCount + 1
                 strongSelf.conversations[row] = conversation
                 strongSelf.conversations = strongSelf.conversations.sorted {
-                    ($0.lastMessage?.sentAt ?? 0) < ($1.lastMessage?.sentAt ?? 0)
+                    ($0.lastMessage?.sentAt ?? 0) > ($1.lastMessage?.sentAt ?? 0)
                 }.reversed()
                 strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
             }
