@@ -219,19 +219,32 @@ import CometChatPro
     
     @discardableResult
     public func update(conversation: Conversation) -> CometChatConversationList {
-        
-        CometChat.markAsDelivered(baseMessage: conversation.lastMessage)
+       
         CometChatSoundManager().play(sound: .incomingMessageFromOther)
-        
+        if let message = conversation.lastMessage {
+            CometChat.markAsDelivered(baseMessage: message)
+        }
         if let row = self.conversations.firstIndex(where: {$0.conversationId == conversation.conversationId}),   let indexPath = IndexPath(row: row, section: 0) as? IndexPath, let cell = tableView.cellForRow(at: indexPath) as? CometChatConversationListItem {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
                 conversation.unreadMessageCount = cell.unreadCount.getCount + 1
+                
+                if let textMessage = conversation.lastMessage as? TextMessage {
+                    cell.parseProfanityFilter(forMessage: textMessage)
+                    cell.parseMaskedData(forMessage: textMessage)
+                    cell.parseSentimentAnalysis(forMessage: textMessage)
+                }
+                
                 strongSelf.conversations[row] = conversation
                 strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
             }
         }else{
-            insert(conversation: conversation, at: 0)
+            if conversation.lastMessage as? TextMessage {
+                insert(conversation: conversation, at: 0)
+                update(conversation: conversation)
+            }else{
+                insert(conversation: conversation, at: 0)
+            }
         }
         return self
     }
