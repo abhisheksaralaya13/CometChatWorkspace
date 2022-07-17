@@ -17,19 +17,16 @@ extension CometChatConversationList : CometChatMessageDelegate {
     }
     
     public func onMediaMessageReceived(mediaMessage: MediaMessage) {
-        
         if let conversation = CometChat.getConversationFromMessage(mediaMessage) {
-            self.insert(conversation: conversation, at: 0)
+            self.update(conversation: conversation)
         }
         
     }
     
     public func onCustomMessageReceived(customMessage: CustomMessage) {
-        
         if let conversation = CometChat.getConversationFromMessage(customMessage) {
-            self.insert(conversation: conversation, at: 0)
+            self.update(conversation: conversation)
         }
-        
     }
     
     public func onTypingEnded(_ typingDetails: TypingIndicator) {

@@ -219,6 +219,10 @@ import CometChatPro
     
     @discardableResult
     public func update(conversation: Conversation) -> CometChatConversationList {
+        
+        CometChat.markAsDelivered(baseMessage: conversation.lastMessage)
+        CometChatSoundManager().play(sound: .incomingMessageFromOther)
+        
         if let row = self.conversations.firstIndex(where: {$0.conversationId == conversation.conversationId}),   let indexPath = IndexPath(row: row, section: 0) as? IndexPath, let cell = tableView.cellForRow(at: indexPath) as? CometChatConversationListItem {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
