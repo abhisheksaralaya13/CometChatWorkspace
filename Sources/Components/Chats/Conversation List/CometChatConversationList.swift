@@ -211,9 +211,8 @@ import CometChatPro
     
     @discardableResult
     public func insert(conversation: Conversation, at: Int? = 0) -> CometChatConversationList {
-        tableView.beginUpdates()
         self.conversations.insert(conversation, at: at ?? 0)
-        tableView.endUpdates()
+        self.tableView.reloadData()
         return self
     }
     
@@ -223,10 +222,8 @@ import CometChatPro
             let indexPath = IndexPath(row: row, section: 0)
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
-                    strongSelf.tableView?.beginUpdates()
                     strongSelf.conversations[row] = conversation
                     strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
-                    strongSelf.tableView?.endUpdates()
                 }
             }
         return self
