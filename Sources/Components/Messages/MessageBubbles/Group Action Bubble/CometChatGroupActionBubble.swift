@@ -13,7 +13,7 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     // MARK: - Declaration of IBInspectable
     
-    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var message: CometChatMessageDateHeader!
     
     @discardableResult
     @objc public func set(corner: CometChatCorner) -> CometChatGroupActionBubble {
@@ -37,8 +37,7 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     @discardableResult
     public func set(backgroundColor: UIColor) ->  CometChatGroupActionBubble {
-    
-                self.message.backgroundColor = backgroundColor
+       self.message.backgroundColor = backgroundColor
         return self
     }
     
