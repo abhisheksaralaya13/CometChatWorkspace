@@ -15,18 +15,6 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     @IBOutlet weak var message: UILabel!
     
-    var intrinsicContentSize: CGSize {
-        
-        let originalContentSize = super.intrinsicContentSize
-        let height = originalContentSize.height + 12
-        layer.cornerRadius = height / 2
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.systemFill.cgColor
-        layer.masksToBounds = true
-        return CGSize(width: originalContentSize.width + 20, height: height)
-        
-    }
-    
     @discardableResult
     @objc public func set(corner: CometChatCorner) -> CometChatGroupActionBubble {
         switch corner.corner {
@@ -140,7 +128,11 @@ class CometChatGroupActionBubble: UITableViewCell {
                     message.text = "ACTION_MESSAGE".localize()
                 }
             }
-            message.intrinsicContentSize = intrinsicContentSize
+                
+                message.layer.cornerRadius = 10
+                message.layer.borderWidth = 1
+                message.layer.borderColor = UIColor.systemFill.cgColor
+                message.layer.masksToBounds = true
         }
         }
     }
