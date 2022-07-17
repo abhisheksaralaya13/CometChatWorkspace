@@ -229,7 +229,7 @@ import CometChatPro
                 guard let strongSelf = self else { return }
                 conversation.unreadMessageCount = cell.unreadCount.getCount + 1
                 
-                if let textMessage = conversation.lastMessage as? TextMessage {
+                if let textMessage = conversation.lastMessage as? TextMessage, textMessage.sender?.uid != CometChat.getLoggedInUser()?.uid {
                     cell.parseProfanityFilter(forMessage: textMessage)
                     cell.parseMaskedData(forMessage: textMessage)
                     cell.parseSentimentAnalysis(forMessage: textMessage)
