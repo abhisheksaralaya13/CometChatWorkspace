@@ -225,7 +225,9 @@ import CometChatPro
                     strongSelf.conversations[row] = conversation
                     strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
                 }
-            }
+        }else{
+            insert(conversation: conversation, at: 0)
+        }
         return self
     }
     

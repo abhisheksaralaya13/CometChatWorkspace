@@ -11,11 +11,9 @@ import CometChatPro
 extension CometChatConversationList : CometChatMessageDelegate {
 
     public func onTextMessageReceived(textMessage: TextMessage) {
-        
         if let conversation = CometChat.getConversationFromMessage(textMessage) {
-            self.insert(conversation: conversation, at: 0)
+            self.update(conversation: conversation)
         }
-        
     }
     
     public func onMediaMessageReceived(mediaMessage: MediaMessage) {
