@@ -54,16 +54,18 @@ extension CometChatConversationList : CometChatMessageDelegate {
                 
                 let user = typingDetails.sender?.name ?? ""
                 DispatchQueue.main.async {
+                    tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: true)
                         .set(typingIndicatorColor: CometChatTheme.palatte?.success)
                         .set(typingIndicatorText: user + " " + "IS_TYPING".localize())
+                    tableView.endUpdates()()
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
                     .set(typingIndicatorText: "")
-                                       
-                    conversationListItem.reloadInputViews()
+                    tableView.endUpdates()()
                 }
             }
         }
@@ -82,19 +84,21 @@ extension CometChatConversationList : CometChatMessageDelegate {
             
             if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
                 DispatchQueue.main.async {
+                    tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
                         .set(typingIndicatorText: "")
                        
-                    conversationListItem.reloadInputViews()
+                    tableView.endUpdates()()
                 }
             }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
                 
                 let user = typingDetails.sender?.name ?? ""
                 DispatchQueue.main.async {
+                    tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
                                         .set(typingIndicatorText: "")
                                         
-                    conversationListItem.reloadInputViews()
+                    tableView.endUpdates()()
                 }
             }
         }
