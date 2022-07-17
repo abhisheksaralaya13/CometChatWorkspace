@@ -32,40 +32,42 @@ extension CometChatConversationList : CometChatMessageDelegate {
     public func onTypingStarted(_ typingDetails: TypingIndicator) {
         if let row = self.conversations.firstIndex(where: {($0.conversationWith as? User)?.uid == typingDetails.sender?.uid && $0.conversationType.rawValue == typingDetails.receiverType.rawValue }), let indexPath = IndexPath(row: row, section: 0) as? IndexPath , let conversationListItem = self.tableView.cellForRow(at: indexPath) as? CometChatConversationListItem  {
             
-            if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
                     
+                    strongSelf.tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: true)
                         .set(typingIndicatorColor: CometChatTheme.palatte?.success)
                         .set(typingIndicatorText: "IS_TYPING".localize())
-                       
-                    conversationListItem.reloadInputViews()
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     
-                    conversationListItem.show(typingIndicator: false)
+                    strongSelf.tableView.endUpdates()
                     
-                                        .set(typingIndicatorText: "")
-                                        
-                    conversationListItem.reloadInputViews()
-                }
-            }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
-                
-                let user = typingDetails.sender?.name ?? ""
-                DispatchQueue.main.async {
-                    tableView.beginUpdates()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        strongSelf.tableView.beginUpdates()
+                        conversationListItem.show(typingIndicator: false)
+                        
+                            .set(typingIndicatorText: "")
+                        
+                        strongSelf.tableView.endUpdates()
+                    }
+                    
+                } else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
+                    
+                    let user = typingDetails.sender?.name ?? ""
+                    strongSelf.tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: true)
                         .set(typingIndicatorColor: CometChatTheme.palatte?.success)
                         .set(typingIndicatorText: user + " " + "IS_TYPING".localize())
-                    tableView.endUpdates()()
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    tableView.beginUpdates()
-                    conversationListItem.show(typingIndicator: false)
-                    .set(typingIndicatorText: "")
-                    tableView.endUpdates()()
+                    strongSelf.tableView.endUpdates()
+                    
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        strongSelf.tableView.beginUpdates()
+                        conversationListItem.show(typingIndicator: false)
+                            .set(typingIndicatorText: "")
+                        strongSelf.tableView.endUpdates()
+                    }
                 }
             }
         }
@@ -82,23 +84,25 @@ extension CometChatConversationList : CometChatMessageDelegate {
     public func onTypingEnded(_ typingDetails: TypingIndicator) {
         if let row = self.conversations.firstIndex(where: {($0.conversationWith as? User)?.uid == typingDetails.sender?.uid && $0.conversationType.rawValue == typingDetails.receiverType.rawValue }), let indexPath = IndexPath(row: row, section: 0) as? IndexPath , let conversationListItem = self.tableView.cellForRow(at: indexPath) as? CometChatConversationListItem  {
             
-            if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
-                DispatchQueue.main.async {
-                    tableView.beginUpdates()
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                
+                if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
+                    
+                    strongSelf.tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
                         .set(typingIndicatorText: "")
-                       
-                    tableView.endUpdates()()
-                }
-            }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
-                
-                let user = typingDetails.sender?.name ?? ""
-                DispatchQueue.main.async {
-                    tableView.beginUpdates()
+                    
+                    strongSelf.tableView.endUpdates()
+                    
+                }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
+                   
+                    strongSelf.tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
-                                        .set(typingIndicatorText: "")
-                                        
-                    tableView.endUpdates()()
+                        .set(typingIndicatorText: "")
+                    
+                    strongSelf.tableView.endUpdates()
+                    
                 }
             }
         }
