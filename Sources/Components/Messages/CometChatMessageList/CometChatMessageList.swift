@@ -349,8 +349,9 @@ public enum  MessageType : String {
               }
             }
           }else{
-            self.messageCategories = ["message", "custom", "call", "action"]
-            self.messageTypes = ["groupMember"]
+              self.messageCategories = ["message", "custom", "call", "action", "groupMember"]
+                          self.messageTypes = ["text", "image", "video", "audio", "file", "groupMember", "extension_poll", "extension_whiteboard", "extension_document", "extension_sticker", "meeting"]
+                          
           }
         }
         return self
