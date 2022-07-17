@@ -66,6 +66,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="containerView" destination="5qA-Qc-92t" id="6cR-38-TDx"/>
                 <outlet property="message" destination="Zub-XF-pn7" id="1MH-Ml-DJu"/>
             </connections>
             <point key="canvasLocation" x="348.55072463768118" y="97.767857142857139"/>

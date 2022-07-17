@@ -13,6 +13,7 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     // MARK: - Declaration of IBInspectable
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var message: UILabel!
     
     @discardableResult
@@ -36,21 +37,32 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     @discardableResult
     public func set(backgroundColor: UIColor) ->  CometChatGroupActionBubble {
+        self.containerView.backgroundColor = backgroundColor
+        return self
+    }
     
-                self.message.backgroundColor = backgroundColor
+    @discardableResult
+    public func set(textColor: UIColor) ->  CometChatGroupActionBubble {
+                self.message.textColor = backgroundColor
+        return self
+    }
+    
+    @discardableResult
+    public func set(textFont: UIFont) ->  CometChatGroupActionBubble {
+        self.message.font = textFont
         return self
     }
     
     
     @discardableResult
     @objc public func set(borderColor : UIColor) -> CometChatGroupActionBubble {
-        self.message.layer.borderColor = borderColor.cgColor
+        self.containerView.layer.borderColor = borderColor.cgColor
         return self
     }
 
     @discardableResult
     @objc public func set(borderWidth : CGFloat) -> CometChatGroupActionBubble {
-        self.message.layer.borderWidth = borderWidth
+        self.containerView.layer.borderWidth = borderWidth
         return self
     }
     @discardableResult
@@ -128,8 +140,11 @@ class CometChatGroupActionBubble: UITableViewCell {
                 }
             }
                 self.message.clipsToBounds = true
-                message.textColor = CometChatTheme.palatte?.accent600
-                message.font = CometChatTheme.typography?.Caption1
+                self.set(textColor: CometChatTheme.palatte?.accent600 ?? .gray)
+                self.set(textFont: CometChatTheme.typography?.Caption1 ?? UIFont.systemFont(ofSize: 12))
+                self.set(borderColor: CometChatTheme.palatte?.accent600 ?? .gray)
+                self.set(borderWidth: 1)
+                
         }
         }
     }
