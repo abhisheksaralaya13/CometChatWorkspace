@@ -222,6 +222,7 @@ import CometChatPro
             let indexPath = IndexPath(row: row, section: 0)
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
+                    conversation.unreadMessageCount += 1
                     strongSelf.conversations[row] = conversation
                     strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
                 }
@@ -243,6 +244,7 @@ import CometChatPro
     public func add(conversation: Conversation) -> CometChatConversationList {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
+            conversation.unreadMessageCount += 1
             strongSelf.conversations.append(conversation)
             strongSelf.tableView.reloadData()
         }
