@@ -30,6 +30,8 @@ class CometChatGroupActionBubble: UITableViewCell {
             self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
         }
         self.message.clipsToBounds = true
+        message.textColor = CometChatTheme.palatte?.accent600
+        message.font = CometChatTheme.typography?.Caption1
         return self
     }
     
