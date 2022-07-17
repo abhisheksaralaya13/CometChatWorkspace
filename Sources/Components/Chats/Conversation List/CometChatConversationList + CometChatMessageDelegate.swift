@@ -52,7 +52,9 @@ extension CometChatConversationList : CometChatMessageDelegate {
                         strongSelf.tableView.endUpdates()
                     }
                     
-                } else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
+                }
+                
+                if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
                     
                     let user = typingDetails.sender?.name ?? ""
                     strongSelf.tableView.beginUpdates()
@@ -95,7 +97,9 @@ extension CometChatConversationList : CometChatMessageDelegate {
                     
                     strongSelf.tableView.endUpdates()
                     
-                }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
+                }
+                
+                if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
                    
                     strongSelf.tableView.beginUpdates()
                     conversationListItem.show(typingIndicator: false)
