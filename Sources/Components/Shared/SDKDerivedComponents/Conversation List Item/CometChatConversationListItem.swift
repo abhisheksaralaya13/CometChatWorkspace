@@ -841,7 +841,6 @@ import AVFAudio
                                 }else{
                                     self.set(subTitle: "\(customMessage.customData)")
                                 }
-                              
                             }
                         }
                         

@@ -21,6 +21,9 @@ public class ConversationListConfiguration: CometChatConfiguration {
     var searchKeyWord : String = ""
     var tags : [String] = [String]()
     var limit : Int = 30
+    var emptyView: UIView?
+    var emptyText: String = "NO_CHATS_FOUND".localize()
+    var errorText: String = "SOMETHING_WENT_WRONG_ERROR".localize()
     var conversationListItemConfiguration :ConversationListItemConfiguration?
     
     public func set(background: [CGColor]) -> ConversationListConfiguration {
@@ -59,5 +62,22 @@ public class ConversationListConfiguration: CometChatConfiguration {
         self.hideError = error
         return self
     }
+    
+    public func set(emptyView: UIView?) -> ConversationListConfiguration {
+        self.emptyView = emptyView
+        return self
+    }
+    
+    public func set(errorText: String?) -> ConversationListConfiguration {
+        self.errorText = errorText ?? ""
+        return self
+    }
+    
+    public func set(emptyText: String?) -> ConversationListConfiguration {
+        self.emptyText = emptyText ?? ""
+        return self
+    }
+    
 }
+
 
