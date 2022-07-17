@@ -221,10 +221,13 @@ import CometChatPro
         if let row = self.conversations.firstIndex(where: {$0.conversationId == conversation.conversationId}),   let indexPath = IndexPath(row: row, section: 0) as? IndexPath, let cell = tableView.cellForRow(at: indexPath) as? CometChatConversationListItem {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
-                    conversation.unreadMessageCount = cell.unreadCount.getCount + 1
-                    strongSelf.conversations[row] = conversation
-                    strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
+                conversation.unreadMessageCount = cell.unreadCount.getCount + 1
+                strongSelf.conversations[row] = conversation
+                strongSelf.conversations = strongSelf.conversations.sorted {
+                    ($0.lastMessage?.sentAt ?? 0) < ($1.lastMessage?.sentAt ?? 0)
                 }
+                strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
+            }
         }else{
             insert(conversation: conversation, at: 0)
         }
