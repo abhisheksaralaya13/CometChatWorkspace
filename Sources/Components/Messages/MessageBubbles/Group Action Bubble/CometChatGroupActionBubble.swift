@@ -43,7 +43,7 @@ class CometChatGroupActionBubble: UITableViewCell {
     
     @discardableResult
     public func set(textColor: UIColor) ->  CometChatGroupActionBubble {
-                self.message.textColor = backgroundColor
+                self.message.textColor = textColor
         return self
     }
     
@@ -142,7 +142,7 @@ class CometChatGroupActionBubble: UITableViewCell {
                 self.message.clipsToBounds = true
                 self.set(textColor: CometChatTheme.palatte?.accent600 ?? .gray)
                 self.set(textFont: CometChatTheme.typography?.Caption1 ?? UIFont.systemFont(ofSize: 12))
-                self.set(borderColor: CometChatTheme.palatte?.accent600 ?? .gray)
+                self.set(borderColor: CometChatTheme.palatte?.accent200 ?? .gray)
                 self.set(borderWidth: 1)
                 
         }
