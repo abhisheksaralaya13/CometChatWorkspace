@@ -34,25 +34,35 @@ extension CometChatConversationList : CometChatMessageDelegate {
             
             if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
                 DispatchQueue.main.async {
-                    conversationListItem
+                    
+                    conversationListItem.show(typingIndicator: true)
+                        .set(typingIndicatorColor: CometChatTheme.palatte?.success)
                         .set(typingIndicatorText: "IS_TYPING".localize())
-                        .show(typingIndicator: true)
+                       
                     conversationListItem.reloadInputViews()
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    
                     conversationListItem.show(typingIndicator: false)
+                    
+                                        .set(typingIndicatorText: "")
+                                        
                     conversationListItem.reloadInputViews()
                 }
             }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
                 
                 let user = typingDetails.sender?.name ?? ""
                 DispatchQueue.main.async {
-                    conversationListItem.set(typingIndicatorText: user + " " + "IS_TYPING".localize()).show(typingIndicator: true)
+                    conversationListItem.show(typingIndicator: true)
+                        .set(typingIndicatorColor: CometChatTheme.palatte?.success)
+                        .set(typingIndicatorText: user + " " + "IS_TYPING".localize())
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     conversationListItem.show(typingIndicator: false)
+                    .set(typingIndicatorText: "")
+                                       
                     conversationListItem.reloadInputViews()
                 }
             }
@@ -72,16 +82,19 @@ extension CometChatConversationList : CometChatMessageDelegate {
             
             if  (conversationListItem.conversation?.conversationWith as? User)?.uid == typingDetails.sender?.uid {
                 DispatchQueue.main.async {
-                    conversationListItem
+                    conversationListItem.show(typingIndicator: false)
                         .set(typingIndicatorText: "")
-                        .show(typingIndicator: false)
+                       
                     conversationListItem.reloadInputViews()
                 }
             }else if (conversationListItem.conversation?.conversationWith as? Group)?.guid == typingDetails.receiverID {
                 
                 let user = typingDetails.sender?.name ?? ""
                 DispatchQueue.main.async {
-                    conversationListItem.set(typingIndicatorText: user + " " + "").show(typingIndicator: false)
+                    conversationListItem.show(typingIndicator: false)
+                                        .set(typingIndicatorText: "")
+                                        
+                    conversationListItem.reloadInputViews()
                 }
             }
         }
