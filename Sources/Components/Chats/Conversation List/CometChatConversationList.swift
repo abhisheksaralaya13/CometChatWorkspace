@@ -239,7 +239,7 @@ import CometChatPro
                 strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
             }
         }else{
-            if conversation.lastMessage as? TextMessage {
+            if ((conversation.lastMessage as? TextMessage) != nil) {
                 insert(conversation: conversation, at: 0)
                 update(conversation: conversation)
             }else{
