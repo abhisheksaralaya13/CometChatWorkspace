@@ -211,6 +211,7 @@ import CometChatPro
     
     @discardableResult
     public func insert(conversation: Conversation, at: Int? = 0) -> CometChatConversationList {
+        conversation.unreadMessageCount += 1
         self.conversations.insert(conversation, at: at ?? 0)
         self.tableView.reloadData()
         return self
