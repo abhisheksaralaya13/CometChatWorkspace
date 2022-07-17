@@ -226,7 +226,7 @@ import CometChatPro
                 strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
                 strongSelf.conversations = strongSelf.conversations.sorted {
                     ($0.lastMessage?.sentAt ?? 0) < ($1.lastMessage?.sentAt ?? 0)
-                }
+                }.reversed()
                 strongSelf.tableView.reloadData()
             }
         }else{
