@@ -29,9 +29,6 @@ class CometChatGroupActionBubble: UITableViewCell {
         case .none:
             self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
         }
-        self.message.clipsToBounds = true
-        message.textColor = CometChatTheme.palatte?.accent600
-        message.font = CometChatTheme.typography?.Caption1
         return self
     }
     
@@ -130,11 +127,9 @@ class CometChatGroupActionBubble: UITableViewCell {
                     message.text = "ACTION_MESSAGE".localize()
                 }
             }
-                
-                message.layer.cornerRadius = 10
-                message.layer.borderWidth = 1
-                message.layer.borderColor = UIColor.systemFill.cgColor
-                message.layer.masksToBounds = true
+                self.message.clipsToBounds = true
+                message.textColor = CometChatTheme.palatte?.accent600
+                message.font = CometChatTheme.typography?.Caption1
         }
         }
     }
