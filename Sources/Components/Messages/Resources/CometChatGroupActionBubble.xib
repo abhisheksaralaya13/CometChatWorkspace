@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zub-XF-pn7">
-                                        <rect key="frame" x="5" y="5" width="230" height="10"/>
+                                        <rect key="frame" x="8" y="5" width="224" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" name="accent"/>
@@ -35,14 +35,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Zub-XF-pn7" secondAttribute="trailing" constant="5" id="9lK-aT-6yy"/>
-                                    <constraint firstItem="Zub-XF-pn7" firstAttribute="leading" secondItem="5qA-Qc-92t" secondAttribute="leading" constant="5" id="R73-Xp-XkH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zub-XF-pn7" secondAttribute="trailing" constant="8" id="9lK-aT-6yy"/>
+                                    <constraint firstItem="Zub-XF-pn7" firstAttribute="leading" secondItem="5qA-Qc-92t" secondAttribute="leading" constant="8" id="R73-Xp-XkH"/>
                                     <constraint firstItem="Zub-XF-pn7" firstAttribute="top" secondItem="5qA-Qc-92t" secondAttribute="top" constant="5" id="jWW-Al-M09"/>
                                     <constraint firstAttribute="bottom" secondItem="Zub-XF-pn7" secondAttribute="bottom" constant="5" id="lO3-qo-Nmx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
