@@ -43,7 +43,7 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view = contentView
-            self.view.backgroundColor = CometChatTheme.palatte?.accent900
+            self.view.backgroundColor = CometChatTheme.palatte?.accent200
         }
     }
     
@@ -114,7 +114,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as! CometChatEmojiKeyboardItem
 
         cell.emojiIcon.image =   UIImage(named: emojiCategories[indexPath.row].symbol, in: CometChatUIKit.bundle, compatibleWith: nil)
-        cell.emojiIcon.tintColor = CometChatTheme.palatte?.secondary
+        cell.emojiIcon.tintColor = CometChatTheme.palatte?.accent900
         
         return cell
     }
