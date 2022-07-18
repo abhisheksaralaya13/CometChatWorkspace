@@ -43,7 +43,7 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view = contentView
-            self.view.backgroundColor = CometChatTheme.palatte?.accent200
+            self.view.backgroundColor = CometChatTheme.palatte?.accent900
         }
     }
     
