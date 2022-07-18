@@ -109,7 +109,7 @@ class CometChatImageBubble: UIView {
     
     @objc  func onImageClick() {
         
-        if let metaData = message?.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let imageModerationDictionary = cometChatExtension["image-moderation"] as? [String : Any], let imageModeration = imageModerationDictionary["image-moderation"] as? [String:Any] , message?.sender?.uid != CometChat.getLoggedInUser()?.uid {
+        if let metaData = message?.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let imageModeration = imageModerationDictionary["image-moderation"] as? [String:Any] , message?.sender?.uid != CometChat.getLoggedInUser()?.uid {
             
             if let unsafeContent = imageModeration["unsafe"] as? String {
                 if unsafeContent == "yes" {
