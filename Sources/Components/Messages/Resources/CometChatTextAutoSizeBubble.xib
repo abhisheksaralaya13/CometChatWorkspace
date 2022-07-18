@@ -160,7 +160,7 @@
                                                                             <constraint firstItem="WOg-mr-q6b" firstAttribute="leading" secondItem="vfY-Fl-u1z" secondAttribute="trailing" id="7DG-fH-pwy"/>
                                                                             <constraint firstItem="WOg-mr-q6b" firstAttribute="top" secondItem="nry-xj-orj" secondAttribute="top" priority="900" id="869-Uq-Nri"/>
                                                                             <constraint firstAttribute="trailing" secondItem="WOg-mr-q6b" secondAttribute="trailing" id="OUP-vz-qaM"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="WOg-mr-q6b" secondAttribute="bottom" id="mKC-oT-zfF"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="WOg-mr-q6b" secondAttribute="bottom" priority="800" id="mKC-oT-zfF"/>
                                                                         </constraints>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbb-2r-2Ar">
