@@ -15,11 +15,7 @@ extension CometChatMessageComposer : CometChatActionSheetDelegate {
     func onActionItemClick(item: ActionItem) {
         if item.id == "image-from-camera" && item.text == "TAKE_A_PHOTO".localize() {
             takeAPhotoPressed()
-            // ADDED THIS LINE.
         }else if item.id == "image-from-gallery" || item.text == "PHOTO_VIDEO_LIBRARY".localize() {
-            photoAndVideoLibraryPressed()
-            
-        } else if item.id == "image-from-gallery" && item.text == "PHOTO_VIDEO_LIBRARY".localize() {
             photoAndVideoLibraryPressed()
         }else if item.id == "file" {
             documentPressed()
