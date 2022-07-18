@@ -68,7 +68,7 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
     
     private func fetchEmojis() {
         
-        CometChatEmojiCategoryJSON().getEmojis { [weak self] data in
+        CometChatEmojiCategoryJSON.getEmojis { [weak self] data in
             guard let strongSelf = self else { return }
             do {
                 strongSelf.emojiCategories = try JSONDecoder().decode(CometChatEmojiCategories.self, from: data).emojiCategory

@@ -10,7 +10,7 @@ import Foundation
 
 struct CometChatEmojiCategoryJSON {
     
-    private let json =
+    private static let json =
     """
     {
       "emojiCategory":
@@ -12010,7 +12010,7 @@ struct CometChatEmojiCategoryJSON {
     }
     """.data(using: .utf8)!
     
-    func getEmojis(completion: @escaping ((Data) -> Void)) {
+    static func getEmojis(completion: @escaping ((Data) -> Void)) {
         DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.1) {
             completion(self.json)
         }
