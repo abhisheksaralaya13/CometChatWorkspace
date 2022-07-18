@@ -817,6 +817,10 @@ class CometChatMessageBubble: UITableViewCell {
         if configurations != nil {
             configureMessageBubble(forMessage: message)
         }
+        calculateHeightForReactions()
+    }
+    
+    private func calculateHeightForReactions() {
         /// Count the number of reactions.
         let count = reactions.reactions.count
         /// numberOfItemInARow. MaxWidth is 228 and one item width is 45.

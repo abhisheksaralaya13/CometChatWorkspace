@@ -10,7 +10,7 @@ import Foundation
 
 struct CometChatEmojiCategoryJSON {
     
-    private static let json =
+    private static var json =
     """
     {
       "emojiCategory":
