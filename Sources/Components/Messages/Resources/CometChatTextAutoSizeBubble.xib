@@ -149,7 +149,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-mr-q6b" customClass="HyperlinkLabel" customModule="CometChat_KitchenSink" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-mr-q6b" customClass="HyperlinkLabel" customModule="CometChat_KitchenSink" customModuleProvider="target">
                                                                                 <rect key="frame" x="2" y="0.0" width="206" height="178"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
@@ -158,7 +158,7 @@
                                                                         </subviews>
                                                                         <constraints>
                                                                             <constraint firstItem="WOg-mr-q6b" firstAttribute="leading" secondItem="vfY-Fl-u1z" secondAttribute="trailing" id="7DG-fH-pwy"/>
-                                                                            <constraint firstItem="WOg-mr-q6b" firstAttribute="top" secondItem="nry-xj-orj" secondAttribute="top" id="869-Uq-Nri"/>
+                                                                            <constraint firstItem="WOg-mr-q6b" firstAttribute="top" secondItem="nry-xj-orj" secondAttribute="top" priority="900" id="869-Uq-Nri"/>
                                                                             <constraint firstAttribute="trailing" secondItem="WOg-mr-q6b" secondAttribute="trailing" id="OUP-vz-qaM"/>
                                                                             <constraint firstAttribute="bottom" secondItem="WOg-mr-q6b" secondAttribute="bottom" id="mKC-oT-zfF"/>
                                                                         </constraints>
