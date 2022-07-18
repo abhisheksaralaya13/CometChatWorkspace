@@ -12011,7 +12011,7 @@ struct CometChatEmojiCategoryJSON {
     """.data(using: .utf8)!
     
     func getEmojis(completion: @escaping ((Data) -> Void)) {
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.1) {
             completion(self.json)
         }
     }
