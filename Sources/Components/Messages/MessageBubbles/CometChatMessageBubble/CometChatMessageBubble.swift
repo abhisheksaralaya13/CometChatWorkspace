@@ -472,22 +472,7 @@ class CometChatMessageBubble: UITableViewCell {
                         self.set(messageOptions: fetchedOptions)
                     }
                 }
-                
-                /// Count the number of reactions.
-                let count = reactions.reactions.count
-                /// numberOfItemInARow. MaxWidth is 228 and one item width is 45.
-                let numberOfItemInRow = Int(228 / 45)
-                if count > 0 {
-                    /// calculate the number of rows.
-                    let row = count % numberOfItemInRow != 0 ? count / numberOfItemInRow + 1 : count / numberOfItemInRow
-                    self.reactions.isHidden = false
-                    /// Calculate the height of the message reactions, and one row height is 32.
-                    self.heightReactions.constant = CGFloat(row * 32)
-                } else {
-                    /// when reactions count is zero.
-                    self.heightReactions.constant = 0
-                    self.reactions.isHidden = true
-                }
+                calculateHeightForReactions()
             return
                 
             }
