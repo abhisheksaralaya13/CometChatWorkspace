@@ -717,13 +717,9 @@ enum MessageComposerMode {
     @discardableResult
     @objc public func setMessageFilter(templates: [CometChatMessageTemplate]?) -> CometChatMessageComposer {
         if let messageTemplates = templates {
-        
-            let  filteredMessageTemplates = messageTemplates.filter { (template: CometChatMessageTemplate) -> Bool in
-                return template.icon != nil && template.name != nil && !aaaa.contains($0.type)
-            }
-            
+ 
             if !filteredMessageTemplates.isEmpty {
-                for template in filteredMessageTemplates {
+                for template in filteredMessageTemplates where template.icon != nil && template.name != nil {
                     for excludedTemplate in excludeMessageTypes {
                         if template.type != excludedTemplate.type {
                             let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
