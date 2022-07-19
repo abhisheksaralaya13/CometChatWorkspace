@@ -141,10 +141,10 @@
                                                                         <rect key="frame" x="0.0" y="68" width="208" height="179"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfY-Fl-u1z">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="179"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="5" height="179"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="10" id="cPy-Jq-ZPa"/>
+                                                                                    <constraint firstAttribute="width" constant="5" id="cPy-Jq-ZPa"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -153,7 +153,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-mr-q6b" customClass="HyperlinkLabel" customModule="CometChat_KitchenSink" customModuleProvider="target">
-                                                                                <rect key="frame" x="15" y="0.0" width="193" height="179"/>
+                                                                                <rect key="frame" x="10" y="0.0" width="198" height="179"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
