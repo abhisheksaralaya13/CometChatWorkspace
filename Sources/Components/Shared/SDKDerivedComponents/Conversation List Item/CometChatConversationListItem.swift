@@ -774,7 +774,11 @@ import AVFAudio
                                     }
                                     
                                 }else{
-                                    self.set(subTitle: "CUSTOM_MESSAGE".localize())
+                                    if let pushNotificationTitle = currentMessage.metaData?["pushNotification"] as? String {
+                                        if !pushNotificationTitle.isEmpty {
+                                            self.set(subTitle: pushNotificationTitle)
+                                        }
+                                    }
                                 }
                                 
                             case .custom where currentConversation.conversationType == .group:
@@ -793,7 +797,11 @@ import AVFAudio
                                         self.set(subTitle: senderName + ":  " + "HAS_INITIATED_GROUP_AUDIO_CALL".localize())
                                     }
                                 }else{
-                                    self.set(subTitle: senderName +  ":  " +  "CUSTOM_MESSAGE".localize())
+                                    if let pushNotificationTitle = currentMessage.metaData?["pushNotification"] as? String {
+                                        if !pushNotificationTitle.isEmpty {
+                                            self.set(subTitle: pushNotificationTitle)
+                                        }
+                                    }
                                 }
                             case .groupMember, .text, .image, .video,.audio, .file,.custom: break
                             @unknown default: break
@@ -877,12 +885,12 @@ import AVFAudio
                     self.set(receipt: receipt.set(receipt: currentMessage))
                     
                     if currentMessage.parentMessageId != 0 {
-                        self.set(threadIndicatorText: "In a thread  ⤵").hide(threadIndicator: false)
+                        self.set(threadIndicatorText: "IN_A_THREAD".localize()).hide(threadIndicator: false)
                     }else {
                         self.set(threadIndicatorText: "").hide(threadIndicator: true)
                     }
                 }else{
-                    set(subTitle: "Tap to start conversation")
+                    set(subTitle: "TAP_TO_START_CONVERSATION".localize())
                     receipt.isHidden = true
                 }
                 
