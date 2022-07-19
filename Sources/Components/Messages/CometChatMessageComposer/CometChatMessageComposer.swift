@@ -234,7 +234,8 @@ enum MessageComposerMode {
     
     @discardableResult
     public func set(excludeMessageTypes: [CometChatMessageTemplate]) -> Self {
-        self.messageTypes = messageTypes.subtracting(excludeMessageTypes)
+        self.excludeMessageTypes = excludeMessageTypes
+
         return self
     }
     
@@ -679,7 +680,7 @@ enum MessageComposerMode {
                 set(messageTypes: messageComposerConfiguration.messageTypes ?? [])
                 set(excludeMessageTypes: messageComposerConfiguration.excludeMessageTypes ?? [])
                 
-                print("messageComposerConfiguration: \(messageComposerConfiguration.getPlaceholderText())")
+                print("messageComposerConfiguration.excludeMessageTypes: \(messageComposerConfiguration.excludeMessageTypes)")
             }
         }else{
             set(maxLines: 5)
@@ -729,24 +730,24 @@ enum MessageComposerMode {
                 }
                 attachment.isHidden = false
                 
-            }else{
-                
-                let imageFromCamera = ActionItem(id: "image-from-camera", text: "TAKE_A_PHOTO".localize(), icon: UIImage(named: "messages-camera.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                let imageFromGallery = ActionItem(id: "image-from-gallery", text: "PHOTO_VIDEO_LIBRARY".localize(), icon: UIImage(named: "photo-library.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                let file = ActionItem(id: "file", text: "DOCUMENT".localize(), icon: UIImage(named: "messages-file-upload.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                let location = ActionItem(id: "location", text: "SHARE_LOCATION".localize(), icon: UIImage(named: "messages-location.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                let poll = ActionItem(id: "extension_poll", text: "CREATE_A_POLL".localize(), icon: UIImage(named: "messages-polls.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                let whiteboard = ActionItem(id: "extension_whiteboard", text: "COLLABORATIVE_WHITEBOARD".localize(), icon: UIImage(named: "messages-collaborative-whiteboard.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                let document = ActionItem(id: "extension_document", text: "COLLABORATIVE_DOCUMENT".localize(), icon: UIImage(named: "messages-collaborative-document.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
-                
-                self.actionItems = [imageFromCamera, imageFromGallery, file, location, poll, whiteboard, document]
-            }
+//            }else{
+//
+//                let imageFromCamera = ActionItem(id: "image-from-camera", text: "TAKE_A_PHOTO".localize(), icon: UIImage(named: "messages-camera.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                let imageFromGallery = ActionItem(id: "image-from-gallery", text: "PHOTO_VIDEO_LIBRARY".localize(), icon: UIImage(named: "photo-library.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                let file = ActionItem(id: "file", text: "DOCUMENT".localize(), icon: UIImage(named: "messages-file-upload.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                let location = ActionItem(id: "location", text: "SHARE_LOCATION".localize(), icon: UIImage(named: "messages-location.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                let poll = ActionItem(id: "extension_poll", text: "CREATE_A_POLL".localize(), icon: UIImage(named: "messages-polls.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                let whiteboard = ActionItem(id: "extension_whiteboard", text: "COLLABORATIVE_WHITEBOARD".localize(), icon: UIImage(named: "messages-collaborative-whiteboard.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                let document = ActionItem(id: "extension_document", text: "COLLABORATIVE_DOCUMENT".localize(), icon: UIImage(named: "messages-collaborative-document.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Subtitle1, startIconTint: CometChatTheme.palatte?.accent700)
+//
+//                self.actionItems = [imageFromCamera, imageFromGallery, file, location, poll, whiteboard, document]
+           }
         }
         return self
     }
