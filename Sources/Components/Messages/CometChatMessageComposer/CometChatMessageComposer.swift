@@ -724,7 +724,7 @@ enum MessageComposerMode {
                 return template.icon != nil && template.name != nil
             }
             
-            let a = Array(Set(excludeMessageTypes).subtracting(Set(filteredMessageTemplates)))
+            let a = Array(Set(filteredMessageTemplates).subtracting(Set(excludeMessageTypes)))
             
             print(" ddd: \(a)")
             
