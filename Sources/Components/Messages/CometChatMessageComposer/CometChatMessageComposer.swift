@@ -719,8 +719,8 @@ enum MessageComposerMode {
         if let messageTemplates = templates {
             
            
-            let aaaa = excludeMessageTypes.map({$0.type})
-            print("aaaa: \(excludeMessageTypes)")
+            let aaaa :[String] = excludeMessageTypes.map({$0.type})
+            print("aaaa: \(aaaa)")
             
             let  filteredMessageTemplates = messageTemplates.filter { (template: CometChatMessageTemplate) -> Bool in
                 return template.icon != nil && template.name != nil
