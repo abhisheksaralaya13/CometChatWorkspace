@@ -718,9 +718,10 @@ enum MessageComposerMode {
     @objc public func setMessageFilter(templates: [CometChatMessageTemplate]?) -> CometChatMessageComposer {
         if let messageTemplates = templates {
             
+            
             let  filteredMessageTemplates = messageTemplates.filter { (template: CometChatMessageTemplate) -> Bool in
                 return template.icon != nil && template.name != nil
-            }
+            }.subtracting(messageTypes)
             if !filteredMessageTemplates.isEmpty {
                 for template in filteredMessageTemplates {
                     
