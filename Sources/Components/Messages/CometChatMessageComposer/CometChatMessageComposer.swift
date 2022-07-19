@@ -725,7 +725,7 @@ enum MessageComposerMode {
             }
             
             let a = filteredMessageTemplates.filter({ (template: CometChatMessageTemplate) -> Bool in
-                return template.type })
+                return excludeMessageTypes.contains(obj: template.type) })
             
             print(" ddd: \(a)")
          
