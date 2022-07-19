@@ -728,9 +728,17 @@ enum MessageComposerMode {
             
             print(" ddd: \(a)")
          
+            for template in excludeMessageTypes {
+                print(" excludeMessageTypes template: \(template.type)")
+            }
+            
+            for template in filteredMessageTemplates {
+                print(" filteredMessageTemplates template: \(template.type)")
+            }
+            
             if !filteredMessageTemplates.isEmpty {
                 for template in filteredMessageTemplates {
-                    
+                  
                     let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
                     self.actionItems.append(actionItem)
                 }
