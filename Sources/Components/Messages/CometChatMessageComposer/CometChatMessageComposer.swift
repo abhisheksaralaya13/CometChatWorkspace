@@ -721,10 +721,12 @@ enum MessageComposerMode {
             
             let  filteredMessageTemplates = messageTemplates.filter { (template: CometChatMessageTemplate) -> Bool in
                 return template.icon != nil && template.name != nil
-            }.subtracting(excludeMessageTypes)
+            }
             
-            if !filteredMessageTemplates.isEmpty {
-                for template in filteredMessageTemplates {
+            let  messageTemplates = filteredMessageTemplates.subtracting(excludeMessageTypes)
+            
+            if !messageTemplates.isEmpty {
+                for template in messageTemplates {
                     
                     let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
                     self.actionItems.append(actionItem)
