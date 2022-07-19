@@ -18,7 +18,7 @@ public class  MessageListConfiguration: CometChatConfiguration {
     lazy var hideError: Bool = false
     var tags: [String]?
     var messageTypes: [CometChatMessageTemplate]?
-    var excludeMessageTypes: [String]?
+    var excludeMessageTypes: [CometChatMessageTemplate]?
     var emptyText: String?
     var errorText: String?
     var scrollToBottomOnNewMessage: Bool = true
@@ -69,7 +69,7 @@ public class  MessageListConfiguration: CometChatConfiguration {
         return self
     }
     @discardableResult
-    public func set(excludeMessageTypes: [String]) -> Self {
+    public func set(excludeMessageTypes: [CometChatMessageTemplate]) -> Self {
         self.excludeMessageTypes = excludeMessageTypes
         return self
     }

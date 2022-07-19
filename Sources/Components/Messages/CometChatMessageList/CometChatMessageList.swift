@@ -75,7 +75,6 @@ public enum  MessageType : String {
     var uids: [String] = [String]()
     var messageTypes: [String] = [String]()
     var messageCategories: [String] = [String]()
-    var excludeMessageTypes: [String] = [String]()
     var emptyView: UIView?
     var errorView: UIView?
     var emptyStateText: String = "NO_MESSAGES_FOUND".localize()
@@ -142,9 +141,9 @@ public enum  MessageType : String {
         return self
     }
     @discardableResult
-    public func set(excludeMessageTypes: [String]) -> Self {
-        self.excludeMessageTypes = excludeMessageTypes
-        self.messageTypes = Array(Set(messageTypes).subtracting(excludeMessageTypes))
+    public func set(excludeMessageTypes: [CometChatMessageTemplate]) -> Self {
+        let currentExcludeMessageTypes:[String] = excludeMessageTypes.map { $0.type }
+        self.messageTypes = Array(Set(messageTypes).subtracting(currentExcludeMessageTypes))
         return self
     }
     @discardableResult
