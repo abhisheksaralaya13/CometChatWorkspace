@@ -720,11 +720,14 @@ enum MessageComposerMode {
  
             if !messageTemplates.isEmpty {
                 for template in messageTemplates where template.icon != nil && template.name != nil {
+                    var actionItem: ActionItem?
                     for excludedTemplate in excludeMessageTypes {
                         if template.type != excludedTemplate.type {
-                            let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
-                            self.actionItems.append(actionItem)
+                             actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
                         }
+                    }
+                    if let actionItem = actionItem {
+                        self.actionItems.append(actionItem)
                     }
                 }
                 attachment.isHidden = false
