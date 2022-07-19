@@ -53,11 +53,13 @@ class CometChatPollBubbleCell: UITableViewCell {
             if isSender {
                 pollButton.isHidden = true
                 percentage.isHidden = false
+                poll
             } else if voters.contains(where: CometChat.getLoggedInUser()!.uid!.contains) {
                 pollButton.isHidden = true
                 percentage.isHidden = false
             } else {
                 pollButton.isHidden = false
+                pollButton.setTitle("", for: .normal)
                 percentage.isHidden = true
             }
         }
