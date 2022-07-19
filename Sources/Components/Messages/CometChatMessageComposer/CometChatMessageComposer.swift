@@ -679,10 +679,9 @@ enum MessageComposerMode {
                 hide(emoji: messageComposerConfiguration.isEmojiHidden())
                 set(messageTypes: messageComposerConfiguration.messageTypes ?? [])
                 set(excludeMessageTypes: messageComposerConfiguration.excludeMessageTypes ?? [])
-                
-                print("messageComposerConfiguration.excludeMessageTypes: \(messageComposerConfiguration.excludeMessageTypes)")
             }
         }else{
+            set(messageTypes: [CometChatMessageTemplate(type: .imageFromCamera), CometChatMessageTemplate(type: .imageFromGallery), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .location), CometChatMessageTemplate(type: .collaborativeWhiteboard), CometChatMessageTemplate(type: .collaborativeDocument), CometChatMessageTemplate(type: .poll)])
             set(maxLines: 5)
             set(placeholderText: placeholderText)
         }
