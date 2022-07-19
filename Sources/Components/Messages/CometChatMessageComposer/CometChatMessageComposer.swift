@@ -717,18 +717,22 @@ enum MessageComposerMode {
     @discardableResult
     @objc public func setMessageFilter(templates: [CometChatMessageTemplate]?) -> CometChatMessageComposer {
         if let messageTemplates = templates {
- 
-            if !messageTemplates.isEmpty {
-                for template in messageTemplates where template.icon != nil && template.name != nil {
-                    var actionItem: ActionItem?
-                    for excludedTemplate in excludeMessageTypes {
-                        if template.type != excludedTemplate.type {
-                             actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
-                        }
-                    }
-                    if let actionItem = actionItem {
-                        self.actionItems.append(actionItem)
-                    }
+            
+            print("excludeMessageTypes: \(excludeMessageTypes)")
+            
+            let  filteredMessageTemplates = messageTemplates.filter { (template: CometChatMessageTemplate) -> Bool in
+                return template.icon != nil && template.name != nil
+            }
+            
+            let a = Array(Set(excludeMessageTypes).subtracting(Set(filteredMessageTemplates)))
+            
+            print(" ddd: \(a)")
+            
+            if !filteredMessageTemplates.isEmpty {
+                for template in filteredMessageTemplates {
+                  
+                    let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
+                    self.actionItems.append(actionItem)
                 }
                 attachment.isHidden = false
             }
