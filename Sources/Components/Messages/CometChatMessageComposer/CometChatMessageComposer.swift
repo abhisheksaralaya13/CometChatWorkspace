@@ -721,8 +721,13 @@ enum MessageComposerMode {
             print("excludeMessageTypes: \(excludeMessageTypes)")
             
             let  filteredMessageTemplates = messageTemplates.filter { (template: CometChatMessageTemplate) -> Bool in
-                return template.icon != nil && template.name != nil && excludeMessageTypes.contains(obj: template.type)
+                return template.icon != nil && template.name != nil
             }
+            
+            let a = filteredMessageTemplates.filter({ (template: CometChatMessageTemplate) -> Bool in
+                return template.type })
+            
+            print(" ddd: \(a)")
          
             if !filteredMessageTemplates.isEmpty {
                 for template in filteredMessageTemplates {
