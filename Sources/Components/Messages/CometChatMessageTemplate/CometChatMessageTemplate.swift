@@ -82,7 +82,7 @@ public class CometChatMessageTemplate: NSObject {
                 
             case .sticker:
                 
-                return CometChatMessageTemplate(type: "extension_sticker", name: "", icon: nil , in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "extension_sticker", name: "", icon: nil, customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .meet:
                 
