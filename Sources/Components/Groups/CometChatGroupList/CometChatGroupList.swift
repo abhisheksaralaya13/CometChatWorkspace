@@ -300,7 +300,7 @@ import CometChatPro
         registerCells()
         setupDelegates()
         
-        if groups.isEmpty && !configurations.isEmpty {
+        if  configurations.isEmpty {
              refreshGroups()
         }
     }
@@ -420,12 +420,22 @@ import CometChatPro
      */
     private func refreshGroups(){
         groups.removeAll()
-        activityIndicator?.startAnimating()
-        activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-        tableView.tableFooterView = activityIndicator
-        tableView.tableFooterView = activityIndicator
-        tableView.tableFooterView?.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            if let emptyView = strongSelf.emptyView {
+                strongSelf.tableView.set(customView: emptyView)
+            }else{
+                strongSelf.tableView?.setEmptyMessage(strongSelf.emptyText , color: strongSelf.emptyStateTextColor, font: strongSelf.emptyStateTextFont)
+            }
+            strongSelf.activityIndicator?.startAnimating()
+            strongSelf.activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: strongSelf.tableView.bounds.width, height: CGFloat(44))
+            strongSelf.tableView.tableFooterView = strongSelf.activityIndicator
+            strongSelf.tableView.tableFooterView = strongSelf.activityIndicator
+            strongSelf.tableView.tableFooterView?.isHidden = false
+        }
+        
         groupRequest = GroupsRequest.GroupsRequestBuilder(limit: limit).set(searchKeyword: searchKeyword).set(joinedOnly: joinedOnly).set(tags: tags).build()
+        
         groupRequest?.fetchNext(onSuccess: { [weak self] (fetchedGroups) in
             guard let this = self else {
                 return
@@ -437,16 +447,7 @@ import CometChatPro
                     this.tableView.tableFooterView?.isHidden = true
                     this.tableView.reloadData()
                 }
-            }else{
-                DispatchQueue.main.async {
-                    this.activityIndicator?.stopAnimating()
-                    this.tableView.tableFooterView?.isHidden = true
-                    this.tableView.reloadData()
-                }
             }
-            DispatchQueue.main.async {
-                this.activityIndicator?.stopAnimating()
-                this.tableView.tableFooterView?.isHidden = true}
         }) { (error) in
             if let error = error {
                 CometChatGroupEvents.emitOnError(group: nil, error: error)
