@@ -686,6 +686,8 @@ enum MessageComposerMode {
             set(placeholderText: placeholderText)
         }
         
+        setMessageFilter(templates: messageTypes)
+        
         if hideSticker {
             self.sticker.isHidden = true
         }
@@ -733,6 +735,18 @@ enum MessageComposerMode {
                 }
                 for template in filteredMessageTemplates {
                   
+                    if template.type == "extension_sticker" {
+                        hide(sticker: false)
+                    }else{
+                        hide(sticker: true)
+                    }
+                    
+                    if template.type == "text" {
+                        show(sendButton: true)
+                    }else{
+                        show(sendButton: false)
+                    }
+                    
                     let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
                     self.actionItems.append(actionItem)
                 }
@@ -755,9 +769,7 @@ enum MessageComposerMode {
     
     
     @IBAction func onAttachmentClick(_ sender: Any) {
-        
-        setMessageFilter(templates: messageTypes)
-        
+ 
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         let group: CometChatActionPresentable = CometChatMessageActionsGroup()
         
