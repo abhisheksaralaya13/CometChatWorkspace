@@ -477,20 +477,15 @@ public enum  MessageType : String {
      [CometChatMessages Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-4-comet-chat-message-list)
      */
     private func groupMessages(messages: [BaseMessage]){
-        
-       
-        
         DispatchQueue.main.async {  [weak self] in
             guard let strongSelf = self else { return }
-            if strongSelf.messages.isEmpty {
+            if messages.isEmpty {
                 if let emptyView = strongSelf.emptyView {
                     strongSelf.tableView.set(customView: emptyView)
                 }else{
-                    strongSelf.tableView?.setEmptyMessage(strongSelf.emptyStateText , color: strongSelf.emptyStateTextColor, font: strongSelf.emptyStateTextFont)
+                    strongSelf.tableView?.setEmptyMessage(strongSelf.emptyStateText ?? "", color: strongSelf.emptyStateTextColor, font: strongSelf.emptyStateTextFont)
                 }
-            }else{
-                strongSelf.tableView?.restore()
-            }
+            }else{ strongSelf.tableView?.restore() }
         }
         let groupedMessages = Dictionary(grouping: messages) { (element) -> Date in
             let date = Date(timeIntervalSince1970: TimeInterval(element.sentAt))
