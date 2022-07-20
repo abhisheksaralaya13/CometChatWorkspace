@@ -336,7 +336,7 @@ import CometChatPro
         setuptTableView()
         registerCells()
         setupDelegates()
-        configureConversationList()
+        
         if ((configurations?.isEmpty) != nil) {
             refreshConversations()
         }
@@ -405,6 +405,7 @@ import CometChatPro
     }
     
     public func refreshConversations(){
+        
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             if let emptyView = strongSelf.emptyView {
