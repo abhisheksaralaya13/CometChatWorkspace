@@ -358,16 +358,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
         self.linkPreview.isHidden = true
         self.textMessageStackView.isHidden = false
         if let translatedMessage = message.metaData?["translated-message"] as? String {
-            /*
-            let translatedText = NSMutableAttributedString(string: "\(translatedMessage.lowercased())\n\n",
-                                                           attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.9), NSAttributedString.Key.font: CometChatTheme.typography!.Body])
-            let messageText = NSMutableAttributedString(string: "\(message.text)\n\n",
-                                                        attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.8), NSAttributedString.Key.font: CometChatTheme.typography!.Subtitle2])
-            let translatedString = NSMutableAttributedString(string: "TRANSLATED_MESSAGE".localize(),
-                                                             attributes: [NSAttributedString.Key.foregroundColor: CometChatTheme.palatte!.background!.withAlphaComponent(0.6), NSAttributedString.Key.font: CometChatTheme.typography!.Caption2])
-            translatedText.append(messageText)
-            translatedText.append(translatedString)
-            self.set(attributedText: translatedText) */
+          
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
             set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
         } else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], !linkArray.isEmpty {
@@ -404,6 +395,10 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             }
             self.linkPreviewMessage.text = message.text
             set(containerBG: CometChatTheme.palatte!.secondary!)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openLink))
+            tapGesture.cancelsTouchesInView = false
+            linkPreview.addGestureRecognizer(tapGesture)
         }
         else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
@@ -472,6 +467,12 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             heightReactions.constant = 0
         }
         
+    }
+    
+    @objc private func openLink() {
+        if let controller = controller {
+            print("controller: \(controller)")
+        }
     }
     
     private func setupStyle(isStandard: Bool) {
