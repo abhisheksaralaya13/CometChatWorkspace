@@ -32,6 +32,7 @@ public class MessageComposerConfiguration: CometChatConfiguration {
     }
     @discardableResult
     public func set(excludeMessageTypes: [CometChatMessageTemplate]) -> Self {
+       print("MessageComposerConfiguration excludeMessageTypes: \(excludeMessageTypes)")
         self.excludeMessageTypes = excludeMessageTypes
         return self
     }
