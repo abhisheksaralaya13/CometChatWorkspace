@@ -732,6 +732,11 @@ enum MessageComposerMode {
             
             if !filteredMessageTemplates.isEmpty {
                 
+                for template in excludeMessageTypes {
+                    
+                    filteredMessageTemplates =  filteredMessageTemplates.filter { $0.type != template.type }
+                    print("filteredMessageTemplates: \(filteredMessageTemplates)")
+                }
                 for template in filteredMessageTemplates {
                   
                     let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
