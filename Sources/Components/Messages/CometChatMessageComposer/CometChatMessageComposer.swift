@@ -769,7 +769,9 @@ enum MessageComposerMode {
     
     
     @IBAction func onAttachmentClick(_ sender: Any) {
- 
+        self.actionItems.removeAll()
+        setMessageFilter(templates: messageTypes)
+        
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         let group: CometChatActionPresentable = CometChatMessageActionsGroup()
         
