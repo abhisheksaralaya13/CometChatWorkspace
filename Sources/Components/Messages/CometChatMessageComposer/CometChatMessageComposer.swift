@@ -221,8 +221,7 @@ enum MessageComposerMode {
 
     @discardableResult
     public func set(excludeMessageTypes: [CometChatMessageTemplate]) -> Self {
-       // self.excludeMessageTypes = excludeMessageTypes
-
+        self.excludeMessageTypes = excludeMessageTypes
         return self
     }
 
