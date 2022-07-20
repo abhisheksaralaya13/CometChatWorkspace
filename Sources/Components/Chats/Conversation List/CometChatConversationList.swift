@@ -435,11 +435,15 @@ import CometChatPro
                
                 CometChatConversationEvents.emitOnError(conversation: nil, error: error)
                
-                if !self.hideError!, self.errorText.isEmpty {
+                if !hideError {
                     let confirmDialog = CometChatDialog()
                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                    if self.errorText.isEmpty {
+                        confirmDialog.set(error: CometChatServerError.get(error: error))
+                    }else{
+                        confirmDialog.set(messageText: errorText)
+                    }
                     confirmDialog.open(onConfirm: { [weak self] in
                         guard let strongSelf = self else { return }
                         // Referesh list
