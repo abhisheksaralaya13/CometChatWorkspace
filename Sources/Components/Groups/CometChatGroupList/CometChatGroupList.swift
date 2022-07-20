@@ -43,13 +43,14 @@ import CometChatPro
     var emptyStateTextColor: UIColor = UIColor.gray
     var errorStateTextFont: UIFont?
     var errorStateTextColor: UIColor?
-    var configurations: [CometChatConfiguration]?
+    var configurations: [CometChatConfiguration] = [CometChatConfiguration]()
     
     
     @discardableResult
     @objc public func set(configurations: [CometChatConfiguration]?) -> CometChatGroupList {
         self.configurations = configurations
         configureGroupList()
+        refreshGroups()
         return self
     }
     
@@ -300,8 +301,8 @@ import CometChatPro
         setuptTableView()
         registerCells()
         setupDelegates()
-        configureGroupList()
-        if groups.isEmpty {
+        
+        if groups.isEmpty && !configurations?.isEmpty {
              refreshGroups()
         }
     }
@@ -428,7 +429,6 @@ import CometChatPro
         tableView.tableFooterView?.isHidden = false
         groupRequest = GroupsRequest.GroupsRequestBuilder(limit: limit).set(searchKeyword: searchKeyword).set(joinedOnly: joinedOnly).set(tags: tags).build()
         groupRequest?.fetchNext(onSuccess: { [weak self] (fetchedGroups) in
-            self?.set(configurations: self?.configurations)
             guard let this = self else {
                 return
             }
