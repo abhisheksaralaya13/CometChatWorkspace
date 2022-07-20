@@ -398,7 +398,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openLink))
             tapGesture.cancelsTouchesInView = false
-            linkPreview.addGestureRecognizer(tapGesture)
+            self.linkPreview.addGestureRecognizer(tapGesture)
         }
         else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
@@ -471,7 +471,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     
     @objc private func openLink() {
         if let controller = controller {
-            print("controller: \(controller)")
+            print("controller: \(controller) \(linkPreviewURL)")
         }
     }
     
