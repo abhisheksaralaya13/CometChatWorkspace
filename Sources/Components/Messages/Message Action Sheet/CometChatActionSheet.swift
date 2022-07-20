@@ -34,7 +34,7 @@ enum LayoutMode {
     var isShortFormEnabled = true
     var layoutMode: LayoutMode = .gridMode
      
-    static var backgroundColor : UIColor =  #colorLiteral(red: 0.9058460593, green: 0.9195671678, blue: 0.9193262458, alpha: 1)
+    static var backgroundColor : UIColor =  CometChatTheme.palatte?.secondary
      
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
