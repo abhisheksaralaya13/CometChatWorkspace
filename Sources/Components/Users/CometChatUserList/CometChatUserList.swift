@@ -666,7 +666,6 @@ extension CometChatUserList: UITableViewDelegate, UITableViewDataSource {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if isSearching {
             return filteredUsers.count
         }else{

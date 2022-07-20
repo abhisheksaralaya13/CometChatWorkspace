@@ -21,6 +21,7 @@ public class  MessageListConfiguration: CometChatConfiguration {
     var excludeMessageTypes: [CometChatMessageTemplate]?
     var emptyText: String?
     var errorText: String?
+    var emptyView: UIView?
     var scrollToBottomOnNewMessage: Bool = true
     var showEmojiInLargerSize: Bool = true
     var messageBubbleConfiguration: MessageBubbleConfiguration?
@@ -73,6 +74,13 @@ public class  MessageListConfiguration: CometChatConfiguration {
         self.excludeMessageTypes = excludeMessageTypes
         return self
     }
+    
+    @discardableResult
+    public func set(emptyView: UIView?) -> Self {
+        self.emptyView = emptyView
+        return self
+    }
+    
     @discardableResult
     public func set(emptyText: String) -> Self {
         self.emptyText = emptyText

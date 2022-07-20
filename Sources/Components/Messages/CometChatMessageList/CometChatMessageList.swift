@@ -154,6 +154,42 @@ public enum  MessageType : String {
     }
     
     @discardableResult
+    public func set(errorText: String) -> Self {
+        self.errorStateText = errorText
+        return self
+    }
+    
+    @discardableResult
+    public func set(emptyStateTextFont: UIFont) -> Self {
+        self.emptyStateTextFont = emptyStateTextFont
+        return self
+    }
+    
+    @discardableResult
+    public func set(errorStateTextFont: UIFont) -> Self {
+        self.errorStateTextFont = errorStateTextFont
+        return self
+    }
+    
+    @discardableResult
+    public func set(emptyStateTextColor: UIColor) -> Self {
+        self.emptyStateTextColor = emptyStateTextColor
+        return self
+    }
+    
+    @discardableResult
+    public func set(errorStateTextColor: UIColor) -> Self {
+        self.errorStateTextColor = errorStateTextColor
+        return self
+    }
+    
+    @discardableResult
+    public func set(emptyView: UIView?) -> Self {
+        self.emptyView = emptyView
+        return self
+    }
+    
+    @discardableResult
     public func scrollToBottomOnNewMessage(bool: Bool) -> Self {
         self.scrollToBottomOnNewMessage = bool
         return self
@@ -441,15 +477,20 @@ public enum  MessageType : String {
      [CometChatMessages Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-4-comet-chat-message-list)
      */
     private func groupMessages(messages: [BaseMessage]){
+        
+       
+        
         DispatchQueue.main.async {  [weak self] in
             guard let strongSelf = self else { return }
-            if messages.isEmpty {
+            if strongSelf.messages.isEmpty {
                 if let emptyView = strongSelf.emptyView {
                     strongSelf.tableView.set(customView: emptyView)
                 }else{
-                    strongSelf.tableView?.setEmptyMessage(strongSelf.emptyStateText ?? "", color: strongSelf.emptyStateTextColor, font: strongSelf.emptyStateTextFont)
+                    strongSelf.tableView?.setEmptyMessage(strongSelf.emptyStateText , color: strongSelf.emptyStateTextColor, font: strongSelf.emptyStateTextFont)
                 }
-            }else{ strongSelf.tableView?.restore() }
+            }else{
+                strongSelf.tableView?.restore()
+            }
         }
         let groupedMessages = Dictionary(grouping: messages) { (element) -> Date in
             let date = Date(timeIntervalSince1970: TimeInterval(element.sentAt))
@@ -850,6 +891,8 @@ public enum  MessageType : String {
                 set(messageTypes: messageListConfiguration.messageTypes ?? [])
                 set(excludeMessageTypes: messageListConfiguration.excludeMessageTypes ?? [])
                 set(emptyText: messageListConfiguration.emptyText ?? "")
+                set(errorText: messageListConfiguration.errorText ?? "")
+                set(emptyView: messageListConfiguration.emptyView)
                 scrollToBottomOnNewMessage(bool: messageListConfiguration.scrollToBottomOnNewMessage)
                 showEmojiInLargerSize(bool: messageListConfiguration.showEmojiInLargerSize)
                 set(messageBubbleConfiguration: messageListConfiguration.messageBubbleConfiguration)

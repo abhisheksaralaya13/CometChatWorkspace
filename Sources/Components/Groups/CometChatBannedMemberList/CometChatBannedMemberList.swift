@@ -496,6 +496,15 @@ extension CometChatBannedMemberList: UITableViewDelegate, UITableViewDataSource 
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if bannedGroupMembers.isEmpty {
+            if let emptyView = self.emptyView {
+                self.tableView.set(customView: emptyView)
+            }else{
+                self.tableView?.setEmptyMessage(self.emptyText , color: self.emptyStateTextColor, font: self.emptyStateTextFont)
+            }
+        } else{
+            self.tableView.restore()
+        }
         if isSearching {
             return filteredBannedGroupMembers.count
         }else{
