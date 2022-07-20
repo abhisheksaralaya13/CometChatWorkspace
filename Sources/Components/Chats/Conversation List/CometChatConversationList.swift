@@ -425,7 +425,7 @@ import CometChatPro
         conversationRequest?.fetchNext(onSuccess: { (fetchedConversations) in
             self.conversations = fetchedConversations
             DispatchQueue.main.async {
-                self.set(configurations: self.configurations)
+               
                 self.activityIndicator?.stopAnimating()
                 self.tableView.tableFooterView?.isHidden = true
                 self.tableView.reloadData()
