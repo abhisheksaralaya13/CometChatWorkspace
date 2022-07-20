@@ -665,6 +665,7 @@ enum MessageComposerMode {
             send.tintColor = CometChatTheme.palatte?.primary
         } else {}
         
+        print("excludeMessageTypes 111: \(excludeMessageTypes)")
         if let configurations = configurations {
             if let messageComposerConfiguration = configurations.filter({ $0 is MessageComposerConfiguration}).last as? MessageComposerConfiguration {
                 
