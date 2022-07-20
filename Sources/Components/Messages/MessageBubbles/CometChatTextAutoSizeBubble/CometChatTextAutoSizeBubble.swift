@@ -404,6 +404,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openLink))
             tapGesture.cancelsTouchesInView = false
+            self.thumbnail.isUserInteractionEnabled = true
             self.thumbnail.addGestureRecognizer(tapGesture)
             
             linkPreviewMessage.enabledTypes.append(phoneParser1)

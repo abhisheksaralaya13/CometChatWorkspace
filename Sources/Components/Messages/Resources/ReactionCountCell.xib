@@ -20,20 +20,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqv-j6-1t0">
                         <rect key="frame" x="3" y="5" width="112" height="58"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-Bb-tZD">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-Bb-tZD">
                                 <rect key="frame" x="0.0" y="0.0" width="112" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJj-Bu-DhO">
-                                        <rect key="frame" x="0.0" y="0.0" width="112" height="58"/>
+                                        <rect key="frame" x="0.0" y="22" width="112" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messages-add-reaction" translatesAutoresizingMaskIntoConstraints="NO" id="oux-8t-80B">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="58"/>
+                                        <rect key="frame" x="0.0" y="19" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="bko-RT-0vF"/>
+                                            <constraint firstAttribute="height" constant="20" id="rEA-ci-shw"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
