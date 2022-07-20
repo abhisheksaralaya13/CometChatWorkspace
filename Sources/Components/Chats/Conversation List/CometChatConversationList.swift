@@ -337,7 +337,9 @@ import CometChatPro
         registerCells()
         setupDelegates()
         configureConversationList()
-        refreshConversations()
+        if configurations?.isEmpty {
+            refreshConversations()
+        }
     }
     
     
