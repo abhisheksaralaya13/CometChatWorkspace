@@ -139,7 +139,7 @@ open class CometChatMessages: UIViewController {
         }
         messageComposer.set(controller: self)
         if let configuration = configuration {
-            messageList.set(configurations: [configuration])
+            messageComposer.set(configurations: [configuration])
         }
         if let configurations = configurations {
             messageComposer.set(configurations: configurations)
