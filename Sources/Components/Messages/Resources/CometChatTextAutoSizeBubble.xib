@@ -107,7 +107,7 @@
                                                                     <constraint firstAttribute="width" constant="10" id="jHF-dZ-2al"/>
                                                                 </constraints>
                                                             </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="apq-iN-9KL">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="apq-iN-9KL">
                                                                 <rect key="frame" x="10" y="0.0" width="208" height="259"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-hC-s6y">
@@ -118,30 +118,24 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUy-Vx-lO7">
-                                                                        <rect key="frame" x="0.0" y="11" width="208" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="11" width="208" height="12.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="25" id="KsU-nR-B2u"/>
-                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="sitename.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewd-Rg-UoO">
-                                                                        <rect key="frame" x="0.0" y="36" width="208" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="23.5" width="208" height="16"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="32" id="N8f-He-XD7"/>
-                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nry-xj-orj">
-                                                                        <rect key="frame" x="0.0" y="68" width="208" height="179"/>
+                                                                        <rect key="frame" x="0.0" y="39.5" width="208" height="207.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfY-Fl-u1z">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="2.5" height="179"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="2.5" height="207.5"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="2.5" id="cPy-Jq-ZPa"/>
@@ -153,7 +147,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-mr-q6b" customClass="HyperlinkLabel" customModule="CometChat_KitchenSink" customModuleProvider="target">
-                                                                                <rect key="frame" x="9.5" y="7" width="191.5" height="165"/>
+                                                                                <rect key="frame" x="9.5" y="7" width="191.5" height="193.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
