@@ -89,19 +89,6 @@ enum MessageComposerMode {
         if let messageTypes = messageTypes {
             if !messageTypes.isEmpty {
                 self.messageTypes = messageTypes
-            }else{
-                self.messageTypes = [CometChatMessageTemplate(type: .text),
-                                     CometChatMessageTemplate(type: .imageFromCamera),
-                                     CometChatMessageTemplate(type: .imageFromGallery),
-                                     CometChatMessageTemplate(type: .video),
-                                     CometChatMessageTemplate(type: .audio),
-                                     CometChatMessageTemplate(type: .file),
-                                     CometChatMessageTemplate(type: .location),
-                                     CometChatMessageTemplate(type: .poll),
-                                     CometChatMessageTemplate(type: .collaborativeWhiteboard),
-                                     CometChatMessageTemplate(type: .collaborativeDocument),
-                                     CometChatMessageTemplate(type: .sticker),
-                                     CometChatMessageTemplate(type: .meet)]
             }
         }
         return self
@@ -440,9 +427,7 @@ enum MessageComposerMode {
         }
         return self
     }
-    
-    
-    
+
     
     
     @discardableResult
@@ -450,8 +435,7 @@ enum MessageComposerMode {
         self.isHidden = messageComposer
         return self
     }
-    
-    
+
     
     
     @discardableResult
@@ -622,38 +606,16 @@ enum MessageComposerMode {
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
-        /*
-         let authorizationStatus: CLAuthorizationStatus
-         
-         if #available(iOS 14, *) {
-         authorizationStatus = locationManager.authorizationStatus
-         } else {
-         authorizationStatus = CLLocationManager.authorizationStatus()
-         }
-         
-         switch authorizationStatus {
-         case .authorizedAlways:
-         locationManager.requestAlwaysAuthorization()
-         curentLocation = locationManager.location
-         case .authorizedWhenInUse:
-         locationManager.requestWhenInUseAuthorization()
-         curentLocation = locationManager.location
-         case .restricted, .denied:
-         print("denied or restricted")
-         default:
-         locationManager.requestLocation()
-         curentLocation = locationManager.location
-         }*/
     }
     
     
     fileprivate func setupDelegates() {
         documentPicker.delegate = self
         CometChatStickerKeyboard.stickerDelegate = self
-        //   CometChatEmojiKeyboard.emojiKeyboardDelegate = self
     }
     
     fileprivate func configureMessageComposer() {
+        
         textView.layer.cornerRadius = 20
         textView.font = UIFont.systemFont(ofSize: 17)
         textView.delegate = self
@@ -698,10 +660,6 @@ enum MessageComposerMode {
         }
         if hideAttachment {
             self.attachment.isHidden = true
-        }
-        
-        if hideEmoji {
-            //   textView.keyboardLayoutGuide = 
         }
     }
     
