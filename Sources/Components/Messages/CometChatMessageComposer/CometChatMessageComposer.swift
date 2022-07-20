@@ -686,11 +686,6 @@ enum MessageComposerMode {
                 }
                 for template in filteredMessageTemplates {
 
-                    if filteredMessageTemplates.contains(obj: CometChatMessageTemplate(type: .sticker)) {
-                        hide(sticker: false)
-                    }else{
-                        hide(sticker: true)
-                    }
                     let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
                     self.actionItems.append(actionItem)
                 }
