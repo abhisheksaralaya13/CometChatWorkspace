@@ -47,7 +47,7 @@ import CometChatPro
     
     
     @discardableResult
-    @objc public func set(configurations: [CometChatConfiguration]?) -> CometChatGroupList {
+    @objc public func set(configurations: [CometChatConfiguration]) -> CometChatGroupList {
         self.configurations = configurations
         configureGroupList()
         refreshGroups()
@@ -248,7 +248,6 @@ import CometChatPro
     }
     
     private func configureGroupList() {
-        if let configurations = configurations {
             let currentConfigurations = configurations.filter{ $0 is GroupListConfiguration }
             if let configuration = currentConfigurations.last as? GroupListConfiguration {
                 set(background: configuration.background)
@@ -261,7 +260,6 @@ import CometChatPro
                 set(errorMessage: configuration.errorText)
                 set(emptyStateMessage: configuration.emptyText)
             }
-        }
      }
     
     /**
@@ -302,7 +300,7 @@ import CometChatPro
         registerCells()
         setupDelegates()
         
-        if groups.isEmpty && !configurations?.isEmpty {
+        if groups.isEmpty && !configurations.isEmpty {
              refreshGroups()
         }
     }
