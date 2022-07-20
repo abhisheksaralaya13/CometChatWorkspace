@@ -51,6 +51,7 @@ enum LayoutMode {
         setupTableView()
     }
 
+
     
      @discardableResult
      public func set(actionItems: [ActionItem]) -> CometChatActionSheet {
@@ -71,11 +72,7 @@ enum LayoutMode {
     
      func setupTableView() {
          self.tableView = UITableView(frame: self.tableView.frame, style: .insetGrouped)
-         if #available(iOS 13.0, *) {
-             tableView.backgroundColor = .systemBackground
-         } else {
-             tableView.backgroundColor = .white
-         }
+         tableView.backgroundColor = CometChatTheme.palatte?.secondary
          self.registerCells()
      }
      
