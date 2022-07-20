@@ -462,8 +462,8 @@ class CometChatMessageBubble: UITableViewCell {
                 
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
-                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .reaction),
+                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -515,8 +515,8 @@ class CometChatMessageBubble: UITableViewCell {
             
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
-                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .reaction),
+                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
@@ -538,8 +538,8 @@ class CometChatMessageBubble: UITableViewCell {
             
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
-                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .reaction),
+                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
@@ -562,6 +562,7 @@ class CometChatMessageBubble: UITableViewCell {
             }
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
+                    CometChatMessageOption(defaultOption: .reaction),
                     CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .share)
                 ]
@@ -585,8 +586,8 @@ class CometChatMessageBubble: UITableViewCell {
             }
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
-                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .reaction),
+                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
@@ -629,8 +630,8 @@ class CometChatMessageBubble: UITableViewCell {
                 }
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
-                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .reaction),
+                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -654,8 +655,8 @@ class CometChatMessageBubble: UITableViewCell {
                     
                     if allMessageOptions.isEmpty {
                         let defaultOptions = [
-                            CometChatMessageOption(defaultOption: .delete),
                             CometChatMessageOption(defaultOption: .reaction),
+                            CometChatMessageOption(defaultOption: .delete),
                             CometChatMessageOption(defaultOption: .share)
                         ]
                         self.set(messageOptions: defaultOptions)
@@ -677,8 +678,8 @@ class CometChatMessageBubble: UITableViewCell {
                 
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
-                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .reaction),
+                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -701,8 +702,8 @@ class CometChatMessageBubble: UITableViewCell {
                 
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
-                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .reaction),
+                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -725,8 +726,8 @@ class CometChatMessageBubble: UITableViewCell {
                 
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
-                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .reaction),
+                        CometChatMessageOption(defaultOption: .delete),
                         CometChatMessageOption(defaultOption: .share)
                     ]
                     self.set(messageOptions: defaultOptions)
@@ -754,34 +755,6 @@ class CometChatMessageBubble: UITableViewCell {
                     CometChatMessageOption(defaultOption: .share)
                 ]
                 self.set(messageOptions: defaultOptions)
-            // TODO: - Remove this code after review.
-               /*
-                if let customView = self.customViews["payment"], let view = customView?(message) {
-                       // let view  = customView(message)
-                        background.addSubview(view)
-                        view.translatesAutoresizingMaskIntoConstraints = false
-                        NSLayoutConstraint.activate([
-                            view.centerXAnchor.constraint(equalTo: background.centerXAnchor),
-                            view.centerYAnchor.constraint(equalTo: background.centerYAnchor),
-                            view.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0),
-                            view.topAnchor.constraint(equalTo: background.topAnchor, constant: 0),
-                            view.bottomAnchor.constraint(equalTo: background.bottomAnchor),
-                            view.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0)
-                        ])
-                }
-
-                if allMessageOptions.isEmpty {
-                    let defaultOptions = [
-                        CometChatMessageOption(defaultOption: .delete),
-                        CometChatMessageOption(defaultOption: .share)
-                    ]
-                    self.set(messageOptions: defaultOptions)
-                }else{
-                    if let fetchedOptions = allMessageOptions["payment"] {
-                        self.set(messageOptions: fetchedOptions)
-                    }
-                }
-                */
             }
             
         default: /// Outer default.

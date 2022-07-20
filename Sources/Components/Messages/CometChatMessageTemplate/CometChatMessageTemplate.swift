@@ -44,33 +44,39 @@ public class CometChatMessageTemplate: NSObject {
        
        /// Whether the cache type represents the image is already cached or not.
     var template: CometChatMessageTemplate {
-        
             switch self {
            
-            case .text: return CometChatMessageTemplate(type: "text", name: "", icon: nil, customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .edit), CometChatMessageOption(defaultOption: .copy), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .translate), CometChatMessageOption(defaultOption: .delete)])
+            case .text: return CometChatMessageTemplate(type: "text", name: "", icon: nil, customView: nil, options:
+            [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .edit), CometChatMessageOption(defaultOption: .copy), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .translate), CometChatMessageOption(defaultOption: .delete)])
               
-            case .imageFromCamera: return CometChatMessageTemplate(type: "image", name: "TAKE_A_PHOTO".localize(), icon: UIImage(named: "messages-camera.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(),  customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+            case .imageFromCamera: return CometChatMessageTemplate(type: "image", name: "TAKE_A_PHOTO".localize(), icon: UIImage(named: "messages-camera.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(),  customView: nil, options:
+               [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
-            case .imageFromGallery: return CometChatMessageTemplate(type: "image", name: "PHOTO_VIDEO_LIBRARY".localize(), icon: UIImage(named: "photo-library.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage() , customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+            case .imageFromGallery: return CometChatMessageTemplate(type: "image", name: "PHOTO_VIDEO_LIBRARY".localize(), icon: UIImage(named: "photo-library.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage() , customView: nil, options:
+               [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .audio:
                 
-                return CometChatMessageTemplate(type: "audio", name: "", icon: nil,  customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "audio", name: "", icon: nil,  customView: nil, options:
+                [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .video:
                 
-                return CometChatMessageTemplate(type: "video", name: "", icon: nil,  customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "video", name: "", icon: nil,  customView: nil, options:
+                [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .file:
                 
-                return CometChatMessageTemplate(type: "file", name: "DOCUMENT".localize(), icon:  UIImage(named: "messages-file-upload.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(),  customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "file", name: "DOCUMENT".localize(), icon:  UIImage(named: "messages-file-upload.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(),  customView: nil, options:
+                [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .location:
                 
                 return CometChatMessageTemplate(type: "location", name: "SHARE_LOCATION".localize(), icon:  UIImage(named: "messages-location.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(),  customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share),  CometChatMessageOption(defaultOption: .delete)])
                 
             case .poll:
-                return CometChatMessageTemplate(type: "extension_poll", name: "CREATE_A_POLL".localize(), icon:  UIImage(named: "messages-polls.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "extension_poll", name: "CREATE_A_POLL".localize(), icon:  UIImage(named: "messages-polls.png", in: CometChatUIKit.bundle, compatibleWith: nil) ?? UIImage(), customView: nil, options:
+                [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .collaborativeWhiteboard:
                 
@@ -82,11 +88,13 @@ public class CometChatMessageTemplate: NSObject {
                 
             case .sticker:
                 
-                return CometChatMessageTemplate(type: "extension_sticker", name: "", icon: nil, customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "extension_sticker", name: "", icon: nil, customView: nil, options:
+                [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .meet:
                 
-                return CometChatMessageTemplate(type: "meeting", name: "", icon:  nil,  customView: nil, options: [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
+                return CometChatMessageTemplate(type: "meeting", name: "", icon:  nil,  customView: nil, options:
+                [CometChatMessageOption(defaultOption: .reaction), CometChatMessageOption(defaultOption: .share), CometChatMessageOption(defaultOption: .delete)])
                 
             case .groupActions:
                 
