@@ -83,6 +83,7 @@
             <size key="customSize" width="156" height="147"/>
             <connections>
                 <outlet property="icon" destination="1E8-oc-EUc" id="oVL-Vp-1VF"/>
+                <outlet property="tintView" destination="RFR-3E-lzF" id="YWW-vQ-Vky"/>
                 <outlet property="title" destination="jGB-6r-2xF" id="mCB-K5-BWi"/>
             </connections>
             <point key="canvasLocation" x="240.57971014492756" y="106.13839285714285"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class GridView: UICollectionViewCell {
 
+    @IBOutlet weak var tintView: UIView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var title: UILabel!
     
@@ -22,6 +23,8 @@ class GridView: UICollectionViewCell {
     var actionItem: ActionItem? {
         didSet {
             if let actionItem = actionItem {
+                
+                self.tintView.backgroundColor = .systemFill
                 
                 self.title.text = actionItem.text
 
