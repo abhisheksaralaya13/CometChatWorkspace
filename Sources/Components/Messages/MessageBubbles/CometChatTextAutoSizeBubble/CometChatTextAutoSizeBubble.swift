@@ -36,7 +36,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var textMessageStackView: UIStackView!
-    @IBOutlet weak var linkPreviewMessage: UILabel!
+    @IBOutlet weak var linkPreviewMessage: HyperlinkLabel!
     
     //var messageListAlignment: MessageAlignment = .standard
     var indexPath: IndexPath?
@@ -357,6 +357,11 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
 
         self.linkPreview.isHidden = true
         self.textMessageStackView.isHidden = false
+        
+        let phoneParser1 = HyperlinkType.custom(pattern: RegexParser.phonePattern1)
+        let phoneParser2 = HyperlinkType.custom(pattern: RegexParser.phonePattern2)
+        let emailParser = HyperlinkType.custom(pattern: RegexParser.emailPattern)
+        
         if let translatedMessage = message.metaData?["translated-message"] as? String {
           
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
@@ -399,6 +404,26 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openLink))
             tapGesture.cancelsTouchesInView = false
             self.linkPreview.addGestureRecognizer(tapGesture)
+            
+            linkPreviewMessage.enabledTypes.append(phoneParser1)
+            linkPreviewMessage.enabledTypes.append(phoneParser2)
+            linkPreviewMessage.enabledTypes.append(emailParser)
+            
+            linkPreviewMessage.handleURLTap { link in
+                print("handleURLTap: \(link)")
+            }
+            
+            linkPreviewMessage.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern1)) { (number) in
+                print("handleCustomTap number: \(number)")
+            }
+            
+            linkPreviewMessage.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern2)) { (number) in
+                print("handleCustomTap number: \(number)")
+            }
+            
+            linkPreviewMessage.handleCustomTap(for: .custom(pattern: RegexParser.emailPattern)) { (emailID) in
+                print("handleCustomTap emailID: \(emailID)")
+            }
         }
         else {
             if CometChat.getLoggedInUser()?.uid != message.sender?.uid {
@@ -409,6 +434,27 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
                 set(textFont: applyLargeSizeEmoji(forMessage: message))
             }
             set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
+
+            
+            self.message.enabledTypes.append(phoneParser1)
+            self.message.enabledTypes.append(phoneParser2)
+            self.message.enabledTypes.append(emailParser)
+            
+            self.message.handleURLTap { link in
+                print("handleURLTap: \(link)")
+            }
+            
+            self.message.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern1)) { (number) in
+                print("handleCustomTap number: \(number)")
+            }
+            
+            self.message.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern2)) { (number) in
+                print("handleCustomTap number: \(number)")
+            }
+            
+            self.message.handleCustomTap(for: .custom(pattern: RegexParser.emailPattern)) { (emailID) in
+                print("handleCustomTap emailID: \(emailID)")
+            }
         }
         if allMessageOptions.isEmpty {
             let defaultOptions = [
