@@ -56,13 +56,14 @@ import CometChatPro
     var emptyStateTextColor: UIColor = UIColor.gray
     var errorStateTextFont: UIFont?
     var errorStateTextColor: UIColor?
-    var configurations: [CometChatConfiguration]?
+    var configurations: [CometChatConfiguration] = [CometChatConfiguration]()
     
     @discardableResult
     @objc public func set(configurations: [CometChatConfiguration]?) -> CometChatUserList {
         if let configurations = configurations {
             self.configurations = configurations
             configureUserList()
+            refreshUsers()
         }
         return self
     }
@@ -346,8 +347,7 @@ import CometChatPro
             setuptTableView()
             registerCells()
             setupDelegates()
-            configureUserList()
-            if users.isEmpty {
+            if users.isEmpty && !configurations.isEmpty{
                 refreshUsers()
             }
         }
@@ -357,7 +357,6 @@ import CometChatPro
     
     
    private func configureUserList() {
-       if let configurations = configurations {
            let currentConfigurations = configurations.filter{ $0 is UserListConfiguration }
            if let configuration = currentConfigurations.last as? UserListConfiguration {
                set(background: configuration.background)
@@ -375,7 +374,6 @@ import CometChatPro
                set(errorMessage: configuration.errorText)
                set(emptyStateMessage: configuration.emptyText)
            }
-       }
     }
     
     private  func setupDelegates(){
@@ -541,7 +539,6 @@ import CometChatPro
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
     private func refreshUsers(){
-        
         self.globalGroupedUsers.removeAll()
         self.sections.removeAll()
         self.users.removeAll()
@@ -555,7 +552,6 @@ import CometChatPro
         
         userRequest?.fetchNext(onSuccess: { (users) in
             if users.count != 0 {
-                self.set(configurations: self.configurations)
                 self.groupUsers(users: users)
             }else{
                
