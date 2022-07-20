@@ -147,7 +147,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-mr-q6b" customClass="HyperlinkLabel" customModule="CometChat_KitchenSink" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOg-mr-q6b" customClass="HyperlinkLabel" customModule="CometChatUIKit">
                                                                                 <rect key="frame" x="9.5" y="7" width="191.5" height="194.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
@@ -379,7 +379,7 @@
                 <outlet property="heightReactions" destination="L0R-Zr-m5E" id="WKE-q3-5K6"/>
                 <outlet property="leadingReplyButton" destination="Gg2-qA-qSv" id="GMJ-hx-5lE"/>
                 <outlet property="linkPreview" destination="mt0-vn-QeL" id="e3X-hA-Msa"/>
-                <outlet property="linkPreviewMessage" destination="WOg-mr-q6b" id="G9J-Mw-thL"/>
+                <outlet property="linkPreviewMessage" destination="WOg-mr-q6b" id="Hgg-XB-yZv"/>
                 <outlet property="message" destination="fap-b3-pKe" id="1RG-RO-Vcx"/>
                 <outlet property="name" destination="Onv-vp-tcL" id="HAl-y5-nah"/>
                 <outlet property="reactions" destination="BGG-40-TNY" id="bRR-Yu-kSu"/>
