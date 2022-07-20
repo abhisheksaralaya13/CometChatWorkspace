@@ -470,8 +470,9 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
     }
     
     @objc private func openLink() {
-        if let controller = controller {
-            print("controller: \(controller) \(linkPreviewURL)")
+        if let linkPreviewURL = linkPreviewURL {
+            guard let url = URL(string: linkPreviewURL) else { return }
+            UIApplication.shared.open(url)
         }
     }
     
