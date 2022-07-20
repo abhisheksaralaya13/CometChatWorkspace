@@ -52,6 +52,7 @@ import CometChatPro
     @objc public func set(configurations: [CometChatConfiguration]?) -> CometChatConversationList {
         self.configurations = configurations
         configureConversationList()
+        refreshConversations()
         return self
     }
 
