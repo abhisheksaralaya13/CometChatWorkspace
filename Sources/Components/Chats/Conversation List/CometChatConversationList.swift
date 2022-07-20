@@ -38,7 +38,7 @@ import CometChatPro
     var tags: [String] = [String]()
     var emptyView: UIView?
     var errorView: UIView?
-    var hideError: Bool? = false
+    var hideError: Bool = false
     var errorText: String = ""
     var emptyStateText: String = "NO_CHATS_FOUND".localize()
     var emptyStateTextFont: UIFont = UIFont.systemFont(ofSize: 34, weight: .bold)
@@ -435,14 +435,14 @@ import CometChatPro
                
                 CometChatConversationEvents.emitOnError(conversation: nil, error: error)
                
-                if !hideError {
+                if !self.hideError {
                     let confirmDialog = CometChatDialog()
                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
                     if self.errorText.isEmpty {
                         confirmDialog.set(error: CometChatServerError.get(error: error))
                     }else{
-                        confirmDialog.set(messageText: errorText)
+                        confirmDialog.set(messageText: self.errorText)
                     }
                     confirmDialog.open(onConfirm: { [weak self] in
                         guard let strongSelf = self else { return }
@@ -477,11 +477,15 @@ import CometChatPro
             if let error = error {
                 // ASK: - What is emitOnError ?
                 CometChatConversationEvents.emitOnError(conversation: nil, error: error)
-                if !self.hideError!, !self.errorText.isEmpty {
+                if !self.hideError {
                     let confirmDialog = CometChatDialog()
                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                    if self.errorText.isEmpty {
+                        confirmDialog.set(error: CometChatServerError.get(error: error))
+                    }else{
+                        confirmDialog.set(messageText: self.errorText)
+                    }
                     confirmDialog.open(onConfirm: { [weak self] in
                         guard let strongSelf = self else { return }
                         // Referesh list
@@ -623,11 +627,15 @@ extension CometChatConversationList: UITableViewDelegate, UITableViewDataSource 
                             if let error = error {
                                 // ASK: - What is emitOnError ?
                                 CometChatConversationEvents.emitOnError(conversation: selectedCell.conversation, error: error)
-                                if !self.hideError!, !self.errorText.isEmpty {
+                                if !self.hideError {
                                     let confirmDialog = CometChatDialog()
                                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                                    if self.errorText.isEmpty {
+                                        confirmDialog.set(error: CometChatServerError.get(error: error))
+                                    }else{
+                                        confirmDialog.set(messageText: self.errorText)
+                                    }
                                     confirmDialog.open(onConfirm: { [weak self] in
                                         guard let strongSelf = self else { return }
                                         // Referesh list
@@ -665,11 +673,15 @@ extension CometChatConversationList: UITableViewDelegate, UITableViewDataSource 
                             if let error = error {
                                 // ASK: - What is emitOnError ?
                                 CometChatConversationEvents.emitOnError(conversation: selectedCell.conversation, error: error)
-                                if !self.hideError!, !self.errorText.isEmpty {
+                                if !self.hideError {
                                     let confirmDialog = CometChatDialog()
                                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                                    if self.errorText.isEmpty {
+                                        confirmDialog.set(error: CometChatServerError.get(error: error))
+                                    }else{
+                                        confirmDialog.set(messageText: self.errorText)
+                                    }
                                     confirmDialog.open(onConfirm: { [weak self] in
                                         guard let strongSelf = self else { return }
                                         // Referesh list
