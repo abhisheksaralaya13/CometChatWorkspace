@@ -24,7 +24,7 @@ class GridView: UICollectionViewCell {
         didSet {
             if let actionItem = actionItem {
                 
-                self.tintView.backgroundColor = .systemFill
+                self.tintView.backgroundColor = CometChatTheme.palatte?.background ?? .systemFill
                 
                 self.title.text = actionItem.text
 
