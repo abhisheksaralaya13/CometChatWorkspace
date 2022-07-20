@@ -699,12 +699,6 @@ enum MessageComposerMode {
                         hide(sticker: true)
                     }
 
-                    if template.type == "text" {
-                        show(sendButton: true)
-                    }else{
-                        show(sendButton: false)
-                    }
-
                     let actionItem = ActionItem(id: template.type, text: template.name ?? "", icon: template.icon ?? UIImage(), textColor: CometChatTheme.palatte?.accent, textFont: CometChatTheme.typography?.Name2, startIconTint: CometChatTheme.palatte?.accent700)
                     self.actionItems.append(actionItem)
                 }
