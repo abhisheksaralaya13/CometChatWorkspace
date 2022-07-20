@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 import CometChatPro
 
-class CometChatTextAutoSizeBubble: UITableViewCell {
+class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var alightmentStack: UIStackView!
     @IBOutlet weak var avatar: CometChatAvatar!
@@ -403,26 +404,55 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openLink))
             tapGesture.cancelsTouchesInView = false
-            self.linkPreview.addGestureRecognizer(tapGesture)
+            self.thumbnail.addGestureRecognizer(tapGesture)
             
             linkPreviewMessage.enabledTypes.append(phoneParser1)
             linkPreviewMessage.enabledTypes.append(phoneParser2)
             linkPreviewMessage.enabledTypes.append(emailParser)
             
             linkPreviewMessage.handleURLTap { link in
-                print("handleURLTap: \(link)")
+                UIApplication.shared.open(link)
             }
             
             linkPreviewMessage.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern1)) { (number) in
-                print("handleCustomTap number: \(number)")
+                if let number = number.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                    .joined() as? String {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        let url = URL(string: "tel://\(number)")!
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                }
             }
             
             linkPreviewMessage.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern2)) { (number) in
-                print("handleCustomTap number: \(number)")
+                if let number = number.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                    .joined() as? String {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        let url = URL(string: "tel://\(number)")!
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                }
             }
             
             linkPreviewMessage.handleCustomTap(for: .custom(pattern: RegexParser.emailPattern)) { (emailID) in
-                print("handleCustomTap emailID: \(emailID)")
+                
+                if MFMailComposeViewController.canSendMail() {
+                    let mail = MFMailComposeViewController()
+                    mail.mailComposeDelegate = self
+                    mail.setToRecipients([emailID])
+                    self.controller?.present(mail, animated: true, completion: nil)
+                } else {
+                    
+                    let confirmDialog = CometChatDialog()
+                    confirmDialog.set(confirmButtonText: "OK".localize())
+                    confirmDialog.set(cancelButtonText: "CANCEL".localize())
+                    confirmDialog.set(title: "WARNING".localize())
+                    confirmDialog.set(messageText: "MAIL_APP_NOT_FOUND_MESSAGE".localize())
+                    confirmDialog.open(onConfirm: { [weak self] in
+                        guard let strongSelf = self else { return }
+                        
+                    })
+                }
             }
         }
         else {
@@ -441,19 +471,48 @@ class CometChatTextAutoSizeBubble: UITableViewCell {
             self.message.enabledTypes.append(emailParser)
             
             self.message.handleURLTap { link in
-                print("handleURLTap: \(link)")
+                UIApplication.shared.open(link)
             }
             
             self.message.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern1)) { (number) in
-                print("handleCustomTap number: \(number)")
+                if let number = number.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                    .joined() as? String {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        let url = URL(string: "tel://\(number)")!
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                }
             }
             
             self.message.handleCustomTap(for: .custom(pattern: RegexParser.phonePattern2)) { (number) in
-                print("handleCustomTap number: \(number)")
+                if let number = number.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                    .joined() as? String {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        let url = URL(string: "tel://\(number)")!
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                }
             }
             
             self.message.handleCustomTap(for: .custom(pattern: RegexParser.emailPattern)) { (emailID) in
-                print("handleCustomTap emailID: \(emailID)")
+                
+                if MFMailComposeViewController.canSendMail() {
+                    let mail = MFMailComposeViewController()
+                    mail.mailComposeDelegate = self
+                    mail.setToRecipients([emailID])
+                    self.controller?.present(mail, animated: true, completion: nil)
+                } else {
+                    
+                    let confirmDialog = CometChatDialog()
+                    confirmDialog.set(confirmButtonText: "OK".localize())
+                    confirmDialog.set(cancelButtonText: "CANCEL".localize())
+                    confirmDialog.set(title: "WARNING".localize())
+                    confirmDialog.set(messageText: "MAIL_APP_NOT_FOUND_MESSAGE".localize())
+                    confirmDialog.open(onConfirm: { [weak self] in
+                        guard let strongSelf = self else { return }
+                        
+                    })
+                }
             }
         }
         if allMessageOptions.isEmpty {
