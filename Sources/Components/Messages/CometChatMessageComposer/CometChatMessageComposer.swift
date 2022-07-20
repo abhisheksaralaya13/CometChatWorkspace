@@ -650,16 +650,9 @@ enum MessageComposerMode {
 
         setMessageFilter(templates: messageTypes)
 
-        if hideSticker {
-            self.sticker.isHidden = true
-        }
-
-        if hideLiveReaction {
-            self.liveReaction.isHidden = true
-        }
-        if hideAttachment {
-            self.attachment.isHidden = true
-        }
+        self.sticker.isHidden = hideSticker
+        self.liveReaction.isHidden = hideLiveReaction
+        self.attachment.isHidden = hideAttachment
     }
 
     @discardableResult
