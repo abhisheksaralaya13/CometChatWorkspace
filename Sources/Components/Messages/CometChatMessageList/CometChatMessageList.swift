@@ -77,6 +77,7 @@ public enum  MessageType : String {
     var messageCategories: [String] = [String]()
     var emptyView: UIView?
     var errorView: UIView?
+    var errorStateText: String = ""
     var emptyStateText: String = "NO_MESSAGES_FOUND".localize()
     var emptyStateTextFont: UIFont = UIFont.systemFont(ofSize: 34, weight: .bold)
     var emptyStateTextColor: UIColor = UIColor.gray
@@ -530,14 +531,17 @@ public enum  MessageType : String {
             strongSelf.groupPreviousMessages(messages: oldMessageArray)
             
         }) { (error) in
-            if let error = error {
+            if let error = error ,  !self.hideError {
                 let confirmDialog = CometChatDialog()
                 confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                 confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                confirmDialog.set(error: CometChatServerError.get(error: error))
+                if self.errorStateText.isEmpty {
+                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                }else{
+                    confirmDialog.set(messageText: self.errorStateText)
+                }
                 confirmDialog.open(onConfirm: { [weak self] in
                     guard let strongSelf = self else { return }
-                    // Referesh the view.
                     // Referesh list
                     strongSelf.tableView.reloadData()
                 })
@@ -598,14 +602,17 @@ public enum  MessageType : String {
                 }
                 
             }, onError: { (error) in
-                if let error = error {
+                if let error = error , !self.hideError {
                     let confirmDialog = CometChatDialog()
                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                    if self.errorStateText.isEmpty {
+                        confirmDialog.set(error: CometChatServerError.get(error: error))
+                    }else{
+                        confirmDialog.set(messageText: self.errorStateText)
+                    }
                     confirmDialog.open(onConfirm: { [weak self] in
                         guard let strongSelf = self else { return }
-                        // Referesh the view.
                         // Referesh list
                         strongSelf.tableView.reloadData()
                     })
@@ -639,14 +646,17 @@ public enum  MessageType : String {
                     strongSelf.scrollToBottom()
                 }
             }, onError: { (error) in
-                if let error = error  {
+                if let error = error , !self.hideError {
                     let confirmDialog = CometChatDialog()
                     confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
                     confirmDialog.set(cancelButtonText: "CANCEL".localize())
-                    confirmDialog.set(error: CometChatServerError.get(error: error))
+                    if self.errorStateText.isEmpty {
+                        confirmDialog.set(error: CometChatServerError.get(error: error))
+                    }else{
+                        confirmDialog.set(messageText: self.errorStateText)
+                    }
                     confirmDialog.open(onConfirm: { [weak self] in
                         guard let strongSelf = self else { return }
-                        // Referesh the view.
                         // Referesh list
                         strongSelf.tableView.reloadData()
                     })

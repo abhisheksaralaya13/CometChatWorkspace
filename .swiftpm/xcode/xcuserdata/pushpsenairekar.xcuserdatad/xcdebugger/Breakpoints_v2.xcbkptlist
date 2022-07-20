@@ -30,8 +30,8 @@
             filePath = "Sources/Components/Messages/CometChatMessageList/CometChatMessageList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "852"
-            endingLineNumber = "852"
+            startingLineNumber = "862"
+            endingLineNumber = "862"
             landmarkName = "configureMessageList()"
             landmarkType = "7">
          </BreakpointContent>
