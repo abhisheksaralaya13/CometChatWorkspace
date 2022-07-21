@@ -114,9 +114,10 @@ open class CometChatGroups: CometChatListBase {
     
     private func configureGroupList() {
         groupList.set(controller: self)
-        groupList.set(joinedOnly: joinedOnly)
-            .set(configurations: configurations ?? [])
+        groupList.set(configurations: configurations ?? [])
             .set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
+            
+           
     }
     
     private func addObervers() {

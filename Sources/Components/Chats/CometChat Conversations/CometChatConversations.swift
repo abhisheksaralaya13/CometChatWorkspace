@@ -136,8 +136,8 @@ open class CometChatConversations: CometChatListBase {
     
     private func configureConversationList() {
         conversationList.set(conversationType: .none)
-            .set(configurations: configurations)
             .show(deleteConversation: true)
+            .set(configurations: configurations)
             .set(controller: self)
     }
     
