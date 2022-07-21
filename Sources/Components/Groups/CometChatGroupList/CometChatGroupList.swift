@@ -96,7 +96,6 @@ import CometChatPro
     @discardableResult
     @objc public func set(joinedOnly: Bool) -> CometChatGroupList {
         self.joinedOnly = joinedOnly
-        refreshGroups()
         return self
     }
     
@@ -300,7 +299,7 @@ import CometChatPro
         registerCells()
         setupDelegates()
         
-        if  configurations.isEmpty {
+        if  groups.isEmpty && configurations.isEmpty {
              refreshGroups()
         }
     }
