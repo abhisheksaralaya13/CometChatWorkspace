@@ -300,7 +300,7 @@ import CometChatPro
         setupDelegates()
         
         if  groups.isEmpty && configurations.isEmpty {
-             refreshGroups()
+            // refreshGroups()
         }
     }
     
