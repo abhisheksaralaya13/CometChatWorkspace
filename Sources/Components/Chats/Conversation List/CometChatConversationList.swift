@@ -431,6 +431,9 @@ import CometChatPro
                 self.tableView.reloadData()
             }
         }) { (error) in
+            DispatchQueue.main.async {
+                self.activityIndicator?.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true}
             if let error = error {
                
                 CometChatConversationEvents.emitOnError(conversation: nil, error: error)
@@ -474,6 +477,9 @@ import CometChatPro
                 self.activityIndicator?.stopAnimating()
                 self.tableView.tableFooterView?.isHidden = true}
         }) { (error) in
+            DispatchQueue.main.async {
+                self.activityIndicator?.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true}
             if let error = error {
                 // ASK: - What is emitOnError ?
                 CometChatConversationEvents.emitOnError(conversation: nil, error: error)

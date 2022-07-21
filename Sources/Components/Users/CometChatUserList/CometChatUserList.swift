@@ -470,6 +470,9 @@ import CometChatPro
             }
         }) { (error) in
             if let error = error  {
+                DispatchQueue.main.async {
+                    self.activityIndicator?.stopAnimating()
+                    self.tableView.tableFooterView?.isHidden = true}
                 CometChatUserEvents.emitOnError(user: nil, error: error)
                 if !self.hideError {
                     let confirmDialog = CometChatDialog()
@@ -570,6 +573,9 @@ import CometChatPro
             }
             
         }) { (error) in
+            DispatchQueue.main.async {
+                self.activityIndicator?.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true}
             if let error = error  {
                 CometChatUserEvents.emitOnError(user: nil, error: error)
                 if !self.hideError {

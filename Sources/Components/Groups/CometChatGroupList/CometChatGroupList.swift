@@ -362,6 +362,9 @@ import CometChatPro
                 self.activityIndicator?.stopAnimating()
                 self.tableView.tableFooterView?.isHidden = true}
         }) { (error) in
+            DispatchQueue.main.async {
+                self.activityIndicator?.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true}
             if let error = error , !self.hideError {
                 let confirmDialog = CometChatDialog()
                 confirmDialog.set(confirmButtonText: "TRY_AGAIN".localize())
@@ -448,6 +451,9 @@ import CometChatPro
                 }
             }
         }) { (error) in
+            DispatchQueue.main.async {
+                self.activityIndicator?.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true}
             if let error = error {
                 CometChatGroupEvents.emitOnError(group: nil, error: error)
                 if !self.hideError {
