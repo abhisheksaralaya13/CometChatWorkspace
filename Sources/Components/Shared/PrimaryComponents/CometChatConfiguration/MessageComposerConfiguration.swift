@@ -20,6 +20,7 @@ public class MessageComposerConfiguration: CometChatConfiguration {
     private var hideEmoji = false
     private var hideSendButton = false
     private var enableTypingIndicator = true
+    private var enableSoundForMessages = true
     var hideMessageComposer: Bool = false
     var messageTypes: [CometChatMessageTemplate]?
     var excludeMessageTypes: [CometChatMessageTemplate]?
@@ -118,6 +119,17 @@ public class MessageComposerConfiguration: CometChatConfiguration {
     public func enable(typingIndicator: Bool) -> Self {
         self.enableTypingIndicator = typingIndicator
         return self
+    }
+    
+    @discardableResult
+    public func enable(soundForMessages: Bool) -> Self {
+        self.enableSoundForMessages = soundForMessages
+        return self
+    }
+    
+    @discardableResult
+    public func isSoundEnabled() -> Bool {
+        return enableSoundForMessages
     }
     
     @discardableResult

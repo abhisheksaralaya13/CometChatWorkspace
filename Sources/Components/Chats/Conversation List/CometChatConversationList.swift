@@ -31,6 +31,7 @@ import CometChatPro
     weak var controller: UIViewController?
     var isSearching: Bool = false
     var isDeleteConversationEnabled: Bool = true
+    var enableSoundForConversations: Bool = true
     var limit: Int = 30
     var searchKeyword: String = ""
     var conversationType: CometChat.ConversationType = .none
@@ -205,6 +206,12 @@ import CometChatPro
     }
     
     @discardableResult
+    public func set(enableSoundForConversations: Bool) -> CometChatConversationList {
+        self.enableSoundForConversations = enableSoundForConversations
+        return self
+    }
+    
+    @discardableResult
     public func set(conversationList: [Conversation]) -> CometChatConversationList {
         self.conversations = conversationList
         return self
@@ -220,8 +227,9 @@ import CometChatPro
     
     @discardableResult
     public func update(conversation: Conversation) -> CometChatConversationList {
-       
-        CometChatSoundManager().play(sound: .incomingMessageFromOther)
+        if enableSoundForConversations {
+            CometChatSoundManager().play(sound: .incomingMessageFromOther)
+        }
         if let message = conversation.lastMessage {
             CometChat.markAsDelivered(baseMessage: message)
         }
@@ -357,6 +365,7 @@ import CometChatPro
                set(emptyView: configuration.emptyView)
                set(errorMessage: configuration.errorText)
                set(emptyStateMessage: configuration.emptyText)
+               set(enableSoundForConversations: configuration.enableSoundForConversations)
            }
        }
     }

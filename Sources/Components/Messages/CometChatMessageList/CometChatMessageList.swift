@@ -754,6 +754,9 @@ public enum  MessageType : String {
     
     @discardableResult
     @objc public func add(message: BaseMessage)  -> CometChatMessageList {
+        if enableSoundForMessages {
+        CometChatSoundManager().play(sound: .outgoingMessage)
+        }
         var lastSection = 0
         DispatchQueue.main.async{
             if self.chatMessages.count == 0 {

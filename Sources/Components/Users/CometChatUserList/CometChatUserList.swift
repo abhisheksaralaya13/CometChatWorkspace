@@ -355,7 +355,6 @@ import CometChatPro
     
     
     
-    
    private func configureUserList() {
            let currentConfigurations = configurations.filter{ $0 is UserListConfiguration }
            if let configuration = currentConfigurations.last as? UserListConfiguration {

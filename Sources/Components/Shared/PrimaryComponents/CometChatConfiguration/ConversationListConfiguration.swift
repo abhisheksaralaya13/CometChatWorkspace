@@ -25,6 +25,7 @@ public class ConversationListConfiguration: CometChatConfiguration {
     var emptyText: String = "NO_CHATS_FOUND".localize()
     var errorText: String = "SOMETHING_WENT_WRONG_ERROR".localize()
     var conversationListItemConfiguration :ConversationListItemConfiguration?
+    var enableSoundForConversations :Bool = true
     
     public func set(background: [CGColor]) -> ConversationListConfiguration {
         self.background = background
@@ -75,6 +76,11 @@ public class ConversationListConfiguration: CometChatConfiguration {
     
     public func set(emptyText: String?) -> ConversationListConfiguration {
         self.emptyText = emptyText ?? ""
+        return self
+    }
+    
+    public func set(enableSoundForConversations: Bool) -> ConversationListConfiguration {
+        self.enableSoundForConversations =  enableSoundForConversations
         return self
     }
     

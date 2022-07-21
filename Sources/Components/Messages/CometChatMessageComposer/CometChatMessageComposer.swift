@@ -641,6 +641,7 @@ enum MessageComposerMode {
                 hide(emoji: messageComposerConfiguration.isEmojiHidden())
                 set(messageTypes: messageComposerConfiguration.messageTypes ?? [])
                 set(excludeMessageTypes: messageComposerConfiguration.excludeMessageTypes ?? [])
+                enable(soundForMessages: messageComposerConfiguration.isSoundEnabled())
             }
         }else{
             set(messageTypes: [CometChatMessageTemplate(type: .imageFromCamera), CometChatMessageTemplate(type: .imageFromGallery), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .location), CometChatMessageTemplate(type: .collaborativeWhiteboard), CometChatMessageTemplate(type: .collaborativeDocument), CometChatMessageTemplate(type: .poll)])
@@ -837,10 +838,8 @@ extension CometChatMessageComposer {
             textMessage?.sender = CometChat.getLoggedInUser()
 
             if let textMessage = textMessage {
-                CometChatSoundManager().play(sound: .outgoingMessage)
-
+                
                 CometChatMessageEvents.emitOnMessageSent(message: textMessage, status: .inProgress)
-
                 textView.text = ""
                 send.isEnabled = false
                 CometChat.sendTextMessage(message: textMessage) { updatedTextMessage in
@@ -868,12 +867,8 @@ extension CometChatMessageComposer {
     public func editTextMessage(textMessage: TextMessage) {
         let message:String = textView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if !message.isEmpty {
-            CometChatSoundManager().play(sound: .outgoingMessage)
-
             textMessage.text = message
-
             CometChatMessageEvents.emitOnMessageEdit(message: textMessage, status: .inProgress)
-
             send.isEnabled = false
             CometChat.edit(message: textMessage) { updatedTextMessage in
                 DispatchQueue.main.async { [weak self] in

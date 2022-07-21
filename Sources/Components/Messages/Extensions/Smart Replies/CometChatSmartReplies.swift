@@ -155,7 +155,6 @@ protocol CometChatSmartRepliesDelegate: class {
             textMessage?.sender = CometChat.getLoggedInUser()
             
             if let textMessage = textMessage {
-                CometChatSoundManager().play(sound: .outgoingMessage)
                 CometChatMessageEvents.emitOnMessageSent(message: textMessage, status: .inProgress)
                 
                 CometChat.sendTextMessage(message: textMessage) { updatedTextMessage in

@@ -70,10 +70,16 @@ extension CometChatMessageList: CometChatMessageDelegate {
     }
     
     func onMessageEdited(message: BaseMessage) {
+        if enableSoundForMessages {
+            CometChatSoundManager().play(sound: .outgoingMessage)
+        }
         self.update(message: message)
     }
     
     func onMessageDeleted(message: BaseMessage) {
+        if enableSoundForMessages {
+            CometChatSoundManager().play(sound: .outgoingMessage)
+        }
         self.update(message: message)
     }
     
