@@ -113,10 +113,8 @@ open class CometChatGroups: CometChatListBase {
     }
     
     private func configureGroupList() {
-        groupList.set(controller: self)
         groupList.set(configurations: configurations ?? [])
-            .set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
-            
+                 .set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
            
     }
     
