@@ -32,6 +32,7 @@ import CometChatPro
     var isSearching: Bool = false
     var isDeleteConversationEnabled: Bool = true
     var enableSoundForConversations: Bool = true
+    var customSoundForConversations: URL?
     var limit: Int = 30
     var searchKeyword: String = ""
     var conversationType: CometChat.ConversationType = .none
@@ -42,8 +43,8 @@ import CometChatPro
     var hideError: Bool = false
     var errorText: String = ""
     var emptyStateText: String = "NO_CHATS_FOUND".localize()
-    var emptyStateTextFont: UIFont = UIFont.systemFont(ofSize: 34, weight: .bold)
-    var emptyStateTextColor: UIColor = UIColor.gray
+    var emptyStateTextFont: UIFont = CometChatTheme.typography?.Heading ?? UIFont.systemFont(ofSize: 34, weight: .bold)
+    var emptyStateTextColor: UIColor = CometChatTheme.palatte?.accent400 ?? UIColor.gray
     var errorStateTextFont: UIFont?
     var errorStateTextColor: UIColor?
     var configurations: [CometChatConfiguration]?
@@ -212,6 +213,12 @@ import CometChatPro
     }
     
     @discardableResult
+    public func set(customSoundForConversations: URL) -> CometChatConversationList {
+        self.customSoundForConversations = customSoundForConversations
+        return self
+    }
+    
+    @discardableResult
     public func set(conversationList: [Conversation]) -> CometChatConversationList {
         self.conversations = conversationList
         return self
@@ -227,15 +234,18 @@ import CometChatPro
     
     @discardableResult
     public func update(conversation: Conversation) -> CometChatConversationList {
-        if enableSoundForConversations {
-            CometChatSoundManager().play(sound: .incomingMessageFromOther)
-        }
-        if let message = conversation.lastMessage {
-            CometChat.markAsDelivered(baseMessage: message)
-        }
-        if let row = self.conversations.firstIndex(where: {$0.conversationId == conversation.conversationId}),   let indexPath = IndexPath(row: row, section: 0) as? IndexPath, let cell = tableView.cellForRow(at: indexPath) as? CometChatConversationListItem {
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+
+            if strongSelf.enableSoundForConversations {
+                CometChatSoundManager().play(sound: .incomingMessageFromOther)
+            }
+
+            if let message = conversation.lastMessage {
+                CometChat.markAsDelivered(baseMessage: message)
+            }
+            if let row = strongSelf.conversations.firstIndex(where: {$0.conversationId == conversation.conversationId}),   let indexPath = IndexPath(row: row, section: 0) as? IndexPath, let cell = strongSelf.tableView.cellForRow(at: indexPath) as? CometChatConversationListItem {
+                
                 conversation.unreadMessageCount = cell.unreadCount.getCount + 1
                 
                 if let textMessage = conversation.lastMessage as? TextMessage, textMessage.sender?.uid != CometChat.getLoggedInUser()?.uid {
@@ -246,13 +256,13 @@ import CometChatPro
                 
                 strongSelf.conversations[row] = conversation
                 strongSelf.tableView?.reloadRows(at: [indexPath], with: .automatic)
-            }
-        }else{
-            if ((conversation.lastMessage as? TextMessage) != nil) {
-                insert(conversation: conversation, at: 0)
-                update(conversation: conversation)
             }else{
-                insert(conversation: conversation, at: 0)
+                if ((conversation.lastMessage as? TextMessage) != nil) {
+                    strongSelf.insert(conversation: conversation, at: 0)
+                    strongSelf.update(conversation: conversation)
+                }else{
+                    strongSelf.insert(conversation: conversation, at: 0)
+                }
             }
         }
         return self
@@ -341,6 +351,7 @@ import CometChatPro
             contentView.frame = bounds
             addSubview(contentView)
         }
+        
         setuptTableView()
         registerCells()
         setupDelegates()

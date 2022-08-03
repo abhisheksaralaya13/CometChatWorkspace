@@ -101,24 +101,24 @@ class CometChatMessageBubble: UITableViewCell {
         }
     }
     
-    // TODO: - Should be replace since requirement has been changed. There is no requirement of this method as of now.
-    @discardableResult
-    @objc public func set(corner: CometChatCorner) -> Self {
-        switch corner.corner {
-        case .leftTop:
-            self.background.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightTop:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .leftBottom:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightBottom:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
-        case .none:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        }
-        
-        return self
-    }
+//    // TODO: - Should be replace since requirement has been changed. There is no requirement of this method as of now.
+//    @discardableResult
+//    @objc public func set(corner: CometChatCorner) -> Self {
+//        switch corner.corner {
+//        case .leftTop:
+//            self.background.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightTop:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .leftBottom:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightBottom:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
+//        case .none:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        }
+//        
+//        return self
+//    }
     
     @discardableResult
     @objc public func set(sentMessageInputData: SentMessageInputData) -> Self {
@@ -232,13 +232,36 @@ class CometChatMessageBubble: UITableViewCell {
     }
     
     @discardableResult
+    public func set(time: Int) -> Self {
+        self.time.set(time: time, forType: .MessageBubbleDate)
+        self.topTime.set(time: time, forType: .MessageBubbleDate)
+        return self
+    }
+    
+    @discardableResult
      public func set(timeAlignment: MessageBubbleTimeAlignment) -> Self {
         switch timeAlignment {
         case .top:
             self.time.isHidden = true
+            self.topTime.isHidden = false
         case .bottom:
             self.time.isHidden = false
+            self.topTime.isHidden = true
         }
+        return self
+    }
+    
+    @discardableResult
+    public func set(timeFont: UIFont) -> Self {
+        self.time.font = timeFont
+        self.topTime.font = timeFont
+        return self
+    }
+    
+    @discardableResult
+    public func set(timeColor: UIColor) -> Self {
+        self.time.textColor = timeColor
+        self.topTime.textColor = timeColor
         return self
     }
     
@@ -253,7 +276,6 @@ class CometChatMessageBubble: UITableViewCell {
         }
         return self
     }
-    
     
     @discardableResult
     @objc public func set(messageObject: BaseMessage) -> Self {
@@ -321,11 +343,8 @@ class CometChatMessageBubble: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if #available(iOS 13.0, *) {
-            selectionColor = .systemBackground
-        } else {
-            selectionColor = .white
-        }
+        selectionColor = CometChatTheme.palatte?.background ?? UIColor.systemBackground
+        set(backgroundColor: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -422,11 +441,16 @@ class CometChatMessageBubble: UITableViewCell {
     /// Bubble Configuration.
     private func configureCell(baseMessage message: BaseMessage) {
         messageOptions.removeAll()
+        set(userNameFont: CometChatTheme.typography?.Subtitle2 ?? UIFont.systemFont(ofSize: 13))
+        set(userNameColor: CometChatTheme.palatte?.accent600 ?? UIColor.gray)
+        set(timeFont: CometChatTheme.typography?.Caption2 ?? UIFont.systemFont(ofSize: 11))
+        set(timeColor: CometChatTheme.palatte?.accent500 ?? .gray)
         if let controller = controller {
             reactions.set(controller: controller).set(messageObject: message)
         }
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChat.getLoggedInUser()?.uid)
         set(messageAlignment: isStandard ? .right : .left)
+        set(time: message.sentAt)
         set(avatar:self.avatar.setAvatar(avatarUrl: message.sender?.avatar ?? "", with: message.sender?.name ?? ""))
         set(userName: (message.sender?.name) ?? "")
         // TODO: - change the hard coded the value.
@@ -440,7 +464,7 @@ class CometChatMessageBubble: UITableViewCell {
         }
         self.heightReactions.constant = 32
         set(reactions: message, with: .left)
-        containerStackView.addBackground(color: CometChatTheme.palatte!.secondary!)
+        containerStackView.addBackground(color: CometChatTheme.palatte?.secondary! ?? UIColor.systemBackground)
         /// when user send custom view that are not existing type such as payment.
         if message.deletedAt == 0.0, let customView = self.customViews[MessageTypesBubble.getMessageType(message: message)] {
             
@@ -494,8 +518,6 @@ class CometChatMessageBubble: UITableViewCell {
             return
         }
        
-       
-       
         switch (message.messageCategory, message.messageType) {
             
         case (.message, .text): /// category - message && type - text
@@ -516,8 +538,8 @@ class CometChatMessageBubble: UITableViewCell {
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .reaction),
-                    CometChatMessageOption(defaultOption: .delete),
-                    CometChatMessageOption(defaultOption: .share)
+                    CometChatMessageOption(defaultOption: .share),
+                    CometChatMessageOption(defaultOption: .delete)
                 ]
                 self.set(messageOptions: defaultOptions)
             }else{
@@ -539,8 +561,8 @@ class CometChatMessageBubble: UITableViewCell {
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .reaction),
-                    CometChatMessageOption(defaultOption: .delete),
-                    CometChatMessageOption(defaultOption: .share)
+                    CometChatMessageOption(defaultOption: .share),
+                    CometChatMessageOption(defaultOption: .delete)
                 ]
                 self.set(messageOptions: defaultOptions)
             }else{
@@ -563,8 +585,8 @@ class CometChatMessageBubble: UITableViewCell {
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .reaction),
-                    CometChatMessageOption(defaultOption: .delete),
-                    CometChatMessageOption(defaultOption: .share)
+                    CometChatMessageOption(defaultOption: .share),
+                    CometChatMessageOption(defaultOption: .delete)
                 ]
                 self.set(messageOptions: defaultOptions)
             }else{
@@ -587,8 +609,8 @@ class CometChatMessageBubble: UITableViewCell {
             if allMessageOptions.isEmpty {
                 let defaultOptions = [
                     CometChatMessageOption(defaultOption: .reaction),
-                    CometChatMessageOption(defaultOption: .delete),
-                    CometChatMessageOption(defaultOption: .share)
+                    CometChatMessageOption(defaultOption: .share),
+                    CometChatMessageOption(defaultOption: .delete)
                 ]
                 self.set(messageOptions: defaultOptions)
             }else{
@@ -631,8 +653,8 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .reaction),
-                        CometChatMessageOption(defaultOption: .delete),
-                        CometChatMessageOption(defaultOption: .share)
+                        CometChatMessageOption(defaultOption: .share),
+                        CometChatMessageOption(defaultOption: .delete)
                     ]
                     self.set(messageOptions: defaultOptions)
                 }else{
@@ -656,8 +678,8 @@ class CometChatMessageBubble: UITableViewCell {
                     if allMessageOptions.isEmpty {
                         let defaultOptions = [
                             CometChatMessageOption(defaultOption: .reaction),
-                            CometChatMessageOption(defaultOption: .delete),
-                            CometChatMessageOption(defaultOption: .share)
+                            CometChatMessageOption(defaultOption: .share),
+                            CometChatMessageOption(defaultOption: .delete)
                         ]
                         self.set(messageOptions: defaultOptions)
                     }else{
@@ -679,8 +701,8 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .reaction),
-                        CometChatMessageOption(defaultOption: .delete),
-                        CometChatMessageOption(defaultOption: .share)
+                        CometChatMessageOption(defaultOption: .share),
+                        CometChatMessageOption(defaultOption: .delete)
                     ]
                     self.set(messageOptions: defaultOptions)
                 }else{
@@ -703,8 +725,8 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .reaction),
-                        CometChatMessageOption(defaultOption: .delete),
-                        CometChatMessageOption(defaultOption: .share)
+                        CometChatMessageOption(defaultOption: .share),
+                        CometChatMessageOption(defaultOption: .delete)
                     ]
                     self.set(messageOptions: defaultOptions)
                 }else{
@@ -727,8 +749,8 @@ class CometChatMessageBubble: UITableViewCell {
                 if allMessageOptions.isEmpty {
                     let defaultOptions = [
                         CometChatMessageOption(defaultOption: .reaction),
-                        CometChatMessageOption(defaultOption: .delete),
-                        CometChatMessageOption(defaultOption: .share)
+                        CometChatMessageOption(defaultOption: .share),
+                        CometChatMessageOption(defaultOption: .delete)
                     ]
                     self.set(messageOptions: defaultOptions)
                 }else{
@@ -750,9 +772,9 @@ class CometChatMessageBubble: UITableViewCell {
                 background.addSubview(customView)
                 
                 let defaultOptions = [
-                    CometChatMessageOption(defaultOption: .delete),
                     CometChatMessageOption(defaultOption: .reaction),
-                    CometChatMessageOption(defaultOption: .share)
+                    CometChatMessageOption(defaultOption: .share),
+                    CometChatMessageOption(defaultOption: .delete)
                 ]
                 self.set(messageOptions: defaultOptions)
             }
@@ -766,8 +788,9 @@ class CometChatMessageBubble: UITableViewCell {
             background.addSubview(customView)
             
             let defaultOptions = [
-                CometChatMessageOption(defaultOption: .delete),
-                CometChatMessageOption(defaultOption: .share)
+                CometChatMessageOption(defaultOption: .reaction),
+                CometChatMessageOption(defaultOption: .share),
+                CometChatMessageOption(defaultOption: .delete)
             ]
             self.set(messageOptions: defaultOptions)
         }
@@ -775,6 +798,7 @@ class CometChatMessageBubble: UITableViewCell {
         if configurations != nil {
             configureMessageBubble(forMessage: message)
         }
+
         calculateHeightForReactions()
     }
     

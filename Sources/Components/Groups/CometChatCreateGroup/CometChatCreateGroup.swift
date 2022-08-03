@@ -19,6 +19,7 @@ open class CometChatCreateGroup: CometChatListBase {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var seperator: UIView!
+    @IBOutlet weak var containerView: UIStackView!
     
     
     open override func loadView() {
@@ -31,28 +32,32 @@ open class CometChatCreateGroup: CometChatListBase {
         setupAppearance()
     }
     
-    deinit {
-        
-    }
+    deinit {}
     
     @discardableResult
     public func hide(create: Bool) ->  CometChatCreateGroup {
         if !create {
             createButton = UIBarButtonItem(title: "CREATE".localize(), style: .done, target: self, action: #selector(self.didCreateGroupPressed))
+            set(createButtonFont: CometChatTheme.typography?.Name2 ?? UIFont.systemFont(ofSize: 17))
+            set(createButtonTint: CometChatTheme.palatte?.primary ?? .blue)
             self.navigationItem.rightBarButtonItem = createButton
         }
         return self
     }
     
     @discardableResult
-    public func set(transferOwnershipTint: UIColor) ->  CometChatCreateGroup {
-        createButton?.tintColor = transferOwnershipTint
+    public func set(createButtonTint: UIColor) ->  CometChatCreateGroup {
+        createButton?.tintColor = createButtonTint
         return self
     }
     
+    @discardableResult
+    public func set(createButtonFont: UIFont) ->  CometChatCreateGroup {
+        self.createButton?.setTitleTextAttributes([NSAttributedString.Key.font: createButtonFont], for: .normal)
+        return self
+    }
     
-    
-    @objc func didCreateGroupPressed(){
+    @objc func didCreateGroupPressed() {
         createGroup(with: name.text, type: selectedGroupType, password: password.text)
     }
     
@@ -89,7 +94,7 @@ open class CometChatCreateGroup: CometChatListBase {
                     }
                 }
                 
-            }else if selectedGroupType == .password {
+            } else if selectedGroupType == .password {
                 
                 if self.password.text?.count == 0 {
                  
@@ -177,16 +182,16 @@ open class CometChatCreateGroup: CometChatListBase {
         password.delegate = self
     }
     
-    private func removeObervers() {
-      
-    }
-    
+    private func removeObervers() {}
     
     private func setupAppearance() {
         
         self.set(title: "NEW_GROUP".localize(), mode: .never)
             .hide(search: true)
             .set(backButtonTitle: "CANCEL".localize())
+            .set(backButtonTitleColor: CometChatTheme.palatte?.primary ?? .systemBlue)
+            .set(titleFont: CometChatTheme.typography?.Title2 ?? .systemFont(ofSize: 17))
+            .set(titleColor: CometChatTheme.palatte?.accent ?? .black)
             .show(backButton: true)
         hide(create: false)
         
@@ -196,6 +201,11 @@ open class CometChatCreateGroup: CometChatListBase {
         self.groupType.setTitle("PUBLIC".localize(), forSegmentAt: 0)
         self.groupType.setTitle("PRIVATE".localize(), forSegmentAt: 1)
         self.groupType.setTitle("PROTECTED".localize(), forSegmentAt: 2)
+        groupType.selectedSegmentTintColor = CometChatTheme.palatte?.background ?? .white
+        groupType.setTitleTextAttributes([NSAttributedString.Key.font: CometChatTheme.typography?.Caption1 ?? .systemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: CometChatTheme.palatte?.accent], for: .normal)
+        name.font = CometChatTheme.typography?.Body ?? .systemFont(ofSize: 17)
+        password.font = CometChatTheme.typography?.Body ?? .systemFont(ofSize: 17)
+        containerView.addBackground(color: CometChatTheme.palatte?.background ?? .white)
     }
     
 }

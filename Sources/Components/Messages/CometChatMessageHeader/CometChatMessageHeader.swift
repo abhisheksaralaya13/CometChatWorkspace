@@ -70,7 +70,7 @@ import CometChatPro
     
     @discardableResult
     public func set(background: [Any]?) ->  CometChatMessageHeader {
-        if let backgroundColors = backgroundColor as? [CGColor] {
+        if let backgroundColors = background as? [CGColor] {
             if backgroundColors.count == 1 {
                 self.background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
             }else{
@@ -331,7 +331,7 @@ import CometChatPro
         self.registerObservers()
         self.audioCall.isHidden = true
         self.videoCall.isHidden = true
-        self.info.isHidden = false
+        self.info.isHidden = true
         
         let style = Style(background: CometChatTheme.palatte?.background, border: nil, cornerRadius: 20, titleColor: CometChatTheme.palatte?.accent, titleFont: CometChatTheme.typography?.Name2, subTitleColor: CometChatTheme.palatte?.accent600, subTitleFont: CometChatTheme.typography?.Subtitle2)
         

@@ -46,7 +46,10 @@ class CometChatSmartRepliesItem: UICollectionViewCell {
         smartRepliesButtonView.layer.rasterizationScale = UIScreen.main.scale
         
         smartReplyButton.titleLabel?.font = CometChatTheme.typography?.Body
-        smartReplyButton.titleLabel?.textColor = CometChatTheme.palatte?.accent
+        //smartReplyButton.titleLabel?.textColor = CometChatTheme.palatte?.accent
+        smartReplyButton.setTitleColor(CometChatTheme.palatte?.accent400, for: .normal)
+        smartReplyButton.backgroundColor = CometChatTheme.palatte?.background ?? .systemBackground
+        smartRepliesButtonView.backgroundColor = CometChatTheme.palatte?.background ?? .systemBackground
     }
     
     

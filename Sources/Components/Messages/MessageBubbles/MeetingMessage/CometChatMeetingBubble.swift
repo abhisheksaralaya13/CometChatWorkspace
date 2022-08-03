@@ -9,6 +9,11 @@
 import UIKit
 import CometChatPro
 
+@objc enum MessageBubbleAlignment: Int {
+    case left
+    case right
+}
+
 protocol  MeetingDelegate: NSObject {
     func didLongPressedOnMeetingMessage(message: CustomMessage,cell: UITableViewCell)
     func didJoinMeeting(forMessage: CustomMessage, cell: UITableViewCell)
@@ -73,23 +78,23 @@ class CometChatMeetingBubble: UITableViewCell {
         return self
     }
     
-    @discardableResult
-    @objc public func set(corner: CometChatCorner) -> CometChatMeetingBubble {
-        switch corner.corner {
-        case .leftTop:
-            self.background.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightTop:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .leftBottom:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightBottom:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
-        case .none:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        }
-        self.background.clipsToBounds = true
-        return self
-    }
+//    @discardableResult
+//    @objc public func set(corner: CometChatCorner) -> CometChatMeetingBubble {
+//        switch corner.corner {
+//        case .leftTop:
+//            self.background.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightTop:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .leftBottom:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightBottom:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
+//        case .none:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        }
+//        self.background.clipsToBounds = true
+//        return self
+//    }
     
 
     
@@ -198,19 +203,19 @@ class CometChatMeetingBubble: UITableViewCell {
     
     @discardableResult
     @objc public func set(messageObject: BaseMessage) -> CometChatMeetingBubble {
-        self.meeetingMessage = messageObject
+      //  self.meeetingMessage = messageObject
         return self
     }
     
     @discardableResult
     @objc fileprivate func isMyMessage() -> Bool {
-        if let message = meeetingMessage {
-            if message.sender?.uid == CometChat.getLoggedInUser()?.uid {
-                return true
-            }else{
-                return false
-            }
-        }
+//        if let message = meeetingMessage {
+//            if message.sender?.uid == CometChat.getLoggedInUser()?.uid {
+//                return true
+//            }else{
+//                return false
+//            }
+//        }
         return false
     }
     
@@ -223,63 +228,63 @@ class CometChatMeetingBubble: UITableViewCell {
     
     @objc func didLongPressedOnMessage(sender: UILongPressGestureRecognizer){
         if sender.state == .began {
-            if let meeetingMessage = meeetingMessage as? CustomMessage {
-                meetingDelegate?.didLongPressedOnMeetingMessage(message: meeetingMessage, cell: self)
-            }
+//            if let meeetingMessage = meeetingMessage as? CustomMessage {
+//                meetingDelegate?.didLongPressedOnMeetingMessage(message: meeetingMessage, cell: self)
+//            }
         }
     }
     
     
-    var meeetingMessage: BaseMessage? {
-        didSet {
-            if let meeetingMessage = meeetingMessage as? CustomMessage {
-                self.set(borderColor: .clear)
-                self.set(borderWidth: 1.0)
-                self.set(userName: meeetingMessage.sender?.name ?? "")
-                self.set(receipt: self.receipt.set(receipt: meeetingMessage))
-                self.topTime.set(time: meeetingMessage.sentAt, forType: .MessageBubbleDate)
-                self.time.set(time: meeetingMessage.sentAt, forType: .MessageBubbleDate)
-                self.set(avatar: self.avatar.setAvatar(avatarUrl: meeetingMessage.sender?.avatar ?? "", with: meeetingMessage.sender?.name ?? ""))
-                set(time: self.time)
-                if isMyMessage() {
-                    switch messageAlignment {
-                    case .standard:
-                        self.set(messageBubbleAlignment: .right)
-                        self.set(title: "YOU_INITIATED_GROUP_VIDEO_CALL".localize())
-                        self.set(titleColor: CometChatThemeOld.messageList.rightBubbleTextColor)
-                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.rightBubbleTextColor)
-                        self.set(corner: CometChatThemeOld.messageList.rightBubbleCorners)
-                        self.set(backgroundColor: CometChatThemeOld.messageList.rightBubbleBackgroundColor)
-                    case .leftAligned:
-                        self.set(messageBubbleAlignment: .left)
-                        self.set(title: "YOU_INITIATED_GROUP_VIDEO_CALL".localize())
-                        self.set(corner: CometChatThemeOld.messageList.leftBubbleCorners)
-                        self.set(titleColor: CometChatThemeOld.messageList.leftBubbleTextColor)
-                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.leftBubbleTextColor)
-                        self.set(backgroundColor: CometChatThemeOld.messageList.leftBubbleBackgroundColor)
-                    }
-                }else{
-                    switch messageAlignment {
-                    case .standard:
-                        self.set(messageBubbleAlignment: .left)
-                        self.set(title: "HAS_INITIATED_GROUP_VIDEO_CALL".localize())
-                        self.set(corner: CometChatThemeOld.messageList.leftBubbleCorners)
-                        self.set(titleColor: CometChatThemeOld.messageList.leftBubbleTextColor)
-                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.leftBubbleTextColor)
-                        self.set(backgroundColor: CometChatThemeOld.messageList.leftBubbleBackgroundColor)
-                    case .leftAligned:
-                        self.set(messageBubbleAlignment: .left)
-                        self.set(title: "HAS_INITIATED_GROUP_VIDEO_CALL".localize())
-                        self.set(corner: CometChatThemeOld.messageList.leftBubbleCorners)
-                        self.set(titleColor: CometChatThemeOld.messageList.leftBubbleTextColor)
-                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.leftBubbleTextColor)
-                        self.set(backgroundColor: CometChatThemeOld.messageList.leftBubbleBackgroundColor)
-                    }
-                }
-                self.enableLongPress(bool: true)
-            }
-        }
-    }
+//    var meeetingMessage: BaseMessage? {
+//        didSet {
+//            if let meeetingMessage = meeetingMessage as? CustomMessage {
+//                self.set(borderColor: .clear)
+//                self.set(borderWidth: 1.0)
+//                self.set(userName: meeetingMessage.sender?.name ?? "")
+//                self.set(receipt: self.receipt.set(receipt: meeetingMessage))
+//                self.topTime.set(time: meeetingMessage.sentAt, forType: .MessageBubbleDate)
+//                self.time.set(time: meeetingMessage.sentAt, forType: .MessageBubbleDate)
+//                self.set(avatar: self.avatar.setAvatar(avatarUrl: meeetingMessage.sender?.avatar ?? "", with: meeetingMessage.sender?.name ?? ""))
+//                set(time: self.time)
+//                if isMyMessage() {
+//                    switch messageAlignment {
+//                    case .standard:
+//                        self.set(messageBubbleAlignment: .right)
+//                        self.set(title: "YOU_INITIATED_GROUP_VIDEO_CALL".localize())
+//                        self.set(titleColor: CometChatThemeOld.messageList.rightBubbleTextColor)
+//                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.rightBubbleTextColor)
+//                        self.set(corner: CometChatThemeOld.messageList.rightBubbleCorners)
+//                        self.set(backgroundColor: CometChatThemeOld.messageList.rightBubbleBackgroundColor)
+//                    case .leftAligned:
+//                        self.set(messageBubbleAlignment: .left)
+//                        self.set(title: "YOU_INITIATED_GROUP_VIDEO_CALL".localize())
+//                        self.set(corner: CometChatThemeOld.messageList.leftBubbleCorners)
+//                        self.set(titleColor: CometChatThemeOld.messageList.leftBubbleTextColor)
+//                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.leftBubbleTextColor)
+//                        self.set(backgroundColor: CometChatThemeOld.messageList.leftBubbleBackgroundColor)
+//                    }
+//                }else{
+//                    switch messageAlignment {
+//                    case .standard:
+//                        self.set(messageBubbleAlignment: .left)
+//                        self.set(title: "HAS_INITIATED_GROUP_VIDEO_CALL".localize())
+//                        self.set(corner: CometChatThemeOld.messageList.leftBubbleCorners)
+//                        self.set(titleColor: CometChatThemeOld.messageList.leftBubbleTextColor)
+//                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.leftBubbleTextColor)
+//                        self.set(backgroundColor: CometChatThemeOld.messageList.leftBubbleBackgroundColor)
+//                    case .leftAligned:
+//                        self.set(messageBubbleAlignment: .left)
+//                        self.set(title: "HAS_INITIATED_GROUP_VIDEO_CALL".localize())
+//                        self.set(corner: CometChatThemeOld.messageList.leftBubbleCorners)
+//                        self.set(titleColor: CometChatThemeOld.messageList.leftBubbleTextColor)
+//                        self.set(thumbnailTintColor: CometChatThemeOld.messageList.leftBubbleTextColor)
+//                        self.set(backgroundColor: CometChatThemeOld.messageList.leftBubbleBackgroundColor)
+//                    }
+//                }
+//                self.enableLongPress(bool: true)
+//            }
+//        }
+//    }
     
   
     override func awakeFromNib() {
@@ -292,9 +297,9 @@ class CometChatMeetingBubble: UITableViewCell {
 
     }
     @IBAction func didJoinPressed(_ sender: Any) {
-        if let meeetingMessage = meeetingMessage as? CustomMessage {
-            meetingDelegate?.didJoinMeeting(forMessage: meeetingMessage, cell: self)
-        }
+//        if let meeetingMessage = meeetingMessage as? CustomMessage {
+//            meetingDelegate?.didJoinMeeting(forMessage: meeetingMessage, cell: self)
+//        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

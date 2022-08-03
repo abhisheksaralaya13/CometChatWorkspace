@@ -52,7 +52,7 @@ class CometChatWhiteboardBubble: UIView {
             iconColor:  CometChatTheme.palatte?.accent700,
             whiteboardButtonTitleColor: CometChatTheme.palatte?.primary,
             whiteboardButtonTitleFont: CometChatTheme.typography?.Name2,
-            lineColor: CometChatTheme.palatte?.accent100
+            lineColor: CometChatTheme.palatte?.accent100, buttonColor: CometChatTheme.palatte?.primary ,buttonFont: CometChatTheme.typography?.Name2
         )
         set(style: whiteboardBubbleStyle)
 

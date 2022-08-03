@@ -71,7 +71,7 @@ enum MessageComposerMode {
     var showSendButton: Bool = true
     var messageTypes: [CometChatMessageTemplate] = []
     var excludeMessageTypes: [CometChatMessageTemplate] = []
-    var customOutgoingMessageSound: String?
+    var customOutgoingMessageSound: URL?
     var enableSoundForMessages: Bool = true
     var messageComposerMode: MessageComposerMode =  .draft
     var configuration: CometChatConfiguration?
@@ -144,8 +144,6 @@ enum MessageComposerMode {
         return self
     }
 
-
-
     @discardableResult
     public func set(background: [Any]?) ->  CometChatMessageComposer {
         if let backgroundColors = background as? [CGColor] {
@@ -175,6 +173,24 @@ enum MessageComposerMode {
         self.placeholderColor = placeholderColor
         return self
     }
+    
+    @discardableResult
+    public func set(text: String) ->  CometChatMessageComposer {
+        textView.text = text
+        return self
+    }
+
+    @discardableResult
+    public func set(textFont: UIFont) ->  CometChatMessageComposer {
+        self.textView.font = textFont
+        return self
+    }
+
+    @discardableResult
+    public func set(textColor: UIColor) ->  CometChatMessageComposer {
+        self.textView.textColor = textColor
+        return self
+    }
 
     @discardableResult
     public func hide(attachment: Bool) ->  CometChatMessageComposer {
@@ -194,9 +210,14 @@ enum MessageComposerMode {
         return self
     }
 
+    @discardableResult
+    public func enable(soundForMessages: Bool) ->  CometChatMessageComposer {
+        self.enableSoundForMessages = soundForMessages
+        return self
+    }
 
     @discardableResult
-    public func set(customOutgoingMessageSound: String) ->  CometChatMessageComposer {
+    public func set(customOutgoingMessageSound: URL) ->  CometChatMessageComposer {
         self.customOutgoingMessageSound = customOutgoingMessageSound
         return self
     }
@@ -212,12 +233,7 @@ enum MessageComposerMode {
         self.hideEmoji = emoji
         return self
     }
-
-    @discardableResult
-    public func enable(soundForMessages: Bool) ->  CometChatMessageComposer {
-        self.enableSoundForMessages = soundForMessages
-        return self
-    }
+   
 
     @discardableResult
     public func set(excludeMessageTypes: [CometChatMessageTemplate]) -> Self {
@@ -462,7 +478,7 @@ enum MessageComposerMode {
             self.messageComposerMode = .edit
             set(title: "EDIT_MESSAGE".localize())
             set(subTitle: message.text)
-            textView.text = message.text
+            set(text: message.text)
 
             UIView.transition(with: messagePreview, duration: 0.4,
                               options: .transitionCrossDissolve,
@@ -596,6 +612,7 @@ enum MessageComposerMode {
         set(subTitleColor: CometChatTheme.palatte?.accent600 ?? UIColor.gray)
         set(closeButtonIcon: closeIcon)
         set(closeButtonTint: CometChatTheme.palatte?.accent600 ?? UIColor.gray)
+        self.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
 
     }
 
@@ -616,9 +633,10 @@ enum MessageComposerMode {
     fileprivate func configureMessageComposer() {
 
         textView.layer.cornerRadius = 20
-        textView.font = UIFont.systemFont(ofSize: 17)
         textView.delegate = self
         send.isHidden = true
+        set(textFont: CometChatTheme.typography?.Body ?? UIFont.systemFont(ofSize: 17))
+        set(textColor: CometChatTheme.palatte?.accent ?? .black)
 
         if #available(iOS 13.0, *) {
             let sendImage = UIImage(named: "message-composer-send.png", in: CometChatUIKit.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
@@ -644,7 +662,7 @@ enum MessageComposerMode {
                 enable(soundForMessages: messageComposerConfiguration.isSoundEnabled())
             }
         }else{
-            set(messageTypes: [CometChatMessageTemplate(type: .imageFromCamera), CometChatMessageTemplate(type: .imageFromGallery), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .location), CometChatMessageTemplate(type: .collaborativeWhiteboard), CometChatMessageTemplate(type: .collaborativeDocument), CometChatMessageTemplate(type: .poll)])
+            set(messageTypes: [CometChatMessageTemplate(type: .imageFromCamera), CometChatMessageTemplate(type: .imageFromGallery), CometChatMessageTemplate(type: .file), CometChatMessageTemplate(type: .collaborativeWhiteboard), CometChatMessageTemplate(type: .collaborativeDocument), CometChatMessageTemplate(type: .poll)])
             set(maxLines: 5)
             set(placeholderText: placeholderText)
         }
@@ -654,18 +672,6 @@ enum MessageComposerMode {
         self.sticker.isHidden = hideSticker
         self.liveReaction.isHidden = hideLiveReaction
         self.attachment.isHidden = hideAttachment
-    }
-
-    @discardableResult
-    public func set(backgroundColor: [Any]?) ->  CometChatMessageComposer {
-        if let backgroundColors = backgroundColor as? [CGColor] {
-            if backgroundColors.count == 1 {
-                background.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
-            }else{
-                background.set(backgroundColorWithGradient: backgroundColor)
-            }
-        }
-        return self
     }
 
     @discardableResult
@@ -681,7 +687,6 @@ enum MessageComposerMode {
             if !filteredMessageTemplates.isEmpty {
 
                 for template in excludeMessageTypes {
-
                     filteredMessageTemplates =  filteredMessageTemplates.filter { $0.type != template.type }
                     print("filteredMessageTemplates: \(filteredMessageTemplates)")
                 }
@@ -704,7 +709,7 @@ enum MessageComposerMode {
 
     @IBAction func onEmojiClick(_ sender: UIButton) {
         let emojiKeyboard = CometChatEmojiKeyboard()
-        controller?.presentPanModal(emojiKeyboard)
+        controller?.presentPanModal(emojiKeyboard, backgroundColor: CometChatTheme.palatte?.background)
     }
 
 
@@ -717,7 +722,7 @@ enum MessageComposerMode {
 
         (group.rowVC as? CometChatActionSheet)?.set(layoutMode: .listMode).set(actionItems: actionItems)
         if let controller = controller {
-            controller.presentPanModal(group.rowVC)
+            controller.presentPanModal(group.rowVC, backgroundColor:  CometChatTheme.palatte?.secondary)
         }
         self.actionItems.removeAll()
     }
@@ -770,6 +775,7 @@ enum MessageComposerMode {
                           animations: {
             self.messagePreview.isHidden = true
             self.textView.text = ""
+            self.messageComposerMode = .draft
             self.heightConstant.constant = 100
         })
 
@@ -838,8 +844,11 @@ extension CometChatMessageComposer {
             textMessage?.sender = CometChat.getLoggedInUser()
 
             if let textMessage = textMessage {
-                
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .outgoingMessage, customSound: customOutgoingMessageSound)
+                }
                 CometChatMessageEvents.emitOnMessageSent(message: textMessage, status: .inProgress)
+                
                 textView.text = ""
                 send.isEnabled = false
                 CometChat.sendTextMessage(message: textMessage) { updatedTextMessage in
@@ -868,6 +877,9 @@ extension CometChatMessageComposer {
         let message:String = textView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         if !message.isEmpty {
             textMessage.text = message
+            if enableSoundForMessages {
+                CometChatSoundManager().play(sound: .outgoingMessage, customSound: customOutgoingMessageSound)
+            }
             CometChatMessageEvents.emitOnMessageEdit(message: textMessage, status: .inProgress)
             send.isEnabled = false
             CometChat.edit(message: textMessage) { updatedTextMessage in
@@ -910,7 +922,9 @@ extension CometChatMessageComposer {
         mediaMessage?.sender = CometChat.getLoggedInUser()
         mediaMessage?.metaData = ["fileURL": url]
         mediaMessage?.senderUid = CometChat.getLoggedInUser()?.uid ?? ""
-
+        if enableSoundForMessages {
+            CometChatSoundManager().play(sound: .outgoingMessage, customSound: customOutgoingMessageSound)
+        }
         if let mediaMessage = mediaMessage {
             CometChatMessageEvents.emitOnMessageSent(message: mediaMessage, status: .inProgress)
             CometChat.sendMediaMessage(message: mediaMessage) { updatedMediaMessage in
@@ -945,6 +959,9 @@ extension CometChatMessageComposer {
         customMessage?.metaData = ["pushNotification": pushNotificationTitle, "incrementUnreadCount":true]
 
         if let customMessage = customMessage {
+            if enableSoundForMessages {
+                CometChatSoundManager().play(sound: .outgoingMessage, customSound: customOutgoingMessageSound)
+            }
             CometChatMessageEvents.emitOnMessageSent(message: customMessage, status: .inProgress)
             CometChat.sendCustomMessage(message: customMessage) { updatedCustomMessage in
                 CometChatMessageEvents.emitOnMessageSent(message: updatedCustomMessage, status: .success)

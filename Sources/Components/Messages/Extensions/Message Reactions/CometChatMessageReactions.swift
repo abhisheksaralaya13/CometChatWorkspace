@@ -157,7 +157,7 @@ extension CometChatMessageReactions: UICollectionViewDataSource, UICollectionVie
         let emojiKeyboard = CometChatEmojiKeyboard()
         guard let message = message else { return }
         emojiKeyboard.set(message: message)
-        controller?.presentPanModal(emojiKeyboard)
+        controller?.presentPanModal(emojiKeyboard, backgroundColor: CometChatTheme.palatte?.background)
     }
 }
 

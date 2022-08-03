@@ -650,6 +650,14 @@ import AVFAudio
             set(threadIndicatorColor: threadIndicatorTextColor)
         }
         
+        if let timeColor = style.timeColor {
+            set(timeColor: timeColor)
+        }
+
+        if let timeFont = style.timeFont {
+            set(timeFont: timeFont)
+        }
+
         self.avatar.set(cornerRadius: style.cornerRadius ?? 0.0).set(borderWidth: style.border ?? 0.0).set(backgroundColor: style.subTitleColor ?? .gray)
         return self
     }
@@ -942,10 +950,10 @@ import AVFAudio
             
             self.addLongPress()
             
-            let style = Style(background: CometChatTheme.palatte?.background, border: 1, cornerRadius: 24, titleColor: CometChatTheme.palatte?.accent, titleFont: CometChatTheme.typography?.Name2, subTitleColor: CometChatTheme.palatte?.accent600, subTitleFont: CometChatTheme.typography?.Subtitle1, typingIndicatorTextColor: CometChatTheme.palatte?.accent600, typingIndicatorTextFont: CometChatTheme.typography?.Subtitle1, threadIndicatorTextColor: CometChatTheme.palatte?.accent500, threadIndicatorTextFont: CometChatTheme.typography?.Subtitle1)
+            let style = Style(background: CometChatTheme.palatte?.background, border: 1, cornerRadius: 24, titleColor: CometChatTheme.palatte?.accent, titleFont: CometChatTheme.typography?.Name2, subTitleColor: CometChatTheme.palatte?.accent600, subTitleFont: CometChatTheme.typography?.Subtitle1, typingIndicatorTextColor: CometChatTheme.palatte?.accent600, typingIndicatorTextFont: CometChatTheme.typography?.Subtitle1, threadIndicatorTextColor: CometChatTheme.palatte?.accent500, threadIndicatorTextFont: CometChatTheme.typography?.Subtitle1, timeFont: CometChatTheme.typography?.Subtitle2, timeColor: CometChatTheme.palatte?.accent400)
             
             set(style: style)
-            
+            unreadCount.set(backgroundColor: CometChatTheme.palatte?.primary ?? .systemFill)
         }
     }
     

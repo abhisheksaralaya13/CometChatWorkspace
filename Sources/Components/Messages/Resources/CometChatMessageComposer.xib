@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatMessageComposer" customModule="CometChatUIKit">
             <connections>
                 <outlet property="attachment" destination="wys-dO-xKt" id="NMr-KO-YPg"/>
-                <outlet property="background" destination="0zE-kA-sqy" id="JSZ-3c-ziT"/>
+                <outlet property="background" destination="0zE-kA-sqy" id="5d8-Za-poN"/>
                 <outlet property="bottomView" destination="AJO-Oc-Byf" id="B8l-Ph-zcz"/>
                 <outlet property="close" destination="6De-m6-eaZ" id="kD8-zX-b8O"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="B1t-A3-wpY"/>
@@ -37,7 +37,7 @@
                     <rect key="frame" x="0.0" y="55" width="572" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fuh-qf-b4c">
-                            <rect key="frame" x="20" y="5" width="54.5" height="50"/>
+                            <rect key="frame" x="20" y="5" width="502" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-G6-J4S">
                                     <rect key="frame" x="0.0" y="0.0" width="3" height="50"/>
@@ -47,16 +47,16 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JgR-SV-9yO">
-                                    <rect key="frame" x="13" y="2" width="41.5" height="46"/>
+                                    <rect key="frame" x="13" y="2" width="489" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nU7-8B-Goq">
-                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="489" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTh-Jb-6gz">
-                                            <rect key="frame" x="0.0" y="25.5" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="25.5" width="489" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -90,6 +90,7 @@
                         <constraint firstAttribute="height" constant="60" id="6N0-0E-6gc"/>
                         <constraint firstAttribute="trailing" secondItem="6De-m6-eaZ" secondAttribute="trailing" constant="20" id="78x-tV-sog"/>
                         <constraint firstItem="fuh-qf-b4c" firstAttribute="leading" secondItem="hTB-02-HvD" secondAttribute="leading" constant="20" id="eB4-Ln-K2d"/>
+                        <constraint firstItem="6De-m6-eaZ" firstAttribute="leading" secondItem="fuh-qf-b4c" secondAttribute="trailing" constant="10" id="lcx-fn-J4g"/>
                         <constraint firstItem="YB8-Aa-LwW" firstAttribute="leading" secondItem="hTB-02-HvD" secondAttribute="leading" id="lnF-GW-kDh"/>
                         <constraint firstItem="6De-m6-eaZ" firstAttribute="top" secondItem="hTB-02-HvD" secondAttribute="top" constant="10" id="oG5-NN-SlC"/>
                         <constraint firstItem="YB8-Aa-LwW" firstAttribute="top" secondItem="hTB-02-HvD" secondAttribute="top" id="vEx-94-pJH"/>

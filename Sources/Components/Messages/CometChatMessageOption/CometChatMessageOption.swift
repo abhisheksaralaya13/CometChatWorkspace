@@ -19,7 +19,15 @@ protocol CometChatMessageOptionDelegate: AnyObject {
   func onItemClick(messageOption: CometChatMessageOption, forMessage: BaseMessage?, indexPath: IndexPath?)
 }
 
-public class  CometChatMessageOption {
+public class  CometChatMessageOption : Hashable {
+    
+    public static func == (lhs: CometChatMessageOption, rhs: CometChatMessageOption) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+         return hasher.combine(id)
+     }
 
     public enum DefaultOption {
         
@@ -98,10 +106,9 @@ public class  CometChatMessageOption {
     let title: String
     let image: UIImage
     var optionFor: OptionFor = .both
-    var onClick: (()->()?)? = nil
+    var onClick: ((_ message: BaseMessage?) -> ())?
     
-    
-    public init(id: String, title: String, image: UIImage,  optionFor: OptionFor, onClick: (()->()?)? = nil) {
+    public init(id: String, title: String, image: UIImage,  optionFor: OptionFor, onClick: ((_ message: BaseMessage?) -> ())? = nil) {
         self.id = id
         self.title = title
         self.image = image

@@ -87,6 +87,7 @@ public enum  MessageType : String {
     var messageBubbleConfiguration: MessageBubbleConfiguration?
     var excludedMessageOptions: [CometChatMessageOption]?
     var enableSoundForMessages: Bool = true
+    var customIncomingMessageSound: URL?
     var configuration: CometChatConfiguration?
     var configurations: [CometChatConfiguration]?
     
@@ -219,6 +220,12 @@ public enum  MessageType : String {
     @discardableResult
     @objc public func enableSoundForMessages(bool: Bool) -> Self {
         self.enableSoundForMessages = bool
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(customIncomingMessageSound: URL) -> Self {
+        self.customIncomingMessageSound = customIncomingMessageSound
         return self
     }
     
@@ -380,12 +387,19 @@ public enum  MessageType : String {
                if let customView = template.customView {
                 self.customViews.append(with: [template.type : customView])
                }
-               if let messageOptions = template.options {
-                self.messageOptions.append(with: [template.type : messageOptions])
-              }
+                if let messageOptions = template.options {
+                    print("messageOptions: \(messageOptions.count)")
+                    if let excludedMessageOptions = excludedMessageOptions {
+                        let currentExcludedOptions = Array(Set(messageOptions).subtracting(excludedMessageOptions ?? []))
+                        print("currentExcludedOptions: \(currentExcludedOptions.count)")
+                        self.messageOptions.append(with: [template.type : currentExcludedOptions])
+                    }else{
+                        self.messageOptions.append(with: [template.type : messageOptions])
+                    }
+                }
             }
           }else{
-              self.messageCategories = ["message", "custom", "call", "action", "groupMember"]
+              self.messageCategories = ["message", "custom", "call", "action"]
                           self.messageTypes = ["text", "image", "video", "audio", "file", "groupMember", "extension_poll", "extension_whiteboard", "extension_document", "extension_sticker", "meeting"]
                           
           }
@@ -606,8 +620,8 @@ public enum  MessageType : String {
         
         print("message types: \(messageTypes)")
         
-        switch type {
-        case .user:
+
+        switch type {        case .user:
             
             self.messageRequest = MessagesRequest.MessageRequestBuilder().set(uid: forID).set(categories: messageCategories).set(types: messageTypes).hideReplies(hide: true).hideDeletedMessages(hide: hideDeletedMessages).set(unread: onlyUnreadMessages).hideMessagesFromBlockedUsers(hideMessagesFromBlockedUsers).setTags(tags).set(limit: limit).build()
             
@@ -627,6 +641,7 @@ public enum  MessageType : String {
                 DispatchQueue.main.async {
                     
                     if let currentUser = strongSelf.currentUser , let textMessage = lastMessage as? TextMessage {
+                        strongSelf.smartReplies.backgroundColor = CometChatTheme.palatte?.background ?? .systemBackground
                         strongSelf.smartReplies.set(message: textMessage)
                             .set(user: currentUser)
                     }else{
@@ -754,9 +769,6 @@ public enum  MessageType : String {
     
     @discardableResult
     @objc public func add(message: BaseMessage)  -> CometChatMessageList {
-        if enableSoundForMessages {
-        CometChatSoundManager().play(sound: .outgoingMessage)
-        }
         var lastSection = 0
         DispatchQueue.main.async{
             if self.chatMessages.count == 0 {
@@ -911,13 +923,17 @@ public enum  MessageType : String {
     }
     
     fileprivate func setupTableView() {
+        self.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
+
         tableView.separatorStyle = .none
-        tableView.setEmptyMessage("LOADING".localize(), color: emptyStateTextColor, font: emptyStateTextFont)
+       // tableView.setEmptyMessage("LOADING".localize(), color: emptyStateTextColor, font: emptyStateTextFont)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = .clear
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadPreviousMessages), for: .valueChanged)
         tableView?.refreshControl = refreshControl
+                //self.tableView.conte.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
     }
     
     fileprivate func registerCells() {
@@ -966,6 +982,7 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
             }
             let containerView = UIView()
             containerView.addSubview(label)
+            containerView.backgroundColor = .clear
             label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
             return containerView
@@ -1035,20 +1052,9 @@ extension CometChatMessageList: UITableViewDelegate, UITableViewDataSource {
 extension CometChatMessageList: CometChatEmojiKeyboardDelegate {
     func onEmojiClick(emoji: CometChatEmoji, message: BaseMessage?) {
         guard let message = message else { return }
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: nil, message: "ADDING_REACTION".localize(), preferredStyle: .alert)
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.gray
-            loadingIndicator.startAnimating()
-            alert.view.addSubview(loadingIndicator)
-            self.controller?.present(alert, animated: true, completion: nil)
-        }
+
         CometChat.callExtension(slug: "reactions", type: .post, endPoint: "v1/react", body: ["msgId":message.id, "emoji":emoji.emoji], onSuccess: { (success) in
             print("Success: \(success)")
-            DispatchQueue.main.async {
-                self.controller?.dismiss(animated: true, completion: nil)
-            }
         }) { (error) in
             print(error)
         }

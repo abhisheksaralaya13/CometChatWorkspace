@@ -42,7 +42,7 @@ extension UIViewController: PanModalPresenter {
      func presentPanModal(_ viewControllerToPresent: PanModalPresentable.LayoutType,
                                 sourceView: UIView? = nil,
                                 sourceRect: CGRect = .zero,
-                                completion: (() -> Void)? = nil) {
+                          completion: (() -> Void)? = nil, backgroundColor: UIColor? = CometChatTheme.palatte?.background) {
 
         /**
          Here, we deliberately do not check for size classes. More info in `PanModalPresentationDelegate`
@@ -59,7 +59,7 @@ extension UIViewController: PanModalPresenter {
             viewControllerToPresent.modalPresentationCapturesStatusBarAppearance = true
             viewControllerToPresent.transitioningDelegate = PanModalPresentationDelegate.default1
         }
-         viewControllerToPresent.view.backgroundColor = CometChatActionSheet.backgroundColor
+         viewControllerToPresent.view.backgroundColor = backgroundColor
         present(viewControllerToPresent, animated: true, completion: completion)
     }
 

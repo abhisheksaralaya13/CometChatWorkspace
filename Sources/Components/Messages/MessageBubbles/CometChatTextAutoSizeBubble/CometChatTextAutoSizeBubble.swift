@@ -65,23 +65,23 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     private var imageRequest: Cancellable?
     private lazy var imageService = ImageService()
     
-    @discardableResult
-    @objc public func set(corner: CometChatCorner) -> Self {
-        switch corner.corner {
-        case .leftTop:
-            self.background.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightTop:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .leftBottom:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightBottom:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
-        case .none:
-            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        }
-       
-        return self
-    }
+//    @discardableResult
+//    @objc public func set(corner: CometChatCorner) -> Self {
+//        switch corner.corner {
+//        case .leftTop:
+//            self.background.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightTop:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .leftBottom:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightBottom:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
+//        case .none:
+//            self.background.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        }
+//       
+//        return self
+//    }
     
     @discardableResult
     @objc public func set(configuration: CometChatConfiguration) -> Self {
@@ -120,12 +120,21 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     }
     
     @discardableResult
+    public func set(time: Int) -> Self {
+        self.time.set(time: time, forType: .MessageBubbleDate)
+        self.topTime.set(time: time, forType: .MessageBubbleDate)
+        return self
+    }
+    
+    @discardableResult
      public func set(timeAlignment: MessageBubbleTimeAlignment) -> Self {
         switch timeAlignment {
         case .top:
             self.time.isHidden = true
+            self.topTime.isHidden = false
         case .bottom:
             self.time.isHidden = false
+            self.topTime.isHidden = true
         }
         return self
     }
@@ -249,7 +258,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
                 if let receivedMessageInputData = messageBubbleConfiguration.receivedMessageInputData {
                     self.set(receivedMessageInputData: receivedMessageInputData)
                 }
-                
+                print(messageBubbleConfiguration.timeAlignment)
                 self.set(timeAlignment: messageBubbleConfiguration.timeAlignment)
                 
                 if let sentMessageInputData = sentMessageInputData {
@@ -320,12 +329,18 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     
     private func configureCell(baseMessage message: TextMessage) {
         messageOptions.removeAll()
+        set(userNameFont: CometChatTheme.typography?.Subtitle2 ?? UIFont.systemFont(ofSize: 13))
+        set(userNameColor: CometChatTheme.palatte?.accent600 ?? UIColor.gray)
+        set(timeFont: CometChatTheme.typography?.Caption2 ?? UIFont.systemFont(ofSize: 11))
+        set(timeColor: CometChatTheme.palatte?.accent500 ?? .gray)
         reactions.isHidden = true
         self.message.isHidden = false
         
         if let controller = controller {
             reactions.set(controller: controller).set(messageObject: message)
         }
+        
+        set(time: message.sentAt)
         self.heightReactions.constant = 35
         set(reactions: message, with: .left)
         let isStandard = messageListAlignment == .standard && (message.sender?.uid == CometChat.getLoggedInUser()?.uid)
@@ -365,8 +380,10 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
         
         if let translatedMessage = message.metaData?["translated-message"] as? String {
           
+
             set(text: translatedMessage + "\n\n" + message.text + "\n\n" + "TRANSLATED_MESSAGE".localize())
-            set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte!.secondary!)
+            set(containerBG: isStandard ? (CometChatTheme.palatte?.primary)! : CometChatTheme.palatte?.secondary! ?? UIColor.systemBackground)
+
         } else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], !linkArray.isEmpty {
             self.linkPreview.isHidden = false
             self.textMessageStackView.isHidden = true
@@ -515,15 +532,17 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
                     })
                 }
             }
+            self.message.URLSelectedColor = .link
+            self.message.URLColor = .link
         }
         if allMessageOptions.isEmpty {
             let defaultOptions = [
+                CometChatMessageOption(defaultOption: .reaction),
                 CometChatMessageOption(defaultOption: .edit),
-                CometChatMessageOption(defaultOption: .delete),
                 CometChatMessageOption(defaultOption: .copy),
                 CometChatMessageOption(defaultOption: .share),
                 CometChatMessageOption(defaultOption: .translate),
-                CometChatMessageOption(defaultOption: .reaction)
+                CometChatMessageOption(defaultOption: .delete)
             ]
             self.set(messageOptions: defaultOptions)
         } else {
@@ -583,14 +602,20 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     }
     
     private func setupStyle(isStandard: Bool) {
-        let textStyle = TextBubbleStyle(titleColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900, titleFont: CometChatTheme.typography?.Body)
+        let textStyle = TextBubbleStyle(titleColor: CometChatTheme.palatte?.accent900, titleFont: CometChatTheme.typography?.Subtitle1, subTitleFont: CometChatTheme.typography?.Subtitle2, subTitleColor: CometChatTheme.palatte?.accent700, messageTextFont: CometChatTheme.typography?.Body, messageTextColor: isStandard ? CometChatTheme.palatte?.background : CometChatTheme.palatte?.accent900, linkPreviewMessageFont: CometChatTheme.typography?.Subtitle1, linkPreviewMessageColor: CometChatTheme.palatte?.accent900)
         set(style: textStyle)
     }
     
     @discardableResult
     public func set(style: TextBubbleStyle) -> Self {
-        self.set(textColor: style.titleColor!)
-        self.set(textFont: style.titleFont!)
+        self.set(textColor: style.messageTextColor!)
+        self.set(textFont: style.messageTextFont!)
+        self.set(titleFont: style.titleFont!)
+        self.set(titleColor: style.titleColor!)
+        self.set(subTitleFont: style.subTitleFont!)
+        self.set(subTitleColor: style.subTitleColor!)
+        self.set(linkPreviewMessageFont: style.linkPreviewMessageFont!)
+        self.set(linkPreviewMessageColor: style.linkPreviewMessageColor!)
         return self
     }
     
@@ -600,7 +625,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
             if backgroundColors.count == 1 {
                 self.containerStackView.backgroundColor = UIColor(cgColor: backgroundColors.first ?? UIColor.blue.cgColor)
             }else{
-               // self.background.set(backgroundColorWithGradient: backgroundColor)
+                self.background.set(backgroundColorWithGradient: backgroundColor)
             }
         }
         return self
@@ -632,6 +657,45 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     }
     
     @discardableResult
+    @objc public func set(titleFont: UIFont) -> Self {
+        self.title.font = titleFont
+        return self
+    }
+    
+    
+    @discardableResult
+    @objc public func set(titleColor: UIColor) -> Self {
+        self.title.textColor = titleColor
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(linkPreviewMessageFont: UIFont) -> Self {
+        self.linkPreviewMessage.font = linkPreviewMessageFont
+        return self
+    }
+    
+    
+    @discardableResult
+    @objc public func set(linkPreviewMessageColor: UIColor) -> Self {
+        self.linkPreviewMessage.textColor = linkPreviewMessageColor
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(subTitleFont: UIFont) -> Self {
+        self.subTitle.font = subTitleFont
+        return self
+    }
+    
+    
+    @discardableResult
+    @objc public func set(subTitleColor: UIColor) -> Self {
+        self.subTitle.textColor = subTitleColor
+        return self
+    }
+    
+    @discardableResult
     @objc func set(borderColor : UIColor) -> Self {
         self.background.layer.borderColor = borderColor.cgColor
         return self
@@ -646,6 +710,20 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     @discardableResult
     @objc public func set(receipt: CometChatMessageReceipt) -> Self {
         self.receipt = receipt
+        return self
+    }
+    
+    @discardableResult
+    public func set(timeFont: UIFont) -> Self {
+        self.time.font = timeFont
+        self.topTime.font = timeFont
+        return self
+    }
+    
+    @discardableResult
+    public func set(timeColor: UIColor) -> Self {
+        self.time.textColor = timeColor
+        self.topTime.textColor = timeColor
         return self
     }
 
@@ -664,11 +742,7 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if #available(iOS 13.0, *) {
-            selectionColor = .systemBackground
-        } else {
-            selectionColor = .white
-        }
+        selectionColor = CometChatTheme.palatte?.background ?? .systemBackground
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -760,11 +834,11 @@ class CometChatTextAutoSizeBubble: UITableViewCell, MFMailComposeViewControllerD
                 return  UIFont.systemFont(ofSize: 34, weight: .regular)
             }else if forMessage.text.count == 3 {
                 return UIFont.systemFont(ofSize: 25, weight: .regular)
-            }else{
-                return UIFont.systemFont(ofSize: 17, weight: .regular)
+            } else {
+                return CometChatTheme.typography?.Body ?? UIFont.systemFont(ofSize: 17, weight: .regular)
             }
         }else{
-            return UIFont.systemFont(ofSize: 17, weight: .regular)
+            return CometChatTheme.typography?.Body ?? UIFont.systemFont(ofSize: 17, weight: .regular)
         }
     }
 }

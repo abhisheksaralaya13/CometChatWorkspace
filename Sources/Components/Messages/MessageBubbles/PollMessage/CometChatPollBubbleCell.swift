@@ -27,6 +27,7 @@ class CometChatPollBubbleCell: UITableViewCell {
         selectionStyle = .none
         // TODO: This should be set through styling..
         answer.textColor = CometChatTheme.palatte?.accent900
+        
         self.backgroundColor = .clear
     }
     
@@ -38,13 +39,14 @@ class CometChatPollBubbleCell: UITableViewCell {
             pollButtonColor: CometChatTheme.palatte?.accent400,
             answerTextColor: CometChatTheme.palatte?.accent900,
             answerTextFont: CometChatTheme.typography?.Subtitle1,
-            pollBackgroundViewColor: .white,
+            pollBackgroundViewColor: CometChatTheme.palatte?.background,
             spacerViewColor: .clear)
           set(style: pollStyle)
-
+        /// it should be in Style
+        answer.font = CometChatTheme.typography?.Subtitle1
         if  let options = results["options"] as? [String: Any], let total = results["total"] as? Int, let dict = options["\(indexPath.row + 1)"] as? [String: Any], let count = dict["count"] as? Int, let text = dict["text"] as? String {
             answer.text = text
-            percentage.text = "\(round((Double(count) / Double(total <= 0 ? 1 : total)) * 100))%"
+            percentage.text = "\(Int(round((Double(count) / Double(total <= 0 ? 1 : total)) * 100)))%"
             
             /// if isSender then hide the poll button and show the percentage and show the anserwedPoll
             /// if !isSender then check voters
@@ -77,6 +79,7 @@ class CometChatPollBubbleCell: UITableViewCell {
         self.set(spacerViewColor: style.spacerViewColor!)
         self.set(percentageTextColor: style.percentageTextColor!)
         self.set(percentageTextFont: style.percentageTextFont!)
+        self.set(pollBackgroundViewColor: style.pollBackgroundViewColor!)
         return self
     }
     
@@ -95,6 +98,12 @@ class CometChatPollBubbleCell: UITableViewCell {
     @discardableResult
     @objc public func set(percentageTextColor: UIColor) -> Self {
             self.percentage.textColor = percentageTextColor
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(pollBackgroundViewColor: UIColor) -> Self {
+        self.pollBackgroundView.backgroundColor = pollBackgroundViewColor
         return self
     }
     

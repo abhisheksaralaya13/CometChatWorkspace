@@ -134,7 +134,7 @@ class CometChatPollsBubble: UIView {
     
     @discardableResult
     @objc public func set(answeredPoll: String) -> Self {
-        self.answeredPoll.text = answeredPoll + " PEOPLE_VOTED".localize()
+        self.answeredPoll.text = answeredPoll + " " + "PEOPLE_VOTED".localize()
         return self
     }
 

@@ -12,12 +12,18 @@ extension CometChatConversationList : CometChatMessageDelegate {
     
     public func onTextMessageReceived(textMessage: TextMessage) {
         if let conversation = CometChat.getConversationFromMessage(textMessage) {
+            if enableSoundForConversations {
+                CometChatSoundManager().play(sound: .incomingMessageFromOther, customSound: customSoundForConversations)
+            }
             self.update(conversation: conversation)
         }
     }
     
     public func onMediaMessageReceived(mediaMessage: MediaMessage) {
         if let conversation = CometChat.getConversationFromMessage(mediaMessage) {
+            if enableSoundForConversations {
+                CometChatSoundManager().play(sound: .incomingMessageFromOther, customSound: customSoundForConversations)
+            }
             self.update(conversation: conversation)
         }
         
@@ -25,6 +31,9 @@ extension CometChatConversationList : CometChatMessageDelegate {
     
     public func onCustomMessageReceived(customMessage: CustomMessage) {
         if let conversation = CometChat.getConversationFromMessage(customMessage) {
+            if enableSoundForConversations {
+                CometChatSoundManager().play(sound: .incomingMessageFromOther, customSound: customSoundForConversations)
+            }
             self.update(conversation: conversation)
         }
     }

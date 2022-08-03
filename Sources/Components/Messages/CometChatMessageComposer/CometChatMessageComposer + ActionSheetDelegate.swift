@@ -13,9 +13,9 @@ import CometChatPro
 extension CometChatMessageComposer : CometChatActionSheetDelegate {
 
     func onActionItemClick(item: ActionItem) {
-        if item.id == "image-from-camera" && item.text == "TAKE_A_PHOTO".localize() {
+        if item.id == "image" && item.text == "TAKE_A_PHOTO".localize() {
             takeAPhotoPressed()
-        }else if item.id == "image-from-gallery" || item.text == "PHOTO_VIDEO_LIBRARY".localize() {
+        }else if item.id == "image" && item.text == "PHOTO_VIDEO_LIBRARY".localize() {
             photoAndVideoLibraryPressed()
         }else if item.id == "file" {
             documentPressed()
@@ -40,13 +40,6 @@ extension CometChatMessageComposer : CometChatActionSheetDelegate {
                     }
                 }
             }
-//            let template = messageTypes.filter {$0.type == item.id}.first
-//            if let user = currentUser {
-//                template?.onActionClick!(user, nil)
-//            }
-//            if let group = currentGroup {
-//                template?.onActionClick!(nil, group)
-//            }
         }
         
     }

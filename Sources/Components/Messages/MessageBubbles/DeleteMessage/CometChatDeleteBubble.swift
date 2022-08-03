@@ -49,7 +49,7 @@ class CometChatDeleteBubble: UIView {
   }
   private func setupStyle(isStandard: Bool) {
     let deleteStyle = DeleteBubbleStyle(
-      titleColor: CometChatTheme.palatte?.accent500, titleFont: CometChatTheme.typography?.Body)
+      titleColor: CometChatTheme.palatte?.accent500, titleFont: CometChatTheme.typography?.Subtitle2)
     set(style: deleteStyle)
   }
   @discardableResult

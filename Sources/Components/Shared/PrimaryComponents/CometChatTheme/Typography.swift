@@ -87,6 +87,12 @@ public struct Typography {
     }
     
     @discardableResult
+     public mutating func setFont(body: UIFont) -> Typography {
+       self.Body = body
+       return self
+     }
+    
+    @discardableResult
     public  mutating func overrideFont(family: CometChatFontFamily) -> Typography {
         setFont(heading: UIFont(name: CometChatFontFamily.bold, size: 34) ?? UIFont.systemFont(ofSize: 34, weight: .bold))
         setFont(name1: UIFont(name: CometChatFontFamily.medium, size: 20) ?? UIFont.systemFont(ofSize: 20, weight: .medium))
@@ -97,10 +103,9 @@ public struct Typography {
         setFont(subtitle2: UIFont(name: CometChatFontFamily.regular, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular))
         setFont(caption1: UIFont(name: CometChatFontFamily.medium, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .medium))
         setFont(caption2: UIFont(name: CometChatFontFamily.medium, size: 11) ?? UIFont.systemFont(ofSize: 11, weight: .medium))
+        setFont(body: UIFont(name: CometChatFontFamily.regular, size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .regular))
         return self
     }
-    
-    
 }
 
 

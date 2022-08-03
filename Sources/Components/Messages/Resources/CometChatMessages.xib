@@ -33,7 +33,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-Aj-jOl" customClass="CometChatMessageList" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="104" width="414" height="658"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a93-Tz-O8A" customClass="CometChatMessageComposer" customModule="CometChatUIKit">
                     <rect key="frame" x="0.0" y="762" width="414" height="100"/>

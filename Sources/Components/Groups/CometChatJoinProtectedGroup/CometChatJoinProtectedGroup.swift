@@ -17,6 +17,7 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
     
     @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var containerView: UIStackView!
 
     
     open override func loadView() {
@@ -44,6 +45,8 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
     public func hide(continueButton: Bool) ->  Self {
         if !continueButton {
             self.continueButton = UIBarButtonItem(title: "CONTINUE".localize(), style: .done, target: self, action: #selector(self.didContinueButtonPressed))
+            set(continueButtonFont: CometChatTheme.typography?.Name2 ?? UIFont.systemFont(ofSize: 17))
+            set(continueButtonTint: CometChatTheme.palatte?.primary ?? .blue)
             self.navigationItem.rightBarButtonItem = self.continueButton
         }
         return self
@@ -52,6 +55,12 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
     @discardableResult
     public func set(continueButtonTint: UIColor) ->  Self {
         continueButton?.tintColor = continueButtonTint
+        return self
+    }
+
+    @discardableResult
+    public func set(continueButtonFont: UIFont) ->  Self {
+        self.continueButton?.setTitleTextAttributes([NSAttributedString.Key.font: continueButtonFont], for: .normal)
         return self
     }
     
@@ -124,6 +133,9 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
             .hide(search: true)
             .set(backButtonTitle: "CANCEL".localize())
             .show(backButton: true)
+            .set(backButtonTitleColor: CometChatTheme.palatte?.primary ?? .systemBlue)
+            .set(titleFont: CometChatTheme.typography?.Title2 ?? .systemFont(ofSize: 17))
+            .set(titleColor: CometChatTheme.palatte?.accent ?? .black)
         hide(continueButton: false)
         
         self.view.backgroundColor = CometChatTheme.palatte?.secondary
@@ -137,6 +149,8 @@ open class CometChatJoinProtectedGroup: CometChatListBase {
                 .set(captionFont: CometChatTheme.typography?.Subtitle2 ?? UIFont.systemFont(ofSize: 13))
                 .set(captionColor: CometChatTheme.palatte?.accent600 ?? UIColor.lightGray)
         }
+        containerView.addBackground(color: CometChatTheme.palatte?.background ?? .white)
+        password.font = CometChatTheme.typography?.Body ?? .systemFont(ofSize: 17)
     }
     
 }

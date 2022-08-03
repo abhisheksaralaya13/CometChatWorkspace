@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CometChatPro
 
-class CometChatDialog {
+public class CometChatDialog {
     
     private var title: String? = ""
     private var titleColor: UIColor? = .gray
@@ -24,6 +24,8 @@ class CometChatDialog {
     private var cancelButtonText: String? = ""
     private var cancelButtonTextColor: UIColor? = CometChatTheme.palatte?.primary
     private var cancelButtonTextFont: UIFont? = CometChatTheme.typography?.Body
+    
+    public init() {}
     
     @discardableResult
     public func set(messageText: String) -> Self {
@@ -105,32 +107,37 @@ class CometChatDialog {
     
     @discardableResult
     public func open(onConfirm: @escaping () -> (), onCancel: @escaping () -> ()) -> Self {
-        let alert = UIAlertController(title: title, message: messageText, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: cancelButtonText, style: .cancel) { cancel in
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            let alert = UIAlertController(title: strongSelf.title, message: strongSelf.messageText, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: strongSelf.cancelButtonText, style: .cancel) { cancel in
             onCancel()
         }
-        let tryAgain = UIAlertAction(title: confirmButtonText, style: .default) { tryAgain in
+            let tryAgain = UIAlertAction(title: strongSelf.confirmButtonText, style: .default) { tryAgain in
             onConfirm()
         }
         alert.addAction(cancel)
         alert.addAction(tryAgain)
+        
+        
         if let window = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({$0.windows }).first(where: { $0.isKeyWindow }) {
             window.rootViewController?.presentedViewController?.present(alert, animated: true)
+        }
         }
         return self
     }
     
     @discardableResult
     public func open(onConfirm: @escaping () -> ()) -> Self {
-        let alert = UIAlertController(title: title, message: messageText, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: cancelButtonText, style: .cancel) { _ in}
-        let tryAgain = UIAlertAction(title: confirmButtonText, style: .default) { tryAgain in
+            let alert = UIAlertController(title: title, message: messageText, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: cancelButtonText, style: .cancel) { _ in}
+            let tryAgain = UIAlertAction(title: confirmButtonText, style: .default) { tryAgain in
             onConfirm()
         }
-        if !cancelButtonText!.isEmpty {
+            if !cancelButtonText!.isEmpty {
             alert.addAction(cancel)
         }
-        if !confirmButtonText!.isEmpty {
+            if !confirmButtonText!.isEmpty {
             alert.addAction(tryAgain)
         }
         if let window = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({$0.windows }).first(where: { $0.isKeyWindow }) {
@@ -141,17 +148,20 @@ class CometChatDialog {
     
     @discardableResult
     public func open() -> Self {
-        let alert = UIAlertController(title: title, message: messageText, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: cancelButtonText, style: .cancel) { _ in}
-        let tryAgain = UIAlertAction(title: confirmButtonText, style: .default) { _ in }
-        if !cancelButtonText!.isEmpty {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            let alert = UIAlertController(title: strongSelf.title, message: strongSelf.messageText, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: strongSelf.cancelButtonText, style: .cancel) { _ in}
+            let tryAgain = UIAlertAction(title: strongSelf.confirmButtonText, style: .default) { _ in }
+            if !strongSelf.cancelButtonText!.isEmpty {
             alert.addAction(cancel)
         }
-        if !confirmButtonText!.isEmpty {
+            if !strongSelf.confirmButtonText!.isEmpty {
             alert.addAction(tryAgain)
         }
         if let window = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({$0.windows }).first(where: { $0.isKeyWindow }) {
             window.rootViewController?.presentedViewController?.present(alert, animated: true)
+        }
         }
         return self
     }

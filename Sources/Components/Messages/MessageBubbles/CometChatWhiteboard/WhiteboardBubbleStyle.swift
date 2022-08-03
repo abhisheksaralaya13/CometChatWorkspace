@@ -18,8 +18,10 @@ class WhiteboardBubbleStyle {
     let whiteboardButtonTitleFont: UIFont?
     let whiteboardButtonTitleColor: UIColor?
     let lineColor: UIColor?
+    let buttonColor: UIColor?
+    let buttonFont: UIFont?
     
-    init(titleColor: UIColor? = .gray, titleFont: UIFont? = UIFont.systemFont(ofSize: 15, weight: .regular), subTitleColor: UIColor? = .gray, subTitleFont: UIFont? = UIFont.systemFont(ofSize: 13, weight: .regular), iconColor: UIColor? = .white, whiteboardButtonTitleColor: UIColor? = .blue, whiteboardButtonTitleFont: UIFont? = UIFont.systemFont(ofSize: 17, weight: .regular), lineColor: UIColor? = .gray) {
+    init(titleColor: UIColor? = .gray, titleFont: UIFont? = UIFont.systemFont(ofSize: 15, weight: .regular), subTitleColor: UIColor? = .gray, subTitleFont: UIFont? = UIFont.systemFont(ofSize: 13, weight: .regular), iconColor: UIColor? = .white, whiteboardButtonTitleColor: UIColor? = .blue, whiteboardButtonTitleFont: UIFont? = UIFont.systemFont(ofSize: 17, weight: .regular), lineColor: UIColor? = .gray, buttonColor: UIColor? = .systemBlue, buttonFont: UIFont? = UIFont.systemFont(ofSize: 17, weight: .regular)) {
         self.titleColor = titleColor
         self.titleFont = titleFont
         self.subTitleColor = subTitleColor
@@ -28,5 +30,8 @@ class WhiteboardBubbleStyle {
         self.whiteboardButtonTitleColor = whiteboardButtonTitleColor
         self.whiteboardButtonTitleFont = whiteboardButtonTitleFont
         self.lineColor = lineColor
+        self.buttonColor = buttonColor
+        self.buttonFont = buttonFont
+        
     }
 }

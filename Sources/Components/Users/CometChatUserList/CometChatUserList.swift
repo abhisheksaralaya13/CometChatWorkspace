@@ -347,7 +347,8 @@ import CometChatPro
             setuptTableView()
             registerCells()
             setupDelegates()
-            if users.isEmpty && !configurations.isEmpty{
+
+            if users.isEmpty && configurations.isEmpty {
                 refreshUsers()
             }
         }

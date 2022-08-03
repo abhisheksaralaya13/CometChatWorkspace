@@ -69,11 +69,9 @@ protocol ActionSheetHeaderViewDelegate: NSObject {
         close.setTitle("CLOSE".localize(), for: .normal)
         close.titleLabel?.font = CometChatTheme.typography?.Name2
         layoutMode.tintColor = CometChatTheme.palatte?.primary
-        close.tintColor = CometChatTheme.palatte?.primary
-        
+        close.setTitleColor(CometChatTheme.palatte?.primary, for: .normal)
     }
 
-    
     @discardableResult
     public func set(backgroundColor: [Any]?) ->  ActionSheetHeaderView {
         if let backgroundColors = backgroundColor as? [CGColor] {

@@ -18,8 +18,8 @@ import CometChatPro
     @IBInspectable var borderWidth: CGFloat = 0.5
     @IBInspectable var radius: CGFloat = 0
     @IBInspectable var setBackgroundColor: UIColor = UIColor.clear
-    @IBInspectable var setTimeColor: UIColor = CometChatThemeOld.style.subtitleColor
-    @IBInspectable var setTimeFont: UIFont = CometChatThemeOld.style.subtitleFont
+    @IBInspectable var setTimeColor: UIColor = CometChatTheme.palatte?.accent600 ?? .gray
+    @IBInspectable var setTimeFont: UIFont = CometChatTheme.typography?.Subtitle1 ?? .systemFont(ofSize: 15)
 //    @IBInspectable var setTimeFormat: UIColor = CometChatThemeOld.style.titleColor
     
     required init(coder aDecoder: NSCoder) {
@@ -256,10 +256,13 @@ extension String {
     
     
     func setMessageTime(time: Int) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(time))
-        let str = fetchMessagePastTime(for: date)
-        
-        return str
+        if time == 0 {
+            return "SENDING".localize()
+        } else {
+            let date = Date(timeIntervalSince1970: TimeInterval(time))
+            let str = fetchMessagePastTime(for: date)
+            return str
+        }
     }
     
     func fetchMessagePastTime(for date : Date) -> String {
@@ -280,42 +283,10 @@ extension String {
             }else{
                 return "\(secondsAgo) " + "SECS".localize()
             }
-        } else if secondsAgo < hour {
+        } else {
             let min = secondsAgo/minute
             let formatter = DateFormatter()
             formatter.dateFormat = "hh:mm a"
-            formatter.locale = Locale(identifier: "en_US")
-            let strDate: String = formatter.string(from: date)
-            if min == 1 {
-                return strDate
-            }else{
-                return strDate
-            }
-        } else if secondsAgo < day {
-            let hr = secondsAgo/hour
-            let formatter = DateFormatter()
-            formatter.dateFormat = "hh:mm a"
-            formatter.locale = Locale(identifier: "en_US")
-            let strDate: String = formatter.string(from: date)
-            if hr == 1 {
-                return strDate
-            }else{
-                return strDate
-            }
-        }else if secondsAgo < twoDays {
-            let day = secondsAgo/day
-            let formatter = DateFormatter()
-            formatter.dateFormat = "hh:mm a"
-            formatter.locale = Locale(identifier: "en_US")
-            let strDate: String = formatter.string(from: date)
-            if day == 1 {
-                return strDate
-            }else{
-                return strDate
-            }
-        } else {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM dd, hh:mm a"
             formatter.locale = Locale(identifier: "en_US")
             let strDate: String = formatter.string(from: date)
             return strDate

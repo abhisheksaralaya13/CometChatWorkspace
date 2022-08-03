@@ -17,22 +17,22 @@ class CometChatGroupActionBubble: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var message: UILabel!
     
-    @discardableResult
-    @objc public func set(corner: CometChatCorner) -> CometChatGroupActionBubble {
-        switch corner.corner {
-        case .leftTop:
-            self.message.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightTop:
-            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .leftBottom:
-            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        case .rightBottom:
-            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
-        case .none:
-            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
-        }
-        return self
-    }
+//    @discardableResult
+//    @objc public func set(corner: CometChatCorner) -> CometChatGroupActionBubble {
+//        switch corner.corner {
+//        case .leftTop:
+//            self.message.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightTop:
+//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .leftBottom:
+//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        case .rightBottom:
+//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner], radius: corner.radius)
+//        case .none:
+//            self.message.roundViewCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: corner.radius)
+//        }
+//        return self
+//    }
     
 
     

@@ -51,8 +51,6 @@ enum LayoutMode {
         setupTableView()
     }
 
-
-    
      @discardableResult
      public func set(actionItems: [ActionItem]) -> CometChatActionSheet {
          self.actionItems = actionItems
@@ -65,9 +63,7 @@ enum LayoutMode {
          self.tableView.reloadData()
          return self
      }
-     
-
-    
+         
     // MARK: - View Configurations
     
      func setupTableView() {
@@ -107,8 +103,6 @@ enum LayoutMode {
          
          return UITableViewCell()
      }
-     
-
      
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let staticCell = UITableViewCell()
@@ -166,7 +160,6 @@ enum LayoutMode {
          return 55
      }
     
-    
      override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.deselectRow(at: indexPath, animated: true)
          if let currentAction = actionItems?[safe: indexPath.row] {
@@ -175,9 +168,6 @@ enum LayoutMode {
              }
          }
      }
-     
-     
-     
     
     // MARK: - Pan Modal Presentable
     
@@ -221,8 +211,6 @@ extension CometChatActionSheet : GridModeDelegate {
             CometChatActionSheet.actionsSheetDelegate?.onActionItemClick(item: action)
         }
     }
-
-    
 }
 
 extension CometChatActionSheet : ActionSheetHeaderViewDelegate {
@@ -244,9 +232,7 @@ extension CometChatActionSheet : ActionSheetHeaderViewDelegate {
         self.tableView.reloadData()
         })
     }
-    
 }
-
 
  extension CometChatActionSheet {
     static var actionsSheetDelegate: CometChatActionSheetDelegate?

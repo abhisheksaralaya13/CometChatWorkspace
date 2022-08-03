@@ -12,8 +12,6 @@ open class CometChatUsersWithMessages: CometChatUsers {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-
-       
     }
 
     public override func onItemClick(user: User, index: IndexPath?) {

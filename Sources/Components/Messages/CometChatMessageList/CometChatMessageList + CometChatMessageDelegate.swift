@@ -11,13 +11,20 @@ import CometChatPro
 extension CometChatMessageList: CometChatMessageDelegate {
 
     func onTextMessageReceived(textMessage: TextMessage) {
+        
         switch textMessage.receiverType {
         case .user:
             if textMessage.sender?.uid == currentUser?.uid {
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
+                }
                 self.add(message: textMessage)
             }
         case .group:
             if textMessage.receiverUid == currentGroup?.guid {
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
+                }
                 self.add(message: textMessage)
             }
         @unknown default: break
@@ -29,10 +36,16 @@ extension CometChatMessageList: CometChatMessageDelegate {
         switch mediaMessage.receiverType {
         case .user:
             if mediaMessage.sender?.uid == currentUser?.uid {
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
+                }
                 self.add(message: mediaMessage)
             }
         case .group:
             if mediaMessage.receiverUid == currentGroup?.guid {
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
+                }
                 self.add(message: mediaMessage)
             }
         @unknown default: break
@@ -43,10 +56,16 @@ extension CometChatMessageList: CometChatMessageDelegate {
         switch customMessage.receiverType {
         case .user:
             if customMessage.sender?.uid == currentUser?.uid || customMessage.sender?.uid == CometChat.getLoggedInUser()?.uid {
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
+                }
                 self.add(message: customMessage)
             }
         case .group:
             if customMessage.receiverUid == currentGroup?.guid {
+                if enableSoundForMessages {
+                    CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
+                }
                 self.add(message: customMessage)
             }
         @unknown default: break
@@ -71,14 +90,14 @@ extension CometChatMessageList: CometChatMessageDelegate {
     
     func onMessageEdited(message: BaseMessage) {
         if enableSoundForMessages {
-            CometChatSoundManager().play(sound: .outgoingMessage)
+            CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
         }
         self.update(message: message)
     }
     
     func onMessageDeleted(message: BaseMessage) {
         if enableSoundForMessages {
-            CometChatSoundManager().play(sound: .outgoingMessage)
+            CometChatSoundManager().play(sound: .incomingMessage, customSound: customIncomingMessageSound)
         }
         self.update(message: message)
     }

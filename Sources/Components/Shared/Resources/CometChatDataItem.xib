@@ -138,6 +138,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="vGx-AB-kI8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2tD-l7-8cS"/>
                     <constraint firstItem="vGx-AB-kI8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BgT-Rb-0XL"/>
@@ -146,6 +147,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="avatar" destination="o9u-NU-hrK" id="Qyu-Do-MCg"/>
                 <outlet property="avatarWidthconstant" destination="8z5-45-wxG" id="uqR-9c-b5D"/>

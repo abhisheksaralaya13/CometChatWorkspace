@@ -22,6 +22,8 @@ open class CometChatConversations: CometChatListBase {
     // MARK: - Declaration of Variables
     var startConversationIcon = UIImage(named: "chats-create.png", in: CometChatUIKit.bundle, compatibleWith: nil)
     var startConversationButton: UIBarButtonItem?
+    var enableSoundForConversations: Bool = true
+    var customSoundForConversations: URL?
     var configurations: [CometChatConfiguration]?
     
     
@@ -41,14 +43,25 @@ open class CometChatConversations: CometChatListBase {
         configureConversationList()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-
+    open override func viewWillAppear(_ animated: Bool) {
+       
     }
     
     deinit {
        
     }
     
+    @discardableResult
+    public func set(customSoundForConversations: URL) ->  CometChatConversations {
+        self.customSoundForConversations = customSoundForConversations
+        return self
+    }
+    
+    @discardableResult
+    public func enableSoundForConversations(bool: Bool) ->  CometChatConversations {
+        self.enableSoundForConversations = bool
+        return self
+    }
     
     @discardableResult
     public func set(configurations: [CometChatConfiguration]) ->  CometChatConversations {
@@ -104,13 +117,15 @@ open class CometChatConversations: CometChatListBase {
     
     private func setupAppearance() {
         self.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
+        self.conversationList.set(background: [CometChatTheme.palatte?.background?.cgColor ?? UIColor.systemBackground.cgColor])
         self.set(searchBackground: CometChatTheme.palatte?.accent100 ?? UIColor.systemFill)
             .set(searchPlaceholder: "SEARCH".localize())
             .set(searchTextColor: .label)
+            .set(searchPlaceholderColor: CometChatTheme.palatte?.accent600 ?? .gray)
             .set(title: "CHATS".localize(), mode: .automatic)
             .set(titleColor: CometChatTheme.palatte?.accent ?? UIColor.clear)
-            .hide(search: false)
-        
+           .set(searchCancelButtonFont: CometChatTheme.typography?.Body ?? UIFont.systemFont(ofSize: 17), searchCancelButtonColor: CometChatTheme.palatte?.primary ?? .blue)
+            self.hide(search: true)
             self.hide(startConversation: true)
             .set(startConversationIcon: startConversationIcon ?? UIImage())
             .set(startConversationIconTint: CometChatTheme.palatte?.primary ?? UIColor.clear)
@@ -135,10 +150,16 @@ open class CometChatConversations: CometChatListBase {
     }
     
     private func configureConversationList() {
+        
+        if let customSoundForConversations = customSoundForConversations {
+            conversationList.set(customSoundForConversations: customSoundForConversations)
+        }
         conversationList.set(conversationType: .none)
             .show(deleteConversation: true)
+            .set(enableSoundForConversations: enableSoundForConversations)
             .set(configurations: configurations)
             .set(controller: self)
+            
     }
     
     @objc func didStartConversationPressed(){

@@ -24,7 +24,8 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
     var shortFormHeight: PanModalHeight {
         return .contentHeight(CGFloat(400.0))
     }
-    
+    @IBOutlet weak var cancel: UIButton!
+    @IBOutlet weak var header: UILabel!
     @IBOutlet weak var emojiCollectionView: UICollectionView!
     @IBOutlet weak var emojiSetCollectionView: UICollectionView!
     var emojiCategories: [CometChatEmojiCategory] = []
@@ -42,12 +43,17 @@ class CometChatEmojiKeyboard: UIViewController, PanModalPresentable {
         let loadedNib = Bundle.module.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
         if let contentView = loadedNib?.first as? UIView  {
             contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            contentView.backgroundColor = CometChatTheme.palatte?.background
             self.view = contentView
-            self.view.backgroundColor = CometChatTheme.palatte?.accent200
+            self.view.backgroundColor = CometChatTheme.palatte?.background
+            self.header.textColor = CometChatTheme.palatte?.accent
+            self.cancel.setTitleColor(CometChatTheme.palatte?.primary, for: .normal)
         }
     }
     
     private func setupCollectionView() {
+        emojiCollectionView.backgroundColor = CometChatTheme.palatte?.background
+        emojiSetCollectionView.backgroundColor = CometChatTheme.palatte?.background
         emojiCollectionView.delegate = self
         emojiCollectionView.dataSource = self
         emojiSetCollectionView.delegate = self
@@ -114,7 +120,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CometChatEmojiKeyboardItem.idetifier, for: indexPath) as! CometChatEmojiKeyboardItem
 
         cell.emojiIcon.image =   UIImage(named: emojiCategories[indexPath.row].symbol, in: CometChatUIKit.bundle, compatibleWith: nil)
-        cell.emojiIcon.tintColor = CometChatTheme.palatte?.accent900
+        cell.emojiIcon.tintColor = CometChatTheme.palatte?.accent600
         
         return cell
     }
@@ -141,7 +147,7 @@ extension CometChatEmojiKeyboard: UICollectionViewDelegate, UICollectionViewData
         if collectionView == emojiCollectionView {
             return CGSize(width: 30, height: 30)
         }
-        return CGSize(width: UIScreen.main.bounds.width / 8 * 0.8, height: 30)
+        return CGSize(width: UIScreen.main.bounds.width / 8 * 0.75, height: 24)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

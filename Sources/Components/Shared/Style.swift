@@ -27,6 +27,9 @@ public struct Style {
     var typingIndicatorTextFont: UIFont?
     var threadIndicatorTextColor: UIColor?
     var threadIndicatorTextFont: UIFont?
+    var timeFont: UIFont?
+    var timeColor: UIColor?
+    
     
     init() {}
     
@@ -63,7 +66,7 @@ public struct Style {
         self.errorStateTextColor = errorStateTextColor
     }
     
-    init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?, subTitleColor: UIColor?, subTitleFont: UIFont?, typingIndicatorTextColor: UIColor?, typingIndicatorTextFont: UIFont?, threadIndicatorTextColor: UIColor?, threadIndicatorTextFont: UIFont?) {
+    init(background: UIColor?, border:  CGFloat?, cornerRadius: CGFloat?, titleColor: UIColor?, titleFont: UIFont?, subTitleColor: UIColor?, subTitleFont: UIFont?, typingIndicatorTextColor: UIColor?, typingIndicatorTextFont: UIFont?, threadIndicatorTextColor: UIColor?, threadIndicatorTextFont: UIFont?, timeFont: UIFont?, timeColor: UIColor?) {
         self.background = background
         self.border = border
         self.cornerRadius = cornerRadius
@@ -75,5 +78,7 @@ public struct Style {
         self.typingIndicatorTextFont = typingIndicatorTextFont
         self.threadIndicatorTextColor = threadIndicatorTextColor
         self.threadIndicatorTextFont = threadIndicatorTextFont
+        self.timeFont = timeFont
+        self.timeColor = timeColor
     }
 }

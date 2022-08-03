@@ -66,9 +66,18 @@
                                                 <rect key="frame" x="0.0" y="2" width="458" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-vp-tcL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="458" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="419" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="JlW-Kh-aw1"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxf-vK-lif" customClass="CometChatDate" customModule="CometChatUIKit">
+                                                        <rect key="frame" x="424" y="0.0" width="34" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="8P4-DR-oKZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
@@ -395,6 +404,7 @@
                 <outlet property="thumbnail" destination="7TB-LW-1hu" id="5ZC-bz-dUU"/>
                 <outlet property="time" destination="HOj-xr-xyC" id="pFf-5f-s4P"/>
                 <outlet property="title" destination="NUy-Vx-lO7" id="Hwr-py-StQ"/>
+                <outlet property="topTime" destination="sxf-vK-lif" id="HAB-04-0bL"/>
                 <outlet property="trailingReplyButton" destination="LTx-pj-l75" id="gyx-P6-TPr"/>
                 <outlet property="widthReactions" destination="PF6-to-bzd" id="pdc-nq-jOG"/>
             </connections>
@@ -416,6 +426,9 @@
         </designable>
         <designable name="fap-b3-pKe">
             <size key="intrinsicContentSize" width="46" height="23"/>
+        </designable>
+        <designable name="sxf-vK-lif">
+            <size key="intrinsicContentSize" width="34" height="16"/>
         </designable>
     </designables>
     <resources>

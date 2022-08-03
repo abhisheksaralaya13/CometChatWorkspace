@@ -47,8 +47,9 @@ extension CometChatMessageList {
     
     private func ifCellIsAt(indexPath: IndexPath) -> UIView? {
         if let cell = tableView.cellForRow(at: indexPath) as? CometChatTextAutoSizeBubble {
-          return cell.background
+          return cell.containerStackView
         }
+        
         if let cell = tableView.cellForRow(at: indexPath) as? CometChatMessageBubble {
             if let view = cell.customView {
                 return cell.containerStackView

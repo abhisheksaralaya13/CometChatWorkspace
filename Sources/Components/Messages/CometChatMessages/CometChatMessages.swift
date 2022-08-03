@@ -10,7 +10,6 @@ import CometChatPro
 
 open class CometChatMessages: UIViewController {
     
-    
     // MARK ->  Message Header Declarations
     @IBOutlet weak var messageHeader: CometChatMessageHeader!
     
@@ -28,6 +27,11 @@ open class CometChatMessages: UIViewController {
     var messageTemplates: [CometChatMessageTemplate]?
     var configuration: CometChatConfiguration?
     var configurations: [CometChatConfiguration]?
+    var customIncomingMessageSound: URL?
+    var customOutgoingMessageSound: URL?
+    var enableSoundForMessages: Bool = true
+    var enableSoundForCalls: Bool = true
+    
     var liveReactionImage: UIImage = UIImage(named: "message-composer-heart.png", in: CometChatUIKit.bundle, with: nil) ?? UIImage()
     
     open override func loadView() {
@@ -67,6 +71,42 @@ open class CometChatMessages: UIViewController {
         return self
     }
     
+    @discardableResult
+    @objc public func set(user: User) -> CometChatMessages {
+        self.currentUser = user
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(group: Group) -> CometChatMessages {
+        self.currentGroup = group
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(customIncomingMessageSound: URL) -> CometChatMessages {
+        self.customIncomingMessageSound = customIncomingMessageSound
+        return self
+    }
+    
+    @discardableResult
+    @objc public func set(customOutgoingMessageSound: URL) -> CometChatMessages {
+        self.customOutgoingMessageSound = customOutgoingMessageSound
+        return self
+    }
+    
+    @discardableResult
+    @objc public func enableSoundForCalls(bool: Bool) -> CometChatMessages {
+        self.enableSoundForCalls = bool
+        return self
+    }
+    
+    @discardableResult
+    @objc public func enableSoundForMessages(bool: Bool) -> CometChatMessages {
+        self.enableSoundForMessages = bool
+        return self
+    }
+    
 
     private func addObservers() {
         CometChatMessageOption.messageOptionDelegate = self
@@ -80,17 +120,7 @@ open class CometChatMessages: UIViewController {
     }
     
     
-    @discardableResult
-    @objc public func set(user: User) -> CometChatMessages {
-        self.currentUser = user
-        return self
-    }
-    
-    @discardableResult
-    @objc public func set(group: Group) -> CometChatMessages {
-        self.currentGroup = group
-        return self
-    }
+  
     
     private func setupMessageHeader() {
         self.navigationController?.navigationBar.isHidden = true
@@ -124,8 +154,13 @@ open class CometChatMessages: UIViewController {
         }else if let group = currentGroup {
             messageList.set(group: group)
         }
+        self.view.backgroundColor = CometChatTheme.palatte?.background
+        self.messageList.backgroundColor = CometChatTheme.palatte?.background
         messageList.set(controller: self)
-       
+        messageList.enableSoundForMessages(bool: enableSoundForMessages)
+        if let customIncomingMessageSound = customIncomingMessageSound {
+            messageList.set(customIncomingMessageSound: customIncomingMessageSound)
+        }
     }
     
     private func setupMessageComposer(){
@@ -143,8 +178,13 @@ open class CometChatMessages: UIViewController {
         }
         if let configurations = configurations {
             messageComposer.set(configurations: configurations)
-            
+
         }
+        messageComposer.enable(soundForMessages: enableSoundForMessages)
+        if let customOutgoingMessageSound = customOutgoingMessageSound {
+            messageComposer.set(customOutgoingMessageSound: customOutgoingMessageSound)
+        }
+       
     }
     
     private func setupKeyboard(){
@@ -183,26 +223,72 @@ extension CometChatMessages: CometChatMessageOptionDelegate {
         if let message = forMessage {
             switch messageOption.id {
             case "edit-message" :
-                messageComposer.preview(message: message, mode: .edit)
-            case "delete-message" :
-                messageList.delete(message: message)
-            case "share-message" :
-                didMessageSharePressed(message: message)
-            case "copy-message" :
-                didCopyPressed(message: message)
-            case "reply-message" :
-                messageComposer.preview(message: message, mode: .reply)
-            case "translate-message" :
-                if let indexPath = indexPath {
-                   didMessageTranslatePressed(message: message, indexPath: indexPath)
+                if messageOption.onClick == nil {
+                    messageComposer.preview(message: message, mode: .edit)
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
                 }
+            case "delete-message" :
+                if messageOption.onClick == nil {
+                    messageList.delete(message: message)
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
+                }
+            case "share-message" :
+                if messageOption.onClick == nil {
+                    didMessageSharePressed(message: message)
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
+                }
+            case "copy-message" :
+                if messageOption.onClick == nil {
+                    didCopyPressed(message: message)
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
+                }
+            case "reply-message" :
+                if messageOption.onClick == nil {
+                    messageComposer.preview(message: message, mode: .reply)
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
+                }
+               
+            case "translate-message" :
+                if messageOption.onClick == nil {
+                    if let indexPath = indexPath {
+                       didMessageTranslatePressed(message: message, indexPath: indexPath)
+                    }
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
+                }
+ 
             case "forward-message" : break
             case "reply-in-thread-message" : break
             case "react-to-message" :
-                didReactionPressed(message: message)
-                break
+                if messageOption.onClick == nil {
+                    didReactionPressed(message: message)
+                }else{
+                    if let forMessage = forMessage {
+                        messageOption.onClick?(forMessage)
+                    }
+                }
             case "message-information" : break
-            default: break
+            default:
+                if let forMessage = forMessage {
+                    messageOption.onClick?(forMessage)
+                }
             }
         }
         updateViewConstraints()
@@ -214,7 +300,7 @@ extension CometChatMessages: CometChatMessageOptionDelegate {
         if let message = message {
             emojiKeyboard.set(message: message)
         }
-        self.presentPanModal(emojiKeyboard)
+        self.presentPanModal(emojiKeyboard, backgroundColor: CometChatTheme.palatte?.background)
     }
     
     private func didCopyPressed(message: BaseMessage?) {

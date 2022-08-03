@@ -58,7 +58,7 @@ public protocol CometChatListBaseDelegate: NSObject {
  */
 open class CometChatListBase: UIViewController {
     
-    private var search:UISearchController = UISearchController(searchResultsController: nil)
+    private var search: UISearchController = UISearchController(searchResultsController: nil)
     private var titleColor: UIColor = .black
     private var largeTitleFont: UIFont = CometChatTheme.typography?.Heading ?? UIFont.systemFont(ofSize: 22, weight: .bold)
     private var titleFont: UIFont = CometChatTheme.typography?.Title2 ?? UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -68,6 +68,7 @@ open class CometChatListBase: UIViewController {
     private var hideSearch: Bool = false
     private var backButtonTitle: String?
     private var backButtonFont: UIFont = CometChatTheme.typography?.Title2 ?? UIFont.systemFont(ofSize: 17, weight: .semibold)
+    private var backButtonColor: UIColor = CometChatTheme.palatte?.primary ?? .blue
    // static private var observer = [String: CometChatListBaseEvents]()
     weak var cometChatListBaseDelegate: CometChatListBaseDelegate?
     
@@ -127,7 +128,7 @@ open class CometChatListBase: UIViewController {
             }else{
                 self.backButton = UIBarButtonItem(image: backIcon, style: .plain, target: self, action: #selector(self.onBackButtonTriggered))
             }
-      
+        self.backButton?.tintColor = self.backButtonColor
         self.navigationItem.leftBarButtonItem = self.backButton
         }
         return self
@@ -143,6 +144,19 @@ open class CometChatListBase: UIViewController {
      */
     @discardableResult public func set(backButtonTitle: String?) ->  CometChatListBase {
         self.backButtonTitle = backButtonTitle
+        return self
+    }
+    
+    /**
+     This method is used for setting the color for back button in `CometChatListBase`.
+     - Parameters:
+     - backButtonTint: This specifies an `UIColor` which is being used for setting up the color for back button
+     - Returns: This method will return `CometChatListBase`
+     - Author: CometChat Team
+     - Copyright:  ©  2022 CometChat Inc.
+     */
+    @discardableResult public func set(backButtonTitleColor: UIColor) ->  CometChatListBase {
+        self.backButtonColor = backButtonTitleColor
         return self
     }
     
@@ -294,6 +308,21 @@ open class CometChatListBase: UIViewController {
     }
     
     /**
+     This method specifies the search  bar placeholder  for `CometChatListBase`.
+     - Parameters:
+     - `searchPlaceholder`: This takes the `String` to search  bar placeholder  for `CometChatListBase`.
+     - Author: CometChat Team
+     - Copyright:  ©  2022 CometChat Inc.
+     */
+    @available(iOS 13.0, *)
+    @discardableResult
+    public func set(searchPlaceholderColor: UIColor) -> CometChatListBase {
+        search.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: search.searchBar.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : searchPlaceholderColor])
+        return self
+    }
+    
+    
+    /**
      This method specifies the search  bar text color  for `CometChatListBase`.
      - Parameters:
      - `searchTextColor`: This takes the `UIColor` to search  bar  text color   for `CometChatListBase`.
@@ -361,16 +390,15 @@ open class CometChatListBase: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2022 CometChat Inc.
      */
-    @discardableResult
-    public func set(searchCancelButtonColor: UIColor) -> CometChatListBase {
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: searchCancelButtonColor], for: .normal)
-        return self
-    }
     
     @discardableResult
-    public func set(searchCancelButtonFont: UIColor) -> CometChatListBase {
+    public func set(searchCancelButtonFont: UIFont, searchCancelButtonColor: UIColor) -> CometChatListBase {
         
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: searchCancelButtonFont], for: .normal)
+        let attributes:[NSAttributedString.Key: Any] = [
+            .foregroundColor: searchCancelButtonColor,
+            .font: searchCancelButtonFont
+        ]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(attributes, for: .normal)
         return self
     }
     
@@ -421,7 +449,8 @@ open class CometChatListBase: UIViewController {
                     }
                 }} else {}
             set(searchTextColor: CometChatTheme.palatte?.accent600 ?? UIColor.gray)
-            //     .set(searchTextFont: CometChatTheme.typography?.Name2 ?? UIFont.systemFont(ofSize: 17, weight: .medium))
+            set(searchTextFont: CometChatTheme.typography?.Body ?? UIFont.systemFont(ofSize: 17, weight: .regular))
+           
         }
     }
     
